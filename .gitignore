@@ -1,0 +1,18 @@
+# Editors and tooling
+.idea/
+.vscode/
+
+# Build artifacts
+build/
+dist/
+*.log
+*.tmp
+*.bak
+
+# Archives
+*.zip
+*.rar
+
+# Local helper scripts
+refresh-mod.ps1
+

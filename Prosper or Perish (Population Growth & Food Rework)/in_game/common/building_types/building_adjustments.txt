@@ -1,0 +1,217 @@
+# Granary is the main food storage building and since food storage determines pop growth, it needs to be buildable in rural
+# Construction centers should be buildable in rural (honestly because otherwise queues are so long)
+TRY_INJECT:granary = {
+	rural_settlement = yes
+}
+
+TRY_INJECT:construction_center = {
+    rural_settlement = yes
+}
+
+farming_village = {
+	is_foreign = no
+	max_levels = rural_building_cap
+	pop_type = peasants
+	
+	category = village_category
+	employment_size = village_employment_size
+	
+	rural_settlement = yes
+	
+	location_potential = {
+		OR = {
+			location = farmland
+			raw_material = goods:wheat
+			raw_material = goods:maize
+			raw_material = goods:rice
+			raw_material = goods:millet
+			raw_material = goods:legumes
+			raw_material = goods:potato
+			raw_material = goods:livestock
+			raw_material = goods:olives
+			raw_material = goods:fruit
+			raw_material = goods:wool
+		}
+	}
+	
+		
+	
+	build_time = village_build_time
+	
+	unique_production_methods = {
+		farming_village_maintenance = {
+			tools = 0.025
+			clay = 1.0
+			
+			output = 0.5
+			
+			produced = livestock
+			
+			debug_max_profit = 0.6
+	
+			category = building_maintenance
+		}
+
+		millet_farm_maintenance = {
+			tools = 0.1
+            horses = 0.1
+
+			output = 0.5
+
+			produced = millet
+
+			debug_max_profit = 0.6
+
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = village_construction
+
+	modifier = {
+		local_food_capacity = 100
+		local_monthly_food_modifier = 0.04	
+		local_peasants_estate_power = 0.25		#25% higher here.
+		
+		local_laborers_desired_pop = 0.1
+		local_soldiers_desired_pop = 0.05
+
+	}
+}
+
+
+forest_village = {
+	is_foreign = no
+	max_levels = rural_building_cap
+	pop_type = peasants
+	
+	category = village_category
+	employment_size = village_employment_size
+	
+
+	rural_settlement = yes
+	
+	location_potential = {
+		OR = {
+			raw_material = goods:wild_game
+			vegetation = forest
+			vegetation = woods
+			vegetation = jungle
+		}
+	}
+	
+		
+	
+	build_time = village_build_time
+
+
+	unique_production_methods = {
+		forest_village_maintenance = {
+			produced = leather
+			
+			output = 0.25
+			
+			sand = 0.1
+			tar = 0.02
+			wild_game = 0.4
+			
+			debug_max_profit = 0.6
+			
+			category = building_maintenance
+		}
+
+		hunting_cabin_maintenance = {
+			produced = wild_game
+			output = 0.5
+
+			firearms = 0.1
+			tools = 0.1
+
+			debug_max_profit = 0.6
+
+			category = building_maintenance
+		}
+	}
+
+
+	
+	construction_demand = village_construction
+
+	modifier = {
+		local_monthly_food = 1.0
+		local_monthly_food_modifier = 0.02
+		local_peasants_estate_power = 0.25		#25% higher here.
+		
+		local_laborers_desired_pop = 0.1
+		local_soldiers_desired_pop = 0.05
+
+	}
+}
+
+fishing_village = {
+	is_foreign = no
+	max_levels = rural_building_cap
+	pop_type = peasants
+
+	category = village_category
+	employment_size = village_employment_size
+	
+	rural_settlement = yes
+	
+	AI_optimization_flag_coastal = yes
+	location_potential = {
+		is_coastal = yes
+	}
+	
+		
+	
+	build_time = village_build_time
+
+	unique_production_methods = {
+	
+		fishing_village_maintenance = {
+			produced = fish
+			output = 0.5
+			
+			salt = 0.08
+			tools = 0.02
+			
+			debug_max_profit = 0.6
+
+	
+			category = building_maintenance
+		}
+		
+		arctic_fishing_village_maintenance = {
+			produced = fish
+			output = 0.5
+			
+			salt = 0.08
+			ivory = 0.01
+			
+			debug_max_profit = 0.6
+	
+			category = building_maintenance
+		}
+	}
+	construction_demand = village_construction
+
+	modifier = {
+		local_merchant_capacity = 0.25
+		local_peasants_estate_power = 0.25		#25% higher here.
+		local_food_capacity = 50
+		local_monthly_food_modifier = 0.02
+		
+		local_maritime_presence = 0.01
+		
+		local_laborers_desired_pop = 0.1
+		local_soldiers_desired_pop = 0.05
+
+		harbor_suitability = 0.02
+		
+		local_sailors = 0.001
+		
+		
+		
+	}
+}

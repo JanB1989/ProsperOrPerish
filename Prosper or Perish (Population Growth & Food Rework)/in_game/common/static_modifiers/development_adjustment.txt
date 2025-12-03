@@ -1,0 +1,15 @@
+# Developed provinces are good in all cases with 0 drawbacks
+# More food capacity as well now
+# But Roads are MUCH more expensive (idea is more roads needed used in hyper developed provinces)
+
+# I think development should give more capacity but not inherent pop growth
+# Development should impact building slots more
+TRY_INJECT:development = {
+    free_building_levels = 1.0 # 1.0 # 2
+    local_food_capacity_modifier = 0.02 # 0
+    local_food_capacity = 1 # 0
+    local_population_capacity_modifier = 0.01 # 0.25 # 0.35
+    local_population_growth = 0 # NA 0.0001
+	local_population_capacity_modifier = 0.01 # this number is multiplied with the development and additively added as modifier
+    # TBD figure out way to scale road infra to development
+}
