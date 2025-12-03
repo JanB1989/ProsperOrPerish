@@ -20,7 +20,7 @@ farming_village = {
 	
 	location_potential = {
 		OR = {
-			location = farmland
+			vegetation = farmland
 			raw_material = goods:wheat
 			raw_material = goods:maize
 			raw_material = goods:rice
