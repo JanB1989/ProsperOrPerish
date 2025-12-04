@@ -25,14 +25,14 @@ TRY_REPLACE:city = {
 		
 		local_pop_promotion_speed_modifier = 0.25
 		
-		free_building_levels = 50
+		free_building_levels = 40
 		
 		max_constructions_at_same_time = 1
 
 		local_migration_attraction = 0 # 5
 		local_migration_speed = 0.00 # 0
 
-		local_build_buildings_cost = 1
+		local_build_buildings_cost = 0.5
 	}
 	
 	country_modifier = {
@@ -78,12 +78,12 @@ TRY_REPLACE:town = {
 		local_integration_speed_modifier = -0.25
 		
 		local_monthly_food_modifier = -0.2 # 0.2
-		free_building_levels = 25
+		free_building_levels = 20
 
 		local_migration_attraction = 0.0
 		local_migration_speed = 0.00
 
-		local_build_buildings_cost = 1
+		local_build_buildings_cost = 0.5
 	}
 	
 	country_modifier = {
@@ -110,12 +110,15 @@ TRY_REPLACE:rural_settlement = {
 	rank_modifier = {
 		local_max_rgo_size_modifier = 1.0
 		local_monthly_food_modifier = 0.0 # 0
+		free_building_levels = 10
 		
 		local_population_growth = 0.001
 		local_migration_attraction = 0
 		local_migration_speed = 0.00 # 0
 
 		local_food_capacity = 100 # 0
+		local_food_capacity_modifier = 0.5
+		local_build_buildings_cost = 0.5
 	}
 	
 	country_modifier = {

@@ -25,10 +25,6 @@ TRY_INJECT:devastation = {
 	local_monthly_development = 0.026
 }
 
-TRY_INJECT:capital_food_provisions_modifier = {
-	local_population_growth = 0.02
-}
-
 # I think it makes some sense for people to die when looting
 # Idea is that food stocks are raided
 TRY_INJECT:looted = {

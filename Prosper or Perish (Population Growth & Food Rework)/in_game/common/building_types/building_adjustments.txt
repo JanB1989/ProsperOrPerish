@@ -1,12 +1,46 @@
 # Granary is the main food storage building and since food storage determines pop growth, it needs to be buildable in rural
 # Construction centers should be buildable in rural (honestly because otherwise queues are so long)
-TRY_INJECT:granary = {
+
+granary = {
+	is_foreign = no
+	max_levels = guild_max_level
+
+	pop_type = laborers
+
+	employment_size = granary_employment
+
+	category = infrastructure_category
+
 	rural_settlement = yes
+	town = yes
+	city = yes
+
+
+	build_time = government_build_time
+
+
+	unique_production_methods = {
+		granary_maintenance = {
+			masonry = 0.15
+			category = building_maintenance
+		}
+	}
+
+
+	construction_demand = granary_construction
+
+
+
+	modifier = {
+		local_food_capacity = 300
+	}
+
 }
 
 TRY_INJECT:construction_center = {
     rural_settlement = yes
 }
+
 
 farming_village = {
 	is_foreign = no
@@ -69,8 +103,8 @@ farming_village = {
 	construction_demand = village_construction
 
 	modifier = {
-		local_food_capacity = 100
-		local_monthly_food_modifier = 0.04	
+		local_food_capacity = 50
+		local_monthly_food_modifier = 0.03	
 		local_peasants_estate_power = 0.25		#25% higher here.
 		
 		local_laborers_desired_pop = 0.1
@@ -141,6 +175,7 @@ forest_village = {
 		local_monthly_food = 1.0
 		local_monthly_food_modifier = 0.02
 		local_peasants_estate_power = 0.25		#25% higher here.
+		local_food_capacity = 50
 		
 		local_laborers_desired_pop = 0.1
 		local_soldiers_desired_pop = 0.05
