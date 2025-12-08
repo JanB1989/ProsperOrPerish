@@ -56,7 +56,7 @@ TRY_REPLACE:available_free_land = {
 	}
 	local_migration_attraction = 0.1
 	local_population_growth = 0
-    local_monthly_food_modifier = 0.5
+    local_monthly_food_modifier = 0.75
 }
 
 # when it's <10% capacity & <10k
