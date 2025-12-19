@@ -12,7 +12,7 @@ TRY_INJECT:burghers = {
 }
 
 TRY_INJECT:laborers = {
-	pop_food_consumption = 1.5 # 1.0
+	pop_food_consumption = 2.5 # 1.0
 }
 
 TRY_INJECT:soldiers = {

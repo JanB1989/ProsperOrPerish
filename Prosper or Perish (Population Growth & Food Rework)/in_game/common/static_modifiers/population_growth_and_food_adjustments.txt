@@ -5,24 +5,18 @@
 # Why would it matter to pop growth if food is cheap in province, it should be based on if food is in province
 TRY_INJECT:expensive_food_in_location = {
 	local_population_growth = 0.001 # 0.001
+	local_pop_demotion_speed = 0.25
 }
 
 # Why would it matter to pop growth if food is cheap in province, it should be based on if food is in province
 TRY_INJECT:cheap_food_in_location = {
 	local_population_growth = -0.0015 # 0.0015
+	local_food_capacity = 10
 }
 
 # This modifier is population growth impact at 100 prosperity (linearly scaled down if lower)
 TRY_INJECT:prosperity = {
 	local_population_growth = -0.002
-}
-
-# Devastation doesn't kill people, starvation and other stuff does
-TRY_INJECT:devastation = {
-	local_population_growth = -0.005
-	local_food_capacity_modifier = 0.50
-	local_monthly_food_modifier = -0.25
-	local_monthly_development = 0.026
 }
 
 # I think it makes some sense for people to die when looting

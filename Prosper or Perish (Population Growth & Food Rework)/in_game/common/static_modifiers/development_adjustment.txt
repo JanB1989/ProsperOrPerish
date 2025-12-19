@@ -7,8 +7,10 @@
 TRY_INJECT:development = {
     free_building_levels = 1.0 # 1.0 # 2
     local_food_capacity_modifier = 0.02 # 0
-    local_food_capacity = 1 # 0
-    local_population_capacity_modifier = 0.015
+    local_food_capacity = 2 # 0
+    local_population_capacity_modifier = -0.015 # 0.025
+    local_population_capacity = 1.0
     local_population_growth = 0 # NA 0.0001
+    local_max_rgo_size = 0.1
     # TBD figure out way to scale road infra to development
 }

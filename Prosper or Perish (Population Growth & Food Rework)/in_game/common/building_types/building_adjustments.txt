@@ -32,7 +32,8 @@ granary = {
 
 
 	modifier = {
-		local_food_capacity = 300
+		local_food_capacity = 600
+		local_food_capacity_modifier = 0.10
 	}
 
 }
@@ -104,7 +105,9 @@ farming_village = {
 
 	modifier = {
 		local_food_capacity = 50
-		local_monthly_food_modifier = 0.03	
+		local_food_capacity_modifier = 0.05
+		local_monthly_food_modifier = 0.03
+		local_monthly_food = 2.0
 		local_peasants_estate_power = 0.25		#25% higher here.
 		
 		local_laborers_desired_pop = 0.1
@@ -174,8 +177,10 @@ forest_village = {
 	modifier = {
 		local_monthly_food = 1.0
 		local_monthly_food_modifier = 0.02
+		local_monthly_food = 1.5
 		local_peasants_estate_power = 0.25		#25% higher here.
 		local_food_capacity = 50
+		local_food_capacity_modifier = 0.05
 		
 		local_laborers_desired_pop = 0.1
 		local_soldiers_desired_pop = 0.05
@@ -235,6 +240,9 @@ fishing_village = {
 		local_merchant_capacity = 0.25
 		local_peasants_estate_power = 0.25		#25% higher here.
 		local_food_capacity = 50
+		local_food_capacity_modifier = 0.05
+		local_monthly_food = 1.5
+		
 		local_monthly_food_modifier = 0.02
 		
 		local_maritime_presence = 0.01
@@ -248,5 +256,123 @@ fishing_village = {
 		
 		
 		
+	}
+}
+
+
+bund = {
+	is_foreign = no
+	max_levels = bund_cap
+	pop_type = laborers
+
+	category = infrastructure_category
+	employment_size = small_peasant_employment
+	
+	rural_settlement = yes
+	town = yes
+	city = yes
+	
+	location_potential = {
+		OR = {
+			has_river = yes
+			is_adjacent_to_lake = yes
+		}
+	}
+	
+	build_time = infrastructure_build_time
+	
+	unique_production_methods = {
+		bund_maintenance = {
+			tools = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = village_construction
+
+	modifier = {
+		local_population_capacity = 0.5
+		local_monthly_food_modifier = 0.05
+	}
+}
+
+
+irrigation_systems = {
+	is_foreign = no
+	max_levels = irrigant_cap
+	pop_type = peasants
+
+	category = infrastructure_category
+	employment_size = generic_peasant_building_employment
+	
+	rural_settlement = yes
+	town = yes
+	city = yes
+	
+	location_potential = {
+		OR = {
+			has_river = yes
+			is_adjacent_to_lake = yes
+		}
+	}
+	
+	build_time = infrastructure_build_time
+	
+	unique_production_methods = {
+		irrigation_maintenance = {
+			tools = 0.1
+			category = building_maintenance
+		}
+	}
+
+	construction_demand = village_construction
+
+	modifier = {
+		local_population_capacity = 1.0
+		local_monthly_food_modifier = 0.035
+	}
+}
+
+
+fruit_orchard = {
+	is_foreign = no
+	pop_type = laborers
+	max_levels = rural_building_cap
+	
+	employment_size = rural_peasant_produce_employment
+	
+	category = rgo_building_category
+	
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	location_potential = {
+		OR = {
+			vegetation = grasslands
+			vegetation = farmland
+			vegetation = woods
+			vegetation = jungle
+		}
+	}
+
+	unique_production_methods = {
+		
+		fruit_orchard_maintenance = {
+			produced = fruit
+			output = 0.3
+			
+			lumber = 0.17
+			category = building_maintenance
+		}
+	}
+
+	build_time = rural_build_time
+
+	construction_demand = farm_constructions
+
+	modifier = {
+		local_monthly_food = 1.0 
+		local_monthly_food_modifier = 0.015
 	}
 }

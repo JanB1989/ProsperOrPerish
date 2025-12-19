@@ -14,7 +14,7 @@ TRY_REPLACE:grasslands = {
 	color = terrain_grasslands
 	movement_cost = 1.0
 	location_modifier = { 
-		local_population_capacity = 35
+		local_population_capacity = 30
 		local_monthly_food_modifier = 0.1
 		supply_limit = 2
 	}
@@ -31,10 +31,10 @@ TRY_REPLACE:farmland = {
 	movement_cost = 1.10
 	location_modifier = { 
 		local_road_building_time = 0.10
-		local_population_capacity = 50
+		local_population_capacity = 40
 		local_monthly_development_modifier = 0.10
 		local_max_rgo_size_modifier = 0.10		
-		local_monthly_food_modifier = 0.33
+		local_monthly_food_modifier = 0.20
 		supply_limit = 5
 	}
 
@@ -52,9 +52,9 @@ TRY_REPLACE:woods = {
 	location_modifier = { 
 		local_frontage_allowed = -2
 		local_road_building_time = 0.25
-		local_population_capacity = 30
+		local_population_capacity = 25
 		local_monthly_development_modifier = -0.20
-		local_monthly_food_modifier = 0.1
+		local_monthly_food_modifier = 0.05
 		blocks_vision_from_sea = yes
 		supply_limit = 2
 	}
@@ -95,7 +95,7 @@ TRY_REPLACE:jungle = {
 		local_frontage_allowed = -4
 		local_rgo_build_time = 0.5 
 		local_road_building_time = 2.0
-		local_population_capacity = 35
+		local_population_capacity = 30
 		local_monthly_development_modifier = -0.30
 		local_monthly_food_modifier = 0.1
 		blocks_vision_from_land = yes
