@@ -36,6 +36,8 @@ granary = {
 		local_food_capacity_modifier = 0.10
 	}
 
+	ai_forbid_shutdown = yes
+
 }
 
 TRY_INJECT:construction_center = {
