@@ -68,7 +68,7 @@ TRY_REPLACE:city = {
 TRY_REPLACE:town = {
 	
 	rank_modifier = {
-		local_max_rgo_size_modifier = 0.50
+		local_max_rgo_size_modifier = 0.00
 
 		local_burghers_desired_pop = 0.25
 		local_laborers_desired_pop = 0.25
