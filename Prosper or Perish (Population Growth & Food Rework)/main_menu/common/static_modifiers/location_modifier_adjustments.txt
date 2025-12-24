@@ -4,7 +4,7 @@ TRY_REPLACE:province_starving = {
 	game_data = {
 		category = province
 	}
-	local_population_growth = -0.04
+	local_population_growth = -0.03
 	local_supply_limit_modifier = -0.25
 	local_migration_attraction = -7.5
 	
@@ -14,7 +14,7 @@ TRY_REPLACE:province_starving = {
 	local_life_expectancy = -10
 	
 	local_migration_speed = 0.015
-    local_monthly_prosperity = -0.03
+    local_monthly_prosperity = -0.01
 	
 	local_tribesmen_migration_allowed = yes
 	local_laborers_migration_allowed = yes
@@ -22,10 +22,38 @@ TRY_REPLACE:province_starving = {
 }
 
 
+TRY_REPLACE:cheap_food_in_location = {
+	local_population_growth = 0
+	local_food_capacity = 10
+	local_nobles_food_consumption = 0.2
+	local_clergy_food_consumption = 0.2
+	local_burghers_food_consumption = 0.2
+	local_laborer_food_consumption = 0.2
+	local_soldiers_food_consumption = 0.2
+	local_peasants_food_consumption = 0.2
+	local_population_growth = 0.002
+	local_monthly_prosperity = 0.0025
+}
+
+TRY_REPLACE:expensive_food_in_location = {
+	local_population_growth = 0
+	local_pop_demotion_speed = 0.25
+	local_nobles_food_consumption = -0.2
+	local_clergy_food_consumption = -0.2
+	local_burghers_food_consumption = -0.2
+	local_laborer_food_consumption = -0.2
+	local_soldiers_food_consumption = -0.2
+	local_peasants_food_consumption = -0.2
+	local_monthly_prosperity = -0.0050
+	local_population_growth = -0.004
+}
+
+
 TRY_REPLACE:positive_province_food_growth = {
 	game_data = {
 		category = province
 	}
+	# these values are the values for 12 months of stored province consumption
 	local_population_growth = 0.0050
 	local_migration_attraction = 0.03
 }
@@ -57,7 +85,7 @@ TRY_REPLACE:available_free_land = {
 	local_population_growth = 0
     local_monthly_food_modifier = 0.25
 	local_monthly_food = 10
-	local_disease_resistance = 0.25
+	local_disease_resistance = 0.125
 }
 
 # when it's <10% capacity & <10k
@@ -69,7 +97,7 @@ TRY_REPLACE:abundant_free_land = {
     local_population_growth = 0.0
     local_monthly_food_modifier = 0.30
 	local_monthly_food = 15
-	local_disease_resistance = 0.5
+	local_disease_resistance = 0.125
 }
 
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
@@ -116,7 +144,7 @@ TRY_REPLACE:total_population = {
 	supply_limit = 0.02
 	blockade_force_required = 0.02
 	
-	local_max_rgo_size = 0.010
+	local_max_rgo_size = 0.0075
 	
 	free_building_levels = 0.075
 	local_food_capacity = 2.0

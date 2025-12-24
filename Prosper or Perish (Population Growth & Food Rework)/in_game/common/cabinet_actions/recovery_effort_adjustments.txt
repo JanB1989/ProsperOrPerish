@@ -1,0 +1,16 @@
+TRY_INJECT:recovery_effort = {
+	allow = {
+		any_province = {
+			any_location_in_province = {
+				prosperity < -10
+			}
+		}
+	}
+
+
+	location_modifier = {
+		local_devastation_recovery = -0.04
+		local_population_growth = -0.001
+	}
+    
+}

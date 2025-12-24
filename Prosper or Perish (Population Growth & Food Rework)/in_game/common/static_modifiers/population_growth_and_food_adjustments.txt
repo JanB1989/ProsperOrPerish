@@ -2,18 +2,6 @@
 # Generally the idea is to disentangle pop growth from everything that has nothing to do with food growth (mostly)
 # If you provide a lot of food in the province, growth is massively increased, if not provinces grow very little
 
-# Why would it matter to pop growth if food is cheap in province, it should be based on if food is in province
-TRY_INJECT:expensive_food_in_location = {
-	local_population_growth = 0.001 # 0.001
-	local_pop_demotion_speed = 0.25
-}
-
-# Why would it matter to pop growth if food is cheap in province, it should be based on if food is in province
-TRY_INJECT:cheap_food_in_location = {
-	local_population_growth = -0.0015 # 0.0015
-	local_food_capacity = 10
-}
-
 # This modifier is population growth impact at 100 prosperity (linearly scaled down if lower)
 TRY_INJECT:prosperity = {
 	local_population_growth = -0.002
@@ -62,4 +50,8 @@ TRY_INJECT:winter_severe = {
 	local_laborers_food_consumption = 0.375
 	local_peasants_food_consumption = 0.375
 	local_slaves_food_consumption = 0.375
+}
+
+TRY_INJECT:location_base_values = {
+	local_devastation_recovery = -0.004
 }

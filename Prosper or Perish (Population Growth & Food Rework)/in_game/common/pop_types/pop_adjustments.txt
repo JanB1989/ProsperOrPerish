@@ -13,6 +13,11 @@ TRY_INJECT:burghers = {
 
 TRY_INJECT:laborers = {
 	pop_food_consumption = 2.5 # 1.0
+
+	literacy_impact = {
+		local_max_rgo_size_modifier = -0.1
+		local_raw_material_output = 0.05
+	}
 }
 
 TRY_INJECT:soldiers = {
@@ -21,4 +26,13 @@ TRY_INJECT:soldiers = {
 
 TRY_INJECT:peasants = {
 	pop_food_consumption = 1.20 # 1.0
+
+	pop_percentage_impact = {
+		local_peasants_food_consumption = -0.01
+
+	}
+
+	literacy_impact = {
+		local_monthly_food_modifier = 0.002
+	}
 }
