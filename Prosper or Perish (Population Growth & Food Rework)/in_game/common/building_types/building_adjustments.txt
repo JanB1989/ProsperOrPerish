@@ -54,6 +54,8 @@ farming_village = {
 	employment_size = village_employment_size
 	
 	rural_settlement = yes
+	town = yes
+	city = yes
 	
 	location_potential = {
 		OR = {
@@ -129,6 +131,8 @@ forest_village = {
 	
 
 	rural_settlement = yes
+	town = yes
+	city = yes
 	
 	location_potential = {
 		OR = {
@@ -199,6 +203,8 @@ fishing_village = {
 	employment_size = village_employment_size
 	
 	rural_settlement = yes
+	town = yes
+	city = yes
 	
 	AI_optimization_flag_coastal = yes
 	location_potential = {
@@ -377,4 +383,51 @@ fruit_orchard = {
 		local_monthly_food = 1.0 
 		local_monthly_food_modifier = 0.015
 	}
+}
+
+
+sheep_farms = {
+	is_foreign = no
+	pop_type = laborers
+	max_levels = rural_building_cap
+	
+	employment_size = rural_peasant_produce_employment
+	
+	
+	category = rgo_building_category
+	
+	rural_settlement = yes
+	town = yes
+	city = yes
+
+	location_potential = {
+		OR = {
+			vegetation = sparse
+			vegetation = farmland
+			vegetation = grasslands
+		}
+	}
+
+	unique_production_methods = {
+		
+		sheep_farm_maintenance = {
+			produced = wool
+			output = 0.5
+			
+			lumber = 0.4
+			tools = 0.16
+			category = building_maintenance
+		}
+	}
+
+	modifier = {
+		local_monthly_food = 1.0 
+		local_monthly_food_modifier = 0.015
+	}
+	
+
+	build_time = rural_build_time
+
+
+	construction_demand = farm_constructions
 }

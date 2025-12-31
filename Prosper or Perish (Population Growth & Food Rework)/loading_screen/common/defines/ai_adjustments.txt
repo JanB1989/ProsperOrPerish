@@ -5,6 +5,6 @@ NAI = {
     AI_MAXIMUM_EXPECT_TOWN_RATIO = 0.20 # when evaluating RGO vs town efficiency modifier we consider this town Ratio as "100% urbanized"	
     AI_MIN_ALLOWED_URBANIZE_FOOD_LOCATION_RATIO = 0.15 # minimum ratio of food locations that is allowed to be cities based on market average market food yield
 	AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION_RATIO = 0.25 # maximum ratio of food locations that is allowed to be cities based on market average market food yield
-    AI_AVERAGE_MARKET_FOOD_FOR_MAX_FOOD_URBANIZATION = 5 # AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION is reached when average location in market has this base food output of their rgo
+    AI_AVERAGE_MARKET_FOOD_FOR_MAX_FOOD_URBANIZATION = 20 # AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION is reached when average location in market has this base food output of their rgo
     FOOD_NEGATIVE_IN_PROV_UTILITY = 0.4
 }

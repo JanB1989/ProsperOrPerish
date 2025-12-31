@@ -23,27 +23,24 @@ TRY_REPLACE:province_starving = {
 
 
 TRY_REPLACE:cheap_food_in_location = {
-	local_population_growth = 0
-	local_food_capacity = 10
-	local_nobles_food_consumption = 0.2
-	local_clergy_food_consumption = 0.2
-	local_burghers_food_consumption = 0.2
-	local_laborer_food_consumption = 0.2
-	local_soldiers_food_consumption = 0.2
-	local_peasants_food_consumption = 0.2
-	local_population_growth = 0.002
+	local_nobles_food_consumption = 0.3
+	local_clergy_food_consumption = 0.3
+	local_burghers_food_consumption = 0.3
+	local_laborer_food_consumption = 0.3
+	local_soldiers_food_consumption = 0.3
+	local_peasants_food_consumption = 0.3
+	local_population_growth = 0.003
 	local_monthly_prosperity = 0.0025
 }
 
 TRY_REPLACE:expensive_food_in_location = {
-	local_population_growth = 0
 	local_pop_demotion_speed = 0.25
 	local_nobles_food_consumption = -0.2
 	local_clergy_food_consumption = -0.2
 	local_burghers_food_consumption = -0.2
 	local_laborer_food_consumption = -0.2
 	local_soldiers_food_consumption = -0.2
-	local_peasants_food_consumption = -0.2
+	local_peasants_food_consumption = -0.3
 	local_monthly_prosperity = -0.0050
 	local_population_growth = -0.004
 }
@@ -84,8 +81,7 @@ TRY_REPLACE:available_free_land = {
 	local_migration_attraction = 1.00
 	local_population_growth = 0
     local_monthly_food_modifier = 0.25
-	local_monthly_food = 10
-	local_disease_resistance = 0.125
+	local_monthly_food = 5
 }
 
 # when it's <10% capacity & <10k
@@ -96,8 +92,7 @@ TRY_REPLACE:abundant_free_land = {
 	local_migration_attraction = 2.0
     local_population_growth = 0.0
     local_monthly_food_modifier = 0.30
-	local_monthly_food = 15
-	local_disease_resistance = 0.125
+	local_monthly_food = 5
 }
 
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
@@ -107,7 +102,7 @@ TRY_REPLACE:coastal = {
 	}
 	local_population_capacity_modifier = 0.25
 	local_monthly_food_modifier = 0.10
-	local_monthly_food = 5
+	local_monthly_food = 2.5
 	local_supply_limit_modifier = 0.05
 	local_monthly_development_modifier = 0.10
 }
@@ -181,7 +176,7 @@ TRY_REPLACE:rgo_level = {
 		category = location
 	}
 	local_laborers_desired_pop = 1
-	local_raw_material_output = -0.02
+	local_raw_material_output = -0.015
 	local_food_capacity = 15
 	local_rgo_build_time = 0.05
 }

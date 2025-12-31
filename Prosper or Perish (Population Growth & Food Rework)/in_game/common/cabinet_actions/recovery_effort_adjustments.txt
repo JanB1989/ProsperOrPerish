@@ -9,7 +9,7 @@ TRY_INJECT:recovery_effort = {
 
 
 	location_modifier = {
-		local_devastation_recovery = -0.04
+		local_devastation_recovery = -0.03
 		local_population_growth = -0.001
 	}
     

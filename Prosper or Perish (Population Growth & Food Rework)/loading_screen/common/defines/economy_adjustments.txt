@@ -93,7 +93,7 @@ NEconomy = {
 	DEFAULT_CURRENCY_PURITY = 60
 	DEFAULT_CURRENCY_RIGHTEOUSNESS = 90
 	
-	GROWTH_FROM_FOOD_MULTIPLIER_MAX = 3 # Maximum scaling of the growth from food
+	GROWTH_FROM_FOOD_MULTIPLIER_MAX = 2 # Maximum scaling of the growth from food
 
 	TRADE_PATH_UPSTREAM_COST_MULTIPLIER = -0.2 #moving upstream is still better than over land
 	TRADE_PATH_DOWNSTREAM_COST_MULTIPLIER = -0.5 #moving downstream is easy peasy
