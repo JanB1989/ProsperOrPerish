@@ -245,7 +245,7 @@ fishing_village = {
 	construction_demand = village_construction
 
 	modifier = {
-		local_merchant_capacity = 0.25
+		local_merchant_capacity = 0.10
 		local_peasants_estate_power = 0.25		#25% higher here.
 		local_food_capacity = 50
 		local_food_capacity_modifier = 0.05

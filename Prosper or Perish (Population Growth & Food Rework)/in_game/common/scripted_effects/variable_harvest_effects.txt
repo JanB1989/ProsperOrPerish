@@ -2,7 +2,7 @@
 	continent:europe = {
 		every_region = {
 			random_list = {
-				8 ={
+				14 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -18,7 +18,7 @@
 						}
 					}
 				}
-				12 ={
+				17 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -34,7 +34,7 @@
 						}
 					}
 				}
-				18 ={
+				20 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -50,9 +50,9 @@
 						}
 					}
 				}
-				24 ={
+				0 ={
 				}
-				18 ={
+				20 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -68,7 +68,7 @@
 						}
 					}
 				}
-				12 ={
+				17 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -84,7 +84,7 @@
 						}
 					}
 				}
-				8 ={
+				14 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {

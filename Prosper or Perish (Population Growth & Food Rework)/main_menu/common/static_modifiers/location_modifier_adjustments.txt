@@ -8,9 +8,10 @@ TRY_REPLACE:province_starving = {
 	local_supply_limit_modifier = -0.25
 	local_migration_attraction = -7.5
 	
-	local_pop_demotion_speed_modifier = 3 # 0.5
+	local_pop_demotion_speed_modifier = 0.5 # 0.5
+	local_pop_demotion_speed = 0.05
 	
-	local_upper_class_capacity_modifier = -0.5
+	local_upper_class_capacity_modifier = -0.75
 	local_life_expectancy = -10
 	
 	local_migration_speed = 0.015
@@ -29,18 +30,19 @@ TRY_REPLACE:cheap_food_in_location = {
 	local_laborer_food_consumption = 0.3
 	local_soldiers_food_consumption = 0.3
 	local_peasants_food_consumption = 0.3
-	local_population_growth = 0.003
+	local_population_growth = 0.005
 	local_monthly_prosperity = 0.0025
+	local_devastation_recovery = 0.0025
 }
 
 TRY_REPLACE:expensive_food_in_location = {
 	local_pop_demotion_speed = 0.25
-	local_nobles_food_consumption = -0.2
-	local_clergy_food_consumption = -0.2
-	local_burghers_food_consumption = -0.2
-	local_laborer_food_consumption = -0.2
-	local_soldiers_food_consumption = -0.2
-	local_peasants_food_consumption = -0.3
+	local_nobles_food_consumption = 0.0
+	local_clergy_food_consumption = 0.0
+	local_burghers_food_consumption = -0.1
+	local_laborer_food_consumption = -0.15
+	local_soldiers_food_consumption = -0.15
+	local_peasants_food_consumption = -0.25
 	local_monthly_prosperity = -0.0050
 	local_population_growth = -0.004
 }
@@ -51,7 +53,8 @@ TRY_REPLACE:positive_province_food_growth = {
 		category = province
 	}
 	# these values are the values for 12 months of stored province consumption
-	local_population_growth = 0.0050
+	local_population_growth = 0.0040
+	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
 }
 
@@ -117,9 +120,9 @@ TRY_REPLACE:building_levels = {
 	local_monthly_food_modifier = -0.0125
 	local_trade_center_power = 0.0004
 	local_road_building_time = 0.01
-	local_build_new_buildings_cost = 0.005
-	local_food_capacity = 15
-	local_food_capacity_modifier = 0.01
+	local_build_new_buildings_cost = 0.01
+	local_food_capacity = 10
+	local_food_capacity_modifier = 0.005
 }
 
 TRY_REPLACE:unsupported_building_levels = {
@@ -196,7 +199,7 @@ TRY_REPLACE:devastation = {
 	local_food_capacity_modifier = 1.0
 	local_monthly_food_modifier = 0.125
 	local_monthly_development = 0.030
-	local_pop_promotion_speed_modifier = 0.5
+	local_pop_promotion_speed_modifier = 0.05
 	local_pop_demotion_speed = -0.5
 	local_raw_material_output = 0.25
 	local_production_efficiency = 0.5
