@@ -42,7 +42,7 @@ TRY_INJECT:peasants = {
 	pop_percentage_impact = {
 		local_devastation_recovery = 0.002
 		local_construction_speed = 0.25
-		local_construction_cost = -0.20
+		local_build_buildings_cost = -0.20
 	}
 
 	literacy_impact = {
