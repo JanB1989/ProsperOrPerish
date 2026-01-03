@@ -1,6 +1,6 @@
 # Gives flat global development modifier based on percentage of global burghers, small incentive to urbanize
 TRY_INJECT:burghers_percentage_in_country = {
-    global_monthly_development = 0.0250
+    global_monthly_development = 0.0300
 }
 
 TRY_INJECT:peasants_percentage_in_country = {

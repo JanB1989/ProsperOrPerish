@@ -53,7 +53,7 @@ TRY_REPLACE:positive_province_food_growth = {
 		category = province
 	}
 	# these values are the values for 12 months of stored province consumption
-	local_population_growth = 0.0040
+	local_population_growth = 0.0045
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
 }
