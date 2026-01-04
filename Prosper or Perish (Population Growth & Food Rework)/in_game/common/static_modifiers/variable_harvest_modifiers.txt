@@ -1,0 +1,174 @@
+﻿# General idea is similar to variable harvest, but variable harvests should affect different foods differently
+# This sadly does not work because of how insanely weird the paradox calculates this stuff.
+# I leave the old idea in here, and hope paradox changes how they calculate how food productivity stacks with food rgo productivity
+
+# Then we scale these around 7 different options (where option 4) roughly normal distributed probabilities
+# longterm ev should be 0 for all crops. We just want to add variance
+
+abysmal_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = -0.75
+#
+#	# Highly affected (-100% Scale)
+#	local_wheat_output_modifier = -0.75
+#	local_millet_output_modifier = -0.75
+#	local_maize_output_modifier = -0.60
+#	local_fruit_output_modifier = -0.80
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = -0.60
+#	local_beeswax_output_modifier = -0.50
+#
+#	# Very low
+#	local_legumes_output_modifier = -0.25
+#	local_potato_output_modifier = -0.15
+#	local_olives_output_modifier = -0.30
+#	local_wool_output_modifier = -0.20
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = -0.10
+#	local_wild_game_output_modifier = -0.10
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}
+
+very_poor_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = -0.50
+#
+#	# Highly affected (~ -66% Scale)
+#	local_wheat_output_modifier = -0.50
+#	local_millet_output_modifier = -0.50
+#	local_maize_output_modifier = -0.40
+#	local_fruit_output_modifier = -0.53
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = -0.40
+#	local_beeswax_output_modifier = -0.33
+#
+#	# Very low
+#	local_legumes_output_modifier = -0.17
+#	local_potato_output_modifier = -0.10
+#	local_olives_output_modifier = -0.20
+#	local_wool_output_modifier = -0.13
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = -0.07
+#	local_wild_game_output_modifier = -0.07
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}
+
+poor_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = -0.25
+#
+#	# Highly affected (~ -33% Scale)
+#	local_wheat_output_modifier = -0.25
+#	local_millet_output_modifier = -0.25
+#	local_maize_output_modifier = -0.20
+#	local_fruit_output_modifier = -0.27
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = -0.20
+#	local_beeswax_output_modifier = -0.17
+#
+#	# Very low
+#	local_legumes_output_modifier = -0.08
+#	local_potato_output_modifier = -0.05
+#	local_olives_output_modifier = -0.10
+#	local_wool_output_modifier = -0.07
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = -0.03
+#	local_wild_game_output_modifier = -0.03
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}
+
+good_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = 0.25
+#
+#	# Highly affected (~ +33% Scale)
+#	local_wheat_output_modifier = 0.25
+#	local_millet_output_modifier = 0.25
+#	local_maize_output_modifier = 0.20
+#	local_fruit_output_modifier = 0.27
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = 0.20
+#	local_beeswax_output_modifier = 0.17
+#
+#	# Very low
+#	local_legumes_output_modifier = 0.08
+#	local_potato_output_modifier = 0.05
+#	local_olives_output_modifier = 0.10
+#	local_wool_output_modifier = 0.07
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = 0.03
+#	local_wild_game_output_modifier = 0.03
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}
+
+very_good_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = 0.50
+#
+#	# Highly affected (~ +66% Scale)
+#	local_wheat_output_modifier = 0.50
+#	local_millet_output_modifier = 0.50
+#	local_maize_output_modifier = 0.40
+#	local_fruit_output_modifier = 0.53
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = 0.40
+#	local_beeswax_output_modifier = 0.33
+#
+#	# Very low
+#	local_legumes_output_modifier = 0.17
+#	local_potato_output_modifier = 0.10
+#	local_olives_output_modifier = 0.20
+#	local_wool_output_modifier = 0.13
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = 0.07
+#	local_wild_game_output_modifier = 0.07
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}
+
+bountiful_harvest_modifier = {
+	game_data = { category = location }
+
+	local_monthly_food_modifier = 0.75
+#
+#	# Highly affected (+100% Scale)
+#	local_wheat_output_modifier = 0.75
+#	local_millet_output_modifier = 0.75
+#	local_maize_output_modifier = 0.60 
+#	local_fruit_output_modifier = 0.80
+#	
+#	# Slightly less variable
+#	local_rice_output_modifier = 0.60
+#	local_beeswax_output_modifier = 0.50
+#
+#	# Very low
+#	local_legumes_output_modifier = 0.25
+#	local_potato_output_modifier = 0.15
+#	local_olives_output_modifier = 0.30
+#	local_wool_output_modifier = 0.20
+#
+#	# Nearly Independant
+#	local_livestock_output_modifier = 0.10
+#	local_wild_game_output_modifier = 0.10
+#	local_fish_output_modifier = 0.00
+#	local_fur_output_modifier = 0.00
+}

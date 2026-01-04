@@ -1,0 +1,33 @@
+# I want prosperity and devastation to be more sticky in general
+# ADVANCES
+
+TRY_INJECT:recovery_efforts = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:mother_of_russian_cities = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:wake_of_the_mongol_horde = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:hidden_cities = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:four_noble_truths = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:thrive_under_persecution = {
+	global_devastation_recovery = -0.004
+}
+
+TRY_INJECT:paschal_cycle = {
+	global_devastation_recovery = -0.004
+}
+
+# There are other modifiers from gods or religious_aspects maybe worth changing aswell
+
