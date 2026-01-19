@@ -5,7 +5,7 @@ granary = {
 	is_foreign = no
 	max_levels = guild_max_level
 
-	pop_type = laborers
+	pop_type = peasants
 
 	employment_size = granary_employment
 
@@ -271,7 +271,7 @@ fishing_village = {
 bund = {
 	is_foreign = no
 	max_levels = bund_cap
-	pop_type = laborers
+	pop_type = peasants
 
 	category = infrastructure_category
 	employment_size = small_peasant_employment
