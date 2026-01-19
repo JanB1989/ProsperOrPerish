@@ -8,7 +8,7 @@
 abysmal_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = -0.75
+	local_monthly_food_modifier = -0.60
 #
 #	# Highly affected (-100% Scale)
 #	local_wheat_output_modifier = -0.75
@@ -36,7 +36,7 @@ abysmal_harvest_modifier = {
 very_poor_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = -0.50
+	local_monthly_food_modifier = -0.45
 #
 #	# Highly affected (~ -66% Scale)
 #	local_wheat_output_modifier = -0.50
@@ -64,7 +64,7 @@ very_poor_harvest_modifier = {
 poor_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = -0.25
+	local_monthly_food_modifier = -0.20
 #
 #	# Highly affected (~ -33% Scale)
 #	local_wheat_output_modifier = -0.25
@@ -92,7 +92,7 @@ poor_harvest_modifier = {
 good_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = 0.25
+	local_monthly_food_modifier = 0.20
 #
 #	# Highly affected (~ +33% Scale)
 #	local_wheat_output_modifier = 0.25
@@ -120,7 +120,7 @@ good_harvest_modifier = {
 very_good_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = 0.50
+	local_monthly_food_modifier = 0.45
 #
 #	# Highly affected (~ +66% Scale)
 #	local_wheat_output_modifier = 0.50
@@ -148,7 +148,7 @@ very_good_harvest_modifier = {
 bountiful_harvest_modifier = {
 	game_data = { category = location }
 
-	local_monthly_food_modifier = 0.75
+	local_monthly_food_modifier = 0.60
 #
 #	# Highly affected (+100% Scale)
 #	local_wheat_output_modifier = 0.75

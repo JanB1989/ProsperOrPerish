@@ -27,7 +27,7 @@ TRY_REPLACE:cheap_food_in_location = {
 	local_nobles_food_consumption = 0.3
 	local_clergy_food_consumption = 0.3
 	local_burghers_food_consumption = 0.3
-	local_laborer_food_consumption = 0.3
+	local_laborers_food_consumption = 0.3
 	local_soldiers_food_consumption = 0.3
 	local_peasants_food_consumption = 0.3
 	local_population_growth = 0.005
@@ -40,7 +40,7 @@ TRY_REPLACE:expensive_food_in_location = {
 	local_nobles_food_consumption = 0.0
 	local_clergy_food_consumption = 0.0
 	local_burghers_food_consumption = -0.1
-	local_laborer_food_consumption = -0.15
+	local_laborers_food_consumption = -0.15
 	local_soldiers_food_consumption = -0.15
 	local_peasants_food_consumption = -0.25
 	local_monthly_prosperity = -0.0050
@@ -94,8 +94,8 @@ TRY_REPLACE:abundant_free_land = {
 	}
 	local_migration_attraction = 2.0
     local_population_growth = 0.0
-    local_monthly_food_modifier = 0.30
-	local_monthly_food = 5
+    local_monthly_food_modifier = 0.40
+	local_monthly_food = 8
 }
 
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them

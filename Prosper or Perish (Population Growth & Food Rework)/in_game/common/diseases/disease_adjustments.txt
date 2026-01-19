@@ -1,4 +1,4 @@
-influenza = { #https://en.wikipedia.org/wiki/Influenza
+REPLACE:influenza = { #https://en.wikipedia.org/wiki/Influenza
 
 	#script value for how likely the disease is to spawn per month (0..1)
 	monthly_spawn_chance = {
@@ -163,7 +163,7 @@ influenza = { #https://en.wikipedia.org/wiki/Influenza
 
 
 
-measles = { #https://en.wikipedia.org/wiki/Measles
+REPLACE:measles = { #https://en.wikipedia.org/wiki/Measles
 
 	#script value for how likely the disease is to spawn per month (0..1)
 	monthly_spawn_chance = {

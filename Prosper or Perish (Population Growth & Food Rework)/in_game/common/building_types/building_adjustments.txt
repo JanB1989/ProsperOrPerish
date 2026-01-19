@@ -344,7 +344,7 @@ irrigation_systems = {
 
 fruit_orchard = {
 	is_foreign = no
-	pop_type = laborers
+	pop_type = peasants
 	max_levels = rural_building_cap
 	
 	employment_size = rural_peasant_produce_employment
@@ -388,7 +388,7 @@ fruit_orchard = {
 
 sheep_farms = {
 	is_foreign = no
-	pop_type = laborers
+	pop_type = peasants
 	max_levels = rural_building_cap
 	
 	employment_size = rural_peasant_produce_employment
@@ -421,7 +421,7 @@ sheep_farms = {
 	}
 
 	modifier = {
-		local_monthly_food = 1.0 
+		local_monthly_food = 1.0
 		local_monthly_food_modifier = 0.015
 	}
 	

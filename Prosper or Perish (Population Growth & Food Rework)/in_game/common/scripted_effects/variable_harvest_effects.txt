@@ -2,7 +2,7 @@
 	continent:europe = {
 		every_region = {
 			random_list = {
-				14 ={
+				13 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
@@ -84,7 +84,7 @@
 						}
 					}
 				}
-				14 ={
+				13 ={
 					every_area_in_region = {
 						every_province_in_area = {
 							limit = {
