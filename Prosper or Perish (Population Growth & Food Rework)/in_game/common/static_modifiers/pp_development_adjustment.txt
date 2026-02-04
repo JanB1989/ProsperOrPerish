@@ -4,7 +4,7 @@
 
 # I think development should give more capacity but not inherent pop growth
 # Development should impact building slots more
-TRY_INJECT:development = {
+INJECT:TRY_development = {
     free_building_levels = 1.0 # 1.0 # 2
     local_food_capacity_modifier = 0.02 # 0
     local_food_capacity = 2 # 0

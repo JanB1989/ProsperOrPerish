@@ -120,7 +120,7 @@ TRY_REPLACE:building_levels = {
 	local_monthly_food_modifier = -0.0125
 	local_trade_center_power = 0.0004
 	local_road_building_time = 0.01
-	local_build_new_buildings_cost = 0.01
+	local_build_new_buildings_cost = 0.015
 	local_food_capacity = 10
 	local_food_capacity_modifier = 0.005
 }

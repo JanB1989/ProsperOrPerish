@@ -37,7 +37,7 @@ TRY_INJECT:soldiers = {
 }
 
 TRY_INJECT:peasants = {
-	pop_food_consumption = 1.20 # 1.0
+	pop_food_consumption = 1.15 # 1.0
 
 	pop_percentage_impact = {
 		local_devastation_recovery = 0.002

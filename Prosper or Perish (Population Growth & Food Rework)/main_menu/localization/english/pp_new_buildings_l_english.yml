@@ -1,0 +1,15 @@
+﻿l_english:
+  cookery: "Cookery"
+  cookery_desc: "A cookery that turns staple goods into victuals suitable for storage and transport."
+
+  cookery_rice_legumes: "Khichdi"
+  cookery_rice_fish: "Fish Congee"
+  cookery_wheat_livestock: "Mutton Pottage"
+  cookery_wheat_fish: "Stockfish and Hardtack"
+  cookery_maize_livestock: "Pozole"
+
+  cookery_no_enhancement: "No Enhancement"
+  cookery_preserved_rations: "Salted Rations"
+  cookery_sweet_preserves: "Fruit Conserves"
+  cookery_spice_blend: "Spiced Rations"
+  cookery_spirited_rations: "Grog Ration"

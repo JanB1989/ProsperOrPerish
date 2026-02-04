@@ -47,7 +47,7 @@ TRY_REPLACE:city = {
 	
 	allow = {
 		location_rank = location_rank:town
-		population >= 75
+		population >= 50
 		modifier:cannot_upgrade_location = no
 	}
 	max_rank = yes
