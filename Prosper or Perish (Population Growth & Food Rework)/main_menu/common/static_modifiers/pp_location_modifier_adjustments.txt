@@ -1,4 +1,4 @@
-# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
+﻿# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
 # Food storage in province is now THE driver of population growth
 TRY_REPLACE:province_starving = {
 	game_data = {
@@ -71,7 +71,7 @@ TRY_REPLACE:average_satisfaction_inverted = {
 		category = location
 	}
 	local_monthly_prosperity = -0.0050
-	local_max_control = -0.20
+	local_max_control = -0.10
 }
 
 
@@ -196,7 +196,7 @@ TRY_REPLACE:raised_levies = {
 # Devastation doesn't kill people, starvation and other stuff does
 TRY_REPLACE:devastation = {
 	local_population_growth = 0.0
-	local_food_capacity_modifier = 1.0
+	local_food_capacity_modifier = 0.5
 	local_monthly_food_modifier = 0.125
 	local_monthly_development = 0.030
 	local_pop_promotion_speed_modifier = 0.05
@@ -211,3 +211,12 @@ TRY_REPLACE:devastation = {
 	local_upper_class_capacity_modifier = 0.5
 }
 
+
+TRY_REPLACE:minor_rebel_uprising = {
+	game_data = {
+		category = location
+		decaying = yes
+	}
+	local_monthly_prosperity = -0.005
+	local_monthly_control = -0.005
+}

@@ -1,4 +1,4 @@
-# Prosper or Perish - New Buildings
+﻿# Prosper or Perish - New Buildings
 
 cookery = {
 	is_foreign = no

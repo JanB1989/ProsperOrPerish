@@ -1,4 +1,4 @@
-TRY_INJECT:wool = {
+﻿TRY_INJECT:wool = {
     ai_rgo_expansion_priority = 0.015
 }
 

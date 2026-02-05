@@ -1,4 +1,4 @@
-## Prosper or Perish - icons for victuals-related modifier types
+﻿## Prosper or Perish - icons for victuals-related modifier types
 ## These silence "Missing Icon for Modifier" errors for the new good.
 ## Using fish icons as a temporary placeholder.
 

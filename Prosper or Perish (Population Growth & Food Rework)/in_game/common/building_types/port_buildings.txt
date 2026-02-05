@@ -1,7 +1,11 @@
-REPLACE:dock = {
+﻿# Full file override for port_buildings.txt - Prosper or Perish mod
+# Adds victuals requirement to port building maintenance
+
+dock = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
+	forbidden_for_estates = yes
 	
 	category = naval_category
 	
@@ -37,16 +41,16 @@ REPLACE:dock = {
 		local_sailors = 0.016
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.1
+		local_repair_speed = 0.02
 
 	}
 }
 
-
-
-REPLACE:dry_dock = {
+dry_dock = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
+	forbidden_for_estates = yes
 	
 	category = naval_category
 	obsolete = dock
@@ -87,15 +91,15 @@ REPLACE:dry_dock = {
 		local_sailors = 0.032
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.15
+		local_repair_speed = 0.04
 	}
 }
 
-
-
-REPLACE:shipyard = {
+shipyard = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
+	forbidden_for_estates = yes
 	
 	category = naval_category
 	obsolete = dry_dock
@@ -136,13 +140,16 @@ REPLACE:shipyard = {
 		local_sailors = 0.064
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.2
+		local_repair_speed = 0.06
 	}
 }
 
-REPLACE:grand_shipyard = {
+grand_shipyard = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
+	forbidden_for_estates = yes
+	
 	category = naval_category
 	
 	obsolete = shipyard
@@ -182,13 +189,16 @@ REPLACE:grand_shipyard = {
 		local_sailors = 0.125
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.25
+		local_repair_speed = 0.08
 	}
 }
 
-REPLACE:naval_base = {
+naval_base = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
+	forbidden_for_estates = yes
+
 	category = naval_category
 	
 	obsolete = grand_shipyard
@@ -229,5 +239,50 @@ REPLACE:naval_base = {
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.3
 		local_navy_attrition = -1
+		local_repair_speed = 0.1
 	}
+}
+
+protected_harbor = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = laborers
+	category = naval_category
+	forbidden_for_estates = yes
+	
+	
+	employment_size = dock_employment
+	
+	town = yes
+	city = yes
+	
+	location_potential = {
+		is_port = yes
+	}
+	
+	build_time = medium_port_building_time
+
+	
+	
+	unique_production_methods = {
+		protected_harbor_maintenance = {
+			tar = 0.1
+			tools = 0.1
+			lumber = 0.1
+			stone = 0.2
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = port_building_construction	
+
+	modifier = {
+		local_navy_attrition = -5
+		harbor_suitability = 0.1
+		local_repair_speed = 0.025
+	}
+
+
 }

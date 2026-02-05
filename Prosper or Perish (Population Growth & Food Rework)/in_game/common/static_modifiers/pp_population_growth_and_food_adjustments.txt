@@ -1,4 +1,4 @@
-# This file is mostly used to reduce existing population growth modifiers to 0
+﻿# This file is mostly used to reduce existing population growth modifiers to 0
 # Generally the idea is to disentangle pop growth from everything that has nothing to do with food growth (mostly)
 # If you provide a lot of food in the province, growth is massively increased, if not provinces grow very little
 

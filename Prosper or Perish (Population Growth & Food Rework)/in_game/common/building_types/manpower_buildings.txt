@@ -1,9 +1,86 @@
-REPLACE:armory = {
+﻿# Full file override for manpower_buildings.txt - Prosper or Perish mod
+# Adds victuals requirement to military building maintenance
+
+sergeantry = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	
+	category = military_category
+	forbidden_for_estates = yes
+	
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	build_time = medium_soldier_building
+	
+	location_potential = {
+		is_capital = yes
+	}
+	country_potential = {
+		government_type = government_type:monarchy 
+	}
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+	
+	capital_modifier = {
+		local_manpower = 0.015
+		can_recruit_regiment_in_this_location = yes
+		local_crown_estate_power = 0.25
+	}
+
+	possible_production_methods =  {
+		early_soldier_building_maintenance
+	}
+	construction_demand = early_soldier_building_construction
+}
+
+warrior_temple = {
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	
+	category = military_category
+	
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	build_time = medium_soldier_building
+	
+	country_potential = {
+		religion = religion:nahuatl
+	}
+	graphical_tags = { medium_religious }
+	
+	modifier = {
+		local_clergy_estate_power = 0.1
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+	
+	raw_modifier = {
+		local_may_build_nahuatl_units = yes
+	}
+
+	possible_production_methods = {
+		nahuatl_warrior_building_maintenance
+	}
+	construction_demand = nahuatl_warrior_building_construction
+}
+
+armory = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
 	
 	category = military_category
+	forbidden_for_estates = yes
 
 	employment_size = manpower_employment
 	
@@ -14,8 +91,8 @@ REPLACE:armory = {
 
 	build_time = soldier_building
 	
-	obsolete = korean_barracks
 	obsolete = provincial_garrison
+	obsolete = korean_barracks
 	
 	allow = {
 		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
@@ -38,7 +115,7 @@ REPLACE:armory = {
 			cloth = 0.10
 			paper = 0.20
 			weaponry = 0.5
-            victuals = 1.0
+			victuals = 1.0
 			
 			category = building_maintenance
 		}
@@ -49,12 +126,13 @@ REPLACE:armory = {
 	construction_demand = early_soldier_building_construction
 }
 
-REPLACE:training_fields = {
+training_fields = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
 	
 	category = military_category
+	forbidden_for_estates = yes
 	
 	employment_size = manpower_employment
 	
@@ -82,7 +160,7 @@ REPLACE:training_fields = {
 			cloth = 0.10
 			paper = 0.20
 			weaponry = 0.5
-            victuals = 1.0
+			victuals = 1.0
 			
 			category = building_maintenance
 		}
@@ -92,12 +170,13 @@ REPLACE:training_fields = {
 	construction_demand = soldier_building_construction
 }
 
-REPLACE:barracks = {
+barracks = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
 	
 	category = military_category
+	forbidden_for_estates = yes
 
 	employment_size = manpower_employment
 	
@@ -128,7 +207,7 @@ REPLACE:barracks = {
 			cloth = 0.20
 			paper = 0.40
 			weaponry = 1.0
-            victuals = 2.0
+			victuals = 2.0
 			
 			category = building_maintenance
 		}
@@ -138,12 +217,13 @@ REPLACE:barracks = {
 	construction_demand = soldier_building_construction
 }
 
-REPLACE:regimental_camp = {
+regimental_camp = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
 	
 	category = military_category
+	forbidden_for_estates = yes
 	
 	employment_size = manpower_employment
 	
@@ -172,7 +252,7 @@ REPLACE:regimental_camp = {
 			cloth = 0.20
 			paper = 0.40
 			weaponry = 1.0
-            victuals = 2.0
+			victuals = 2.0
 			
 			category = building_maintenance
 		}
@@ -182,7 +262,7 @@ REPLACE:regimental_camp = {
 	construction_demand = soldier_building_construction
 }
 
-REPLACE:conscription_center = {
+conscription_center = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
@@ -190,6 +270,7 @@ REPLACE:conscription_center = {
 	employment_size = manpower_employment
 
 	category = military_category
+	forbidden_for_estates = yes
 	
 	obsolete = regimental_camp
 	obsolete = barracks
@@ -220,7 +301,7 @@ REPLACE:conscription_center = {
 			cloth = 0.20
 			paper = 0.50
 			weaponry = 1.0
-            victuals = 2.0
+			victuals = 2.0
 			
 			category = building_maintenance
 		}
@@ -228,4 +309,122 @@ REPLACE:conscription_center = {
 	}
 
 	construction_demand = soldier_building_construction
+}
+
+jurchen_barracks = {
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	
+	category = military_category
+	forbidden_for_estates = yes
+	
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	rural_settlement = yes
+	
+	build_time = soldier_building
+	
+	allow = {
+		dominant_culture = { has_culture_group = culture_group:jurchen_group }
+	}
+	remove_if = {
+		location = {
+			NOT = { 
+				dominant_culture = { has_culture_group = culture_group:jurchen_group } 
+			}
+		}
+	}
+	
+	
+	modifier = {
+		local_manpower = 0.0025
+		can_recruit_regiment_in_this_location = yes
+	}
+	
+	possible_production_methods = {
+		early_soldier_building_maintenance
+	}
+	construction_demand = early_soldier_building_construction
+}
+
+thema_headquarters = {
+	is_special = yes
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	
+	category = military_category
+	
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	build_time = medium_soldier_building
+
+	country_potential = {
+		modifier:allow_thema_headquarters = yes
+	}
+
+	allow = { 
+		is_province_capital = yes 
+		owner = { modifier:allow_thema_headquarters = yes }
+	}
+	
+	location_potential = { is_capital = no }
+
+	remove_if = {
+		root.owner = { modifier:allow_thema_headquarters = no }
+	}
+	
+	modifier = {
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+		local_crown_estate_power = -0.1
+	}
+
+	possible_production_methods =  {
+		early_soldier_building_maintenance
+	}
+	construction_demand = early_soldier_building_construction
+}
+
+city_guard = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = 1
+	
+	category = military_category
+	forbidden_for_estates = yes
+	
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	build_time = medium_soldier_building
+	
+	location_potential = {
+		is_capital = yes
+	}
+	country_potential = {
+		government_type = government_type:republic 
+	}
+	remove_if = {
+		is_no_longer_capital = yes
+	}
+	
+	capital_modifier = {
+		local_manpower = 0.015
+		can_recruit_regiment_in_this_location = yes
+	}
+
+	possible_production_methods =  {
+		early_soldier_building_maintenance
+	}
+	construction_demand = early_soldier_building_construction
 }

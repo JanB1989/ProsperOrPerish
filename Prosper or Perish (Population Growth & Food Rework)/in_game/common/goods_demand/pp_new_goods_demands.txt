@@ -1,4 +1,4 @@
-## Prosper or Perish - Pop demand extension (debug-simple)
+﻿## Prosper or Perish - Pop demand extension (debug-simple)
 ## We inject into the vanilla `pop_demand` database object so we don't collide with it.
 
 INJECT:pop_demand = {

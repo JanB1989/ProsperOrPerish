@@ -1,274 +1,64 @@
-# Granary is the main food storage building and since food storage determines pop growth, it needs to be buildable in rural
-# Construction centers should be buildable in rural (honestly because otherwise queues are so long)
+﻿# Prosper or Perish - Building Adjustments
+# This file contains INJECT/TRY_INJECT entries and REPLACE entries for buildings
+# in large vanilla files where full file override is impractical
 
-granary = {
-	is_foreign = no
-	max_levels = guild_max_level
-
-	pop_type = peasants
-
-	employment_size = granary_employment
-
-	category = infrastructure_category
-
-	rural_settlement = yes
-	town = yes
-	city = yes
-
-
-	build_time = government_build_time
-
-
-	unique_production_methods = {
-		granary_maintenance = {
-			masonry = 0.15
-			category = building_maintenance
-		}
-	}
-
-
-	construction_demand = granary_construction
-
-
-
+# Irrigation systems modifier adjustment
+INJECT:irrigation_systems = {
 	modifier = {
-		local_food_capacity = 600
-		local_food_capacity_modifier = 0.10
+		local_population_capacity = 1.0
+		local_monthly_food_modifier = -0.01
 	}
-
-	ai_forbid_shutdown = yes
-
 }
 
-TRY_INJECT:construction_center = {
-    rural_settlement = yes
-}
-
-
-farming_village = {
+# Fruit orchard - using unique PM name to avoid conflict with vanilla
+# (in common_buildings.txt which is too large for full override)
+REPLACE:fruit_orchard = {
 	is_foreign = no
-	max_levels = rural_building_cap
 	pop_type = peasants
+	max_levels = rural_building_cap
 	
-	category = village_category
-	employment_size = village_employment_size
+	employment_size = rural_peasant_produce_employment
+	
+	category = rgo_building_category
 	
 	rural_settlement = yes
 	town = yes
 	city = yes
-	
+
 	location_potential = {
 		OR = {
+			vegetation = grasslands
 			vegetation = farmland
-			raw_material = goods:wheat
-			raw_material = goods:maize
-			raw_material = goods:rice
-			raw_material = goods:millet
-			raw_material = goods:legumes
-			raw_material = goods:potato
-			raw_material = goods:livestock
-			raw_material = goods:olives
-			raw_material = goods:fruit
-			raw_material = goods:wool
-		}
-	}
-	
-		
-	
-	build_time = village_build_time
-	
-	unique_production_methods = {
-		farming_village_maintenance = {
-			tools = 0.025
-			clay = 1.0
-			
-			output = 0.5
-			
-			produced = livestock
-			
-			debug_max_profit = 0.6
-	
-			category = building_maintenance
-		}
-
-		millet_farm_maintenance = {
-			tools = 0.1
-            horses = 0.1
-
-			output = 0.5
-
-			produced = millet
-
-			debug_max_profit = 0.6
-
-			category = building_maintenance
-		}
-	}
-
-	construction_demand = village_construction
-
-	modifier = {
-		local_food_capacity = 50
-		local_food_capacity_modifier = 0.05
-		local_monthly_food_modifier = 0.03
-		local_monthly_food = 2.0
-		local_peasants_estate_power = 0.25		#25% higher here.
-		
-		local_laborers_desired_pop = 0.1
-		local_soldiers_desired_pop = 0.05
-
-	}
-}
-
-
-forest_village = {
-	is_foreign = no
-	max_levels = rural_building_cap
-	pop_type = peasants
-	
-	category = village_category
-	employment_size = village_employment_size
-	
-
-	rural_settlement = yes
-	town = yes
-	city = yes
-	
-	location_potential = {
-		OR = {
-			raw_material = goods:wild_game
-			vegetation = forest
 			vegetation = woods
 			vegetation = jungle
 		}
 	}
-	
-		
-	
-	build_time = village_build_time
-
 
 	unique_production_methods = {
-		forest_village_maintenance = {
-			produced = leather
+		
+		pp_fruit_orchard_maintenance = {
+			produced = fruit
+			output = 0.3
 			
-			output = 0.25
-			
-			sand = 0.1
-			tar = 0.02
-			wild_game = 0.4
-			
-			debug_max_profit = 0.6
-			
-			category = building_maintenance
-		}
-
-		hunting_cabin_maintenance = {
-			produced = wild_game
-			output = 0.5
-
-			firearms = 0.1
-			tools = 0.1
-
-			debug_max_profit = 0.6
-
+			lumber = 0.17
 			category = building_maintenance
 		}
 	}
 
+	build_time = rural_build_time
 
-	
-	construction_demand = village_construction
+	construction_demand = farm_constructions
 
 	modifier = {
-		local_monthly_food = 1.0
-		local_monthly_food_modifier = 0.02
-		local_monthly_food = 1.5
-		local_peasants_estate_power = 0.25		#25% higher here.
-		local_food_capacity = 50
-		local_food_capacity_modifier = 0.05
-		
-		local_laborers_desired_pop = 0.1
-		local_soldiers_desired_pop = 0.05
-
+		local_monthly_food = 1.0 
+		local_monthly_food_modifier = 0.015
 	}
 }
 
-fishing_village = {
-	is_foreign = no
-	max_levels = rural_building_cap
-	pop_type = peasants
-
-	category = village_category
-	employment_size = village_employment_size
-	
-	rural_settlement = yes
-	town = yes
-	city = yes
-	
-	AI_optimization_flag_coastal = yes
-	location_potential = {
-		is_coastal = yes
-	}
-	
-		
-	
-	build_time = village_build_time
-
-	unique_production_methods = {
-	
-		fishing_village_maintenance = {
-			produced = fish
-			output = 0.5
-			
-			salt = 0.08
-			tools = 0.02
-			
-			debug_max_profit = 0.6
-
-	
-			category = building_maintenance
-		}
-		
-		arctic_fishing_village_maintenance = {
-			produced = fish
-			output = 0.5
-			
-			salt = 0.08
-			ivory = 0.01
-			
-			debug_max_profit = 0.6
-	
-			category = building_maintenance
-		}
-	}
-	construction_demand = village_construction
-
-	modifier = {
-		local_merchant_capacity = 0.10
-		local_peasants_estate_power = 0.25		#25% higher here.
-		local_food_capacity = 50
-		local_food_capacity_modifier = 0.05
-		local_monthly_food = 1.5
-		
-		local_monthly_food_modifier = 0.02
-		
-		local_maritime_presence = 0.01
-		
-		local_laborers_desired_pop = 0.1
-		local_soldiers_desired_pop = 0.05
-
-		harbor_suitability = 0.02
-		
-		local_sailors = 0.001
-		
-		
-		
-	}
-}
-
-
-bund = {
+# Bund - using unique PM name to avoid conflict with vanilla
+# (in unique_buildings.txt which is too large for full override)
+REPLACE:bund = {
+	is_special = yes
 	is_foreign = no
 	max_levels = bund_cap
 	pop_type = peasants
@@ -290,7 +80,7 @@ bund = {
 	build_time = infrastructure_build_time
 	
 	unique_production_methods = {
-		bund_maintenance = {
+		pp_bund_maintenance = {
 			tools = 0.1
 			category = building_maintenance
 		}
@@ -302,132 +92,4 @@ bund = {
 		local_population_capacity = 0.5
 		local_monthly_food_modifier = 0.05
 	}
-}
-
-
-irrigation_systems = {
-	is_foreign = no
-	max_levels = irrigant_cap
-	pop_type = peasants
-
-	category = infrastructure_category
-	employment_size = generic_peasant_building_employment
-	
-	rural_settlement = yes
-	town = yes
-	city = yes
-	
-	location_potential = {
-		OR = {
-			has_river = yes
-			is_adjacent_to_lake = yes
-		}
-	}
-	
-	build_time = infrastructure_build_time
-	
-	unique_production_methods = {
-		irrigation_maintenance = {
-			tools = 0.1
-			category = building_maintenance
-		}
-	}
-
-	construction_demand = village_construction
-
-	modifier = {
-		local_population_capacity = 1.0
-		local_monthly_food_modifier = 0.035
-	}
-}
-
-
-fruit_orchard = {
-	is_foreign = no
-	pop_type = peasants
-	max_levels = rural_building_cap
-	
-	employment_size = rural_peasant_produce_employment
-	
-	category = rgo_building_category
-	
-	rural_settlement = yes
-	town = yes
-	city = yes
-
-	location_potential = {
-		OR = {
-			vegetation = grasslands
-			vegetation = farmland
-			vegetation = woods
-			vegetation = jungle
-		}
-	}
-
-	unique_production_methods = {
-		
-		fruit_orchard_maintenance = {
-			produced = fruit
-			output = 0.3
-			
-			lumber = 0.17
-			category = building_maintenance
-		}
-	}
-
-	build_time = rural_build_time
-
-	construction_demand = farm_constructions
-
-	modifier = {
-		local_monthly_food = 1.0 
-		local_monthly_food_modifier = 0.015
-	}
-}
-
-
-sheep_farms = {
-	is_foreign = no
-	pop_type = peasants
-	max_levels = rural_building_cap
-	
-	employment_size = rural_peasant_produce_employment
-	
-	
-	category = rgo_building_category
-	
-	rural_settlement = yes
-	town = yes
-	city = yes
-
-	location_potential = {
-		OR = {
-			vegetation = sparse
-			vegetation = farmland
-			vegetation = grasslands
-		}
-	}
-
-	unique_production_methods = {
-		
-		sheep_farm_maintenance = {
-			produced = wool
-			output = 0.5
-			
-			lumber = 0.4
-			tools = 0.16
-			category = building_maintenance
-		}
-	}
-
-	modifier = {
-		local_monthly_food = 1.0
-		local_monthly_food_modifier = 0.015
-	}
-	
-
-	build_time = rural_build_time
-
-
-	construction_demand = farm_constructions
 }

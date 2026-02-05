@@ -1,4 +1,4 @@
-# I want to move more towards a system where catastrophic things (like starvation) lead to demotion of higher Pops
+﻿# I want to move more towards a system where catastrophic things (like starvation) lead to demotion of higher Pops
 # And then i want recovery to take longer
 TRY_INJECT:possible_promotion_percentage = {
 	game_data = {

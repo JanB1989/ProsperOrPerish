@@ -1,4 +1,4 @@
-TRY_REPLACE:recovery_effort = {
+﻿TRY_REPLACE:recovery_effort = {
 	ability = dip
 	
 	allow_multiple = yes

@@ -1,4 +1,4 @@
-## Prosper or Perish - required modifier types for victuals good
+﻿## Prosper or Perish - required modifier types for victuals good
 ## The engine expects these to exist for every good key.
 
 ban_exports_of_victuals={

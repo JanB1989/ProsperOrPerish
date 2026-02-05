@@ -1,4 +1,4 @@
-victuals = {
+﻿victuals = {
 	category = produced
 	color = goods_victuals
 	default_market_price = 3.5

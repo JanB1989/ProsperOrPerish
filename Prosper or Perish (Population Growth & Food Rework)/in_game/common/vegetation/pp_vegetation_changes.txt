@@ -1,11 +1,11 @@
-# Vegetation Changes
+﻿# Vegetation Changes
 # I think vegetation currently matter TOO much for population capacity.
 # This leads to absolutely empty provinces without anything grow quite big, without player/ai investment of buildings
 # We already have the change that staffed buildings increase pop cap, i think pop cap should lean slightly more on that and less on vegetation
 # This also has the benefit of indirectly reducing the amount of available RGO slots, which is good aswell
 
 
-desert = {
+TRY_REPLACE:desert = {
 	color = terrain_desert
 	movement_cost = 1.1
 	has_sand = yes
@@ -25,7 +25,7 @@ desert = {
 	debug_color = rgb { 242 242 111 } # for vegetation_screenshot mapmode
 }
 
-sparse = {
+TRY_REPLACE:sparse = {
 	color = terrain_steppe
 	movement_cost = 1.00
 	location_modifier = { 

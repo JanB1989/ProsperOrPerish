@@ -1,4 +1,4 @@
-# Developed provinces are good in all cases with 0 drawbacks
+﻿# Developed provinces are good in all cases with 0 drawbacks
 # More food capacity as well now
 # But Roads are MUCH more expensive (idea is more roads needed used in hyper developed provinces)
 

@@ -1,3 +1,3 @@
-NPop = {
+﻿NPop = {
     GOODS_PRICE_SATISFACTION_SCALE = -1.0
 }

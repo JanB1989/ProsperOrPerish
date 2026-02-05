@@ -1,4 +1,4 @@
-NMarket = {
+﻿NMarket = {
 	FOOD_CAPACITY_FACTOR = 1.0
 	
 	FOOD_PRICE = 0.02
