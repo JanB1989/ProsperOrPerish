@@ -1,4 +1,5 @@
 ﻿# Full file override for town_buildings.txt - Prosper or Perish mod
+# Modified: granary (added rural_settlement, changed pop_type, modified food_capacity)
 
 temple = {
 	is_foreign = no

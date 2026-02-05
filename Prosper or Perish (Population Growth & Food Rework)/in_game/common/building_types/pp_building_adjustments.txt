@@ -10,51 +10,6 @@ INJECT:irrigation_systems = {
 	}
 }
 
-# Fruit orchard - using unique PM name to avoid conflict with vanilla
-# (in common_buildings.txt which is too large for full override)
-REPLACE:fruit_orchard = {
-	is_foreign = no
-	pop_type = peasants
-	max_levels = rural_building_cap
-	
-	employment_size = rural_peasant_produce_employment
-	
-	category = rgo_building_category
-	
-	rural_settlement = yes
-	town = yes
-	city = yes
-
-	location_potential = {
-		OR = {
-			vegetation = grasslands
-			vegetation = farmland
-			vegetation = woods
-			vegetation = jungle
-		}
-	}
-
-	unique_production_methods = {
-		
-		pp_fruit_orchard_maintenance = {
-			produced = fruit
-			output = 0.3
-			
-			lumber = 0.17
-			category = building_maintenance
-		}
-	}
-
-	build_time = rural_build_time
-
-	construction_demand = farm_constructions
-
-	modifier = {
-		local_monthly_food = 1.0 
-		local_monthly_food_modifier = 0.015
-	}
-}
-
 # Bund - using unique PM name to avoid conflict with vanilla
 # (in unique_buildings.txt which is too large for full override)
 REPLACE:bund = {

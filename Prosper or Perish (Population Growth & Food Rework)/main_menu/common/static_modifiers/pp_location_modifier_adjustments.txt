@@ -62,7 +62,7 @@ TRY_REPLACE:surplus_jobs = {
 	game_data = {
 		category = location
 	}
-	local_migration_attraction = 3.0
+	local_migration_attraction = 0.3
 }
 
 # I want to in general move more towards satisfaction mattering more and being more dependent on demand
@@ -93,7 +93,7 @@ TRY_REPLACE:abundant_free_land = {
 		category = location
 	}
 	local_migration_attraction = 2.0
-    local_population_growth = 0.0
+    local_population_growth = 0.01
     local_monthly_food_modifier = 0.40
 	local_monthly_food = 8
 }
