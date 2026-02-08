@@ -18,8 +18,8 @@ INJECT:granary = {
 	city = yes
 
 	modifier = {
-		local_food_capacity = 600
-		local_food_capacity_modifier = 0.10
+		local_food_capacity = 400
+		local_food_capacity_modifier = 0.05
 	}
 
 	ai_forbid_shutdown = yes
@@ -237,3 +237,479 @@ REPLACE:farming_village = {
 
 	}
 }
+
+### NAVAL BUILDING CHANGES
+REPLACE:dock = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	
+	category = naval_category
+	
+	employment_size = dock_employment
+	
+	town = yes
+	city = yes
+	
+	location_potential = {
+		is_port = yes
+	}
+	
+	build_time = medium_port_building_time
+
+	
+	unique_production_methods = {
+		pp_dock_maintenance = {
+			tar = 0.2
+			naval_supplies = 0.1
+			tools = 0.2
+			lumber = 0.2
+			victuals = 0.5
+			category = building_maintenance
+		}
+
+	}
+
+	construction_demand = port_building_construction
+	
+
+	modifier = {
+		max_ships_built_at_same_time = 1
+		local_sailors = 0.016
+		can_build_ships_in_this_location = yes
+		harbor_suitability = 0.1
+		local_repair_speed = 0.02
+
+	}
+}
+
+REPLACE:dry_dock = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	
+	category = naval_category
+	obsolete = dock
+	
+	location_potential = {
+		is_port = yes
+	}
+
+	
+	employment_size = dry_dock_employment
+	
+	town = yes
+	city = yes
+	
+	
+	build_time = medium_port_building_time
+
+	
+	
+	unique_production_methods = {
+		pp_dry_dock_maintenance = {
+			tar = 0.4
+			naval_supplies = 0.2
+			tools = 0.4
+			lumber = 0.4
+			victuals = 1.0
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = port_building_construction
+	
+
+	modifier = {
+		max_ships_built_at_same_time = 2
+		local_sailors = 0.032
+		can_build_ships_in_this_location = yes
+		harbor_suitability = 0.15
+		local_repair_speed = 0.04
+	}
+}
+
+REPLACE:shipyard = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	
+	category = naval_category
+	obsolete = dry_dock
+	
+	employment_size = shipyard_employment
+
+	location_potential = {
+		is_port = yes
+	}
+
+	
+	town = yes
+	city = yes
+	
+	
+	build_time = large_port_building_time
+
+	
+	
+	unique_production_methods = {
+		pp_shipyard_maintenance = {
+			tar = 0.8
+			naval_supplies = 0.4
+			tools = 0.8
+			lumber = 0.8
+			victuals = 2.0
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = port_building_construction
+	
+
+	modifier = {
+		max_ships_built_at_same_time = 4
+		local_sailors = 0.064
+		can_build_ships_in_this_location = yes
+		harbor_suitability = 0.2
+		local_repair_speed = 0.06
+	}
+}
+
+REPLACE:grand_shipyard = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+	
+	category = naval_category
+	
+	obsolete = shipyard
+	
+	employment_size = grand_shipyard_employment
+
+	location_potential = {
+		is_port = yes
+	}
+	
+	town = yes
+	city = yes
+	
+	
+	build_time = large_port_building_time
+
+	
+	
+	unique_production_methods = {
+		pp_grand_shipyard_maintenance = {
+			tar = 1.6
+			naval_supplies = 0.8
+			tools = 1.6
+			lumber = 1.6
+			victuals = 4.0
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = port_building_construction
+	
+
+	modifier = {
+		max_ships_built_at_same_time = 8
+		local_sailors = 0.125
+		can_build_ships_in_this_location = yes
+		harbor_suitability = 0.25
+		local_repair_speed = 0.08
+	}
+}
+
+REPLACE:naval_base = {
+	is_foreign = no
+	max_levels = 1
+	pop_type = soldiers
+	forbidden_for_estates = yes
+
+	category = naval_category
+	
+	obsolete = grand_shipyard
+	
+	employment_size = naval_base_employment
+
+	location_potential = {
+		is_port = yes
+	}
+	
+	town = yes
+	city = yes
+	
+	
+	build_time = large_port_building_time
+
+	
+	
+	unique_production_methods = {
+		pp_naval_base_maintenance = {
+			tar = 3.0
+			naval_supplies = 1.5
+			tools = 3.0
+			lumber = 3.0
+			victuals = 6.25
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = port_building_construction
+	
+
+	modifier = {
+		max_ships_built_at_same_time = 12
+		local_sailors = 0.2
+		can_build_ships_in_this_location = yes
+		harbor_suitability = 0.3
+		local_navy_attrition = -1
+		local_repair_speed = 0.1
+	}
+}
+
+REPLACE:armory = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	
+	category = military_category
+	forbidden_for_estates = yes
+
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	important_for_AI = yes
+
+	build_time = soldier_building
+	
+	obsolete = provincial_garrison
+	obsolete = korean_barracks
+	
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	
+	
+	modifier = {
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+	
+		
+	unique_production_methods = {
+		pp_armory_maintenance = {
+			firearms = 0.5
+			leather = 0.5
+			cloth = 0.10
+			paper = 0.20
+			weaponry = 0.5
+			victuals = 0.25
+			category = building_maintenance
+		}
+
+	}
+
+
+	construction_demand = early_soldier_building_construction
+}
+
+REPLACE:training_fields = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	
+	category = military_category
+	forbidden_for_estates = yes
+	
+	employment_size = manpower_employment
+	
+	rural_settlement = yes
+
+	build_time = soldier_building
+
+
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+	
+	modifier = {
+		local_manpower = 0.01
+		can_recruit_regiment_in_this_location = yes
+	}
+	
+	unique_production_methods = {
+		pp_training_fields_maintenance = {
+			firearms = 0.5
+			leather = 0.5
+			cloth = 0.10
+			paper = 0.20
+			weaponry = 0.5
+			victuals = 0.25
+			category = building_maintenance
+		}
+
+	}
+
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:barracks = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	
+	category = military_category
+	forbidden_for_estates = yes
+
+	employment_size = manpower_employment
+	
+	town = yes
+	city = yes
+	
+	obsolete = armory
+	
+	build_time = soldier_building
+	
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}
+
+	modifier = {
+		local_manpower = 0.015
+		can_recruit_regiment_in_this_location = yes
+		max_regiments_trained_at_same_time = 1
+	}
+	
+	unique_production_methods = {
+		pp_barracks_maintenance = {
+			firearms = 1.0
+			leather = 1.0
+			cloth = 0.20
+			paper = 0.40
+			weaponry = 1.0
+			victuals = 0.375
+			category = building_maintenance
+		}
+
+	}
+
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:regimental_camp = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	
+	category = military_category
+	forbidden_for_estates = yes
+	
+	employment_size = manpower_employment
+	
+	obsolete = training_fields
+	
+	rural_settlement = yes
+
+	build_time = soldier_building
+	
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}	
+
+	modifier = {
+		local_manpower = 0.02
+		can_recruit_regiment_in_this_location = yes
+	}
+	
+	unique_production_methods = {
+		pp_regimental_camp_maintenance = {
+			firearms = 1.0
+			leather = 1.0
+			cloth = 0.20
+			paper = 0.40
+			weaponry = 1.0
+			victuals = 0.5
+			category = building_maintenance
+		}
+
+	}
+
+	construction_demand = soldier_building_construction
+}
+
+REPLACE:conscription_center = {
+	is_foreign = no
+	pop_type = soldiers
+	max_levels = manpower_max_level
+	
+	employment_size = manpower_employment
+
+	category = military_category
+	forbidden_for_estates = yes
+	
+	obsolete = regimental_camp
+	obsolete = barracks
+	
+	rural_settlement = yes
+	town = yes
+	city = yes
+	
+	build_time = soldier_building
+	
+	allow = {
+		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
+	}
+	remove_if = {
+		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
+	}	
+
+	modifier = {
+		local_manpower = 0.025
+		can_recruit_regiment_in_this_location = yes
+		max_regiments_trained_at_same_time = 5
+	}
+	
+	unique_production_methods = {
+		pp_conscription_center_maintenance = {
+			firearms = 1.0
+			leather = 1.0
+			cloth = 0.20
+			paper = 0.50
+			weaponry = 1.0
+			victuals = 0.625
+			category = building_maintenance
+		}
+
+	}
+
+	construction_demand = soldier_building_construction
+}
+

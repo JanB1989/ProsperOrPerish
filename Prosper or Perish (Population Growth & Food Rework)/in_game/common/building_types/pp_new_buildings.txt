@@ -73,6 +73,17 @@ cookery = {
 
 			category = building_maintenance
 		}
+
+		cookery_labskaus = {
+			potato = 0.5
+			fish = 0.8
+			livestock = 1.6
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
 	}
 
 	# ==========================================
