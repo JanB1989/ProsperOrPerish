@@ -10,7 +10,7 @@
 	}
 	
 	visible = {
-		always = yes #enable for debugging visibility
+		NOT = { has_game_rule = pp_variable_harvest_disabled }
 	}
 
 	on_start = {
@@ -20,6 +20,7 @@
 		if = {
 			limit = {
 				current_month = 9
+				NOT = { has_game_rule = pp_variable_harvest_disabled }
 			}
 			apply_regional_harvest_effect = yes
 		}

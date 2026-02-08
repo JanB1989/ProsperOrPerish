@@ -16,6 +16,8 @@ TRY_REPLACE:province_starving = {
 	
 	local_migration_speed = 0.015
     local_monthly_prosperity = -0.01
+
+	local_defensive = -0.30
 	
 	local_tribesmen_migration_allowed = yes
 	local_laborers_migration_allowed = yes
@@ -218,6 +220,7 @@ TRY_REPLACE:devastation = {
 	local_mercenaries_modifier = -0.5
 	local_construction_speed = -0.5
 	local_upper_class_capacity_modifier = 0.5
+	local_defensive = 0.50
 }
 
 TRY_REPLACE:development = {

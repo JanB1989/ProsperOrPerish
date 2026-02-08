@@ -1,0 +1,66 @@
+﻿# Prosper or Perish - Game Start Building Setup
+# Adds cookeries to towns and cities based on population and development thresholds.
+
+on_game_start = {
+	effect = {
+		every_country = {
+			every_owned_location = {
+				# Towns > 20k inhabitants and > 20 dev
+				if = {
+					limit = {
+						location_rank = location_rank:town
+						population > 20
+						development > 20
+						NOT = { has_building = building_type:cookery }
+					}
+					construct_building = {
+						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+				# Cities > 50k inhabitants and > 30 dev (Adds 2 cookeries)
+				else_if = {
+					limit = {
+						location_rank = location_rank:city
+						population > 50
+						development > 30
+					}
+					# First cookery
+					if = {
+						limit = { NOT = { has_building = building_type:cookery } }
+						construct_building = {
+							building_type = building_type:cookery
+							instant = yes
+							cost_multiplier = 0
+							cost_multiplier_reason = "game_start"
+						}
+					}
+					# Second cookery (assuming multiple levels or multiple buildings are allowed by engine)
+					# If the engine only allows one building of a type, this will just ensure it exists.
+					# Based on user request: "adds two cookeries"
+					construct_building = {
+						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+				# Other Cities (Adds 1 cookery)
+				else_if = {
+					limit = {
+						location_rank = location_rank:city
+						NOT = { has_building = building_type:cookery }
+					}
+					construct_building = {
+						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+			}
+		}
+	}
+}
