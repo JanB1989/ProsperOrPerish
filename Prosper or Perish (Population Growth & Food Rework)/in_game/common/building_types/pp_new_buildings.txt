@@ -54,8 +54,8 @@ cookery = {
 			category = building_maintenance
 		}
 
-		cookery_wheat_fish = {
-			wheat = 2.00
+		cookery_millet_fish = {
+			millet = 2.00
 			fish = 2.00
 
 			produced = victuals
@@ -74,10 +74,42 @@ cookery = {
 			category = building_maintenance
 		}
 
+		cookery_pemmican = {
+			livestock = 2.5
+			wild_game = 0.4
+			fruit = 0.2
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_mutton_pease = {
+			wool = 1.25
+			legumes = 1.0
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
 		cookery_labskaus = {
 			potato = 0.5
 			fish = 0.8
 			livestock = 1.6
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_surstromming = {
+			fish = 3.0
+			lumber = 0.25
+			salt = 0.25
 
 			produced = victuals
 			output = 0.9
@@ -135,6 +167,26 @@ cookery = {
 
 			produced = victuals
 			output = 0.60
+
+			category = building_maintenance
+		}
+
+		cookery_mediterranean_preserves = {
+			wine = 1.0
+			olives = 0.8
+
+			produced = victuals
+			output = 0.5
+
+			category = building_maintenance
+		}
+
+		cookery_honey_confections = {
+			beeswax = 1.0
+			fruit = 0.6
+
+			produced = victuals
+			output = 0.6
 
 			category = building_maintenance
 		}

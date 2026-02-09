@@ -114,9 +114,6 @@ REPLACE:lumber_mill = {
 			vegetation = farmland
 			vegetation = jungle
 		}
-		NOT = {
-			raw_material = goods:lumber
-		}
 	}
 
 	category = rgo_building_category
@@ -216,6 +213,19 @@ REPLACE:farming_village = {
 			output = 0.5
 
 			produced = millet
+
+			debug_max_profit = 0.6
+
+			category = building_maintenance
+		}
+
+		wheat_farm_maintenance = {
+			tools = 0.1
+            horses = 0.1
+
+			output = 0.4
+
+			produced = wheat
 
 			debug_max_profit = 0.6
 

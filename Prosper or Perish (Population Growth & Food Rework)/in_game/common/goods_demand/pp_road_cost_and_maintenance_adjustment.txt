@@ -1,14 +1,14 @@
-﻿# Massively increase maintenance and cost of ROADS
+﻿# Revert building costs to vanilla values while keeping the increased maintenance
 # ===================================================
-# ROAD COST & MAINTENANCE OVERHAUL (10x VANILLA)
+# ROAD COST & MAINTENANCE ADJUSTMENT
 # ===================================================
 
 # --- GRAVEL ROADS ---
 
 TRY_REPLACE:build_gravel_road_demand = {
-	lumber = 5.0     # Vanilla: 0.5
-	masonry = 10.0   # Vanilla: 1.0
-	sand = 2.5       # Vanilla: 0.25
+	lumber = 0.5
+	masonry = 1.0
+	sand = 0.25
 	category = building_construction
 }
 
@@ -20,9 +20,9 @@ TRY_REPLACE:maintain_gravel_road_demand = {
 # --- PAVED ROADS ---
 
 TRY_REPLACE:build_paved_road_demand = {
-	lumber = 5.0
-	masonry = 10.0
-	sand = 2.5
+	lumber = 0.5
+	masonry = 1.0
+	sand = 0.25
 	category = building_construction
 }
 
@@ -35,9 +35,9 @@ TRY_REPLACE:maintain_paved_road_demand = {
 # --- MODERN ROADS ---
 
 TRY_REPLACE:build_modern_road_demand = {
-	lumber = 5.0
-	masonry = 10.0
-	sand = 2.5
+	lumber = 0.5
+	masonry = 1.0
+	sand = 0.25
 	category = building_construction
 }
 
@@ -50,10 +50,10 @@ TRY_REPLACE:maintain_modern_road_demand = {
 # --- RAILROADS ---
 
 TRY_REPLACE:build_railroad_demand = {
-	lumber = 5.0
-	masonry = 10.0
-	sand = 2.5
-	steel = 10.0     # Vanilla: 1.0
+	lumber = 0.5
+	masonry = 1.0
+	sand = 0.25
+	steel = 1.0
 	category = building_construction
 }
 
