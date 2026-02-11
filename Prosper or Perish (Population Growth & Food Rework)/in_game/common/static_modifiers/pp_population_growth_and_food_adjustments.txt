@@ -30,6 +30,7 @@ TRY_INJECT:winter_mild = {
 	local_laborers_food_consumption = 0.125
 	local_peasants_food_consumption = 0.125
 	local_slaves_food_consumption = 0.125
+	local_monthly_food_modifier = 0.00
 }
 
 TRY_INJECT:winter_normal = {
@@ -40,6 +41,7 @@ TRY_INJECT:winter_normal = {
 	local_laborers_food_consumption = 0.25
 	local_peasants_food_consumption = 0.25
 	local_slaves_food_consumption = 0.2
+	local_monthly_food_modifier = 0.00
 }
 
 TRY_INJECT:winter_severe = {
@@ -50,6 +52,7 @@ TRY_INJECT:winter_severe = {
 	local_laborers_food_consumption = 0.375
 	local_peasants_food_consumption = 0.375
 	local_slaves_food_consumption = 0.375
+	local_monthly_food_modifier = 1.25
 }
 
 TRY_INJECT:location_base_values = {

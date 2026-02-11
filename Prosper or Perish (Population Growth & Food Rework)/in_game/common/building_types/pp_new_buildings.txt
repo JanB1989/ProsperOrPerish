@@ -2,10 +2,10 @@
 
 cookery = {
 	is_foreign = no
-	max_levels = workshop_max_level
+	max_levels = cookery_max_level
 
 	pop_type = peasants
-	employment_size = 3
+	employment_size = 5
 
 	category = consumer_goods_category
 	icon = cookery

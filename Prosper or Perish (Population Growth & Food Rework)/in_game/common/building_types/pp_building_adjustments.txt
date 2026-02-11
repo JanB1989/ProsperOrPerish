@@ -18,8 +18,8 @@ INJECT:granary = {
 	city = yes
 
 	modifier = {
-		local_food_capacity = 400
-		local_food_capacity_modifier = 0.05
+		local_food_capacity = 800
+		local_food_capacity_modifier = 0.075
 	}
 
 	ai_forbid_shutdown = yes
@@ -275,7 +275,7 @@ REPLACE:dock = {
 			naval_supplies = 0.1
 			tools = 0.2
 			lumber = 0.2
-			victuals = 0.5
+			victuals = 0.4
 			category = building_maintenance
 		}
 
@@ -324,7 +324,7 @@ REPLACE:dry_dock = {
 			naval_supplies = 0.2
 			tools = 0.4
 			lumber = 0.4
-			victuals = 1.0
+			victuals = 0.8
 			category = building_maintenance
 		}
 
@@ -373,7 +373,7 @@ REPLACE:shipyard = {
 			naval_supplies = 0.4
 			tools = 0.8
 			lumber = 0.8
-			victuals = 2.0
+			victuals = 1.6
 			category = building_maintenance
 		}
 
@@ -422,7 +422,7 @@ REPLACE:grand_shipyard = {
 			naval_supplies = 0.8
 			tools = 1.6
 			lumber = 1.6
-			victuals = 4.0
+			victuals = 3.2
 			category = building_maintenance
 		}
 
@@ -471,7 +471,7 @@ REPLACE:naval_base = {
 			naval_supplies = 1.5
 			tools = 3.0
 			lumber = 3.0
-			victuals = 6.25
+			victuals = 5.0
 			category = building_maintenance
 		}
 
