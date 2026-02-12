@@ -5,6 +5,8 @@
 # This modifier is population growth impact at 100 prosperity (linearly scaled down if lower)
 TRY_INJECT:prosperity = {
 	local_population_growth = -0.002
+	local_monthly_development = 0.001
+	local_monthly_development_modifier = 0.25
 }
 
 # I think it makes some sense for people to die when looting

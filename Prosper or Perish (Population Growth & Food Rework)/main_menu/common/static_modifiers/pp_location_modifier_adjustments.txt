@@ -52,7 +52,7 @@ TRY_REPLACE:expensive_food_in_location = {
 	local_soldiers_food_consumption = -0.15
 	local_peasants_food_consumption = -0.25
 	local_monthly_prosperity = -0.0050
-	local_population_growth = -0.004
+	local_population_growth = -0.005
 }
 
 
@@ -61,7 +61,7 @@ TRY_REPLACE:positive_province_food_growth = {
 		category = province
 	}
 	# these values are the values for 12 months of stored province consumption
-	local_population_growth = 0.0040 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
+	local_population_growth = 0.0035 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
 }
@@ -80,6 +80,7 @@ TRY_REPLACE:average_satisfaction_inverted = {
 	}
 	local_monthly_prosperity = -0.0050
 	local_max_control = -0.10
+	local_levy_size_modifier = -0.30
 }
 
 
@@ -113,9 +114,10 @@ TRY_REPLACE:coastal = {
 	}
 	local_population_capacity_modifier = 0.25
 	local_monthly_food_modifier = 0.10
-	local_monthly_food = 2.5
+	local_food_capacity = 10
+	local_monthly_food = 1
 	local_supply_limit_modifier = 0.05
-	local_monthly_development_modifier = 0.10
+	local_monthly_development_modifier = 0.20
 }
 
 
@@ -165,7 +167,7 @@ TRY_REPLACE:location_exports = {
 	}
 	blockade_force_required = 0.01
 	local_monthly_development_modifier = 0.005
-	local_institution_growth_modifier = 0.025
+	local_institution_growth_modifier = 0.050
 }
 
 TRY_REPLACE:location_imports = {
@@ -174,7 +176,7 @@ TRY_REPLACE:location_imports = {
 	}
 	blockade_force_required = 0.01
 	local_monthly_development_modifier = 0.005
-	local_institution_growth_modifier = 0.025
+	local_institution_growth_modifier = 0.050
 
 }
 
@@ -268,8 +270,9 @@ TRY_REPLACE:development = {
 	local_build_buildings_cost = -0.001
 	maximum_stockpile_capacity = 5
 
-	local_monthly_development = -0.00005
+	local_monthly_development = -0.00007
 }
+
 
 
 
@@ -288,6 +291,6 @@ TRY_REPLACE:unemployed_peasants = {
 		category = location
 	}
 	local_monthly_development_modifier = -0.0015
-	local_institution_growth_modifier = -0.0010
+	local_institution_growth_modifier = -0.0020
 	local_monthly_food_modifier = 0.0005
 }

@@ -1,0 +1,10 @@
+﻿TRY_INJECT:land_vs_naval = {
+	left_modifier = {
+		global_max_rgo_size_modifier = 0.05
+        global_merchant_capacity_modifier = -0.15
+	}
+	right_modifier = {
+        global_merchant_capacity_modifier = 0.30
+        global_max_rgo_size_modifier = -0.05
+	}
+}

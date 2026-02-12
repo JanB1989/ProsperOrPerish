@@ -290,7 +290,7 @@ REPLACE:dock = {
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.1
 		local_repair_speed = 0.02
-
+		local_merchant_capacity = 1
 	}
 }
 
@@ -340,6 +340,7 @@ REPLACE:dry_dock = {
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.15
 		local_repair_speed = 0.04
+		local_merchant_capacity = 2
 	}
 }
 
@@ -389,6 +390,7 @@ REPLACE:shipyard = {
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.2
 		local_repair_speed = 0.06
+		local_merchant_capacity = 4
 	}
 }
 
@@ -438,6 +440,7 @@ REPLACE:grand_shipyard = {
 		can_build_ships_in_this_location = yes
 		harbor_suitability = 0.25
 		local_repair_speed = 0.08
+		local_merchant_capacity = 7.5
 	}
 }
 
@@ -488,6 +491,7 @@ REPLACE:naval_base = {
 		harbor_suitability = 0.3
 		local_navy_attrition = -1
 		local_repair_speed = 0.1
+		local_merchant_capacity = 10
 	}
 }
 

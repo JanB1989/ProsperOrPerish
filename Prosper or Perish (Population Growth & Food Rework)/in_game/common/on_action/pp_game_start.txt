@@ -2,6 +2,12 @@
 # Adds cookeries to towns and cities based on population and development thresholds.
 
 on_game_start = {
+	on_actions = {
+		pp_game_start_effect
+	}
+}
+
+pp_game_start_effect = {
 	effect = {
 		every_country = {
 			every_owned_location = {

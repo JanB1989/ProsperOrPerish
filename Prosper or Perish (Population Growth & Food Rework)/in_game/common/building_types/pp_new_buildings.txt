@@ -1,199 +1,199 @@
-﻿# Prosper or Perish - New Buildings
-
-cookery = {
-	is_foreign = no
-	max_levels = cookery_max_level
-
-	pop_type = peasants
-	employment_size = 5
-
-	category = consumer_goods_category
-	icon = cookery
-
-	rural_settlement = no
-	town = yes
-	city = yes
-
-	build_time = workshop_build_time
-	construction_demand = workshop_construction
-
-	# ==========================================
-	# - Unprofitable at baseline prices (~ -30% money)
-	# ==========================================
-
-	unique_production_methods = {
-		# Target: output = 1.0 victuals (price 3.5).
-		# For ~-30% money: total input cost ~= 4.55.
-		cookery_rice_legumes = {
-			rice = 2.00
-			legumes = 2.00
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_rice_fish = {
-			rice = 2.00
-			fish = 2.00
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_wheat_livestock = {
-			wheat = 2.00
-			livestock = 1.35
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_millet_fish = {
-			millet = 2.00
-			fish = 2.00
-
-			produced = victuals
-			output = 0.90
-
-			category = building_maintenance
-		}
-
-		cookery_maize_livestock = {
-			maize = 2.00
-			livestock = 1.35
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_pemmican = {
-			livestock = 2.5
-			wild_game = 0.4
-			fruit = 0.2
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_mutton_pease = {
-			wool = 1.25
-			legumes = 1.0
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_labskaus = {
-			potato = 0.5
-			fish = 0.8
-			livestock = 1.6
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-
-		cookery_surstromming = {
-			fish = 3.0
-			lumber = 0.25
-			salt = 0.25
-
-			produced = victuals
-			output = 0.9
-
-			category = building_maintenance
-		}
-	}
-
-	# ==========================================
-	# 2. ENHANCEMENTS (pick ONE)
-	# - Extra output, steeper unprofitability (~ -50% money on the enhancement itself)
-	# - Designed to be usable with any base recipe
-	# ==========================================
-
-	unique_production_methods = {
-		cookery_no_enhancement = {
-			category = building_maintenance
-		}
-
-		# Target: output = 0.6 victuals (revenue 1.8).
-		# For ~-50% money: enhancement input cost ~= 3.6.
-		cookery_preserved_rations = {
-			salt = 0.4
-			pottery = 0.9
-
-			produced = victuals
-			output = 0.50
-
-			category = building_maintenance
-		}
-
-		cookery_sweet_preserves = {
-			sugar = 0.5
-			fruit = 0.9
-
-			produced = victuals
-			output = 0.70
-
-			category = building_maintenance
-		}
-
-		cookery_spice_blend = {
-			pepper = 0.35
-			cloves = 0.35
-
-			produced = victuals
-			output = 0.70
-
-			category = building_maintenance
-		}
-
-		cookery_spirited_rations = {
-			liquor = 0.70
-			beer = 0.80
-
-			produced = victuals
-			output = 0.60
-
-			category = building_maintenance
-		}
-
-		cookery_mediterranean_preserves = {
-			wine = 1.0
-			olives = 0.8
-
-			produced = victuals
-			output = 0.5
-
-			category = building_maintenance
-		}
-
-		cookery_honey_confections = {
-			beeswax = 1.0
-			fruit = 0.6
-
-			produced = victuals
-			output = 0.6
-
-			category = building_maintenance
-		}
-	}
-
-	modifier = {
-		local_monthly_food = 0
-		local_monthly_food_modifier = 0.03
-	}
-}
+﻿# Prosper or Perish - New Buildings
+
+cookery = {
+	is_foreign = no
+	max_levels = cookery_max_level
+
+	pop_type = peasants
+	employment_size = 5
+
+	category = consumer_goods_category
+	icon = cookery
+
+	rural_settlement = no
+	town = yes
+	city = yes
+
+	build_time = workshop_build_time
+	construction_demand = workshop_construction
+
+	# ==========================================
+	# - Unprofitable at baseline prices (~ -30% money)
+	# ==========================================
+
+	unique_production_methods = {
+		# Target: output = 1.0 victuals (price 3.5).
+		# For ~-30% money: total input cost ~= 4.55.
+		cookery_rice_legumes = {
+			rice = 2.00
+			legumes = 2.00
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_rice_fish = {
+			rice = 2.00
+			fish = 2.00
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_wheat_livestock = {
+			wheat = 2.00
+			livestock = 1.35
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_millet_fish = {
+			millet = 2.00
+			fish = 2.00
+
+			produced = victuals
+			output = 0.90
+
+			category = building_maintenance
+		}
+
+		cookery_maize_livestock = {
+			maize = 2.00
+			livestock = 1.35
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_pemmican = {
+			livestock = 2.5
+			wild_game = 0.4
+			fruit = 0.2
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_mutton_pease = {
+			wool = 1.25
+			legumes = 1.0
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_labskaus = {
+			potato = 0.5
+			fish = 0.8
+			livestock = 1.6
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+
+		cookery_surstromming = {
+			fish = 3.0
+			lumber = 0.25
+			salt = 0.25
+
+			produced = victuals
+			output = 0.9
+
+			category = building_maintenance
+		}
+	}
+
+	# ==========================================
+	# 2. ENHANCEMENTS (pick ONE)
+	# - Extra output, steeper unprofitability (~ -50% money on the enhancement itself)
+	# - Designed to be usable with any base recipe
+	# ==========================================
+
+	unique_production_methods = {
+		cookery_no_enhancement = {
+			category = building_maintenance
+		}
+
+		# Target: output = 0.6 victuals (revenue 1.8).
+		# For ~-50% money: enhancement input cost ~= 3.6.
+		cookery_preserved_rations = {
+			salt = 0.4
+			pottery = 0.9
+
+			produced = victuals
+			output = 0.50
+
+			category = building_maintenance
+		}
+
+		cookery_sweet_preserves = {
+			sugar = 0.5
+			fruit = 0.9
+
+			produced = victuals
+			output = 0.70
+
+			category = building_maintenance
+		}
+
+		cookery_spice_blend = {
+			pepper = 0.35
+			cloves = 0.35
+
+			produced = victuals
+			output = 0.70
+
+			category = building_maintenance
+		}
+
+		cookery_spirited_rations = {
+			liquor = 0.70
+			beer = 0.80
+
+			produced = victuals
+			output = 0.60
+
+			category = building_maintenance
+		}
+
+		cookery_mediterranean_preserves = {
+			wine = 1.0
+			olives = 0.8
+
+			produced = victuals
+			output = 0.5
+
+			category = building_maintenance
+		}
+
+		cookery_honey_confections = {
+			beeswax = 1.0
+			fruit = 0.6
+
+			produced = victuals
+			output = 0.6
+
+			category = building_maintenance
+		}
+	}
+
+	modifier = {
+		local_monthly_food = 0
+		local_monthly_food_modifier = 0.03
+	}
+}
