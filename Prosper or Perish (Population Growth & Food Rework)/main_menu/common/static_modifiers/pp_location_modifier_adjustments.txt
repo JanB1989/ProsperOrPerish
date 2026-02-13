@@ -153,7 +153,7 @@ TRY_REPLACE:total_population = {
 	supply_limit = 0.02
 	blockade_force_required = 0.02
 	
-	local_max_rgo_size = 0.0075
+	local_max_rgo_size = 0.0100
 	
 	free_building_levels = 0.075
 	local_food_capacity = 2.0
@@ -168,7 +168,7 @@ TRY_REPLACE:location_exports = {
 	}
 	blockade_force_required = 0.01
 	local_monthly_development_modifier = 0.003
-	local_institution_growth_modifier = 0.040
+	local_institution_growth_modifier = 0.050
 }
 
 TRY_REPLACE:location_imports = {
@@ -177,7 +177,7 @@ TRY_REPLACE:location_imports = {
 	}
 	blockade_force_required = 0.01
 	local_monthly_development_modifier = 0.003
-	local_institution_growth_modifier = 0.040
+	local_institution_growth_modifier = 0.050
 
 }
 
