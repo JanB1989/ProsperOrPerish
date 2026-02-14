@@ -1,0 +1,7 @@
+﻿cookery_tin_cans_advance = {
+	age = age_6_revolutions
+
+	unlock_production_method = cookery_tin_cans
+
+	requires = steel_mill_advance
+}

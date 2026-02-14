@@ -386,6 +386,44 @@ cookery = {
 
 
 
+	# ==========================================
+
+	# 3. PACKAGING (pick ONE)
+
+	# ==========================================
+
+
+
+	unique_production_methods = {
+
+		cookery_basic_packaging = {
+
+			category = building_maintenance
+
+		}
+
+
+
+		cookery_tin_cans = {
+
+			steel = 0.40
+
+
+
+			produced = victuals
+
+			output = 0.40
+
+
+
+			category = building_maintenance
+
+		}
+
+	}
+
+
+
 	modifier = {
 
 		local_monthly_food = 0
