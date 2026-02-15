@@ -1,0 +1,28 @@
+﻿# Prosper or Perish - Goods Adjustments
+
+# Adjusting transport costs for high-value low-bulk goods
+
+
+
+TRY_INJECT:pepper = {
+
+	transport_cost = 0.2
+
+}
+
+
+
+TRY_INJECT:incense = {
+
+	transport_cost = 0.2
+
+}
+
+
+
+TRY_INJECT:saffron = {
+
+	transport_cost = 0.2
+
+}
+

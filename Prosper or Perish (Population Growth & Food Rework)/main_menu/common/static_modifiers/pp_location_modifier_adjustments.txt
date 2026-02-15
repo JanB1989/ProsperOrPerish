@@ -1,0 +1,297 @@
+# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
+# Food storage in province is now THE driver of population growth
+TRY_REPLACE:province_starving = {
+	game_data = {
+		category = province
+	}
+	local_population_growth = -0.03
+	local_supply_limit_modifier = -0.25
+	local_migration_attraction = -7.5
+	
+	local_pop_demotion_speed_modifier = 0.5 # 0.5
+	local_pop_demotion_speed = 0.05
+	
+	local_upper_class_capacity_modifier = -0.75
+	local_life_expectancy = -10
+	
+	local_migration_speed = 0.015
+    local_monthly_prosperity = -0.01
+
+	local_defensive = -0.30
+	
+	local_tribesmen_migration_allowed = yes
+	local_laborers_migration_allowed = yes
+	local_peasants_migration_allowed = yes
+}
+
+
+TRY_REPLACE:cheap_food_in_location = {
+	game_data = {
+		category = location
+	}
+	local_nobles_food_consumption = 0.4
+	local_clergy_food_consumption = 0.4
+	local_burghers_food_consumption = 0.4
+	local_laborers_food_consumption = 0.4
+	local_soldiers_food_consumption = 0.4
+	local_peasants_food_consumption = 0.4
+	local_population_growth = 0.0100
+	local_monthly_prosperity = 0.0040
+	local_devastation_recovery = 0.0025
+}
+
+TRY_REPLACE:expensive_food_in_location = {
+	game_data = {
+		category = location
+	}
+	local_pop_demotion_speed = 0.25
+	local_nobles_food_consumption = 0.00
+	local_clergy_food_consumption = 0.00
+	local_burghers_food_consumption = -0.10
+	local_laborers_food_consumption = -0.10
+	local_soldiers_food_consumption = -0.10
+	local_peasants_food_consumption = -0.20
+	local_monthly_prosperity = -0.0050
+	local_population_growth = -0.005
+}
+
+
+TRY_REPLACE:positive_province_food_growth = {
+	game_data = {
+		category = province
+	}
+	# these values are the values for 12 months of stored province consumption
+	local_population_growth = 0.0030 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
+	local_devastation_recovery = 0.003
+	local_migration_attraction = 0.03
+}
+
+TRY_REPLACE:surplus_jobs = {
+	game_data = {
+		category = location
+	}
+	local_migration_attraction = 0.3
+	local_migration_speed = 0.001
+}
+
+# I want to in general move more towards satisfaction mattering more and being more dependent on demand
+TRY_REPLACE:average_satisfaction_inverted = {
+	game_data = {
+		category = location
+	}
+	local_monthly_prosperity = -0.0050
+	local_max_control = -0.10
+	local_levy_size_modifier = -0.30
+}
+
+
+# Idea is that if there is lots of free land, people can pick good food production spots
+# Gameplay, this also adds a little insurance that horrifically devastated empty provinces can actually recover easier
+TRY_REPLACE:available_free_land = {
+	game_data = {
+		category = location
+	}
+	local_migration_attraction = 1.00
+	local_population_growth = 0
+    local_monthly_food_modifier = 0.25
+	local_monthly_food = 5
+}
+
+# when it's <10% capacity & <10k
+TRY_REPLACE:abundant_free_land = {
+	game_data = {
+		category = location
+	}
+	local_migration_attraction = 2.0
+    local_population_growth = 0.00
+    local_monthly_food_modifier = 0.40
+	local_monthly_food = 8
+}
+
+# I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
+TRY_REPLACE:coastal = {
+	game_data = {
+		category = location
+	}
+	local_population_capacity_modifier = 0.25
+	local_monthly_food_modifier = 0.10
+	local_food_capacity = 10
+	local_monthly_food = 1
+	local_supply_limit_modifier = 0.05
+	local_monthly_development_modifier = 0.20
+}
+
+
+TRY_REPLACE:building_levels = {
+	game_data = {
+		category = location
+	}
+	local_population_capacity_modifier = 0.001
+	local_population_capacity = 0.300 
+	local_monthly_food_modifier = -0.011
+	local_trade_center_power = 0.0004
+	local_road_building_time = 0.01
+	local_build_new_buildings_cost = 0.020
+	local_food_capacity = 10
+	local_food_capacity_modifier = 0.005
+}
+
+TRY_REPLACE:unsupported_building_levels = {
+	game_data = {
+		category = location 
+	}
+	
+	local_build_new_buildings_cost = 0.01
+	# local_migration_attraction = -0.01
+	# local_population_growth = -0.001
+}
+
+TRY_REPLACE:total_population = {
+	game_data = {
+		category = location
+	}
+	supply_limit = 0.02
+	blockade_force_required = 0.02
+	
+	local_max_rgo_size = 0.0100
+	
+	free_building_levels = 0.075
+	local_food_capacity = 2.0
+	local_disease_resistance = -0.001
+	local_population_capacity = 0.25
+}
+
+# capped at max 100 this value
+TRY_REPLACE:location_exports = {
+	game_data = {
+		category = location
+	}
+	blockade_force_required = 0.01
+	local_monthly_development_modifier = 0.003
+	local_institution_growth_modifier = 0.050
+}
+
+TRY_REPLACE:location_imports = {
+	game_data = {
+		category = location
+	}
+	blockade_force_required = 0.01
+	local_monthly_development_modifier = 0.003
+	local_institution_growth_modifier = 0.050
+
+}
+
+
+# Scales depending on how much over capacity
+TRY_REPLACE:overpopulation = {
+	game_data = {
+		category = location
+	}
+	cap_maximum_population_growth_at_zero = no
+	local_pop_demotion_speed_modifier = 1.0
+	local_migration_attraction = -1.25
+	local_migration_speed = 0.01
+	local_population_growth = -0.010
+	local_disease_resistance = -1.0
+}
+
+TRY_REPLACE:rgo_level = {
+	game_data = {
+		category = location
+	}
+	local_laborers_desired_pop = 1
+	local_raw_material_output = -0.015
+	local_food_capacity = 15
+	local_rgo_build_time = 0.05
+}
+
+TRY_REPLACE:raised_levies = {
+	game_data = {
+		category = location
+	}
+	local_raw_material_output = -0.2
+	local_monthly_food_modifier = -0.35
+}
+
+
+# Devastation doesn't kill people, starvation and other stuff does
+TRY_REPLACE:devastation = {
+	game_data = {
+		category = location
+	}
+	local_population_growth = 0.0
+	local_food_capacity_modifier = 0.5
+	local_monthly_food_modifier = 0.125
+	local_monthly_development = 0.030
+	local_pop_promotion_speed_modifier = 0.05
+	local_pop_demotion_speed = -0.5
+	local_raw_material_output = 0.25
+	local_production_efficiency = 0.5
+	local_monthly_literacy = 0.05
+	local_migration_attraction = 1
+	local_life_expectancy = 10
+	local_mercenaries_modifier = -0.5
+	local_construction_speed = -0.5
+	local_upper_class_capacity_modifier = 0.5
+	local_defensive = 0.50
+}
+
+TRY_REPLACE:development = {
+	game_data = {
+		category = location
+	}
+	local_population_capacity = 1.0
+	local_population_capacity_modifier = 0.01
+
+	local_distance_from_capital_speed_propagation = 0.005
+	local_supply_limit_modifier = 0.02
+	blockade_force_required = 0.01
+	local_migration_attraction = 0.0025
+	local_trade_center_power = 0.001
+
+	local_institution_growth_modifier = 0.002
+	
+	local_construction_speed = 0.01
+	
+	local_monthly_food_modifier = 0.01
+
+	local_food_capacity = 2
+	local_food_capacity_modifier = 0.02
+	
+	free_building_levels = 2
+	
+	local_max_rgo_size = 0.1
+	
+	local_life_expectancy = 0.1
+	
+	occupation_time = 0.01
+
+	local_raw_material_output = 0.001
+	
+	local_build_buildings_cost = -0.001
+	maximum_stockpile_capacity = 5
+
+	local_monthly_development = -0.00007
+}
+
+
+
+
+TRY_REPLACE:minor_rebel_uprising = {
+	game_data = {
+		category = location
+		decaying = yes
+	}
+	local_monthly_prosperity = -0.005
+	local_monthly_control = -0.005
+}
+
+
+TRY_REPLACE:unemployed_peasants = {
+	game_data = {
+		category = location
+	}
+	local_monthly_development_modifier = -0.0015
+	local_institution_growth_modifier = -0.0030
+	local_monthly_food_modifier = 0.0005
+}

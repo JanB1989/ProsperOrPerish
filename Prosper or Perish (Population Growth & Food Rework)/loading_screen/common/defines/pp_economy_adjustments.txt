@@ -1,0 +1,8 @@
+﻿# Here we can directly cap the maximum months of food storage that increase growth
+# GROWTH_FROM_FOOD_MULTIPLIER_MAX default value is 10 -> meaning 12*10 (120 month or 10 years)
+NEconomy = {
+	SUPPLY_AND_DEMAND_STABILITY_OFFSET_CONSTANT = 0.10 # added to supply and demand when calculating market price, higher value means lower price volatility
+	PRODUCTION_EFFIENCY_BONUS_PER_LEVEL = 0.0175
+	GROWTH_FROM_FOOD_MULTIPLIER_MAX = 3
+	BUILDING_UPKEEP_FACTOR = 0.30
+}

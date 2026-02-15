@@ -1,0 +1,62 @@
+﻿# This file is mostly used to reduce existing population growth modifiers to 0
+# Generally the idea is to disentangle pop growth from everything that has nothing to do with food growth (mostly)
+# If you provide a lot of food in the province, growth is massively increased, if not provinces grow very little
+
+# This modifier is population growth impact at 100 prosperity (linearly scaled down if lower)
+TRY_INJECT:prosperity = {
+	local_population_growth = -0.002
+	local_monthly_development = 0.001
+	local_monthly_development_modifier = 0.25
+}
+
+# I think it makes some sense for people to die when looting
+# Idea is that food stocks are raided
+TRY_INJECT:looted = {
+	local_population_growth = -0.005 # -0.005 # 0.01
+	local_food_capacity_modifier = -0.4
+}
+
+# Idea is that food stocks less organized and taken over by occupier
+# Gameplay should reduce food storage making food variance more painful
+TRY_INJECT:is_occupied = {
+	local_food_capacity_modifier = -0.8
+}
+
+# Food production is already reduced, but since that modifier is already so overloaded with additive stuff we change food consumption
+# It makes sense that food consumption changes when it's giga cold
+TRY_INJECT:winter_mild = {
+	local_population_growth = -0.0005 # NA
+	local_nobles_food_consumption = 0.125
+	local_clergy_food_consumption = 0.125
+	local_burghers_food_consumption = 0.125
+	local_laborers_food_consumption = 0.125
+	local_peasants_food_consumption = 0.125
+	local_slaves_food_consumption = 0.125
+	local_monthly_food_modifier = 0.00
+}
+
+TRY_INJECT:winter_normal = {
+	local_population_growth = -0.001 # NA
+	local_nobles_food_consumption = 0.25
+	local_clergy_food_consumption = 0.25
+	local_burghers_food_consumption = 0.25
+	local_laborers_food_consumption = 0.25
+	local_peasants_food_consumption = 0.25
+	local_slaves_food_consumption = 0.2
+	local_monthly_food_modifier = 0.00
+}
+
+TRY_INJECT:winter_severe = {
+	local_population_growth = -0.002 # NA
+	local_nobles_food_consumption = 0.375
+	local_clergy_food_consumption = 0.375
+	local_burghers_food_consumption = 0.375
+	local_laborers_food_consumption = 0.375
+	local_peasants_food_consumption = 0.375
+	local_slaves_food_consumption = 0.375
+	local_monthly_food_modifier = 1.25
+}
+
+TRY_INJECT:location_base_values = {
+	local_devastation_recovery = -0.004
+}

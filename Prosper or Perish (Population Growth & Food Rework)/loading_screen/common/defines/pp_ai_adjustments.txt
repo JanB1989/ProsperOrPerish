@@ -1,0 +1,13 @@
+﻿NAI = {
+    AI_MARKET_LOW_FOOD_THRESHOLD = 0.5 # when market food stockpile reaches this level AI will improve food production if food balance is negative
+	AI_MARKET_CRITICAL_FOOD_THRESHOLD = 0.15 # when market food stockpile reaches this level AI will improve food production even if food balance is positive
+	AI_PROVINCE_FOOD_STOCKPILE_UTILITY = 0.25 # utility for province food stockpile modifier, upper limit based on total province food consumption change
+    AI_MAXIMUM_EXPECT_TOWN_RATIO = 0.20 # when evaluating RGO vs town efficiency modifier we consider this town Ratio as "100% urbanized"	
+    AI_MIN_ALLOWED_URBANIZE_FOOD_LOCATION_RATIO = 0.15 # minimum ratio of food locations that is allowed to be cities based on market average market food yield
+	AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION_RATIO = 0.25 # maximum ratio of food locations that is allowed to be cities based on market average market food yield
+    AI_AVERAGE_MARKET_FOOD_FOR_MAX_FOOD_URBANIZATION = 20 # AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION is reached when average location in market has this base food output of their rgo
+    FOOD_NEGATIVE_IN_PROV_UTILITY = 0.4
+    PEASANT_BUILDING_IN_CITY_UTILITY_MULT = 0.10 # penalty for building peasant building in city that could be built in rural
+	AI_GLOBAL_BUILDING_COST_UTIL = -0.5
+	AI_GLOBAL_URBAN_BUILDING_COST_UTIL = -0.5
+}
