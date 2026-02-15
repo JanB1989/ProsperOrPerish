@@ -1,5 +1,5 @@
-# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
-# Food storage in province is now THE driver of population growth
+﻿# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
+# Food storage in province is now the driver of population growth
 TRY_REPLACE:province_starving = {
 	game_data = {
 		category = province
