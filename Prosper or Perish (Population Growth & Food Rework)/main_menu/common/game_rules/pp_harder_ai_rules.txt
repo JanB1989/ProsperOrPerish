@@ -2,7 +2,6 @@
 	default = pp_harder_ai_normal
 
 	pp_harder_ai_normal = {
-		apply_modifier = ai:pp_harder_ai_normal_modifier
 		flag = general_rule
 	}
 

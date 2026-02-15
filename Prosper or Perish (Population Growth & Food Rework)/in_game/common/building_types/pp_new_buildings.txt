@@ -406,7 +406,7 @@ cookery = {
 
 		cookery_tin_cans = {
 
-			steel = 0.40
+			steel = 0.5
 
 
 

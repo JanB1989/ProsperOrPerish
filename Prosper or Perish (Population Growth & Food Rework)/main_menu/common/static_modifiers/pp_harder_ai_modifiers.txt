@@ -1,11 +1,4 @@
-﻿pp_harder_ai_normal_modifier = {
-	game_data = {
-		category = country
-	}
-}
-
-
-pp_harder_ai_harder_modifier = {
+﻿pp_harder_ai_harder_modifier = {
 
 	game_data = {
 

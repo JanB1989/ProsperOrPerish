@@ -4,4 +4,6 @@
 	unlock_production_method = cookery_tin_cans
 
 	requires = steel_mill_advance
+
+	icon = cookery_tin_cans_advance
 }
