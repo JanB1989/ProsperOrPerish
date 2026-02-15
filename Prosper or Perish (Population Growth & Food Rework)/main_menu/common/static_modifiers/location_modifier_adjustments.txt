@@ -1,4 +1,4 @@
-# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
+﻿# Starvation is now much more both in terms of people dying and in terms of people getting out of the province
 # Food storage in province is now THE driver of population growth
 TRY_REPLACE:province_starving = {
 	game_data = {
@@ -62,7 +62,7 @@ TRY_REPLACE:surplus_jobs = {
 	game_data = {
 		category = location
 	}
-	local_migration_attraction = 3.0
+	local_migration_attraction = 0.30
 }
 
 # I want to in general move more towards satisfaction mattering more and being more dependent on demand
