@@ -3,7 +3,6 @@
 TRY_INJECT:rgo_logistics_mil_choice = {
 	raw_material_in_province_impact = 0.05
 }
-
 TRY_INJECT:rgo_logistics_discovery = {
 	raw_material_in_province_impact = 0.05
 }

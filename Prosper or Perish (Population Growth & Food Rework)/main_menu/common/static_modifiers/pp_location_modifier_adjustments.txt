@@ -16,46 +16,40 @@ TRY_REPLACE:province_starving = {
 	
 	local_migration_speed = 0.015
     local_monthly_prosperity = -0.01
-
 	local_defensive = -0.30
 	
 	local_tribesmen_migration_allowed = yes
 	local_laborers_migration_allowed = yes
 	local_peasants_migration_allowed = yes
 }
-
-
 TRY_REPLACE:cheap_food_in_location = {
 	game_data = {
 		category = location
 	}
-	local_nobles_food_consumption = 0.4
-	local_clergy_food_consumption = 0.4
-	local_burghers_food_consumption = 0.4
-	local_laborers_food_consumption = 0.4
-	local_soldiers_food_consumption = 0.4
-	local_peasants_food_consumption = 0.4
+	local_nobles_food_consumption = 0.25
+	local_clergy_food_consumption = 0.25
+	local_burghers_food_consumption = 0.25
+	local_laborers_food_consumption = 0.25
+	local_soldiers_food_consumption = 0.25
+	local_peasants_food_consumption = 0.25
 	local_population_growth = 0.0100
 	local_monthly_prosperity = 0.0040
 	local_devastation_recovery = 0.0025
 }
-
 TRY_REPLACE:expensive_food_in_location = {
 	game_data = {
 		category = location
 	}
 	local_pop_demotion_speed = 0.25
-	local_nobles_food_consumption = 0.00
-	local_clergy_food_consumption = 0.00
-	local_burghers_food_consumption = -0.10
-	local_laborers_food_consumption = -0.10
-	local_soldiers_food_consumption = -0.10
-	local_peasants_food_consumption = -0.20
+	local_nobles_food_consumption = -0.10
+	local_clergy_food_consumption = -0.10
+	local_burghers_food_consumption = -0.15
+	local_laborers_food_consumption = -0.15
+	local_soldiers_food_consumption = -0.15
+	local_peasants_food_consumption = -0.30
 	local_monthly_prosperity = -0.0050
 	local_population_growth = -0.005
 }
-
-
 TRY_REPLACE:positive_province_food_growth = {
 	game_data = {
 		category = province
@@ -64,8 +58,8 @@ TRY_REPLACE:positive_province_food_growth = {
 	local_population_growth = 0.0030 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
+	local_peasants_food_consumption = 0.04
 }
-
 TRY_REPLACE:surplus_jobs = {
 	game_data = {
 		category = location
@@ -73,7 +67,6 @@ TRY_REPLACE:surplus_jobs = {
 	local_migration_attraction = 0.3
 	local_migration_speed = 0.001
 }
-
 # I want to in general move more towards satisfaction mattering more and being more dependent on demand
 TRY_REPLACE:average_satisfaction_inverted = {
 	game_data = {
@@ -83,8 +76,6 @@ TRY_REPLACE:average_satisfaction_inverted = {
 	local_max_control = -0.10
 	local_levy_size_modifier = -0.30
 }
-
-
 # Idea is that if there is lots of free land, people can pick good food production spots
 # Gameplay, this also adds a little insurance that horrifically devastated empty provinces can actually recover easier
 TRY_REPLACE:available_free_land = {
@@ -93,10 +84,12 @@ TRY_REPLACE:available_free_land = {
 	}
 	local_migration_attraction = 1.00
 	local_population_growth = 0
-    local_monthly_food_modifier = 0.25
-	local_monthly_food = 5
+    local_monthly_food_modifier = 0.0
+	local_monthly_food = 0 # 5
+	local_wheat_output_modifier = 0.05
+	local_millet_output_modifier = 0.05
+	local_livestock_output_modifier = 0.05
 }
-
 # when it's <10% capacity & <10k
 TRY_REPLACE:abundant_free_land = {
 	game_data = {
@@ -104,38 +97,37 @@ TRY_REPLACE:abundant_free_land = {
 	}
 	local_migration_attraction = 2.0
     local_population_growth = 0.00
-    local_monthly_food_modifier = 0.40
-	local_monthly_food = 8
+    local_monthly_food_modifier = 0.0
+	local_monthly_food = 0 # 8
+	local_wheat_output_modifier = 0.1
+	local_millet_output_modifier = 0.1
+	local_livestock_output_modifier = 0.1
 }
-
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
 TRY_REPLACE:coastal = {
 	game_data = {
 		category = location
 	}
 	local_population_capacity_modifier = 0.25
-	local_monthly_food_modifier = 0.10
 	local_food_capacity = 10
-	local_monthly_food = 1
+	local_monthly_food = 0 # 1
 	local_supply_limit_modifier = 0.05
 	local_monthly_development_modifier = 0.20
+	local_fish_output_modifier = 0.1
 }
-
-
 TRY_REPLACE:building_levels = {
 	game_data = {
 		category = location
 	}
 	local_population_capacity_modifier = 0.001
 	local_population_capacity = 0.300 
-	local_monthly_food_modifier = -0.011
+	# local_monthly_food_modifier = -0.011
 	local_trade_center_power = 0.0004
 	local_road_building_time = 0.01
 	local_build_new_buildings_cost = 0.020
-	local_food_capacity = 10
+	local_food_capacity = 15
 	local_food_capacity_modifier = 0.005
 }
-
 TRY_REPLACE:unsupported_building_levels = {
 	game_data = {
 		category = location 
@@ -145,7 +137,6 @@ TRY_REPLACE:unsupported_building_levels = {
 	# local_migration_attraction = -0.01
 	# local_population_growth = -0.001
 }
-
 TRY_REPLACE:total_population = {
 	game_data = {
 		category = location
@@ -156,11 +147,10 @@ TRY_REPLACE:total_population = {
 	local_max_rgo_size = 0.0100
 	
 	free_building_levels = 0.075
-	local_food_capacity = 2.0
+	local_food_capacity = 3.0
 	local_disease_resistance = -0.001
 	local_population_capacity = 0.25
 }
-
 # capped at max 100 this value
 TRY_REPLACE:location_exports = {
 	game_data = {
@@ -170,7 +160,6 @@ TRY_REPLACE:location_exports = {
 	local_monthly_development_modifier = 0.003
 	local_institution_growth_modifier = 0.050
 }
-
 TRY_REPLACE:location_imports = {
 	game_data = {
 		category = location
@@ -178,10 +167,7 @@ TRY_REPLACE:location_imports = {
 	blockade_force_required = 0.01
 	local_monthly_development_modifier = 0.003
 	local_institution_growth_modifier = 0.050
-
 }
-
-
 # Scales depending on how much over capacity
 TRY_REPLACE:overpopulation = {
 	game_data = {
@@ -194,34 +180,41 @@ TRY_REPLACE:overpopulation = {
 	local_population_growth = -0.010
 	local_disease_resistance = -1.0
 }
-
 TRY_REPLACE:rgo_level = {
 	game_data = {
 		category = location
 	}
-	local_laborers_desired_pop = 1
+	local_laborers_desired_pop = 1.025
 	local_raw_material_output = -0.015
 	local_food_capacity = 15
 	local_rgo_build_time = 0.05
 }
-
 TRY_REPLACE:raised_levies = {
 	game_data = {
 		category = location
 	}
 	local_raw_material_output = -0.2
-	local_monthly_food_modifier = -0.35
+	local_wheat_output_modifier = -0.10
+	local_rice_output_modifier = -0.10
+	local_millet_output_modifier = -0.10
+	local_maize_output_modifier = -0.10
+	local_legumes_output_modifier = -0.10
+	local_fruit_output_modifier = -0.10
+	local_olives_output_modifier = -0.10
+	local_potatoes_output_modifier = -0.10
+	local_livestock_output_modifier = -0.10
+	local_beeswax_output_modifier = -0.10
+	local_wool_output_modifier = -0.10
+	local_fish_output_modifier = -0.10
+	local_wild_game_output_modifier = -0.10
 }
-
-
 # Devastation doesn't kill people, starvation and other stuff does
 TRY_REPLACE:devastation = {
 	game_data = {
 		category = location
 	}
 	local_population_growth = 0.0
-	local_food_capacity_modifier = 0.5
-	local_monthly_food_modifier = 0.125
+	local_food_capacity_modifier = 0 # 0.5
 	local_monthly_development = 0.030
 	local_pop_promotion_speed_modifier = 0.05
 	local_pop_demotion_speed = -0.5
@@ -235,26 +228,20 @@ TRY_REPLACE:devastation = {
 	local_upper_class_capacity_modifier = 0.5
 	local_defensive = 0.50
 }
-
 TRY_REPLACE:development = {
 	game_data = {
 		category = location
 	}
 	local_population_capacity = 1.0
 	local_population_capacity_modifier = 0.01
-
 	local_distance_from_capital_speed_propagation = 0.005
 	local_supply_limit_modifier = 0.02
 	blockade_force_required = 0.01
 	local_migration_attraction = 0.0025
 	local_trade_center_power = 0.001
-
 	local_institution_growth_modifier = 0.002
-	
 	local_construction_speed = 0.01
 	
-	local_monthly_food_modifier = 0.01
-
 	local_food_capacity = 2
 	local_food_capacity_modifier = 0.02
 	
@@ -265,18 +252,25 @@ TRY_REPLACE:development = {
 	local_life_expectancy = 0.1
 	
 	occupation_time = 0.01
-
 	local_raw_material_output = 0.001
 	
 	local_build_buildings_cost = -0.001
 	maximum_stockpile_capacity = 5
-
 	local_monthly_development = -0.00007
+	local_wheat_output_modifier = 0.0025
+	local_rice_output_modifier = 0.0025
+	local_millet_output_modifier = 0.0025
+	local_maize_output_modifier = 0.0025
+	local_legumes_output_modifier = 0.0025
+	local_fruit_output_modifier = 0.0025
+	local_olives_output_modifier = 0.0025
+	local_potatoes_output_modifier = 0.0025
+	local_livestock_output_modifier = 0.0025
+	local_beeswax_output_modifier = 0.0025
+	local_wool_output_modifier = 0.0025
+	local_fish_output_modifier = 0.0025
+	local_wild_game_output_modifier = 0.0025
 }
-
-
-
-
 TRY_REPLACE:minor_rebel_uprising = {
 	game_data = {
 		category = location
@@ -285,13 +279,159 @@ TRY_REPLACE:minor_rebel_uprising = {
 	local_monthly_prosperity = -0.005
 	local_monthly_control = -0.005
 }
-
-
 TRY_REPLACE:unemployed_peasants = {
 	game_data = {
 		category = location
 	}
 	local_monthly_development_modifier = -0.0015
 	local_institution_growth_modifier = -0.0030
-	local_monthly_food_modifier = 0.0005
+}
+TRY_INJECT:market_center = {
+	maximum_stockpile_capacity = 250
+}
+TRY_INJECT:river_flowing_through = {
+	local_monthly_food_modifier = -0.05 # vanilla 0.05
+	local_rice_output_modifier = 0.05
+	local_fish_output_modifier = 0.025
+}
+
+TRY_INJECT:volcanic_soil = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_wheat_output_modifier = 0.2
+	local_fruit_output_modifier = 0.2
+	local_olives_output_modifier = 0.2
+}
+
+TRY_INJECT:hostile_troops = {
+	local_monthly_food_modifier = 0.05 # vanilla -0.05
+	local_wheat_output_modifier = -0.05
+	local_rice_output_modifier = -0.05
+}
+
+TRY_INJECT:merino_wool = {
+	local_monthly_food_modifier = 0.2 # vanilla -0.2
+	local_wool_output_modifier = 0.2
+}
+
+TRY_INJECT:minority_prospers = {
+	local_monthly_food_modifier = -0.25 # vanilla 0.25
+	local_wheat_output_modifier = 0.05
+	local_rice_output_modifier = 0.05
+}
+
+TRY_INJECT:fra_english_ports_raided = {
+	local_monthly_food_modifier = 0.33 # vanilla -0.33
+	local_fish_output_modifier = -0.2
+}
+
+TRY_INJECT:local_abuses_modifier = {
+	local_monthly_food_modifier = 0.5 # vanilla -0.5
+	local_wheat_output_modifier = -0.1
+	local_rice_output_modifier = -0.1
+}
+
+TRY_INJECT:recovering_from_raids = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_wheat_output_modifier = 0.1
+	local_rice_output_modifier = 0.1
+}
+
+TRY_INJECT:fewer_fisheries_modifier = {
+	local_monthly_food_modifier = 0.25 # vanilla -0.25
+	local_fish_output_modifier = -0.25
+}
+
+TRY_INJECT:heavy_rain_in_location = {
+	local_monthly_food_modifier = -0.25 # vanilla 0.25
+	local_rice_output_modifier = 0.1
+}
+
+TRY_INJECT:high_winds_in_location = {
+	local_monthly_food_modifier = 0.05 # vanilla -0.05
+	local_fruit_output_modifier = -0.1
+}
+
+TRY_INJECT:sandstorm_in_location = {
+	local_monthly_food_modifier = 0.15 # vanilla -0.15
+	local_wheat_output_modifier = -0.1
+	local_millet_output_modifier = -0.05
+}
+
+TRY_INJECT:snow_storm_in_location = {
+	local_monthly_food_modifier = 0.25 # vanilla -0.25
+	local_wheat_output_modifier = -0.2
+}
+
+TRY_INJECT:tornado_in_location = {
+	local_monthly_food_modifier = 0.2 # vanilla -0.2
+	local_wheat_output_modifier = -0.2
+	local_fruit_output_modifier = -0.2
+}
+
+TRY_INJECT:introduction_of_self_sharpening_plows = {
+	local_monthly_food_modifier = -0.05 # vanilla 0.05
+	local_wheat_output_modifier = 0.05
+}
+
+TRY_INJECT:agricultural_revolution = {
+	local_monthly_food_modifier = -0.1 # vanilla 0.1
+	local_wheat_output_modifier = 0.1
+	local_rice_output_modifier = 0.1
+}
+
+TRY_INJECT:harsh_winters_modifier = {
+	local_monthly_food_modifier = 0.25 # vanilla -0.25
+	local_wheat_output_modifier = -0.1
+}
+
+TRY_INJECT:pap_drained_marshes = {
+	local_monthly_food_modifier = -0.1 # vanilla 0.1
+	local_wheat_output_modifier = 0.1
+}
+
+TRY_INJECT:lit_grain_supply_of_europe = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_wheat_output_modifier = 0.3
+}
+
+TRY_INJECT:mam_granary_of_the_mediterranean = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_wheat_output_modifier = 0.3
+}
+
+TRY_INJECT:spa_efficient_market_system = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_wheat_output_modifier = 0.1
+	local_rice_output_modifier = 0.1
+}
+
+TRY_INJECT:iro_three_sisters_harvest = {
+	local_monthly_food_modifier = -0.33 # vanilla 0.33
+	local_maize_output_modifier = 0.2
+	local_legumes_output_modifier = 0.1
+}
+
+TRY_INJECT:chk_food_conditions_horrific = {
+	local_monthly_food_modifier = 0.25 # vanilla -0.25
+	local_maize_output_modifier = -0.2
+}
+
+TRY_INJECT:chk_nixtamalized_maize_practice_reintroduced = {
+	local_monthly_food_modifier = 0.10 # vanilla -0.10
+	local_maize_output_modifier = 0.1
+}
+
+TRY_INJECT:pue_improve_capital_irrigation = {
+	local_monthly_food_modifier = -0.15 # vanilla 0.15
+	local_maize_output_modifier = 0.1
+}
+
+TRY_INJECT:pue_mesa_verde_capital = {
+	local_monthly_food_modifier = -0.5 # vanilla 0.5
+	local_maize_output_modifier = 0.3
+}
+
+TRY_INJECT:jap_osaka_castle = {
+	local_monthly_food_modifier = -0.1 # vanilla 0.1
+	local_rice_output_modifier = 0.05
 }

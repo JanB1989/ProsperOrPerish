@@ -1,0 +1,56 @@
+﻿pp_cull_over_cap_buildings = {
+	effect = {
+		every_owned_location = {
+			# Fruit Orchard
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:fruit_orchard
+						value > fruit_orchard_max_level
+					}
+				}
+				change_building_level_in_location = { building = building_type:fruit_orchard value = -1 }
+			}
+			# Fishing Village
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:fishing_village
+						value > fishing_village_max_level
+					}
+				}
+				change_building_level_in_location = { building = building_type:fishing_village value = -1 }
+			}
+			# Sheep Farms
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:sheep_farms
+						value > sheep_farms_max_level
+					}
+				}
+				change_building_level_in_location = { building = building_type:sheep_farms value = -1 }
+			}
+			# Farming Village
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:farming_village
+						value > farming_village_max_level
+					}
+				}
+				change_building_level_in_location = { building = building_type:farming_village value = -1 }
+			}
+			# Forest Village
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:forest_village
+						value > forest_village_max_level
+					}
+				}
+				change_building_level_in_location = { building = building_type:forest_village value = -1 }
+			}
+		}
+	}
+}

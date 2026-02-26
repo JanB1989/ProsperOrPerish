@@ -1,22 +1,174 @@
 ﻿# Prosper or Perish - Game Start Building Setup
 # Adds cookeries to towns and cities based on population and development thresholds.
-
 on_game_start = {
 	on_actions = {
+		pp_precalculate_building_capacities
 		pp_game_start_effect
+	}
+}
+pp_precalculate_building_capacities = {
+	effect = {
+		every_location_in_the_world = {
+			set_variable = { name = pp_fruit_orchard_fixed_env_bonus value = 0 }
+			set_variable = { name = pp_fishing_village_fixed_env_bonus value = 0 }
+			set_variable = { name = pp_sheep_farms_fixed_env_bonus value = 0 }
+			set_variable = { name = pp_farming_village_fixed_env_bonus value = 0 }
+			set_variable = { name = pp_forest_village_fixed_env_bonus value = 0 }
+		}
+		every_location_in_the_world = {
+			limit = { is_land = yes }
+			set_variable = {
+				name = pp_fruit_orchard_fixed_env_bonus
+				value = pp_fruit_orchard_capacity_value
+			}
+			set_variable = {
+				name = pp_fishing_village_fixed_env_bonus
+				value = pp_fishing_village_capacity_value
+			}
+			set_variable = {
+				name = pp_sheep_farms_fixed_env_bonus
+				value = pp_sheep_farms_capacity_value
+			}
+			set_variable = {
+				name = pp_farming_village_fixed_env_bonus
+				value = pp_farming_village_capacity_value
+			}
+			set_variable = {
+				name = pp_forest_village_fixed_env_bonus
+				value = pp_forest_village_capacity_value
+			}
+		}
+		# Initialize Global Min/Max
+		set_global_variable = { name = pp_fruit_orchard_global_min value = 100 }
+		set_global_variable = { name = pp_fruit_orchard_global_max value = 0 }
+		set_global_variable = { name = pp_fishing_village_global_min value = 100 }
+		set_global_variable = { name = pp_fishing_village_global_max value = 0 }
+		set_global_variable = { name = pp_sheep_farms_global_min value = 100 }
+		set_global_variable = { name = pp_sheep_farms_global_max value = 0 }
+		set_global_variable = { name = pp_farming_village_global_min value = 100 }
+		set_global_variable = { name = pp_farming_village_global_max value = 0 }
+		set_global_variable = { name = pp_forest_village_global_min value = 100 }
+		set_global_variable = { name = pp_forest_village_global_max value = 0 }
+
+		every_location_in_the_world = {
+			limit = { is_land = yes }
+			# Fruit Orchard
+			if = {
+				limit = { var:pp_fruit_orchard_fixed_env_bonus > global_var:pp_fruit_orchard_global_max }
+				set_global_variable = { name = pp_fruit_orchard_global_max value = var:pp_fruit_orchard_fixed_env_bonus }
+			}
+			if = {
+				limit = { var:pp_fruit_orchard_fixed_env_bonus < global_var:pp_fruit_orchard_global_min }
+				set_global_variable = { name = pp_fruit_orchard_global_min value = var:pp_fruit_orchard_fixed_env_bonus }
+			}
+			# Fishing Village
+			if = {
+				limit = { var:pp_fishing_village_fixed_env_bonus > global_var:pp_fishing_village_global_max }
+				set_global_variable = { name = pp_fishing_village_global_max value = var:pp_fishing_village_fixed_env_bonus }
+			}
+			if = {
+				limit = { var:pp_fishing_village_fixed_env_bonus < global_var:pp_fishing_village_global_min }
+				set_global_variable = { name = pp_fishing_village_global_min value = var:pp_fishing_village_fixed_env_bonus }
+			}
+			# Sheep Farms
+			if = {
+				limit = { var:pp_sheep_farms_fixed_env_bonus > global_var:pp_sheep_farms_global_max }
+				set_global_variable = { name = pp_sheep_farms_global_max value = var:pp_sheep_farms_fixed_env_bonus }
+			}
+			if = {
+				limit = { var:pp_sheep_farms_fixed_env_bonus < global_var:pp_sheep_farms_global_min }
+				set_global_variable = { name = pp_sheep_farms_global_min value = var:pp_sheep_farms_fixed_env_bonus }
+			}
+			# Farming Village
+			if = {
+				limit = { var:pp_farming_village_fixed_env_bonus > global_var:pp_farming_village_global_max }
+				set_global_variable = { name = pp_farming_village_global_max value = var:pp_farming_village_fixed_env_bonus }
+			}
+			if = {
+				limit = { var:pp_farming_village_fixed_env_bonus < global_var:pp_farming_village_global_min }
+				set_global_variable = { name = pp_farming_village_global_min value = var:pp_farming_village_fixed_env_bonus }
+			}
+			# Forest Village
+			if = {
+				limit = { var:pp_forest_village_fixed_env_bonus > global_var:pp_forest_village_global_max }
+				set_global_variable = { name = pp_forest_village_global_max value = var:pp_forest_village_fixed_env_bonus }
+			}
+			if = {
+				limit = { var:pp_forest_village_fixed_env_bonus < global_var:pp_forest_village_global_min }
+				set_global_variable = { name = pp_forest_village_global_min value = var:pp_forest_village_fixed_env_bonus }
+			}
+		}
+		
+		# Calculate Ranges
+		set_global_variable = {
+			name = pp_fruit_orchard_global_range
+			value = global_var:pp_fruit_orchard_global_max
+		}
+		change_global_variable = {
+			name = pp_fruit_orchard_global_range
+			add = { value = global_var:pp_fruit_orchard_global_min multiply = -1 }
+		}
+		
+		set_global_variable = {
+			name = pp_fishing_village_global_range
+			value = global_var:pp_fishing_village_global_max
+		}
+		change_global_variable = {
+			name = pp_fishing_village_global_range
+			add = { value = global_var:pp_fishing_village_global_min multiply = -1 }
+		}
+
+		set_global_variable = {
+			name = pp_sheep_farms_global_range
+			value = global_var:pp_sheep_farms_global_max
+		}
+		change_global_variable = {
+			name = pp_sheep_farms_global_range
+			add = { value = global_var:pp_sheep_farms_global_min multiply = -1 }
+		}
+
+		set_global_variable = {
+			name = pp_farming_village_global_range
+			value = global_var:pp_farming_village_global_max
+		}
+		change_global_variable = {
+			name = pp_farming_village_global_range
+			add = { value = global_var:pp_farming_village_global_min multiply = -1 }
+		}
+
+		set_global_variable = {
+			name = pp_forest_village_global_range
+			value = global_var:pp_forest_village_global_max
+		}
+		change_global_variable = {
+			name = pp_forest_village_global_range
+			add = { value = global_var:pp_forest_village_global_min multiply = -1 }
+		}
 	}
 }
 
 pp_game_start_effect = {
 	effect = {
 		every_country = {
+			capital = {
+				construct_building = {
+					building_type = building_type:cookery
+					instant = yes
+					cost_multiplier = 0
+					cost_multiplier_reason = "game_start"
+				}
+				construct_building = {
+					building_type = building_type:tavern
+					instant = yes
+					cost_multiplier = 0
+					cost_multiplier_reason = "game_start"
+				}
+			}
 			every_owned_location = {
-				# Towns > 20k inhabitants and > 20 dev
 				if = {
 					limit = {
-						location_rank = location_rank:town
-						population > 20
-						development > 20
+						location_rank = location_rank:rural
+						population > 50
 						NOT = { has_building = building_type:cookery }
 					}
 					construct_building = {
@@ -26,14 +178,27 @@ pp_game_start_effect = {
 						cost_multiplier_reason = "game_start"
 					}
 				}
-				# Cities > 50k inhabitants and > 30 dev (Adds 2 cookeries)
+
+				if = {
+					limit = {
+						location_rank = location_rank:town
+						population > 10
+						development > 10
+						NOT = { has_building = building_type:cookery }
+					}
+					construct_building = {
+						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
 				else_if = {
 					limit = {
 						location_rank = location_rank:city
-						population > 50
-						development > 30
+						population > 10
+						development > 10
 					}
-					# First cookery
 					if = {
 						limit = { NOT = { has_building = building_type:cookery } }
 						construct_building = {
@@ -43,9 +208,6 @@ pp_game_start_effect = {
 							cost_multiplier_reason = "game_start"
 						}
 					}
-					# Second cookery (assuming multiple levels or multiple buildings are allowed by engine)
-					# If the engine only allows one building of a type, this will just ensure it exists.
-					# Based on user request: "adds two cookeries"
 					construct_building = {
 						building_type = building_type:cookery
 						instant = yes
@@ -53,7 +215,6 @@ pp_game_start_effect = {
 						cost_multiplier_reason = "game_start"
 					}
 				}
-				# Other Cities (Adds 1 cookery)
 				else_if = {
 					limit = {
 						location_rank = location_rank:city
@@ -61,6 +222,119 @@ pp_game_start_effect = {
 					}
 					construct_building = {
 						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = {
+						OR = {
+							AND = {
+								location_rank = location_rank:town
+								population > 10
+							}
+							AND = {
+								location_rank = location_rank:city
+								population > 10
+							}
+							AND = {
+								location_rank = location_rank:rural
+								population > 50
+							}
+						}
+						NOT = { has_building = building_type:tavern }
+					}
+					construct_building = {
+						building_type = building_type:tavern
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = {
+						OR = {
+							raw_material = goods:wheat
+							raw_material = goods:maize
+							raw_material = goods:rice
+							raw_material = goods:millet
+							raw_material = goods:legumes
+							raw_material = goods:potato
+							raw_material = goods:livestock
+							raw_material = goods:olives
+							raw_material = goods:fruit
+							raw_material = goods:wool
+						}
+					}
+					construct_building = {
+						building_type = building_type:farming_village
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = {
+						OR = {
+							raw_material = goods:fish
+							raw_material = goods:salt
+							raw_material = goods:amber
+							raw_material = goods:pearls
+						}
+					}
+					construct_building = {
+						building_type = building_type:fishing_village
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+					construct_building = {
+						building_type = building_type:fishing_village
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = { raw_material = goods:wool }
+					construct_building = {
+						building_type = building_type:sheep_farms
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = {
+						OR = {
+							raw_material = goods:wild_game
+							raw_material = goods:fur
+						}
+					}
+					construct_building = {
+						building_type = building_type:forest_village
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+				}
+
+				if = {
+					limit = { raw_material = goods:fruit }
+					construct_building = {
+						building_type = building_type:fruit_orchard
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+					construct_building = {
+						building_type = building_type:fruit_orchard
 						instant = yes
 						cost_multiplier = 0
 						cost_multiplier_reason = "game_start"

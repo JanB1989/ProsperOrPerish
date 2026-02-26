@@ -5,7 +5,7 @@ TRY_REPLACE:city = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.0
-
+		local_monthly_food = 3
 		local_burghers_desired_pop = 0.50
 		local_laborers_desired_pop = 0.50
 		local_soldiers_desired_pop = 0.20
@@ -15,7 +15,6 @@ TRY_REPLACE:city = {
 		local_max_control = 0.1
 		local_population_capacity = 0
 		local_population_capacity_modifier = 0.0
-
 		local_population_growth = -0.003 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
 		
 		local_food_capacity = 0 # 500
@@ -25,19 +24,19 @@ TRY_REPLACE:city = {
 		
 		local_integration_speed_modifier = -0.5
 		
-		local_monthly_food_modifier = -0.30 # -0.33
-		
 		local_pop_promotion_speed_modifier = 0.25
 		
 		free_building_levels = 40
 		
 		max_constructions_at_same_time = 1
-
 		local_migration_attraction = 0 # 5
 		local_migration_speed = 0.00 # 0
-
 		local_build_buildings_cost = 0.0
-
+		fruit_orchard_max_level_modifier = -6 # 
+		sheep_farms_max_level_modifier = -6 #
+		farming_village_max_level_modifier = -6 #
+		fishing_village_max_level_modifier = 0 #
+		forest_village_max_level_modifier = -6 #
 	}
 	
 	country_modifier = {
@@ -61,14 +60,12 @@ TRY_REPLACE:city = {
 	
 	frame_tier = 3
 	show_in_label = yes
-
 }
-
 TRY_REPLACE:town = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.00
-
+		local_monthly_food = 3
 		local_burghers_desired_pop = 0.25
 		local_laborers_desired_pop = 0.25
 		local_soldiers_desired_pop = 0.10
@@ -78,22 +75,21 @@ TRY_REPLACE:town = {
 		local_max_control = 0.05
 		local_population_capacity = 0
 		local_population_capacity_modifier = 0.0
-
 		local_population_growth = -0.0025 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
-
 		local_food_capacity = 0 # 250
 		local_food_capacity_modifier = 0
 		
 		local_integration_speed_modifier = -0.25
 		
-		local_monthly_food_modifier = -0.30 # -0.20
 		free_building_levels = 20
-
 		local_migration_attraction = 0.0
 		local_migration_speed = 0.00
-
 		local_build_buildings_cost = 0.0
-
+		fruit_orchard_max_level_modifier = -2
+		sheep_farms_max_level_modifier = -2
+		farming_village_max_level_modifier = -2
+		fishing_village_max_level_modifier = 0
+		forest_village_max_level_modifier = -2
 	}
 	
 	country_modifier = {
@@ -110,31 +106,29 @@ TRY_REPLACE:town = {
 	
 	build_time = 0 # 365
 	construction_demand = build_town_demand
-
 	frame_tier = 2
 	show_in_label = yes
-
 }
-
 TRY_REPLACE:rural_settlement = {
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.10
-		local_monthly_food_modifier = -0.15 # 0
-		local_monthly_food = 1
+		local_monthly_food = 3 # 1
 		free_building_levels = 10
 		
 		local_max_control = 0.00
 		local_population_capacity = 0
 		local_population_capacity_modifier = 0
-
 		local_migration_attraction = 0
 		local_migration_speed = 0.00 # 0
-
 		local_food_capacity = 0 # 100
 		local_food_capacity_modifier = 0 # 0.5
 		local_build_buildings_cost = 0.0
-
 		local_population_growth = -0.002 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
+		fruit_orchard_max_level_modifier = 0
+		sheep_farms_max_level_modifier = 0
+		farming_village_max_level_modifier = 0
+		fishing_village_max_level_modifier = 0
+		forest_village_max_level_modifier = 0
 	}
 	
 	country_modifier = {
@@ -142,8 +136,6 @@ TRY_REPLACE:rural_settlement = {
 	}
 	
 	color = color_rank_county
-
 	frame_tier = 1
 	show_in_label = no
-
 }

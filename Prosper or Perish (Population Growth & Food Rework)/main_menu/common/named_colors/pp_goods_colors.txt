@@ -2,4 +2,3 @@
 	# Distinct warm-ish hue for the new food produced good.
 	goods_victuals = hsv { 0.11 0.55 0.85 }
 }
-

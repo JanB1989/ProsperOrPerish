@@ -1,99 +1,177 @@
 ﻿# Prosper or Perish - Building Adjustments
 # This file contains INJECT/TRY_INJECT entries and REPLACE entries for buildings
 # in large vanilla files where full file override is impractical
-
-
 ### BUILDING ADJUSTMENTS
+TRY_INJECT:pound_lock_canal_infrastructure = {
+	modifier = {
+		local_distance_from_capital_speed_propagation = 0.1
+		local_monthly_food_modifier = -0.05 # vanilla 0.05
+		local_fish_output_modifier = 0.025
+	}
+	ai_forbid_shutdown = yes
+}
+TRY_INJECT:elephant_hunting_grounds = {
+	modifier = {
+		local_monthly_food_modifier = 0.05 # vanilla -0.05
+		local_wild_game_output_modifier = 0.05
+	}
+	ai_forbid_shutdown = yes
+}
+TRY_INJECT:polders = {
+	modifier = {
+		local_monthly_food_modifier = -0.05 # vanilla 0.05
+		local_wheat_output_modifier = 0.025
+		local_livestock_output_modifier = 0.025
+	}
+	ai_forbid_shutdown = yes
+}
+TRY_INJECT:terraces = {
+	modifier = {
+		local_monthly_food_modifier = -0.5 # vanilla 0.5
+		local_maize_output_modifier = 0.1
+		local_potatoes_output_modifier = 0.1
+	}
+	ai_forbid_shutdown = yes
+}
+TRY_INJECT:incamisana = {
+	modifier = {
+		local_monthly_food_modifier = -0.15 # vanilla 0.15
+		local_maize_output_modifier = 0.05
+		local_potatoes_output_modifier = 0.05
+	}
+	ai_forbid_shutdown = yes
+}
+TRY_INJECT:khmer_baray = {
+	modifier = {
+		local_monthly_food_modifier = -0.20 # vanilla 0.20
+		local_rice_output_modifier = 0.1
+		local_fish_output_modifier = 0.05
+	}
+	ai_forbid_shutdown = yes
+}
 INJECT:construction_center = {
     rural_settlement = yes
 }
-
-
 INJECT:granary = {
 	pop_type = peasants
 	employment_size = 1
-
 	rural_settlement = yes
 	town = yes
 	city = yes
-
+	location_potential = {
+		is_province_capital = yes
+	}
 	modifier = {
 		local_food_capacity = 800
 		local_food_capacity_modifier = 0.075
+		local_food_decay = -0.00025
 	}
-
 	ai_forbid_shutdown = yes
-
 }
-
-
 INJECT:irrigation_systems = {
 	modifier = {
-		local_monthly_food_modifier = -0.01
-	}
-}
+		local_monthly_food_modifier = -0.05 # vanilla 0.05
+		fruit_orchard_max_level_modifier = 2
+		farming_village_max_level_modifier = 2
 
+		# Extreme Sensitivity (Wet-Rice)
+		local_rice_output_modifier = 0.05
+
+		# High Sensitivity (Grains & High-Value Trees)
+		local_wheat_output_modifier = 0.025
+		local_millet_output_modifier = 0.025
+		local_maize_output_modifier = 0.025
+		local_fruit_output_modifier = 0.035
+		local_olives_output_modifier = 0.035
+
+		# Medium Sensitivity (Legumes)
+		local_legumes_output_modifier = 0.02
+
+		# Low Sensitivity (Tubers & Animal Products)
+		local_potatoes_output_modifier = 0.015
+		local_livestock_output_modifier = 0.005
+		local_beeswax_output_modifier = 0.000
+		local_wool_output_modifier = 0.005
+	}
+	ai_forbid_shutdown = yes
+}
 INJECT:bund = {
 	modifier = {
-		local_monthly_food_modifier = -0.05
-	}
-}
+		local_monthly_food_modifier = -0.10 # vanilla 0.10
+		fruit_orchard_max_level_modifier = 4
+		farming_village_max_level_modifier = 4
 
+		# The core purpose of bunds: Rice and Terraced Fruit
+		local_rice_output_modifier = 0.05
+		local_fruit_output_modifier = 0.04
+		local_olives_output_modifier = 0.04
+
+		# Soil conservation for other grains
+		local_wheat_output_modifier = 0.02
+		local_millet_output_modifier = 0.02
+		local_maize_output_modifier = 0.02
+		local_legumes_output_modifier = 0.015
+
+		# Minimal or indirect impact
+		local_potatoes_output_modifier = 0.01
+		local_livestock_output_modifier = 0.005
+		local_beeswax_output_modifier = 0.000
+		local_wool_output_modifier = 0.005
+	}
+	ai_forbid_shutdown = yes
+}
 INJECT:fruit_orchard = {
 	pop_type = peasants
 		
 	rural_settlement = yes
 	town = yes
 	city = yes
-
+	max_levels = fruit_orchard_max_level
 	modifier = {
-		local_monthly_food = 1.0 
-		local_monthly_food_modifier = 0.015
+		local_monthly_food = 0.0
+		local_food_capacity = 50
 	}
+	ai_forbid_shutdown = yes
 }
-
 INJECT:sheep_farms = {
 	pop_type = peasants
-
 	rural_settlement = yes
 	town = yes
 	city = yes
-
+	max_levels = sheep_farms_max_level
 	modifier = {
-		local_monthly_food = 1.0
-		local_monthly_food_modifier = 0.015
+		local_monthly_food = 0.0 # 0 vanilla
+		local_food_capacity = 50
 	}
+	ai_forbid_shutdown = yes
 }
-
 INJECT:fishing_village = {
 	rural_settlement = yes
 	town = yes
 	city = yes
-
+	max_levels = fishing_village_max_level
 	modifier = {
-		local_food_capacity_modifier = 0.05
-		local_monthly_food = 1.5
-		local_monthly_food_modifier = 0.02
-		local_sailors = 0.001	
+		local_monthly_food = 0.0 # 0 vanilla
+		local_food_capacity = 50
+		local_laborers_desired_pop = -0.1
+		local_soldiers_desired_pop = -0.05
 	}
+	ai_forbid_shutdown = yes
 }
-
 INJECT:forest_village = {
 	pop_type = peasants
-
 	rural_settlement = yes
 	town = yes
 	city = yes
-
+	max_levels = forest_village_max_level
 	modifier = {
-		local_monthly_food = 0.5
-		local_monthly_food_modifier = 0.02
+		local_monthly_food = -1.0 # 1 vanilla
 		local_food_capacity = 50
-		local_food_capacity_modifier = 0.05
+		local_laborers_desired_pop = -0.1
+		local_soldiers_desired_pop = -0.05
 	}
+	ai_forbid_shutdown = yes
 }
-
-
 ### BUILDING AND PRODUCTION METHODS REPLACEMENTS
 REPLACE:lumber_mill = {
 	is_foreign = no
@@ -105,7 +183,6 @@ REPLACE:lumber_mill = {
 	rural_settlement = yes
 	town = yes
 	city = yes
-
 	
 	location_potential = {
 		OR = {
@@ -115,7 +192,6 @@ REPLACE:lumber_mill = {
 			vegetation = jungle
 		}
 	}
-
 	category = rgo_building_category
 	
 	build_time = rural_build_time
@@ -124,45 +200,35 @@ REPLACE:lumber_mill = {
 		pp_lumber_mill_maintenance = {
 			produced = lumber
 			output = 1
-
 			tools = 0.4
 			
 			category = building_maintenance
 		}
-
 		# Horse teams haul logs and power simple machinery: fewer tools, but consumes horses.
 		lumber_mill_horse_teams = {
 			produced = lumber
 			output = 1
-
 			tools = 0.20
 			horses = 0.30
-
 			category = building_maintenance
 		}
 	}
-
 	unique_production_methods = {
 		lumber_mill_no_extra_rations = {
 			category = building_maintenance
 		}
-
 		lumber_mill_extra_rations = {
 			victuals = 0.20
-
 			produced = lumber
 			output = 0.30
-
 			category = building_maintenance
 		}
 	}
-
 	construction_demand = basic_construction_needs
 }
-
 REPLACE:farming_village = {
 	is_foreign = no
-	max_levels = rural_building_cap
+	max_levels = farming_village_max_level
 	pop_type = peasants
 	
 	category = village_category
@@ -205,49 +271,34 @@ REPLACE:farming_village = {
 	
 			category = building_maintenance
 		}
-
 		millet_farm_maintenance = {
 			tools = 0.1
             horses = 0.1
-
 			output = 0.5
-
 			produced = millet
-
 			debug_max_profit = 0.6
-
 			category = building_maintenance
 		}
-
 		wheat_farm_maintenance = {
 			tools = 0.1
             horses = 0.1
-
 			output = 0.4
-
 			produced = wheat
-
 			debug_max_profit = 0.6
-
 			category = building_maintenance
 		}
 	}
-
 	construction_demand = village_construction
-
 	modifier = {
-		local_food_capacity = 50
-		local_food_capacity_modifier = 0.05
-		local_monthly_food_modifier = 0.03
-		local_monthly_food = 2.0
+		local_food_capacity = 100
+		local_monthly_food = 0.0
 		local_peasants_estate_power = 0.25		#25% higher here.
 		
-		local_laborers_desired_pop = 0.1
-		local_soldiers_desired_pop = 0.05
-
+		local_laborers_desired_pop = -0.1
+		local_soldiers_desired_pop = -0.05
 	}
+	ai_forbid_shutdown = yes
 }
-
 ### NAVAL BUILDING CHANGES
 REPLACE:dock = {
 	is_foreign = no
@@ -267,7 +318,6 @@ REPLACE:dock = {
 	}
 	
 	build_time = medium_port_building_time
-
 	
 	unique_production_methods = {
 		pp_dock_maintenance = {
@@ -278,12 +328,9 @@ REPLACE:dock = {
 			victuals = 0.4
 			category = building_maintenance
 		}
-
 	}
-
 	construction_demand = port_building_construction
 	
-
 	modifier = {
 		max_ships_built_at_same_time = 1
 		local_sailors = 0.016
@@ -293,7 +340,6 @@ REPLACE:dock = {
 		local_merchant_capacity = 1
 	}
 }
-
 REPLACE:dry_dock = {
 	is_foreign = no
 	max_levels = 1
@@ -306,7 +352,6 @@ REPLACE:dry_dock = {
 	location_potential = {
 		is_port = yes
 	}
-
 	
 	employment_size = dry_dock_employment
 	
@@ -315,7 +360,6 @@ REPLACE:dry_dock = {
 	
 	
 	build_time = medium_port_building_time
-
 	
 	
 	unique_production_methods = {
@@ -327,13 +371,9 @@ REPLACE:dry_dock = {
 			victuals = 0.8
 			category = building_maintenance
 		}
-
 	}
-
-
 	construction_demand = port_building_construction
 	
-
 	modifier = {
 		max_ships_built_at_same_time = 2
 		local_sailors = 0.032
@@ -343,7 +383,6 @@ REPLACE:dry_dock = {
 		local_merchant_capacity = 2
 	}
 }
-
 REPLACE:shipyard = {
 	is_foreign = no
 	max_levels = 1
@@ -354,18 +393,15 @@ REPLACE:shipyard = {
 	obsolete = dry_dock
 	
 	employment_size = shipyard_employment
-
 	location_potential = {
 		is_port = yes
 	}
-
 	
 	town = yes
 	city = yes
 	
 	
 	build_time = large_port_building_time
-
 	
 	
 	unique_production_methods = {
@@ -377,13 +413,9 @@ REPLACE:shipyard = {
 			victuals = 1.6
 			category = building_maintenance
 		}
-
 	}
-
-
 	construction_demand = port_building_construction
 	
-
 	modifier = {
 		max_ships_built_at_same_time = 4
 		local_sailors = 0.064
@@ -393,7 +425,6 @@ REPLACE:shipyard = {
 		local_merchant_capacity = 4
 	}
 }
-
 REPLACE:grand_shipyard = {
 	is_foreign = no
 	max_levels = 1
@@ -405,7 +436,6 @@ REPLACE:grand_shipyard = {
 	obsolete = shipyard
 	
 	employment_size = grand_shipyard_employment
-
 	location_potential = {
 		is_port = yes
 	}
@@ -415,7 +445,6 @@ REPLACE:grand_shipyard = {
 	
 	
 	build_time = large_port_building_time
-
 	
 	
 	unique_production_methods = {
@@ -427,13 +456,9 @@ REPLACE:grand_shipyard = {
 			victuals = 3.2
 			category = building_maintenance
 		}
-
 	}
-
-
 	construction_demand = port_building_construction
 	
-
 	modifier = {
 		max_ships_built_at_same_time = 8
 		local_sailors = 0.125
@@ -443,19 +468,16 @@ REPLACE:grand_shipyard = {
 		local_merchant_capacity = 7.5
 	}
 }
-
 REPLACE:naval_base = {
 	is_foreign = no
 	max_levels = 1
 	pop_type = soldiers
 	forbidden_for_estates = yes
-
 	category = naval_category
 	
 	obsolete = grand_shipyard
 	
 	employment_size = naval_base_employment
-
 	location_potential = {
 		is_port = yes
 	}
@@ -465,7 +487,6 @@ REPLACE:naval_base = {
 	
 	
 	build_time = large_port_building_time
-
 	
 	
 	unique_production_methods = {
@@ -477,13 +498,9 @@ REPLACE:naval_base = {
 			victuals = 5.0
 			category = building_maintenance
 		}
-
 	}
-
-
 	construction_demand = port_building_construction
 	
-
 	modifier = {
 		max_ships_built_at_same_time = 12
 		local_sailors = 0.2
@@ -494,7 +511,6 @@ REPLACE:naval_base = {
 		local_merchant_capacity = 10
 	}
 }
-
 REPLACE:armory = {
 	is_foreign = no
 	pop_type = soldiers
@@ -502,14 +518,12 @@ REPLACE:armory = {
 	
 	category = military_category
 	forbidden_for_estates = yes
-
 	employment_size = manpower_employment
 	
 	town = yes
 	city = yes
 	
 	important_for_AI = yes
-
 	build_time = soldier_building
 	
 	obsolete = provincial_garrison
@@ -539,13 +553,9 @@ REPLACE:armory = {
 			victuals = 0.25
 			category = building_maintenance
 		}
-
 	}
-
-
 	construction_demand = early_soldier_building_construction
 }
-
 REPLACE:training_fields = {
 	is_foreign = no
 	pop_type = soldiers
@@ -557,10 +567,7 @@ REPLACE:training_fields = {
 	employment_size = manpower_employment
 	
 	rural_settlement = yes
-
 	build_time = soldier_building
-
-
 	allow = {
 		owner = { has_primary_or_accepted_culture = prev.dominant_culture }
 	}
@@ -583,12 +590,9 @@ REPLACE:training_fields = {
 			victuals = 0.25
 			category = building_maintenance
 		}
-
 	}
-
 	construction_demand = soldier_building_construction
 }
-
 REPLACE:barracks = {
 	is_foreign = no
 	pop_type = soldiers
@@ -596,7 +600,6 @@ REPLACE:barracks = {
 	
 	category = military_category
 	forbidden_for_estates = yes
-
 	employment_size = manpower_employment
 	
 	town = yes
@@ -612,7 +615,6 @@ REPLACE:barracks = {
 	remove_if = {
 		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
 	}
-
 	modifier = {
 		local_manpower = 0.015
 		can_recruit_regiment_in_this_location = yes
@@ -629,12 +631,9 @@ REPLACE:barracks = {
 			victuals = 0.375
 			category = building_maintenance
 		}
-
 	}
-
 	construction_demand = soldier_building_construction
 }
-
 REPLACE:regimental_camp = {
 	is_foreign = no
 	pop_type = soldiers
@@ -648,7 +647,6 @@ REPLACE:regimental_camp = {
 	obsolete = training_fields
 	
 	rural_settlement = yes
-
 	build_time = soldier_building
 	
 	allow = {
@@ -657,7 +655,6 @@ REPLACE:regimental_camp = {
 	remove_if = {
 		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
 	}	
-
 	modifier = {
 		local_manpower = 0.02
 		can_recruit_regiment_in_this_location = yes
@@ -673,19 +670,15 @@ REPLACE:regimental_camp = {
 			victuals = 0.5
 			category = building_maintenance
 		}
-
 	}
-
 	construction_demand = soldier_building_construction
 }
-
 REPLACE:conscription_center = {
 	is_foreign = no
 	pop_type = soldiers
 	max_levels = manpower_max_level
 	
 	employment_size = manpower_employment
-
 	category = military_category
 	forbidden_for_estates = yes
 	
@@ -704,7 +697,6 @@ REPLACE:conscription_center = {
 	remove_if = {
 		NOT = { owner = { has_primary_or_accepted_culture = prev.location.dominant_culture } }
 	}	
-
 	modifier = {
 		local_manpower = 0.025
 		can_recruit_regiment_in_this_location = yes
@@ -721,9 +713,6 @@ REPLACE:conscription_center = {
 			victuals = 0.625
 			category = building_maintenance
 		}
-
 	}
-
 	construction_demand = soldier_building_construction
 }
-
