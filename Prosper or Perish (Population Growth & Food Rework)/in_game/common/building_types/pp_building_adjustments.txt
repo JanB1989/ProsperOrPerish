@@ -29,7 +29,7 @@ TRY_INJECT:terraces = {
 	modifier = {
 		local_monthly_food_modifier = -0.5 # vanilla 0.5
 		local_maize_output_modifier = 0.1
-		local_potatoes_output_modifier = 0.1
+		local_potato_output_modifier = 0.1
 	}
 	ai_forbid_shutdown = yes
 }
@@ -37,7 +37,7 @@ TRY_INJECT:incamisana = {
 	modifier = {
 		local_monthly_food_modifier = -0.15 # vanilla 0.15
 		local_maize_output_modifier = 0.05
-		local_potatoes_output_modifier = 0.05
+		local_potato_output_modifier = 0.05
 	}
 	ai_forbid_shutdown = yes
 }
@@ -88,7 +88,7 @@ INJECT:irrigation_systems = {
 		local_legumes_output_modifier = 0.02
 
 		# Low Sensitivity (Tubers & Animal Products)
-		local_potatoes_output_modifier = 0.015
+		local_potato_output_modifier = 0.015
 		local_livestock_output_modifier = 0.005
 		local_beeswax_output_modifier = 0.000
 		local_wool_output_modifier = 0.005
@@ -113,7 +113,7 @@ INJECT:bund = {
 		local_legumes_output_modifier = 0.015
 
 		# Minimal or indirect impact
-		local_potatoes_output_modifier = 0.01
+		local_potato_output_modifier = 0.01
 		local_livestock_output_modifier = 0.005
 		local_beeswax_output_modifier = 0.000
 		local_wool_output_modifier = 0.005
@@ -131,6 +131,8 @@ INJECT:fruit_orchard = {
 		local_monthly_food = 0.0
 		local_food_capacity = 50
 	}
+	location_potential = {
+	}
 	ai_forbid_shutdown = yes
 }
 INJECT:sheep_farms = {
@@ -142,6 +144,8 @@ INJECT:sheep_farms = {
 	modifier = {
 		local_monthly_food = 0.0 # 0 vanilla
 		local_food_capacity = 50
+	}
+	location_potential = {
 	}
 	ai_forbid_shutdown = yes
 }
@@ -156,6 +160,8 @@ INJECT:fishing_village = {
 		local_laborers_desired_pop = -0.1
 		local_soldiers_desired_pop = -0.05
 	}
+	location_potential = {
+	}
 	ai_forbid_shutdown = yes
 }
 INJECT:forest_village = {
@@ -169,6 +175,8 @@ INJECT:forest_village = {
 		local_food_capacity = 50
 		local_laborers_desired_pop = -0.1
 		local_soldiers_desired_pop = -0.05
+	}
+	location_potential = {
 	}
 	ai_forbid_shutdown = yes
 }
@@ -238,21 +246,21 @@ REPLACE:farming_village = {
 	town = yes
 	city = yes
 	
-	location_potential = {
-		OR = {
-			vegetation = farmland
-			raw_material = goods:wheat
-			raw_material = goods:maize
-			raw_material = goods:rice
-			raw_material = goods:millet
-			raw_material = goods:legumes
-			raw_material = goods:potato
-			raw_material = goods:livestock
-			raw_material = goods:olives
-			raw_material = goods:fruit
-			raw_material = goods:wool
-		}
-	}
+#	location_potential = {
+#		OR = {
+#			vegetation = farmland
+#			raw_material = goods:wheat
+#			raw_material = goods:maize
+#			raw_material = goods:rice
+#			raw_material = goods:millet
+#			raw_material = goods:legumes
+#			raw_material = goods:potato
+#			raw_material = goods:livestock
+#			raw_material = goods:olives
+#			raw_material = goods:fruit
+#			raw_material = goods:wool
+#		}
+#	}
 	
 		
 	

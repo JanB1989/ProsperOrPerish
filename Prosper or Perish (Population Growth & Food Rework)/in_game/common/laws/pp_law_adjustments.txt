@@ -1,0 +1,9 @@
+﻿# Feudal Administration: replace global_monthly_food_modifier with global_victuals_output_modifier
+TRY_INJECT:administrative_system = {
+	feudal_administration = {
+		country_modifier = {
+			global_monthly_food_modifier = 0.00
+			global_victuals_output_modifier = 0.05
+		}
+	}
+}

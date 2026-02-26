@@ -6,7 +6,7 @@
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.20
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -31,7 +31,7 @@ fruit_orchard_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.15
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -73,7 +73,7 @@ sheep_farms_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.15
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -106,7 +106,7 @@ farming_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.15
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -139,7 +139,7 @@ forest_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.15
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -173,7 +173,7 @@ fishing_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.35
+		multiply = 0.15
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -207,7 +207,7 @@ tavern_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.2
+		multiply = 0.05
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"

@@ -11,6 +11,7 @@ TRY_INJECT:desert = {
 		local_rice_output_modifier = -0.25
 		local_millet_output_modifier = 0.05
 		local_wild_game_output_modifier = -0.1
+		local_fur_output_modifier = -0.1
 	}
 }
 
@@ -44,7 +45,7 @@ TRY_INJECT:farmland = {
 		local_legumes_output_modifier = 0.2
 		local_fruit_output_modifier = 0.1
 		local_olives_output_modifier = 0.1
-		local_potatoes_output_modifier = 0.1
+		local_potato_output_modifier = 0.1
 	}
 }
 
@@ -54,6 +55,7 @@ TRY_INJECT:woods = {
 		local_population_capacity = -25
 		local_monthly_food_modifier = -0.1
 		local_wild_game_output_modifier = 0.1
+		local_fur_output_modifier = 0.1
 		local_beeswax_output_modifier = 0.1
 		local_fruit_output_modifier = 0.05
 	}
@@ -64,6 +66,7 @@ TRY_INJECT:forest = {
 	location_modifier = { 
 		local_population_capacity = -5
 		local_wild_game_output_modifier = 0.2
+		local_fur_output_modifier = 0.2
 		local_beeswax_output_modifier = 0.2
 		local_wheat_output_modifier = -0.1
 	}
@@ -76,6 +79,7 @@ TRY_INJECT:jungle = {
 		local_monthly_food_modifier = -0.1
 		local_fruit_output_modifier = 0.1
 		local_wild_game_output_modifier = 0.1
+		local_fur_output_modifier = 0.05
 		local_rice_output_modifier = 0.05
 		local_wheat_output_modifier = -0.2
 	}

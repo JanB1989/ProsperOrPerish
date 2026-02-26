@@ -3,7 +3,7 @@ cookery = {
 	is_foreign = no
 	max_levels = cookery_max_level
 	pop_type = peasants
-	employment_size = 5
+	employment_size = 1
 	category = consumer_goods_category
 	icon = cookery
 	rural_settlement = yes
@@ -19,53 +19,59 @@ cookery = {
 		# Target: output = 1.0 victuals (price 3.5).
 		# For ~-30% money: total input cost ~= 4.55.
 		cookery_rice_legumes = {
-			rice = 2.00
-			legumes = 2.00
+			rice = 1.75
+			legumes = 1.50
+			pepper = 0.1
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_rice_fish = {
-			rice = 2.00
-			fish = 2.00
+			rice = 1.75
+			fish = 1.50
+			pepper = 0.10
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_wheat_livestock = {
-			wheat = 2.00
-			livestock = 1.35
+			wheat = 1.40
+			livestock = 1.40
+			salt = 0.1
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_millet_fish = {
-			millet = 2.00
+			millet = 1.5
 			fish = 2.00
+			salt = 0.10
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_maize_livestock = {
-			maize = 2.00
-			livestock = 1.35
+			maize = 1.10
+			livestock = 1.50
+			potato = 0.5
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_pemmican = {
-			livestock = 2.5
+			livestock = 2.0
 			wild_game = 0.5
 			fruit = 0.2
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_mutton_pease = {
-			wool = 1.25
-			legumes = 1.0
+			wool = 1.0
+			legumes = 0.8
+			salt = 0.1
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_labskaus = {
@@ -73,15 +79,15 @@ cookery = {
 			fish = 0.8
 			livestock = 1.6
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 		cookery_surstromming = {
-			fish = 3.0
-			lumber = 0.25
+			fish = 2.5
+			millet = 0.25
 			salt = 0.25
 			produced = victuals
-			output = 1.00
+			output = 1.15
 			category = building_maintenance
 		}
 	}
@@ -176,7 +182,7 @@ tavern = {
 		tavern_maintenance
 	}
 	modifier = {
-		local_monthly_food = 100
+		local_monthly_food = 60
 	}
 
 }

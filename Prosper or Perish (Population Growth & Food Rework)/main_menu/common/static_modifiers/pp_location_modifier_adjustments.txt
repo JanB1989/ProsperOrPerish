@@ -11,11 +11,11 @@ TRY_REPLACE:province_starving = {
 	local_pop_demotion_speed_modifier = 0.5 # 0.5
 	local_pop_demotion_speed = 0.05
 	
-	local_upper_class_capacity_modifier = -0.75
+	# local_upper_class_capacity_modifier = -0.75
 	local_life_expectancy = -10
 	
 	local_migration_speed = 0.015
-    local_monthly_prosperity = -0.01
+    local_monthly_prosperity = -0.025
 	local_defensive = -0.30
 	
 	local_tribesmen_migration_allowed = yes
@@ -58,7 +58,7 @@ TRY_REPLACE:positive_province_food_growth = {
 	local_population_growth = 0.0030 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
-	local_peasants_food_consumption = 0.04
+	local_peasants_food_consumption = 0.025
 }
 TRY_REPLACE:surplus_jobs = {
 	game_data = {
@@ -201,12 +201,13 @@ TRY_REPLACE:raised_levies = {
 	local_legumes_output_modifier = -0.10
 	local_fruit_output_modifier = -0.10
 	local_olives_output_modifier = -0.10
-	local_potatoes_output_modifier = -0.10
+	local_potato_output_modifier = -0.10
 	local_livestock_output_modifier = -0.10
 	local_beeswax_output_modifier = -0.10
 	local_wool_output_modifier = -0.10
 	local_fish_output_modifier = -0.10
 	local_wild_game_output_modifier = -0.10
+	local_fur_output_modifier = -0.10
 }
 # Devastation doesn't kill people, starvation and other stuff does
 TRY_REPLACE:devastation = {
@@ -219,13 +220,14 @@ TRY_REPLACE:devastation = {
 	local_pop_promotion_speed_modifier = 0.05
 	local_pop_demotion_speed = -0.5
 	local_raw_material_output = 0.25
-	local_production_efficiency = 0.5
+	local_production_efficiency = 0.15
 	local_monthly_literacy = 0.05
 	local_migration_attraction = 1
 	local_life_expectancy = 10
 	local_mercenaries_modifier = -0.5
 	local_construction_speed = -0.5
-	local_upper_class_capacity_modifier = 0.5
+	local_upper_class_capacity_modifier = 1.50
+	local_peasants_food_consumption = 0.20
 	local_defensive = 0.50
 }
 TRY_REPLACE:development = {
@@ -264,12 +266,13 @@ TRY_REPLACE:development = {
 	local_legumes_output_modifier = 0.0025
 	local_fruit_output_modifier = 0.0025
 	local_olives_output_modifier = 0.0025
-	local_potatoes_output_modifier = 0.0025
+	local_potato_output_modifier = 0.0025
 	local_livestock_output_modifier = 0.0025
 	local_beeswax_output_modifier = 0.0025
 	local_wool_output_modifier = 0.0025
 	local_fish_output_modifier = 0.0025
 	local_wild_game_output_modifier = 0.0025
+	local_fur_output_modifier = 0.0025
 }
 TRY_REPLACE:minor_rebel_uprising = {
 	game_data = {

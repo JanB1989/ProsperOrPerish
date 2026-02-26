@@ -32,10 +32,70 @@ class GoodsData(DataModule):
         merged_demand_raw = self._merge_data(vanilla_demand_raw, mod_demand_raw)
         merged_category_raw = self._merge_data(vanilla_category_raw, mod_category_raw)
         
-        # 5. Resolve final active state
+        # 5. Resolve final active state (replacement semantics)
         self.modded_df = self._resolve_state(merged_goods_raw, merged_demand_raw, merged_category_raw)
-        
+
+        # 6. Apply additive semantics for food: mod injections ADD to vanilla, not replace
+        mod_food_delta = self._extract_injected_values(
+            mod_demand_raw, mod_category_raw, self.vanilla_df.index.union(self.modded_df.index),
+            goods_raw=mod_goods_raw
+        )
+        vanilla_food = self.vanilla_df['food'].reindex(self.modded_df.index, fill_value=0)
+        delta = mod_food_delta.reindex(self.modded_df.index, fill_value=0)
+        self.modded_df = self.modded_df.copy()
+        self.modded_df['food'] = vanilla_food + delta
+
         return self.modded_df
+
+    def _extract_injected_values(self, demand_raw, category_raw, good_names, goods_raw=None):
+        """
+        Extracts food (and transport_cost) values that mod files inject.
+        Used for additive semantics: modded = vanilla + mod_injection.
+        Returns a Series index by good name.
+        """
+        result = {}
+        good_set = set(good_names)
+
+        def collect_props(good_name, props):
+            if good_name not in good_set or not isinstance(props, dict):
+                return
+            for attr in ['food', 'transport_cost']:
+                if attr in props:
+                    try:
+                        result[good_name] = result.get(good_name, {})
+                        result[good_name][attr] = float(props[attr])
+                    except (ValueError, TypeError):
+                        pass
+
+        # First pass: extract from mod goods (keys may be prefixed: TRY_INJECT:rice, INJECT:wheat)
+        if goods_raw:
+            for key, props in goods_raw.items():
+                if not isinstance(props, dict):
+                    continue
+                entity_name = key.split(":", 1)[-1] if ":" in key else key
+                collect_props(entity_name, props)
+
+        demand_containers = ['pop_demand', 'army_demand', 'navy_demand', 'special_demands']
+        for container in demand_containers:
+            if container in demand_raw and isinstance(demand_raw[container], dict):
+                for good_name, props in demand_raw[container].items():
+                    collect_props(good_name, props)
+
+        if category_raw:
+            for cat_name, props in category_raw.items():
+                if not isinstance(props, dict):
+                    continue
+                if 'goods' in props and isinstance(props['goods'], list):
+                    for good_name in props['goods']:
+                        collect_props(good_name, props)
+                collect_props(cat_name, props)
+
+        if not result:
+            return pd.Series(dtype=float)
+
+        # Build series for 'food' (primary additive attribute)
+        food_vals = {g: v.get('food', 0) for g, v in result.items() if 'food' in v}
+        return pd.Series(food_vals)
 
     def _resolve_state(self, goods_raw, demand_raw, category_raw=None):
         """Resolves the state of goods by cross-referencing demand data."""

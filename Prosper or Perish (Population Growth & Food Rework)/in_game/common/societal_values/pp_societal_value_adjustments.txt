@@ -1,10 +1,60 @@
-﻿TRY_INJECT:land_vs_naval = {
+﻿# Capital vs Traditional: replace global_monthly_food_modifier with per-good output modifiers
+TRY_INJECT:capital_economy_vs_traditional_economy = {
 	left_modifier = {
-		global_max_rgo_size_modifier = 0.05
-        global_merchant_capacity_modifier = -0.15
+		global_monthly_food_modifier = 0.2
+		global_wheat_output_modifier = -0.3
+		global_rice_output_modifier = -0.3
+		global_millet_output_modifier = -0.3
+		global_maize_output_modifier = -0.3
+		global_legumes_output_modifier = -0.3
+		global_fruit_output_modifier = -0.3
+		global_olives_output_modifier = -0.3
+		global_potato_output_modifier = -0.3
+		global_livestock_output_modifier = -0.3
+		global_beeswax_output_modifier = -0.3
+		global_wool_output_modifier = -0.3
+		global_fish_output_modifier = -0.3
+		global_wild_game_output_modifier = -0.3
+		global_fur_output_modifier = -0.3
+		global_victuals_output_modifier = -0.20
 	}
 	right_modifier = {
-        global_merchant_capacity_modifier = 0.30
-        global_max_rgo_size_modifier = -0.05
+		global_monthly_food_modifier = -0.2
+		global_wheat_output_modifier = 0.3
+		global_rice_output_modifier = 0.3
+		global_millet_output_modifier = 0.3
+		global_maize_output_modifier = 0.3
+		global_legumes_output_modifier = 0.3
+		global_fruit_output_modifier = 0.3
+		global_olives_output_modifier = 0.3
+		global_potato_output_modifier = 0.3
+		global_livestock_output_modifier = 0.3
+		global_beeswax_output_modifier = 0.3
+		global_wool_output_modifier = 0.3
+		global_fish_output_modifier = 0.3
+		global_wild_game_output_modifier = 0.3
+		global_fur_output_modifier = 0.3
+		global_victuals_output_modifier = 0.20
+	}
+}
+
+TRY_INJECT:land_vs_naval = {
+	left_modifier = {
+		global_max_rgo_size_modifier = 0.05
+		global_merchant_capacity_modifier = -0.15
+		global_lumber_output_modifier = 0.30
+		global_iron_output_modifier = 0.30
+		global_horses_output_modifier = 0.30
+		global_wheat_output_modifier = 0.30
+		global_stone_output_modifier = 0.30
+	}
+	right_modifier = {
+		global_merchant_capacity_modifier = 0.30
+		global_max_rgo_size_modifier = -0.05
+		global_fish_output_modifier = 0.30
+		global_naval_supplies_output_modifier = 0.30
+		global_salt_output_modifier = 0.30
+		global_pearls_output_modifier = 0.30
+		global_tar_output_modifier = 0.30
 	}
 }

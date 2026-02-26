@@ -58,24 +58,25 @@ class LocationData(DataModule):
         self.locations_dict = templates_data
 
         # 2. Load pops
-        # Path: main_menu/setup/start/06_pops.txt
+        # Path: main_menu/setup/start/06_pops.txt (locations = { stockholm = { define_pop = {...} } })
         pops_data = self.load_directory("main_menu/setup/start")
-        # We only care about the location blocks in pops_data
-        for loc_name, loc_pops in pops_data.items():
-            if isinstance(loc_pops, dict):
-                # Sum sizes of all define_pop entries
+        locations_block = pops_data.get("locations") or {}
+        if isinstance(locations_block, dict):
+            for loc_name, loc_data in locations_block.items():
+                if not isinstance(loc_data, dict):
+                    continue
                 total_pop = 0.0
-                for key, val in loc_pops.items():
+                for key, val in loc_data.items():
                     if key.startswith("define_pop"):
-                        if isinstance(val, dict) and 'size' in val:
-                            total_pop += float(val['size'])
+                        for item in (val if isinstance(val, list) else [val]):
+                            if isinstance(item, dict) and "size" in item:
+                                total_pop += float(item["size"])
                 self.pops_dict[loc_name] = total_pop
 
         # 3. Load development modifiers
-        # Path: main_menu/setup/start/14_development.txt
+        # Path: main_menu/setup/start/14_development.txt (development = { base = -2, coastal = 5, ... })
         dev_data = self.load_directory("main_menu/setup/start")
-        # 14_development.txt is mostly key = value pairs
-        self.dev_mods = dev_data
+        self.dev_mods = dev_data.get("development") or {}
 
         # 4. Load ownership (country tag per location at game start)
         self._load_ownership()

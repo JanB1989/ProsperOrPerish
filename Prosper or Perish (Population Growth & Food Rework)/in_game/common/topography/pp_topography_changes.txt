@@ -18,10 +18,11 @@ TRY_INJECT:mountains = {
 		local_wheat_output_modifier = -0.2
 		local_rice_output_modifier = -0.3
 		local_maize_output_modifier = -0.1
-		local_potatoes_output_modifier = 0.1
+		local_potato_output_modifier = 0.1
 		local_livestock_output_modifier = 0.05
 		local_wool_output_modifier = 0.1
 		local_wild_game_output_modifier = 0.1
+		local_fur_output_modifier = 0.1
 	}
 }
 
@@ -33,6 +34,7 @@ TRY_INJECT:hills = {
 		local_olives_output_modifier = 0.05
 		local_livestock_output_modifier = 0.025
 		local_wild_game_output_modifier = 0.05
+		local_fur_output_modifier = 0.05
 	}
 }
 

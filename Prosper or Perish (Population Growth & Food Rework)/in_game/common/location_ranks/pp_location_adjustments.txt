@@ -5,7 +5,7 @@ TRY_REPLACE:city = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.0
-		local_monthly_food = 3
+		local_monthly_food = 5
 		local_burghers_desired_pop = 0.50
 		local_laborers_desired_pop = 0.50
 		local_soldiers_desired_pop = 0.20
@@ -65,7 +65,7 @@ TRY_REPLACE:town = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.00
-		local_monthly_food = 3
+		local_monthly_food = 5
 		local_burghers_desired_pop = 0.25
 		local_laborers_desired_pop = 0.25
 		local_soldiers_desired_pop = 0.10
@@ -112,7 +112,7 @@ TRY_REPLACE:town = {
 TRY_REPLACE:rural_settlement = {
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.10
-		local_monthly_food = 3 # 1
+		local_monthly_food = 5 # 1
 		free_building_levels = 10
 		
 		local_max_control = 0.00

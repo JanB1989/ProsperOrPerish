@@ -21,4 +21,60 @@ TRY_INJECT:thrive_under_persecution = {
 TRY_INJECT:paschal_cycle = {
 	global_devastation_recovery = -0.004
 }
+# Serfdom: remove global food modifier, add per-good output bonuses
+TRY_INJECT:serfdom = {
+	global_monthly_food_modifier = -0.05
+	global_wheat_output_modifier = 0.10
+	global_rice_output_modifier = 0.10
+	global_millet_output_modifier = 0.10
+	global_maize_output_modifier = 0.10
+	global_legumes_output_modifier = 0.10
+	global_fruit_output_modifier = 0.10
+	global_olives_output_modifier = 0.10
+	global_potato_output_modifier = 0.10
+	global_livestock_output_modifier = 0.10
+	global_beeswax_output_modifier = 0.10
+	global_wool_output_modifier = 0.10
+	global_fish_output_modifier = 0.10
+	global_wild_game_output_modifier = 0.10
+	global_fur_output_modifier = 0.10
+}
+# Food advances: replace global_monthly_food_modifier with per-good output bonuses
+TRY_INJECT:food_advance_renaissance = {
+	global_monthly_food_modifier = -0.10
+	global_wheat_output_modifier = 0.20
+	global_rice_output_modifier = 0.20
+	global_fruit_output_modifier = 0.20
+	global_olives_output_modifier = 0.20
+	global_legumes_output_modifier = 0.20
+}
+TRY_INJECT:new_world_crops = {
+	global_monthly_food_modifier = -0.10
+	global_maize_output_modifier = 0.20
+	global_potato_output_modifier = 0.20
+	global_cocoa_output_modifier = 0.20
+	global_sugar_output_modifier = 0.20
+	global_tobacco_output_modifier = 0.20
+}
+TRY_INJECT:food_advance_reformation = {
+	global_monthly_food_modifier = -0.10
+	global_wheat_output_modifier = 0.20
+	global_legumes_output_modifier = 0.20
+	global_potato_output_modifier = 0.20
+	global_livestock_output_modifier = 0.20
+}
+TRY_INJECT:food_advance_absolutism = {
+	global_monthly_food_modifier = -0.10
+	global_wheat_output_modifier = 0.20
+	global_maize_output_modifier = 0.20
+	global_potato_output_modifier = 0.20
+	global_legumes_output_modifier = 0.20
+}
+TRY_INJECT:rotherham_plough = {
+	global_monthly_food_modifier = -0.10
+	global_wheat_output_modifier = 0.20
+	global_maize_output_modifier = 0.20
+	global_millet_output_modifier = 0.20
+	global_legumes_output_modifier = 0.20
+}
 # There are other modifiers from gods or religious_aspects maybe worth changing aswell
