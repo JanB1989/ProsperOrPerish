@@ -1,0 +1,5 @@
+﻿# Prosper or Perish — Cookery building
+pp_cookery = {
+	family = food
+	texture = "flat_icons/building_panel/production_efficiency"
+}

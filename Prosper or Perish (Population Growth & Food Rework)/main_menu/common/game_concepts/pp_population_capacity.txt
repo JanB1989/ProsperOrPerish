@@ -1,0 +1,5 @@
+﻿# Prosper or Perish — Population capacity (housing)
+pp_population_capacity = {
+	family = food
+	texture = "flat_icons/balance/buildings_abroad"
+}

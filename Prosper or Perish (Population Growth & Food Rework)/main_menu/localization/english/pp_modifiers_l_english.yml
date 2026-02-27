@@ -1,0 +1,10 @@
+﻿l_english:
+STATIC_MODIFIER_NAME_abysmal_harvest_modifier: "Failed Harvest"
+STATIC_MODIFIER_NAME_very_poor_harvest_modifier: "Bad Harvest"
+STATIC_MODIFIER_NAME_poor_harvest_modifier: "Weak Harvest"
+STATIC_MODIFIER_NAME_good_harvest_modifier: "Strong Harvest"
+STATIC_MODIFIER_NAME_very_good_harvest_modifier: "Excellent Harvest"
+STATIC_MODIFIER_NAME_bountiful_harvest_modifier: "Exceptional Harvest"
+STATIC_MODIFIER_NAME_pp_harder_ai_harder_modifier: "Harder AI Food Efficiency"
+STATIC_MODIFIER_NAME_pp_harder_ai_very_hard_modifier: "Very Hard AI Food Efficiency"
+STATIC_MODIFIER_NAME_pp_harder_ai_insane_modifier: "Insane AI Food Efficiency"

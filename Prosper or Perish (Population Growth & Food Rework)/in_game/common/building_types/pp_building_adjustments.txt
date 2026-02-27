@@ -194,17 +194,17 @@ REPLACE:fishing_village = {
 		pp_fishing_village_maintenance = {
 			produced = fish
 			output = 0.5
-			salt = 0.08
-			tools = 0.02
-			debug_max_profit = 0.6
+			salt = 0.06
+			tools = 0.01
+			debug_max_profit = 1.0
 			category = building_maintenance
 		}
 		pp_arctic_fishing_village_maintenance = {
 			produced = fish
 			output = 0.5
-			salt = 0.08
-			ivory = 0.01
-			debug_max_profit = 0.6
+			salt = 0.045
+			ivory = 0.02
+			debug_max_profit = 1.0
 			category = building_maintenance
 		}
 	}

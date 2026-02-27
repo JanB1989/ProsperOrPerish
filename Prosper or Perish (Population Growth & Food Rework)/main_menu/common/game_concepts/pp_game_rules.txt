@@ -1,0 +1,5 @@
+﻿# Prosper or Perish — Game Rules (Variable Harvest, Harder AI)
+pp_game_rules = {
+	family = food
+	texture = "flat_icons/effect"
+}
