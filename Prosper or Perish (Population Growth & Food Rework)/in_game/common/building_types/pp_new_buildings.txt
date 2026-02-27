@@ -67,8 +67,8 @@ cookery = {
 			category = building_maintenance
 		}
 		cookery_mutton_pease = {
-			wool = 1.0
-			legumes = 0.8
+			wool = 1.9
+			legumes = 0.9
 			salt = 0.1
 			produced = victuals
 			output = 1.15

@@ -1,0 +1,19 @@
+﻿# Harvest concepts for mapmode legend - enables blue link styling like [starving|e]
+abysmal_harvest = {
+	texture = "modifiers/locations"
+}
+very_poor_harvest = {
+	texture = "modifiers/locations"
+}
+poor_harvest = {
+	texture = "modifiers/locations"
+}
+good_harvest = {
+	texture = "modifiers/locations"
+}
+very_good_harvest = {
+	texture = "modifiers/locations"
+}
+bountiful_harvest = {
+	texture = "modifiers/locations"
+}

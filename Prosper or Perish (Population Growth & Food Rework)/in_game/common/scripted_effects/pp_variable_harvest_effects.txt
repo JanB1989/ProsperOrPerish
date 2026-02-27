@@ -6,10 +6,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {
@@ -24,10 +22,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {
@@ -42,10 +38,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {
@@ -62,10 +56,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {
@@ -80,10 +72,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {
@@ -98,10 +88,8 @@
 					every_area_in_region = {
 						every_location_in_area = {
 							limit = {
-								province = {
-									NOT = {
-										has_province_modifier = russian_famine
-									}
+								province ?= {
+									NOT = { has_province_modifier = russian_famine }
 								}
 							}
 							add_location_modifier = {

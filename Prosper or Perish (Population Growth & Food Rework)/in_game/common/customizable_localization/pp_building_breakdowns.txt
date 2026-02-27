@@ -7,19 +7,19 @@ pp_fruit_climate_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FRUIT_MEDITERRANEAN
-		trigger = { climate = climate:mediterranean }
+		trigger = { climate = mediterranean }
 	}
 	text = {
 		localization_key = PP_FRUIT_SUBTROPICAL
-		trigger = { climate = climate:subtropical }
+		trigger = { climate = subtropical }
 	}
 	text = {
 		localization_key = PP_FRUIT_OCEANIC
-		trigger = { climate = climate:oceanic }
+		trigger = { climate = oceanic }
 	}
 	text = {
 		localization_key = PP_FRUIT_CONTINENTAL
-		trigger = { climate = climate:continental }
+		trigger = { climate = continental }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -30,15 +30,15 @@ pp_fruit_topography_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FRUIT_FLATLAND
-		trigger = { topography = topography:flatland }
+		trigger = { topography = flatland }
 	}
 	text = {
 		localization_key = PP_FRUIT_HILLS
-		trigger = { topography = topography:hills }
+		trigger = { topography = hills }
 	}
 	text = {
 		localization_key = PP_FRUIT_PLATEAU
-		trigger = { topography = topography:plateau }
+		trigger = { topography = plateau }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -49,15 +49,15 @@ pp_fruit_vegetation_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FRUIT_FARMLAND
-		trigger = { vegetation = vegetation:farmland }
+		trigger = { vegetation = farmland }
 	}
 	text = {
 		localization_key = PP_FRUIT_GRASSLANDS
-		trigger = { vegetation = vegetation:grasslands }
+		trigger = { vegetation = grasslands }
 	}
 	text = {
 		localization_key = PP_FRUIT_WOODS
-		trigger = { vegetation = vegetation:woods }
+		trigger = { vegetation = woods }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -177,15 +177,15 @@ pp_fishing_climate_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FISHING_OCEANIC
-		trigger = { climate = climate:oceanic }
+		trigger = { climate = oceanic }
 	}
 	text = {
 		localization_key = PP_FISHING_MEDITERRANEAN
-		trigger = { climate = climate:mediterranean }
+		trigger = { climate = mediterranean }
 	}
 	text = {
 		localization_key = PP_FISHING_SUBTROPICAL
-		trigger = { climate = climate:subtropical }
+		trigger = { climate = subtropical }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -215,15 +215,15 @@ pp_sheep_topography_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_SHEEP_HILLS
-		trigger = { topography = topography:hills }
+		trigger = { topography = hills }
 	}
 	text = {
 		localization_key = PP_SHEEP_PLATEAU
-		trigger = { topography = topography:plateau }
+		trigger = { topography = plateau }
 	}
 	text = {
 		localization_key = PP_SHEEP_MOUNTAINS
-		trigger = { topography = topography:mountains }
+		trigger = { topography = mountains }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -234,11 +234,11 @@ pp_sheep_vegetation_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_SHEEP_GRASSLANDS
-		trigger = { vegetation = vegetation:grasslands }
+		trigger = { vegetation = grasslands }
 	}
 	text = {
 		localization_key = PP_SHEEP_SPARSE
-		trigger = { vegetation = vegetation:sparse }
+		trigger = { vegetation = sparse }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -249,11 +249,11 @@ pp_sheep_climate_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_SHEEP_CONTINENTAL
-		trigger = { climate = climate:continental }
+		trigger = { climate = continental }
 	}
 	text = {
 		localization_key = PP_SHEEP_COLD_ARID
-		trigger = { climate = climate:cold_arid }
+		trigger = { climate = cold_arid }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -277,11 +277,11 @@ pp_farming_topography_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FARMING_FLATLAND
-		trigger = { topography = topography:flatland }
+		trigger = { topography = flatland }
 	}
 	text = {
 		localization_key = PP_FARMING_HILLS
-		trigger = { topography = topography:hills }
+		trigger = { topography = hills }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -292,11 +292,11 @@ pp_farming_vegetation_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FARMING_FARMLAND
-		trigger = { vegetation = vegetation:farmland }
+		trigger = { vegetation = farmland }
 	}
 	text = {
 		localization_key = PP_FARMING_GRASSLANDS
-		trigger = { vegetation = vegetation:grasslands }
+		trigger = { vegetation = grasslands }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -307,15 +307,15 @@ pp_farming_climate_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FARMING_CONTINENTAL
-		trigger = { climate = climate:continental }
+		trigger = { climate = continental }
 	}
 	text = {
 		localization_key = PP_FARMING_SUBTROPICAL
-		trigger = { climate = climate:subtropical }
+		trigger = { climate = subtropical }
 	}
 	text = {
 		localization_key = PP_FARMING_MEDITERRANEAN
-		trigger = { climate = climate:mediterranean }
+		trigger = { climate = mediterranean }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -363,15 +363,15 @@ pp_forest_vegetation_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FOREST_FOREST
-		trigger = { vegetation = vegetation:forest }
+		trigger = { vegetation = forest }
 	}
 	text = {
 		localization_key = PP_FOREST_WOODS
-		trigger = { vegetation = vegetation:woods }
+		trigger = { vegetation = woods }
 	}
 	text = {
 		localization_key = PP_FOREST_JUNGLE
-		trigger = { vegetation = vegetation:jungle }
+		trigger = { vegetation = jungle }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -382,7 +382,7 @@ pp_forest_topography_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FOREST_MOUNTAINS
-		trigger = { topography = topography:mountains }
+		trigger = { topography = mountains }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC
@@ -393,7 +393,7 @@ pp_forest_climate_breakdown = {
 	type = location
 	text = {
 		localization_key = PP_FOREST_CONTINENTAL
-		trigger = { climate = climate:continental }
+		trigger = { climate = continental }
 	}
 	text = {
 		localization_key = PP_EMPTY_LOC

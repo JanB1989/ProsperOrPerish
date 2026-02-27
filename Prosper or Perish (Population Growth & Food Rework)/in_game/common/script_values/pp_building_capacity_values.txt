@@ -79,9 +79,12 @@ pp_fruit_orchard_capacity_value = {
 		add = 1
 	}
 
-	# RGO Match Bonus
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
 	if = {
-		limit = { raw_material = goods:fruit }
+		limit = {
+			is_ownable = yes
+			raw_material = goods:fruit
+		}
 		add = 5
 	}
 }
@@ -122,9 +125,10 @@ pp_fishing_village_capacity_value = {
 		add = 2
 	}
 
-	# RGO Match Bonus
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
 	if = {
 		limit = {
+			is_ownable = yes
 			OR = {
 				raw_material = goods:fish
 				raw_material = goods:salt
@@ -189,9 +193,12 @@ pp_sheep_farms_capacity_value = {
 		add = 3
 	}
 
-	# RGO Match Bonus
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
 	if = {
-		limit = { raw_material = goods:wool }
+		limit = {
+			is_ownable = yes
+			raw_material = goods:wool
+		}
 		add = 5
 	}
 }
@@ -251,9 +258,10 @@ pp_farming_village_capacity_value = {
 		add = 2
 	}
 
-	# RGO Match Bonus
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
 	if = {
 		limit = {
+			is_ownable = yes
 			OR = {
 				raw_material = goods:wheat
 				raw_material = goods:maize
@@ -313,9 +321,10 @@ pp_forest_village_capacity_value = {
 		add = 2
 	}
 
-	# RGO Match Bonus
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
 	if = {
 		limit = {
+			is_ownable = yes
 			OR = {
 				raw_material = goods:wild_game
 				raw_material = goods:fur

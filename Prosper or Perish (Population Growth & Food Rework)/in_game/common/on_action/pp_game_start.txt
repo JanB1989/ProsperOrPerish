@@ -3,6 +3,7 @@
 on_game_start = {
 	on_actions = {
 		pp_precalculate_building_capacities
+		pp_remove_invalid_buildings
 		pp_game_start_effect
 	}
 }
@@ -147,27 +148,104 @@ pp_precalculate_building_capacities = {
 	}
 }
 
+# Remove all buildings that cannot exist under mod rules (Option B).
+# Runs after precalculate so pp_* variables are set for fruit_orchard_max_level etc.
+pp_remove_invalid_buildings = {
+	effect = {
+		every_location_in_the_world = {
+			# Granary: only allowed in province capitals
+			if = {
+				limit = {
+					NOT = { is_province_capital = yes }
+					location_building_level = {
+						building_type = building_type:granary
+						value > 0
+					}
+				}
+				change_building_level_in_location = {
+					building = building_type:granary
+					value = {
+						value = "location_building_level(building_type:granary)"
+						multiply = -1
+					}
+				}
+			}
+			# Fruit orchard: reduce to max (script value floored at 0)
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:fruit_orchard
+						value > 0
+					}
+					location_building_level = {
+						building_type = building_type:fruit_orchard
+						value > fruit_orchard_max_level
+					}
+				}
+				change_building_level_in_location = {
+					building = building_type:fruit_orchard
+					value = {
+						value = fruit_orchard_max_level
+						add = {
+							value = "location_building_level(building_type:fruit_orchard)"
+							multiply = -1
+						}
+					}
+				}
+			}
+			# Market village: reduce to rural_building_cap
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:market_village
+						value > 0
+					}
+					location_building_level = {
+						building_type = building_type:market_village
+						value > rural_building_cap
+					}
+				}
+				change_building_level_in_location = {
+					building = building_type:market_village
+					value = {
+						value = rural_building_cap
+						add = {
+							value = "location_building_level(building_type:market_village)"
+							multiply = -1
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
 pp_game_start_effect = {
 	effect = {
 		every_country = {
-			capital = {
-				construct_building = {
-					building_type = building_type:cookery
-					instant = yes
-					cost_multiplier = 0
-					cost_multiplier_reason = "game_start"
-				}
-				construct_building = {
-					building_type = building_type:tavern
-					instant = yes
-					cost_multiplier = 0
-					cost_multiplier_reason = "game_start"
+			limit = { exists = capital }
+			capital ?= {
+				if = {
+					limit = { has_owner = yes }
+					construct_building = {
+						building_type = building_type:cookery
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
+					construct_building = {
+						building_type = building_type:tavern
+						instant = yes
+						cost_multiplier = 0
+						cost_multiplier_reason = "game_start"
+					}
 				}
 			}
 			every_owned_location = {
+				limit = { has_owner = yes }
 				if = {
 					limit = {
-						location_rank = location_rank:rural
+						location_rank = location_rank:rural_settlement
 						population > 50
 						NOT = { has_building = building_type:cookery }
 					}
@@ -240,7 +318,7 @@ pp_game_start_effect = {
 								population > 20
 							}
 							AND = {
-								location_rank = location_rank:rural
+								location_rank = location_rank:rural_settlement
 								population > 50
 							}
 						}

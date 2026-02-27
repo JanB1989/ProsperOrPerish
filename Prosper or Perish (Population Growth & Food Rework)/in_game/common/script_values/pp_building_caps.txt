@@ -64,6 +64,7 @@ fruit_orchard_max_level = {
 			value = -1
 		}
 	}
+	min = 0
 }
 sheep_farms_max_level = {
 	add = {

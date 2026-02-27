@@ -2,6 +2,7 @@
 Professional analysis suite for Europa Universalis V modding.
 
 ## Structure
+- `tools/`: Mod-asset fix scripts (UTF-8 BOM conversion, DDS mipmaps). Run via `uv run python main.py`.
 - `core/parser/`: Robust Paradox script parsing engine.
 - `core/data/`: Live data modules for Goods, Buildings, Locations, Defines, and Pops.
 - `analysis/building_levels/`: Building capacity and economic analysis tools.
@@ -24,6 +25,13 @@ All data is fetched live from the game and mod directories configured in `analys
 - After `uv sync`, `core` and `analysis` are importable; no `sys.path` changes required.
 - Start notebooks: `uv run jupyter notebook` (or `uv run python -m jupyter notebook`).
 - Paths (game, mod, data) are configured in `analysis/building_levels/config.json`.
+
+### Mod Fix Scripts
+Run all fixes (UTF-8 BOM for Paradox scripts, DDS mipmaps for textures) on the mod configured in `config.json`:
+```
+uv run python main.py
+```
+Requires [DirectXTex](https://github.com/microsoft/DirectXTex/releases) `texconv` on PATH for DDS mipmap generation.
 
 ### Environment Management (uv)
 This project uses `uv` for dependency management. Always use `uv run` to execute scripts or tests to ensure the correct virtual environment is used:

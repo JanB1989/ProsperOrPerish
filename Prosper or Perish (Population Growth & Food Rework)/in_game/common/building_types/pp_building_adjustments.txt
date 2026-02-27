@@ -120,63 +120,145 @@ INJECT:bund = {
 	}
 	ai_forbid_shutdown = yes
 }
-INJECT:fruit_orchard = {
+# fruit_orchard, sheep_farms, fishing_village, forest_village: REPLACE to set
+# location_potential = { always = yes } so they can be built everywhere
+REPLACE:fruit_orchard = {
+	is_foreign = no
 	pop_type = peasants
-		
+	max_levels = fruit_orchard_max_level
+	employment_size = rural_peasant_produce_employment
+	category = rgo_building_category
 	rural_settlement = yes
 	town = yes
 	city = yes
-	max_levels = fruit_orchard_max_level
+	location_potential = {
+		always = yes
+	}
+	unique_production_methods = {
+		pp_fruit_orchard_maintenance = {
+			produced = fruit
+			output = 0.3
+			lumber = 0.17
+			category = building_maintenance
+		}
+	}
+	build_time = rural_build_time
+	construction_demand = farm_constructions
 	modifier = {
 		local_monthly_food = 0.0
 		local_food_capacity = 50
 	}
-	location_potential = {
-	}
 	ai_forbid_shutdown = yes
 }
-INJECT:sheep_farms = {
+REPLACE:sheep_farms = {
+	is_foreign = no
 	pop_type = peasants
-	rural_settlement = yes
-	town = yes
-	city = yes
 	max_levels = sheep_farms_max_level
+	employment_size = rural_peasant_produce_employment
+	category = rgo_building_category
+	rural_settlement = yes
+	location_potential = {
+		always = yes
+	}
+	unique_production_methods = {
+		pp_sheep_farm_maintenance = {
+			produced = wool
+			output = 0.5
+			lumber = 0.2
+			tools = 0.08
+			category = building_maintenance
+		}
+	}
 	modifier = {
-		local_monthly_food = 0.0 # 0 vanilla
+		local_monthly_food = 0.0
 		local_food_capacity = 50
 	}
-	location_potential = {
-	}
+	build_time = rural_build_time
+	construction_demand = farm_constructions
 	ai_forbid_shutdown = yes
 }
-INJECT:fishing_village = {
-	rural_settlement = yes
-	town = yes
-	city = yes
+REPLACE:fishing_village = {
+	is_foreign = no
 	max_levels = fishing_village_max_level
-	modifier = {
-		local_monthly_food = 0.0 # 0 vanilla
-		local_food_capacity = 50
-		local_laborers_desired_pop = -0.1
-		local_soldiers_desired_pop = -0.05
-	}
-	location_potential = {
-	}
-	ai_forbid_shutdown = yes
-}
-INJECT:forest_village = {
 	pop_type = peasants
+	category = village_category
+	employment_size = village_employment_size
 	rural_settlement = yes
 	town = yes
 	city = yes
-	max_levels = forest_village_max_level
-	modifier = {
-		local_monthly_food = -1.0 # 1 vanilla
-		local_food_capacity = 50
-		local_laborers_desired_pop = -0.1
-		local_soldiers_desired_pop = -0.05
-	}
 	location_potential = {
+		always = yes
+	}
+	build_time = village_build_time
+	unique_production_methods = {
+		pp_fishing_village_maintenance = {
+			produced = fish
+			output = 0.5
+			salt = 0.08
+			tools = 0.02
+			debug_max_profit = 0.6
+			category = building_maintenance
+		}
+		pp_arctic_fishing_village_maintenance = {
+			produced = fish
+			output = 0.5
+			salt = 0.08
+			ivory = 0.01
+			debug_max_profit = 0.6
+			category = building_maintenance
+		}
+	}
+	construction_demand = village_construction
+	modifier = {
+		# vanilla + injected (additive): 0+0, 50+50, 0.1-0.1=0, 0.05-0.05=0
+		local_monthly_food = 0.0
+		local_food_capacity = 100
+		local_merchant_capacity = 0.25
+		local_peasants_estate_power = 0.25
+		local_maritime_presence = 0.01
+		local_laborers_desired_pop = 0.0
+		local_soldiers_desired_pop = 0.0
+		harbor_suitability = 0.02
+		local_sailors = 0.001
+	}
+	ai_forbid_shutdown = yes
+}
+REPLACE:forest_village = {
+	is_foreign = no
+	max_levels = forest_village_max_level
+	pop_type = peasants
+	category = village_category
+	employment_size = village_employment_size
+	rural_settlement = yes
+	location_potential = {
+		always = yes
+	}
+	build_time = village_build_time
+	unique_production_methods = {
+		pp_forest_tannery = {
+			produced = leather
+			output = 0.2
+			sand = 0.1
+			tar = 0.02
+			wild_game = 0.4
+			category = building_maintenance
+		}
+		pp_hunting_lodges = {
+			produced = wild_game
+			output = 0.20
+			weaponry = 0.05
+			debug_max_profit = 0.4
+			category = building_maintenance
+		}
+	}
+	construction_demand = village_construction
+	modifier = {
+		# vanilla + injected (additive): 1.0-1.0=0, 0.1-0.1=0, 0.05-0.05=0
+		local_monthly_food = 0.0
+		local_food_capacity = 50
+		local_peasants_estate_power = 0.25
+		local_laborers_desired_pop = 0.0
+		local_soldiers_desired_pop = 0.0
 	}
 	ai_forbid_shutdown = yes
 }
@@ -282,7 +364,7 @@ REPLACE:farming_village = {
 		millet_farm_maintenance = {
 			tools = 0.1
             horses = 0.1
-			output = 0.5
+			output = 0.65
 			produced = millet
 			debug_max_profit = 0.6
 			category = building_maintenance
@@ -290,7 +372,7 @@ REPLACE:farming_village = {
 		wheat_farm_maintenance = {
 			tools = 0.1
             horses = 0.1
-			output = 0.4
+			output = 0.5
 			produced = wheat
 			debug_max_profit = 0.6
 			category = building_maintenance
