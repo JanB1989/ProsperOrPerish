@@ -1,5 +1,0 @@
-﻿# Prosper or Perish — Farming Capacity (building potential from geography)
-pp_farming_capacity = {
-	family = food
-	texture = "flat_icons/trade_market/food_stockpile"
-}

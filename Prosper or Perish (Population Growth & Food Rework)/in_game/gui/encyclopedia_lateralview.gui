@@ -395,16 +395,30 @@ lateralview_full = {
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
-                                    raw_text = "Harvest"
+                                    raw_text = "Variable Harvests"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'harvest')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'harvest')]"
                                     tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
-                                    raw_text = "Farming Cap."
-                                    onclick = "[GetVariableSystem.Set('pp_filter', 'farming_capacity')]"
-                                    down = "[GetVariableSystem.HasValue('pp_filter', 'farming_capacity')]"
+                                    raw_text = "Urbanization"
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'urbanization')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'urbanization')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
+                                }
+                                button_regular = {
+                                    layoutpolicy_horizontal = expanding
+                                    raw_text = "Farm Capacity"
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'farm_capacity')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'farm_capacity')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
+                                }
+                                button_regular = {
+                                    layoutpolicy_horizontal = expanding
+                                    raw_text = "Farm Output"
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'farm_output')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'farm_output')]"
                                     tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
@@ -445,9 +459,9 @@ lateralview_full = {
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
-                                    raw_text = "Food Storage"
-                                    onclick = "[GetVariableSystem.Set('pp_filter', 'food_storage')]"
-                                    down = "[GetVariableSystem.HasValue('pp_filter', 'food_storage')]"
+                                    raw_text = "Food Production"
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'food')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'food')]"
                                     tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
@@ -638,7 +652,7 @@ lateralview_full = {
                                                     hbox = {
                                                         margin = { 40 0 }
                                                         margin_top = 8
-                                                        icon = { texture = "gfx/interface/icons/flat_icons/trade_market/food_stockpile.dds" size = { 45 45 } }
+                                                        icon = { texture = "gfx/interface/icons/alerts_icons/weather_system.dds" size = { 45 45 } }
                                                         text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "harvest_situation" }
                                                     }
                                                 }
@@ -653,9 +667,9 @@ lateralview_full = {
                                             }
                                         }
 
-                                        # ---- Farming Capacity (building potential map modes) ----
+                                        # ---- Urbanization ----
                                         vbox = {
-                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'farming_capacity'))]"
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'urbanization'))]"
                                             set_parent_size_to_minimum = yes
                                             margin = { 0 10 }
                                             vbox = {
@@ -674,14 +688,86 @@ lateralview_full = {
                                                     hbox = {
                                                         margin = { 40 0 }
                                                         margin_top = 8
-                                                        icon = { texture = "gfx/interface/icons/map_modes/raw_material.dds" size = { 45 45 } }
-                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_farming_capacity" }
+                                                        icon = { texture = "gfx/interface/icons/flat_icons/building_panel/employees.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_urbanization" }
                                                     }
                                                 }
                                                 TooltipListScrollArea = {
                                                     blockoverride "scrollarea_content" {
                                                         vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
-                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_farming_capacity_desc" margin = { 40 10 } }
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_urbanization_desc" margin = { 40 10 } }
+                                                        }
+                                                    }
+                                                    block "block_scrollarea" { maximumsize = { -1 800 } }
+                                                }
+                                            }
+                                        }
+
+                                        # ---- Farm Capacity ----
+                                        vbox = {
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'farm_capacity'))]"
+                                            set_parent_size_to_minimum = yes
+                                            margin = { 0 10 }
+                                            vbox = {
+                                                layoutpolicy_horizontal = expanding
+                                                spacing = 10
+                                                using = bg_paper_card
+                                                blockoverride "card_color" { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                max_width = 1450
+                                                min_width = 1450
+                                                icon = {
+                                                    layoutpolicy_horizontal = expanding
+                                                    using = button_main_tab_texture
+                                                    frame = 4
+                                                    modify_texture = { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                    modify_texture = { using = overlay_leather_texture blend_mode = overlay alpha = 0.2 }
+                                                    hbox = {
+                                                        margin = { 40 0 }
+                                                        margin_top = 8
+                                                        icon = { texture = "gfx/interface/icons/buildings/farming_village.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_farm_capacity" }
+                                                    }
+                                                }
+                                                TooltipListScrollArea = {
+                                                    blockoverride "scrollarea_content" {
+                                                        vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_farm_capacity_desc" margin = { 40 10 } }
+                                                        }
+                                                    }
+                                                    block "block_scrollarea" { maximumsize = { -1 800 } }
+                                                }
+                                            }
+                                        }
+
+                                        # ---- Farm Output ----
+                                        vbox = {
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'farm_output'))]"
+                                            set_parent_size_to_minimum = yes
+                                            margin = { 0 10 }
+                                            vbox = {
+                                                layoutpolicy_horizontal = expanding
+                                                spacing = 10
+                                                using = bg_paper_card
+                                                blockoverride "card_color" { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                max_width = 1450
+                                                min_width = 1450
+                                                icon = {
+                                                    layoutpolicy_horizontal = expanding
+                                                    using = button_main_tab_texture
+                                                    frame = 4
+                                                    modify_texture = { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                    modify_texture = { using = overlay_leather_texture blend_mode = overlay alpha = 0.2 }
+                                                    hbox = {
+                                                        margin = { 40 0 }
+                                                        margin_top = 8
+                                                        icon = { texture = "gfx/interface/icons/modifier_types/wheat_positive.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_farm_output" }
+                                                    }
+                                                }
+                                                TooltipListScrollArea = {
+                                                    blockoverride "scrollarea_content" {
+                                                        vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_farm_output_desc" margin = { 40 10 } }
                                                         }
                                                     }
                                                     block "block_scrollarea" { maximumsize = { -1 800 } }
@@ -833,9 +919,9 @@ lateralview_full = {
                                             }
                                         }
 
-                                        # ---- Food Storage ----
+                                        # ---- Food ----
                                         vbox = {
-                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'food_storage'))]"
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'food'))]"
                                             set_parent_size_to_minimum = yes
                                             margin = { 0 10 }
                                             vbox = {
@@ -854,14 +940,14 @@ lateralview_full = {
                                                     hbox = {
                                                         margin = { 40 0 }
                                                         margin_top = 8
-                                                        icon = { texture = "gfx/interface/icons/flat_icons/trade_market/food_stockpile.dds" size = { 45 45 } }
-                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_food_storage" }
+                                                        icon = { texture = "gfx/interface/icons/flat_icons/expanded_supply_trains.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_food" }
                                                     }
                                                 }
                                                 TooltipListScrollArea = {
                                                     blockoverride "scrollarea_content" {
                                                         vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
-                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_food_storage_desc" margin = { 40 10 } }
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_food_desc" margin = { 40 10 } }
                                                         }
                                                     }
                                                     block "block_scrollarea" { maximumsize = { -1 800 } }
