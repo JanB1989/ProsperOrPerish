@@ -18,7 +18,7 @@ cookery = {
 	unique_production_methods = {
 		# Target: output = 1.0 victuals (price 3.5).
 		# For ~-30% money: total input cost ~= 4.55.
-		cookery_rice_legumes = {
+		pp_cookery_rice_legumes = {
 			rice = 1.75
 			legumes = 1.50
 			pepper = 0.1
@@ -26,7 +26,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_rice_fish = {
+		pp_cookery_rice_fish = {
 			rice = 1.75
 			fish = 1.50
 			pepper = 0.10
@@ -34,7 +34,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_wheat_livestock = {
+		pp_cookery_wheat_livestock = {
 			wheat = 1.40
 			livestock = 1.40
 			salt = 0.1
@@ -42,7 +42,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_millet_fish = {
+		pp_cookery_millet_fish = {
 			millet = 1.5
 			fish = 2.00
 			salt = 0.10
@@ -50,7 +50,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_maize_livestock = {
+		pp_cookery_maize_livestock = {
 			maize = 1.10
 			livestock = 1.50
 			potato = 0.5
@@ -58,7 +58,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_pemmican = {
+		pp_cookery_pemmican = {
 			livestock = 2.0
 			wild_game = 0.5
 			fruit = 0.2
@@ -66,7 +66,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_mutton_pease = {
+		pp_cookery_mutton_pease = {
 			wool = 1.9
 			legumes = 0.9
 			salt = 0.1
@@ -74,7 +74,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_labskaus = {
+		pp_cookery_labskaus = {
 			potato = 0.5
 			fish = 0.8
 			livestock = 1.6
@@ -82,7 +82,7 @@ cookery = {
 			output = 1.15
 			category = building_maintenance
 		}
-		cookery_surstromming = {
+		pp_cookery_surstromming = {
 			fish = 2.5
 			millet = 0.25
 			salt = 0.25
@@ -97,47 +97,47 @@ cookery = {
 	# - Designed to be usable with any base recipe
 	# ==========================================
 	unique_production_methods = {
-		cookery_no_enhancement = {
+		pp_cookery_no_enhancement = {
 			category = building_maintenance
 		}
 		# Target: output = 0.6 victuals (revenue 1.8).
 		# For ~-50% money: enhancement input cost ~= 3.6.
-		cookery_preserved_rations = {
+		pp_cookery_preserved_rations = {
 			salt = 0.4
 			pottery = 0.9
 			produced = victuals
 			output = 0.50
 			category = building_maintenance
 		}
-		cookery_sweet_preserves = {
+		pp_cookery_sweet_preserves = {
 			sugar = 0.5
 			fruit = 0.9
 			produced = victuals
 			output = 0.70
 			category = building_maintenance
 		}
-		cookery_spice_blend = {
+		pp_cookery_spice_blend = {
 			pepper = 0.35
 			cloves = 0.35
 			produced = victuals
 			output = 0.70
 			category = building_maintenance
 		}
-		cookery_spirited_rations = {
+		pp_cookery_spirited_rations = {
 			liquor = 0.70
 			beer = 0.80
 			produced = victuals
 			output = 0.60
 			category = building_maintenance
 		}
-		cookery_mediterranean_preserves = {
+		pp_cookery_mediterranean_preserves = {
 			wine = 1.0
 			olives = 0.8
 			produced = victuals
 			output = 0.5
 			category = building_maintenance
 		}
-		cookery_honey_confections = {
+		pp_cookery_honey_confections = {
 			beeswax = 1.0
 			fruit = 0.6
 			produced = victuals
@@ -149,10 +149,10 @@ cookery = {
 	# 3. PACKAGING (pick ONE)
 	# ==========================================
 	unique_production_methods = {
-		cookery_basic_packaging = {
+		pp_cookery_basic_packaging = {
 			category = building_maintenance
 		}
-		cookery_tin_cans = {
+		pp_cookery_tin_cans = {
 			steel = 0.5
 			produced = victuals
 			output = 0.40
@@ -160,8 +160,9 @@ cookery = {
 		}
 	}
 	modifier = {
-		local_victuals_output_modifier = 0.01
+		local_victuals_output_modifier = 0.00
 	}
+	forbidden_for_estates = no
 }
 
 tavern = {
@@ -184,5 +185,4 @@ tavern = {
 	modifier = {
 		local_monthly_food = 60
 	}
-
 }

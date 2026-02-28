@@ -14,9 +14,9 @@ REPLACE:agricultural_cultivation = {
 		global_livestock_output_modifier = 0.20
 		global_beeswax_output_modifier = 0.20
 		global_wool_output_modifier = 0.20
-		global_fish_output_modifier = 0.20
-		global_wild_game_output_modifier = 0.20
-		global_fur_output_modifier = 0.20
+		global_fish_output_modifier = 0.00
+		global_wild_game_output_modifier = 0.00
+		global_fur_output_modifier = 0.00
 	}
 	years = 2
 }

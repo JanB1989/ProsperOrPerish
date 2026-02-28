@@ -9,13 +9,13 @@
 	AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION_RATIO = 0.25 # maximum ratio of food locations that is allowed to be cities based on market average market food yield
     AI_AVERAGE_MARKET_FOOD_FOR_MAX_FOOD_URBANIZATION = 20 # AI_MAX_ALLOWED_URBANIZE_FOOD_LOCATION is reached when average location in market has this base food output of their rgo
     FOOD_NEGATIVE_IN_PROV_UTILITY = 0.4
-    PEASANT_BUILDING_IN_CITY_UTILITY_MULT = 0.10 # penalty for building peasant building in city that could be built in rural
+    PEASANT_BUILDING_IN_CITY_UTILITY_MULT = 0.0 # penalty for building peasant building in city that could be built in rural
 	AI_GLOBAL_BUILDING_COST_UTIL = -0.5
 	AI_GLOBAL_URBAN_BUILDING_COST_UTIL = -0.5
     AI_ALLOWED_BUILDING_MAINTENANCE = 0.35 # % of income allowed for building maintenance excluding forts, only used to close or reopen buildings during crisis
     AI_DEVELOPMENT_UTILITY = 0.2 # Utility bonus from development as it has so many modifiers that are hard to calculate
-	AI_PROFIT_MARGIN_TARGET = 0.25 # the desired profit margin
-	AI_GOLD_COST_UTIL_FROM_LOW_PROFIT_MARGIN = 5 # how hard the AI tries to maintain that margin
+	AI_PROFIT_MARGIN_TARGET = 0.15 # 0.25 the desired profit margin
+	AI_GOLD_COST_UTIL_FROM_LOW_PROFIT_MARGIN = 3.5 # 5 how hard the AI tries to maintain that margin
     AI_PROFITABILITY_THRESHOLD_FOR_MISSING_GOODS_UTIL = 1.05 # Must be at least 15% profitable to build it in order to solve input issues for other buildings, safe guard against it closing
 	SHIP_RECRUITMENT_COST_FACTOR = 0.4 # multiplier for how much we care about the cost of ships vs budget
 	REGIMENT_RECRUITMENT_COST_FACTOR = 0.4 # multiplier for how much we care about the cost of regiments vs budget

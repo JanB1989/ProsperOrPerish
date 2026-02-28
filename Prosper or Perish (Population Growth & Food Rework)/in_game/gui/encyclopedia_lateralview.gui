@@ -70,8 +70,14 @@ lateralview_full = {
 
                                 text = "ENCYCLOPEDIA_PAGE_PROSPER_OR_PERISH"
 
-                                onclick = "[GetVariableSystem.Set('pp_encyclopedia_active', 'yes')][GetVariableSystem.Set('pp_filter', 'all')]"
-                                on_action = "[Encyclopedia.ViewAllEntries]"
+                                onclick = "[GetVariableSystem.Set('pp_encyclopedia_active', 'yes')]"
+
+                                action_tooltip = {
+                                    title = "ENCYCLOPEDIA_PAGE_PROSPER_OR_PERISH"
+                                    on_action = "[Encyclopedia.ViewAllEntries]"
+                                }
+
+                                tooltipwidget = { BasicFunctionalTooltip = {} }
 
                                 modify_texture = {
                                     visible = "[GetVariableSystem.HasValue('pp_encyclopedia_active', 'yes')]"
@@ -340,7 +346,7 @@ lateralview_full = {
                             }
                         }
 
-                        # Mod Content — 11 hardcoded feature cards
+                        # Mod Content — 12 hardcoded feature cards
                         vbox = {
                             layoutpolicy_horizontal = expanding
                             layoutpolicy_vertical = expanding
@@ -357,36 +363,56 @@ lateralview_full = {
                                     raw_text = "All"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'all')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'all')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
+                                }
+                                button_regular = {
+                                    layoutpolicy_horizontal = expanding
+                                    raw_text = "Overview"
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'overview')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'overview')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Game Rules"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'game_rules')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'game_rules')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
-                                    raw_text = "Victuals"
+                                    raw_text = "New Trade Goods"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'victuals')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'victuals')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
-                                    raw_text = "Cookery"
+                                    raw_text = "New Buildings"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'cookery')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'cookery')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Harvest"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'harvest')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'harvest')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
+                                }
+                                button_regular = {
+                                    layoutpolicy_horizontal = expanding
+                                    raw_text = "Farming Cap."
+                                    onclick = "[GetVariableSystem.Set('pp_filter', 'farming_capacity')]"
+                                    down = "[GetVariableSystem.HasValue('pp_filter', 'farming_capacity')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Infrastructure"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'infrastructure')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'infrastructure')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                             }
 
@@ -401,36 +427,42 @@ lateralview_full = {
                                     raw_text = "Pop. Distribution"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'pop_dist')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'pop_dist')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Pop. Growth"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'pop_growth')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'pop_growth')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Pop. Capacity"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'pop_cap')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'pop_cap')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Food Storage"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'food_storage')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'food_storage')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "Starvation"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'starvation')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'starvation')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                                 button_regular = {
                                     layoutpolicy_horizontal = expanding
                                     raw_text = "AI Changes"
                                     onclick = "[GetVariableSystem.Set('pp_filter', 'ai_changes')]"
                                     down = "[GetVariableSystem.HasValue('pp_filter', 'ai_changes')]"
+                                    tooltipwidget = { BasicFunctionalTooltip = {} }
                                 }
                             }
 
@@ -440,6 +472,42 @@ lateralview_full = {
 
                                 blockoverride "scrollbox_content" {
                                     vbox = {
+
+                                        # ---- Overview (Prosper or Perish Mod) ----
+                                        vbox = {
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'overview'))]"
+                                            set_parent_size_to_minimum = yes
+                                            margin = { 0 10 }
+                                            vbox = {
+                                                layoutpolicy_horizontal = expanding
+                                                spacing = 10
+                                                using = bg_paper_card
+                                                blockoverride "card_color" { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                max_width = 1450
+                                                min_width = 1450
+                                                icon = {
+                                                    layoutpolicy_horizontal = expanding
+                                                    using = button_main_tab_texture
+                                                    frame = 4
+                                                    modify_texture = { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                    modify_texture = { using = overlay_leather_texture blend_mode = overlay alpha = 0.2 }
+                                                    hbox = {
+                                                        margin = { 40 0 }
+                                                        margin_top = 8
+                                                        icon = { texture = "gfx/interface/icons/flat_icons/trade_market/food_stockpile.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_prosper_perish_mod" }
+                                                    }
+                                                }
+                                                TooltipListScrollArea = {
+                                                    blockoverride "scrollarea_content" {
+                                                        vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_prosper_perish_mod_desc" margin = { 40 10 } }
+                                                        }
+                                                    }
+                                                    block "block_scrollarea" { maximumsize = { -1 800 } }
+                                                }
+                                            }
+                                        }
 
                                         # ---- Game Rules ----
                                         vbox = {
@@ -578,6 +646,42 @@ lateralview_full = {
                                                     blockoverride "scrollarea_content" {
                                                         vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
                                                             text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "harvest_situation_desc" margin = { 40 10 } }
+                                                        }
+                                                    }
+                                                    block "block_scrollarea" { maximumsize = { -1 800 } }
+                                                }
+                                            }
+                                        }
+
+                                        # ---- Farming Capacity (building potential map modes) ----
+                                        vbox = {
+                                            visible = "[Or(GetVariableSystem.HasValue('pp_filter', 'all'), GetVariableSystem.HasValue('pp_filter', 'farming_capacity'))]"
+                                            set_parent_size_to_minimum = yes
+                                            margin = { 0 10 }
+                                            vbox = {
+                                                layoutpolicy_horizontal = expanding
+                                                spacing = 10
+                                                using = bg_paper_card
+                                                blockoverride "card_color" { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                max_width = 1450
+                                                min_width = 1450
+                                                icon = {
+                                                    layoutpolicy_horizontal = expanding
+                                                    using = button_main_tab_texture
+                                                    frame = 4
+                                                    modify_texture = { using = color_intense_bg_blue_texture blend_mode = multiply }
+                                                    modify_texture = { using = overlay_leather_texture blend_mode = overlay alpha = 0.2 }
+                                                    hbox = {
+                                                        margin = { 40 0 }
+                                                        margin_top = 8
+                                                        icon = { texture = "gfx/interface/icons/map_modes/raw_material.dds" size = { 45 45 } }
+                                                        text_single = { name = "title" using = layoutpolicy_expanding using = Font_Size_Medium fontsize = 18 autoresize = no default_format = "#yellow_titles" text = "game_concept_pp_farming_capacity" }
+                                                    }
+                                                }
+                                                TooltipListScrollArea = {
+                                                    blockoverride "scrollarea_content" {
+                                                        vbox = { set_parent_dimension_to_minimum = height layoutpolicy_horizontal = expanding
+                                                            text_multi = { name = "body" max_width = 1450 min_width = 1450 autoresize = yes text = "game_concept_pp_farming_capacity_desc" margin = { 40 10 } }
                                                         }
                                                     }
                                                     block "block_scrollarea" { maximumsize = { -1 800 } }

@@ -1,0 +1,22 @@
+# Prosper or Perish — EU5 Mod Cursor Rules
+
+## Localization
+
+**All mod localization lives here and nowhere else:**
+`C:\Users\Anwender\Documents\Paradox Interactive\Europa Universalis V\mod\Prosper or Perish (Population Growth & Food Rework)\main_menu\localization`
+
+Do not create localization under `in_game/` or any other path. Add keys to the appropriate `main_menu/localization/<language>/` YAML files.
+
+## Icons
+
+When adding or referencing icons in mod content:
+
+1. **Always look up existing icons first** — do not invent icon names or image paths.
+
+2. **Sources for valid icon names and paths:**
+   - Modifier icons: `c:\Games\steamapps\common\Europa Universalis V\game\main_menu\common\modifier_icons\00_modifier_icons.txt` — maps names to `gfx/interface/icons/modifier_types/<name>.dds`
+   - Advance icon names: grep `icon = ` in `c:\Games\steamapps\common\Europa Universalis V\game\in_game\common\advances\` — reuse names like `renaissance_advance`, `efficient_mining`, `new_world_advance`, `agriculture_advance`, `cookery_tin_cans_advance`
+   - Govt reforms, cabinet actions: same `icon = ` pattern in `in_game\common\government_reforms\` and `in_game\common\cabinet_actions\`
+   - Event images: `image = "gfx/interface/illustrations/.../file.dds"` — only use paths that exist under `gfx/interface/`
+
+3. **Preferred approach:** Reuse an existing icon name (e.g. `icon = renaissance_advance` for a farming-related advance) rather than guessing a new one. If adding custom assets, place under the mod's `gfx/` mirror of the vanilla structure and reference the correct path.
