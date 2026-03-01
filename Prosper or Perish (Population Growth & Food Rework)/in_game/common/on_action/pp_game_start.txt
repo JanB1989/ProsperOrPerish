@@ -234,7 +234,7 @@ pp_game_start_effect = {
 						cost_multiplier_reason = "game_start"
 					}
 					construct_building = {
-						building_type = building_type:tavern
+						building_type = building_type:victuals_market
 						instant = yes
 						cost_multiplier = 0
 						cost_multiplier_reason = "game_start"
@@ -322,10 +322,10 @@ pp_game_start_effect = {
 								population > 50
 							}
 						}
-						NOT = { has_building = building_type:tavern }
+						NOT = { has_building = building_type:victuals_market }
 					}
 					construct_building = {
-						building_type = building_type:tavern
+						building_type = building_type:victuals_market
 						instant = yes
 						cost_multiplier = 0
 						cost_multiplier_reason = "game_start"

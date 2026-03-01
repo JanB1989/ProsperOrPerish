@@ -163,26 +163,30 @@ cookery = {
 		local_victuals_output_modifier = 0.00
 	}
 	forbidden_for_estates = no
+	important_for_AI = yes
 }
 
-tavern = {
+victuals_market = {
 	is_foreign = no
-	max_levels = tavern_max_level
+	max_levels = victuals_market_max_level
 	pop_type = peasants
 	employment_size = 1
 	category = infrastructure_category
-	icon = tavern
+	icon = victuals_market
 	rural_settlement = yes
 	town = yes
 	city = yes
 	ai_forbid_shutdown = no
+	important_for_AI = yes
+	can_close = yes
 	build_time = generic_town_build_time
 	construction_demand = town_building_construction
 
 	possible_production_methods = {
-		tavern_maintenance
+		victuals_market_maintenance
 	}
 	modifier = {
 		local_monthly_food = 60
+		local_market_access = 0.025
 	}
 }

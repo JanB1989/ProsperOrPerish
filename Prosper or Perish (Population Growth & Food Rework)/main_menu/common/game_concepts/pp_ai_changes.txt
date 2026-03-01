@@ -1,5 +1,0 @@
-﻿# Prosper or Perish — AI behavior changes
-pp_ai_changes = {
-	family = food
-	texture = "flat_icons/country"
-}

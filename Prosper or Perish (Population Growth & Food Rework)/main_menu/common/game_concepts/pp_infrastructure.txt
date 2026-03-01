@@ -1,5 +1,0 @@
-﻿# Prosper or Perish — Infrastructure (roads, property prices)
-pp_infrastructure = {
-	family = food
-	texture = "flat_icons/balance/trade"
-}

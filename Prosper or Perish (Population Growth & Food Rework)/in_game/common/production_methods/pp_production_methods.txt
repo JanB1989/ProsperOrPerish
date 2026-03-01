@@ -1,5 +1,5 @@
 ﻿# Prosper or Perish - Production Methods
-tavern_maintenance = {
+victuals_market_maintenance = {
 	victuals = 1.0
 	category = building_maintenance
 }

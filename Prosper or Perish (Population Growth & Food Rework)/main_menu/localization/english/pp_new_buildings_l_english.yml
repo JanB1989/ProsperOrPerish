@@ -1,6 +1,6 @@
 ﻿l_english:
   cookery: "Cookery"
-  cookery_desc: "A cookery that turns staple goods into victuals suitable for storage and transport."
+  cookery_desc: "From baking ship's biscuit to brewing hearty khichdi, cookeries process raw staples into durable [ShowGoodsName('victuals')|e]. Once preserved, these provisions are shipped to feed distant colonies, sustain armed forces, or supply the local [ShowBuildingTypeName('victuals_market')|e]."
   cookery_slot_0: "Staple Victuals"
   cookery_slot_1: "Victual Enrichment"
   cookery_slot_2: "Packaging"
@@ -24,6 +24,6 @@
   pp_cookery_tin_cans: "Tin Cans"
   cookery_tin_cans_advance: "Tin Cans"
   cookery_tin_cans_advance_desc: "Develop canning techniques that use steel containers to preserve food for longer transport and storage."
-  tavern: "Tavern"
-  tavern_desc: "A social hub where locals can enjoy various beverages, improving local food availability through organized distribution."
-  tavern_maintenance: "Tavern Maintenance"
+  victuals_market: "Victuals Market"
+  victuals_market_desc: "The final stop in the local food economy. Freshly cooked meals and rations arrive here to be bought and sold as [ShowGoodsName('victuals')|e], providing your population with a centralized place to trade provisions."
+  victuals_market_maintenance: "Victuals Market Maintenance"

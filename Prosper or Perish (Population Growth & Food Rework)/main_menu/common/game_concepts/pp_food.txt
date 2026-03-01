@@ -1,6 +1,0 @@
-﻿# Prosper or Perish — Food (prices, population growth, prosperity, starvation)
-# TODO: Expand when writing the Food section
-pp_food = {
-	family = food
-	texture = "flat_icons/expanded_supply_trains"
-}
