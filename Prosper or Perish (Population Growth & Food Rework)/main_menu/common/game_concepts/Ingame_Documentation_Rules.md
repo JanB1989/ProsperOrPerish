@@ -2,6 +2,7 @@
 
 Instructions for Cursor when editing game concept definitions or the Europedia.
 # Prosper or Perish (Population Growth & Food Rework)\in_game\gui\encyclopedia_lateralview.gui
+# Localization is usually here main_menu/localization/english/pp_europedia_l_english.yml
 ## Concept display order
 
 When editing the Europedia GUI or concept definitions, preserve this order:

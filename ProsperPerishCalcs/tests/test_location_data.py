@@ -50,3 +50,36 @@ def test_owner_tag_coverage(location_data):
     unowned_count = df["owner_tag"].isna().sum()
     assert owned_count > 0
     assert unowned_count > 0
+
+
+def test_get_location_by_tag(location_data):
+    """get_location_by_tag returns correct row for valid location tag."""
+    stockholm = location_data.get_location_by_tag("stockholm")
+    assert stockholm is not None
+    assert stockholm["location"] == "stockholm"
+
+
+def test_stockholm_location_rank_town(location_data):
+    """Stockholm should be a town at game start (from 07_cities_and_buildings)."""
+    stockholm = location_data.get_location_by_tag("stockholm")
+    assert stockholm is not None
+    assert stockholm["location_rank"] == "town"
+    assert stockholm["town_setup"] == "important_scandinavian_town"
+
+
+def test_victuals_market_columns_present(location_data):
+    """victuals_market_amount, food_victuals_market, total_food_production exist and are consistent."""
+    df = location_data.get_merged_df()
+    assert "victuals_market_amount" in df.columns
+    assert "food_victuals_market" in df.columns
+    assert "total_food_production" in df.columns
+    diff = (df["total_food_production"] - df["food_subsistence"] - df["food_victuals_market"]).abs()
+    assert (diff < 0.001).all(), "total_food_production should equal food_subsistence + food_victuals_market"
+
+
+def test_stockholm_has_victuals_market(location_data):
+    """Stockholm (SWE capital) gets victuals_market from pp_game_start."""
+    stockholm = location_data.get_location_by_tag("stockholm")
+    assert stockholm is not None
+    assert stockholm["victuals_market_amount"] >= 1
+    assert stockholm["food_victuals_market"] > 0

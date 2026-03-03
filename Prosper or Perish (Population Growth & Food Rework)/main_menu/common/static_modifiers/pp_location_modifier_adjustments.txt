@@ -99,9 +99,20 @@ TRY_REPLACE:abundant_free_land = {
     local_population_growth = 0.00
     local_monthly_food_modifier = 0.0
 	local_monthly_food = 0 # 8
-	local_wheat_output_modifier = 0.1
-	local_millet_output_modifier = 0.1
-	local_livestock_output_modifier = 0.1
+	local_wheat_output_modifier = 0.0
+	local_rice_output_modifier = 0.0
+	local_millet_output_modifier = 0.0
+	local_maize_output_modifier = 0.0
+	local_legumes_output_modifier = 0.0
+	local_fruit_output_modifier = 0.0
+	local_olives_output_modifier = 0.0
+	local_potato_output_modifier = 0.0
+	local_livestock_output_modifier = 0.0
+	local_beeswax_output_modifier = 0.0
+	local_wool_output_modifier = 0.0
+	local_fish_output_modifier = 0.0
+	local_wild_game_output_modifier = 0.0
+	local_fur_output_modifier = 0.0
 }
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
 TRY_REPLACE:coastal = {
@@ -286,7 +297,7 @@ TRY_REPLACE:unemployed_peasants = {
 	game_data = {
 		category = location
 	}
-	local_monthly_development_modifier = -0.0015
+	local_monthly_development = -0.00001
 	local_institution_growth_modifier = -0.0030
 }
 TRY_INJECT:market_center = {
