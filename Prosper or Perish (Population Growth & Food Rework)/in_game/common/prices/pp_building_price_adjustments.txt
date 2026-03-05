@@ -1,0 +1,6 @@
+﻿# Needs to be a little bit cheaper. We rather have the ai build too many and turn them off, instead of having too few
+pp_victuals_market_price = {gold = 20}
+
+# Test prices
+# pp_test_price_1 = {gold = 1}
+

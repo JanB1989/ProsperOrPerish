@@ -20,20 +20,7 @@ TRY_INJECT:capital_economy_vs_traditional_economy = {
 	}
 	right_modifier = {
 		global_monthly_food_modifier = -0.2
-		global_wheat_output_modifier = 0.3
-		global_rice_output_modifier = 0.3
-		global_millet_output_modifier = 0.3
-		global_maize_output_modifier = 0.3
-		global_legumes_output_modifier = 0.3
-		global_fruit_output_modifier = 0.3
-		global_olives_output_modifier = 0.3
-		global_potato_output_modifier = 0.3
-		global_livestock_output_modifier = 0.3
-		global_beeswax_output_modifier = 0.3
-		global_wool_output_modifier = 0.3
-		global_fish_output_modifier = 0.3
-		global_wild_game_output_modifier = 0.3
-		global_fur_output_modifier = 0.3
+		global_peasants_food_consumption = -0.075
 		global_victuals_output_modifier = 0.20
 	}
 }
@@ -56,5 +43,15 @@ TRY_INJECT:land_vs_naval = {
 		global_salt_output_modifier = 0.30
 		global_pearls_output_modifier = 0.30
 		global_tar_output_modifier = 0.30
+	}
+}
+
+TRY_INJECT:aristocracy_vs_plutocracy = { #
+
+	left_modifier = {
+	global_peasants_food_consumption = -0.075 # the nobles keep squeezing the peasants
+	}
+	right_modifier = {
+		food_purchase_cost = -0.15
 	}
 }

@@ -7,6 +7,7 @@ TRY_INJECT:prosperity = {
 	local_monthly_development = 0.001
 	local_monthly_development_modifier = 0.25
 	local_peasants_food_consumption = 0.10
+	local_unrest = -0.03
 }
 # I think it makes some sense for people to die when looting
 # Idea is that food stocks are raided
@@ -95,4 +96,34 @@ TRY_INJECT:winter_severe = {
 }
 TRY_INJECT:location_base_values = {
 	local_devastation_recovery = -0.004
+}
+
+
+# Little ice age
+TRY_INJECT:the_little_ice_age = {
+	game_data = {
+		category = country
+	}
+	global_monthly_food_modifier = 0.1
+	local_nobles_food_consumption = 0.05
+	local_clergy_food_consumption = 0.05
+	local_burghers_food_consumption = 0.05
+	local_laborers_food_consumption = 0.05
+	local_peasants_food_consumption = 0.05
+	local_slaves_food_consumption = 0.05
+	
+	local_wheat_output_modifier = -0.25
+	local_rice_output_modifier = -0.25
+	local_millet_output_modifier = -0.25
+	local_maize_output_modifier = -0.25
+	local_legumes_output_modifier = -0.15
+	local_fruit_output_modifier = -0.35
+	local_olives_output_modifier = -0.20
+	local_potato_output_modifier = -0.10
+	local_livestock_output_modifier = -0.05
+	local_beeswax_output_modifier = -0.10
+	local_wool_output_modifier = 0.0
+	local_fish_output_modifier = 0.0
+	local_wild_game_output_modifier = 0.05
+	local_fur_output_modifier = 0.05
 }

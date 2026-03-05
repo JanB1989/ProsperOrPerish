@@ -3,6 +3,7 @@
 	unlock_production_method = pp_cookery_tin_cans
 	requires = steel_mill_advance
 	icon = cookery_tin_cans_advance
+	ai_weight = { add = 150 }
 }
 
 # ========== RICE (Asian origin) ==========
@@ -12,6 +13,7 @@ pp_rice_farm_advance_asian = {
 	unlock_production_method = pp_rice_farm_maintenance
 	requires = agriculture_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -30,6 +32,7 @@ pp_rice_farm_advance_mediterranean = {
 	unlock_production_method = pp_rice_farm_maintenance
 	requires = renaissance_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -46,6 +49,7 @@ pp_rice_farm_advance_general = {
 	unlock_production_method = pp_rice_farm_maintenance
 	requires = new_world_advance
 	# icon = new_world_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		NOT = {
@@ -76,6 +80,7 @@ pp_maize_farm_advance_american = {
 	unlock_production_method = pp_maize_farm_maintenance
 	requires = agriculture_advance
 	# icon = new_world_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -92,6 +97,7 @@ pp_maize_farm_advance_iberian = {
 	unlock_production_method = pp_maize_farm_maintenance
 	requires = new_world_advance
 	# icon = new_world_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= { region = region:iberia_region }
@@ -103,6 +109,7 @@ pp_maize_farm_advance_general = {
 	unlock_production_method = pp_maize_farm_maintenance
 	requires = global_trade_advance
 	# icon = new_world_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		NOT = {
@@ -126,6 +133,7 @@ pp_potato_farm_advance_american = {
 	unlock_production_method = pp_potato_farm_maintenance
 	requires = agriculture_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -142,6 +150,7 @@ pp_potato_farm_advance_iberian = {
 	unlock_production_method = pp_potato_farm_maintenance
 	requires = global_trade_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= { region = region:iberia_region }
@@ -153,6 +162,7 @@ pp_potato_farm_advance_general = {
 	unlock_production_method = pp_potato_farm_maintenance
 	requires = newspapers_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		NOT = {
@@ -176,6 +186,7 @@ pp_olives_farm_advance_mediterranean = {
 	unlock_production_method = pp_olives_farm_maintenance
 	requires = agriculture_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -194,6 +205,7 @@ pp_olives_farm_advance_general = {
 	unlock_production_method = pp_olives_farm_maintenance
 	requires = global_trade_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		NOT = {
@@ -216,6 +228,7 @@ pp_fur_trapping_advance_native = {
 	unlock_production_method = pp_fur_trapping
 	requires = agriculture_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -234,6 +247,7 @@ pp_fur_trapping_advance_colonial = {
 	unlock_production_method = pp_fur_trapping
 	requires = new_world_advance
 	# icon = new_world_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		original_capital ?= {
@@ -250,6 +264,7 @@ pp_fur_trapping_advance_general = {
 	unlock_production_method = pp_fur_trapping
 	requires = global_trade_advance
 	# icon = renaissance_advance
+	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
 		NOT = {

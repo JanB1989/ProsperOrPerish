@@ -1,7 +1,7 @@
 ﻿# I want prosperity and devastation to be more sticky in general
 # ADVANCES
 TRY_INJECT:recovery_efforts = {
-	global_devastation_recovery = -0.004
+	global_devastation_recovery = -0.00475
 }
 TRY_INJECT:mother_of_russian_cities = {
 	global_devastation_recovery = -0.004
@@ -20,6 +20,17 @@ TRY_INJECT:thrive_under_persecution = {
 }
 TRY_INJECT:paschal_cycle = {
 	global_devastation_recovery = -0.004
+}
+TRY_INJECT:fertile_lands = {
+	age = age_2_renaissance
+
+	potential = { 
+		original_capital ?= { continent = continent:asia }
+	}
+	global_monthly_food_modifier = -0.05
+	global_rice_output_modifier = 0.10
+
+	requires = renaissance_urbanisation
 }
 # Serfdom: remove global food modifier, add per-good output bonuses (15% = marginal minimum)
 TRY_INJECT:serfdom = {

@@ -55,7 +55,7 @@
 		}
 	}
 	location_modifier = {
-		local_devastation_recovery = 0.015
+		local_devastation_recovery = 0.005
 		local_population_growth = 0.000
 	}
 	map_marker = {

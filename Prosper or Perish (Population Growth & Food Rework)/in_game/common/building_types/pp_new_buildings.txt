@@ -23,7 +23,7 @@ cookery = {
 			legumes = 1.50
 			pepper = 0.1
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_rice_fish = {
@@ -31,7 +31,7 @@ cookery = {
 			fish = 1.50
 			pepper = 0.10
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_wheat_livestock = {
@@ -39,7 +39,7 @@ cookery = {
 			livestock = 1.40
 			salt = 0.1
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_millet_fish = {
@@ -47,7 +47,7 @@ cookery = {
 			fish = 2.00
 			salt = 0.10
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_maize_livestock = {
@@ -55,7 +55,7 @@ cookery = {
 			livestock = 1.50
 			potato = 0.5
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_pemmican = {
@@ -63,7 +63,7 @@ cookery = {
 			wild_game = 0.5
 			fruit = 0.2
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_mutton_pease = {
@@ -71,7 +71,7 @@ cookery = {
 			legumes = 0.9
 			salt = 0.1
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_labskaus = {
@@ -79,7 +79,7 @@ cookery = {
 			fish = 0.8
 			livestock = 1.6
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 		pp_cookery_surstromming = {
@@ -87,7 +87,7 @@ cookery = {
 			millet = 0.25
 			salt = 0.25
 			produced = victuals
-			output = 1.15
+			output = 1.05
 			category = building_maintenance
 		}
 	}
@@ -170,7 +170,9 @@ victuals_market = {
 	is_foreign = no
 	max_levels = victuals_market_max_level
 	pop_type = peasants
-	employment_size = 1
+	employment_size = 0.1
+	# price = pp_test_price_1
+	price = pp_victuals_market_price
 	category = infrastructure_category
 	icon = victuals_market
 	rural_settlement = yes
@@ -179,8 +181,9 @@ victuals_market = {
 	ai_forbid_shutdown = no
 	important_for_AI = yes
 	can_close = yes
+	forbidden_for_estates = no
 	build_time = generic_town_build_time
-	construction_demand = town_building_construction
+	construction_demand = victuals_market_construction
 
 	possible_production_methods = {
 		victuals_market_maintenance
@@ -188,5 +191,6 @@ victuals_market = {
 	modifier = {
 		local_monthly_food = 60
 		local_market_access = 0.025
+		local_crown_estate_power = 0.01
 	}
 }

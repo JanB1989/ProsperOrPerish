@@ -5,7 +5,7 @@ TRY_REPLACE:city = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.0
-		local_monthly_food = 5
+		local_monthly_food = 0
 		local_burghers_desired_pop = 0.50
 		local_laborers_desired_pop = 0.50
 		local_soldiers_desired_pop = 0.20
@@ -15,7 +15,7 @@ TRY_REPLACE:city = {
 		local_max_control = 0.1
 		local_population_capacity = 0
 		local_population_capacity_modifier = 0.0
-		local_population_growth = -0.003 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
+		local_population_growth = -0.0035 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
 		
 		local_food_capacity = 0 # 500
 		local_food_capacity_modifier = 0 # 0
@@ -65,7 +65,7 @@ TRY_REPLACE:town = {
 	
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.00
-		local_monthly_food = 5
+		local_monthly_food = 0
 		local_burghers_desired_pop = 0.25
 		local_laborers_desired_pop = 0.25
 		local_soldiers_desired_pop = 0.10
@@ -75,7 +75,7 @@ TRY_REPLACE:town = {
 		local_max_control = 0.05
 		local_population_capacity = 0
 		local_population_capacity_modifier = 0.0
-		local_population_growth = -0.0025 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
+		local_population_growth = -0.0035 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
 		local_food_capacity = 0 # 250
 		local_food_capacity_modifier = 0
 		
@@ -112,7 +112,7 @@ TRY_REPLACE:town = {
 TRY_REPLACE:rural_settlement = {
 	rank_modifier = {
 		local_max_rgo_size_modifier = 0.10
-		local_monthly_food = 5 # 1
+		local_monthly_food = 0 # 1
 		free_building_levels = 10
 		
 		local_max_control = 0.00
@@ -123,7 +123,7 @@ TRY_REPLACE:rural_settlement = {
 		local_food_capacity = 0 # 100
 		local_food_capacity_modifier = 0 # 0.5
 		local_build_buildings_cost = 0.0
-		local_population_growth = -0.002 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
+		local_population_growth = -0.0035 # This is purely for balancing. The idea is that population should grow ONLY at X months of food stored
 		fruit_orchard_max_level_modifier = 0
 		sheep_farms_max_level_modifier = 0
 		farming_village_max_level_modifier = 0

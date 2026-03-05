@@ -15,7 +15,7 @@ TRY_REPLACE:province_starving = {
 	local_life_expectancy = -10
 	
 	local_migration_speed = 0.015
-    local_monthly_prosperity = -0.025
+    local_monthly_prosperity = -0.05
 	local_defensive = -0.30
 	
 	local_tribesmen_migration_allowed = yes
@@ -26,13 +26,13 @@ TRY_REPLACE:cheap_food_in_location = {
 	game_data = {
 		category = location
 	}
-	local_nobles_food_consumption = 0.25
-	local_clergy_food_consumption = 0.25
-	local_burghers_food_consumption = 0.25
-	local_laborers_food_consumption = 0.25
-	local_soldiers_food_consumption = 0.25
-	local_peasants_food_consumption = 0.25
-	local_population_growth = 0.0100
+	local_nobles_food_consumption = 0.15
+	local_clergy_food_consumption = 0.15
+	local_burghers_food_consumption = 0.15
+	local_laborers_food_consumption = 0.15
+	local_soldiers_food_consumption = 0.15
+	local_peasants_food_consumption = 0.00
+	local_population_growth = 0.0070
 	local_monthly_prosperity = 0.0040
 	local_devastation_recovery = 0.0025
 }
@@ -40,14 +40,15 @@ TRY_REPLACE:expensive_food_in_location = {
 	game_data = {
 		category = location
 	}
-	local_pop_demotion_speed = 0.25
-	local_nobles_food_consumption = -0.10
-	local_clergy_food_consumption = -0.10
-	local_burghers_food_consumption = -0.15
-	local_laborers_food_consumption = -0.15
-	local_soldiers_food_consumption = -0.15
+	# local_pop_demotion_speed = 0.25
+	# local_nobles_food_consumption = -0.10
+	# local_clergy_food_consumption = -0.10
+	# local_burghers_food_consumption = -0.15
+	# local_laborers_food_consumption = -0.15
+	# local_soldiers_food_consumption = -0.15
+	local_upper_class_capacity_modifier = -0.25
 	local_peasants_food_consumption = -0.30
-	local_monthly_prosperity = -0.0050
+	local_monthly_prosperity = -0.0065
 	local_population_growth = -0.005
 }
 TRY_REPLACE:positive_province_food_growth = {
@@ -55,7 +56,7 @@ TRY_REPLACE:positive_province_food_growth = {
 		category = province
 	}
 	# these values are the values for 12 months of stored province consumption
-	local_population_growth = 0.0030 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
+	local_population_growth = 0.00325 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
 	local_peasants_food_consumption = 0.025
@@ -85,10 +86,22 @@ TRY_REPLACE:available_free_land = {
 	local_migration_attraction = 1.00
 	local_population_growth = 0
     local_monthly_food_modifier = 0.0
-	local_monthly_food = 0 # 5
-	local_wheat_output_modifier = 0.05
-	local_millet_output_modifier = 0.05
-	local_livestock_output_modifier = 0.05
+	local_monthly_food = 10 # 5
+	local_peasants_food_consumption = -0.10
+	local_wheat_output_modifier = 0.15
+	local_rice_output_modifier = 0.15
+	local_millet_output_modifier = 0.15
+	local_maize_output_modifier = 0.15
+	local_legumes_output_modifier = 0.15
+	local_fruit_output_modifier = 0.15
+	local_olives_output_modifier = 0.15
+	local_potato_output_modifier = 0.15
+	local_livestock_output_modifier = 0.15
+	local_beeswax_output_modifier = 0.15
+	local_wool_output_modifier = 0.15
+	local_fish_output_modifier = 0.15
+	local_wild_game_output_modifier = 0.15
+	local_fur_output_modifier = 0.15
 }
 # when it's <10% capacity & <10k
 TRY_REPLACE:abundant_free_land = {
@@ -98,21 +111,22 @@ TRY_REPLACE:abundant_free_land = {
 	local_migration_attraction = 2.0
     local_population_growth = 0.00
     local_monthly_food_modifier = 0.0
-	local_monthly_food = 0 # 8
-	local_wheat_output_modifier = 0.0
-	local_rice_output_modifier = 0.0
-	local_millet_output_modifier = 0.0
-	local_maize_output_modifier = 0.0
-	local_legumes_output_modifier = 0.0
-	local_fruit_output_modifier = 0.0
-	local_olives_output_modifier = 0.0
-	local_potato_output_modifier = 0.0
-	local_livestock_output_modifier = 0.0
-	local_beeswax_output_modifier = 0.0
-	local_wool_output_modifier = 0.0
-	local_fish_output_modifier = 0.0
-	local_wild_game_output_modifier = 0.0
-	local_fur_output_modifier = 0.0
+	local_monthly_food = 20 # 8
+	local_wheat_output_modifier = 0.3
+	local_rice_output_modifier = 0.3
+	local_millet_output_modifier = 0.3
+	local_maize_output_modifier = 0.3
+	local_legumes_output_modifier = 0.3
+	local_fruit_output_modifier = 0.3
+	local_olives_output_modifier = 0.3
+	local_potato_output_modifier = 0.3
+	local_livestock_output_modifier = 0.3
+	local_beeswax_output_modifier = 0.3
+	local_wool_output_modifier = 0.3
+	local_fish_output_modifier = 0.3
+	local_wild_game_output_modifier = 0.3
+	local_fur_output_modifier = 0.3
+	local_peasants_food_consumption = -0.20
 }
 # I notice that coastal locations are underpopulated because a bunch of reasons, I increased food modifier for them
 TRY_REPLACE:coastal = {
@@ -155,7 +169,7 @@ TRY_REPLACE:total_population = {
 	supply_limit = 0.02
 	blockade_force_required = 0.02
 	
-	local_max_rgo_size = 0.0100
+	local_max_rgo_size = 0.0030
 	
 	free_building_levels = 0.075
 	local_food_capacity = 3.0
@@ -204,21 +218,21 @@ TRY_REPLACE:raised_levies = {
 	game_data = {
 		category = location
 	}
-	local_raw_material_output = -0.2
-	local_wheat_output_modifier = -0.10
-	local_rice_output_modifier = -0.10
-	local_millet_output_modifier = -0.10
-	local_maize_output_modifier = -0.10
-	local_legumes_output_modifier = -0.10
-	local_fruit_output_modifier = -0.10
-	local_olives_output_modifier = -0.10
-	local_potato_output_modifier = -0.10
-	local_livestock_output_modifier = -0.10
-	local_beeswax_output_modifier = -0.10
-	local_wool_output_modifier = -0.10
-	local_fish_output_modifier = -0.10
-	local_wild_game_output_modifier = -0.10
-	local_fur_output_modifier = -0.10
+	local_raw_material_output = -0.3
+	local_wheat_output_modifier = -0.40
+	local_rice_output_modifier = -0.40
+	local_millet_output_modifier = -0.40
+	local_maize_output_modifier = -0.40
+	local_legumes_output_modifier = -0.40
+	local_fruit_output_modifier = -0.40
+	local_olives_output_modifier = -0.40
+	local_potato_output_modifier = -0.40
+	local_livestock_output_modifier = -0.40
+	local_beeswax_output_modifier = -0.40
+	local_wool_output_modifier = -0.40
+	local_fish_output_modifier = -0.40
+	local_wild_game_output_modifier = -0.40
+	local_fur_output_modifier = -0.40
 }
 # Devastation doesn't kill people, starvation and other stuff does
 TRY_REPLACE:devastation = {
@@ -237,9 +251,11 @@ TRY_REPLACE:devastation = {
 	local_life_expectancy = 10
 	local_mercenaries_modifier = -0.5
 	local_construction_speed = -0.5
-	local_upper_class_capacity_modifier = 1.50
+	local_upper_class_capacity_modifier = 1.00
 	local_peasants_food_consumption = 0.20
 	local_defensive = 0.50
+	local_unrest = -0.20
+	local_separatism = -0.10
 }
 TRY_REPLACE:development = {
 	game_data = {
@@ -260,7 +276,7 @@ TRY_REPLACE:development = {
 	
 	free_building_levels = 2
 	
-	local_max_rgo_size = 0.1
+	local_max_rgo_size = 0.10
 	
 	local_life_expectancy = 0.1
 	
