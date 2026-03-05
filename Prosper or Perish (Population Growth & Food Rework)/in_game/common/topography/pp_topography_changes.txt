@@ -1,0 +1,57 @@
+﻿######################
+# Land Ones
+######################
+
+TRY_INJECT:flatland = {
+	location_modifier = {
+		local_wheat_output_modifier = 0.05
+		local_rice_output_modifier = 0.05
+		local_millet_output_modifier = 0.05
+		local_maize_output_modifier = 0.05
+		local_legumes_output_modifier = 0.05
+	}
+}
+
+TRY_INJECT:mountains = {
+	location_modifier = {
+		local_monthly_food_modifier = 0.2
+		local_wheat_output_modifier = -0.2
+		local_rice_output_modifier = -0.3
+		local_maize_output_modifier = -0.1
+		local_potato_output_modifier = 0.1
+		local_livestock_output_modifier = 0.05
+		local_wool_output_modifier = 0.1
+		local_wild_game_output_modifier = 0.1
+		local_fur_output_modifier = 0.1
+	}
+}
+
+TRY_INJECT:hills = {
+	location_modifier = { 
+		local_monthly_food_modifier = 0.1
+		local_wheat_output_modifier = -0.05
+		local_fruit_output_modifier = 0.05
+		local_olives_output_modifier = 0.05
+		local_livestock_output_modifier = 0.025
+		local_wild_game_output_modifier = 0.05
+		local_fur_output_modifier = 0.05
+	}
+}
+
+TRY_INJECT:plateau = {
+	location_modifier = { 
+		local_wheat_output_modifier = -0.05
+		local_millet_output_modifier = 0.05
+		local_livestock_output_modifier = 0.05
+		local_wool_output_modifier = 0.05
+	}
+}
+
+TRY_INJECT:wetlands = {
+	location_modifier = { 
+		local_monthly_food_modifier = 0.1
+		local_rice_output_modifier = 0.1
+		local_fish_output_modifier = 0.1
+		local_wheat_output_modifier = -0.1
+	}
+}

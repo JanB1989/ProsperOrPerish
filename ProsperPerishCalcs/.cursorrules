@@ -1,0 +1,98 @@
+# Cursor Agent Rules: Documentation Maintenance
+
+## Context
+This repository uses a modular structure with descriptive README files in each major directory to describe functionality.
+
+## Rules
+1. **Reference the READMEs**: Always read the root `README.md` and the relevant module `*_README.md` before performing tasks to understand the architecture.
+2. **Update on Change**: If you add new modules, significant files, or change the purpose of a directory, you MUST update the corresponding `*_README.md`.
+3. **No Yapping**: Keep documentation extremely succinct. Use bullet points and avoid conversational filler.
+4. **Consistency**: Maintain the existing structure:
+    - Root `README.md`: High-level overview and directory map.
+    - Module `*_README.md`: File-level descriptions of functionality and component-specific logic.
+5. **Environment Management**: Always use `uv run` for executing any python scripts, modules, or tests (e.g., `uv run pytest`, `uv run python main.py`). DO NOT use global python or pip.
+6. **Pandas First**: All data handling modules (`core/data/`) must use Pandas DataFrames as their primary data structure. Public methods should return DataFrames or Series to ensure full Pandas functionality is available to the user.
+7. **Sparse Display**: When displaying data in notebooks, always filter out null/zero columns to keep tables readable, especially when dealing with large sets of goods or modifiers.
+8. **Vanilla as Gospel**: All parsers and data modules must treat vanilla game data as the primary source of truth. Modded data (including `INJECT`, `REPLACE`, and single-line adjustments) must be applied as layers on top of the vanilla base. Vanilla values should be fully resolved before modded overrides are processed.
+9. **Folder Discovery**: When parsing game entities (like goods or buildings), parsers MUST check and aggregate data from all relevant directories in both vanilla and mod paths (e.g., `common/goods`, `common/goods_demand`, and `common/goods_demand_category` for goods).
+10. **File Iteration**: Each parser MUST iterate through ALL `.txt` files in a target folder to ensure all definitions are captured. Data from multiple files must be merged using deep update logic to prevent overwriting shared containers (like `pop_demand`).
+11. **Test-Driven Development**: For every module or significant change, you MUST implement automated tests using `pytest`. Tests should verify data coverage (e.g., all vanilla entities present) and field integrity (e.g., required economic fields populated and non-null).
+12. **Data Integrity**: DO NOT invent or default values to make tests pass. All required values (like `transport_cost` for goods) MUST be found in the actual game data or the engine's hardcoded defaults (e.g., `transport_cost = 1.0`, `default_market_price = 1.0`, `method = farming`). If a value is missing, the parser or resolution logic is incomplete.
+13. **Imports**: The project is an installable package. Use `from core.*` and `from analysis.building_levels.building_analysis import *` directly. Never add `sys.path` manipulation for project imports. Run `uv sync` from project root; start Jupyter with `uv run jupyter notebook`.
+
+
+List of Existing Goods in vanilla
+horses
+clay
+sand
+coal
+iron
+copper
+goods_gold
+silver
+stone
+tin
+lead
+silk
+dyes
+incense
+tea
+cocoa
+coffee
+fiber_crops
+ivory
+lumber
+salt
+medicaments
+gems
+pearls
+amber
+saltpeter
+alum
+wine
+elephants
+marble
+mercury
+saffron
+pepper
+cloves
+chili
+cotton
+sugar
+tobacco
+tar
+porcelain
+naval_supplies
+firearms
+cannons
+weaponry
+glass
+steel
+cloth
+fine_cloth
+liquor
+beer
+paper
+books
+jewelry
+leather
+tools
+masonry
+lacquerware
+pottery
+furniture
+wool
+wild_game
+fur
+fish
+wheat
+maize
+rice
+millet
+legumes
+potato
+livestock
+olives
+fruit
+beeswax
+slaves_goods

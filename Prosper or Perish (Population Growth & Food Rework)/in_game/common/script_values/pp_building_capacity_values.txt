@@ -1,0 +1,336 @@
+﻿# Prosper or Perish - Building Capacity Script Values
+# This file calculates building capacities based on static geographical factors.
+# These values are intended to be pre-calculated at game start and stored as variables.
+#
+# Available Types for Reference:
+# Vegetation: desert, sparse, grasslands, farmland, woods, forest, jungle
+# Climates: tropical, subtropical, oceanic, arid, cold_arid, mediterranean, continental, arctic
+# Topography:
+#   Land: flatland, mountains, hills, plateau, wetlands
+#   Naval: ocean, deep_ocean, coastal_ocean, inland_sea, narrows, lakes, high_lakes, salt_pans, atoll
+#   Wasteland: flatland_wasteland, hills_wasteland, plateau_wasteland, wetlands_wasteland, dune_wasteland, mesa_wasteland, mountain_wasteland, ocean_wasteland
+#
+
+
+pp_fruit_orchard_capacity_value = {
+	value = 0
+	
+	# Topography
+	if = {
+		limit = { topography = hills }
+		add = 5
+	}
+	else_if = {
+		limit = { topography = flatland }
+		add = 2
+	}
+	else_if = {
+		limit = { topography = plateau }
+		add = 2
+	}
+	
+	# Vegetation
+	if = {
+		limit = { vegetation = farmland }
+		add = 3
+	}
+	else_if = {
+		limit = { vegetation = grasslands }
+		add = 3
+	}
+	else_if = {
+		limit = { vegetation = woods }
+		add = 2
+	}
+	
+	# Climate
+	if = {
+		limit = { climate = mediterranean }
+		add = 8
+	}
+	else_if = {
+		limit = { climate = subtropical }
+		add = 4
+	}
+	else_if = {
+		limit = { climate = arid }
+		add = 1
+	}
+	else_if = {
+		limit = { climate = oceanic }
+		add = 2
+	}
+	else_if = {
+		limit = { climate = continental }
+		add = 1
+	}
+	
+	# Water checks
+	if = {
+		limit = { has_river = yes }
+		add = 1
+	}
+	if = {
+		limit = { is_adjacent_to_lake = yes }
+		add = 1
+	}
+	if = {
+		limit = { is_coastal = yes }
+		add = 1
+	}
+
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
+	if = {
+		limit = {
+			is_ownable = yes
+			raw_material = goods:fruit
+		}
+		add = 5
+	}
+}
+
+pp_fishing_village_capacity_value = {
+	value = 0
+	if = {
+		limit = { is_coastal = yes }
+		add = 5
+	}
+	if = {
+		limit = { is_adjacent_to_lake = yes }
+		add = 3
+	}
+	if = {
+		limit = { has_river = yes }
+		add = 2
+	}
+	# Climate bonuses for fishing
+	if = {
+		limit = { climate = oceanic }
+		add = 7
+	}
+	else_if = {
+		limit = { climate = arctic }
+		add = 4
+	}
+	else_if = {
+		limit = { climate = mediterranean }
+		add = 4
+	}
+	else_if = {
+		limit = { climate = tropical }
+		add = 3
+	}
+	else_if = {
+		limit = { climate = continental }
+		add = 2
+	}
+
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
+	if = {
+		limit = {
+			is_ownable = yes
+			OR = {
+				raw_material = goods:fish
+				raw_material = goods:salt
+				raw_material = goods:pearls
+			}
+		}
+		add = 5
+	}
+}
+
+pp_sheep_farms_capacity_value = {
+	value = 0
+	# Topography
+	if = {
+		limit = { topography = hills }
+		add = 5
+	}
+	else_if = {
+		limit = { topography = plateau }
+		add = 4
+	}
+	else_if = {
+		limit = { topography = mountains }
+		add = 3
+	}
+	else_if = {
+		limit = { topography = flatland }
+		add = 1
+	}
+	# Vegetation
+	if = {
+		limit = { vegetation = grasslands }
+		add = 5
+	}
+	else_if = {
+		limit = { vegetation = sparse }
+		add = 4
+	}
+	else_if = {
+		limit = { vegetation = desert }
+		add = 2
+	}
+	# Climate
+	if = {
+		limit = { climate = arid }
+		add = 6
+	}
+	else_if = {
+		limit = { climate = cold_arid }
+		add = 5
+	}
+	else_if = {
+		limit = { climate = oceanic }
+		add = 4
+	}
+	else_if = {
+		limit = { climate = mediterranean }
+		add = 4
+	}
+	else_if = {
+		limit = { climate = continental }
+		add = 3
+	}
+
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
+	if = {
+		limit = {
+			is_ownable = yes
+			raw_material = goods:wool
+		}
+		add = 5
+	}
+}
+
+pp_farming_village_capacity_value = {
+	value = 0
+	# Topography
+	if = {
+		limit = { topography = flatland }
+		add = 5
+	}
+	else_if = {
+		limit = { topography = hills }
+		add = 2
+	}
+	else_if = {
+		limit = { topography = plateau }
+		add = 1
+	}
+	# Vegetation
+	if = {
+		limit = { vegetation = farmland }
+		add = 5
+	}
+	else_if = {
+		limit = { vegetation = grasslands }
+		add = 3
+	}
+	else_if = {
+		limit = { vegetation = sparse }
+		add = 1
+	}
+	# Climate
+	if = {
+		limit = { climate = continental }
+		add = 6
+	}
+	else_if = {
+		limit = { climate = subtropical }
+		add = 5
+	}
+	else_if = {
+		limit = { climate = mediterranean }
+		add = 5
+	}
+	else_if = {
+		limit = { climate = oceanic }
+		add = 3
+	}
+	else_if = {
+		limit = { climate = tropical }
+		add = 2
+	}
+	# Water
+	if = {
+		limit = { has_river = yes }
+		add = 2
+	}
+
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
+	if = {
+		limit = {
+			is_ownable = yes
+			OR = {
+				raw_material = goods:wheat
+				raw_material = goods:maize
+				raw_material = goods:rice
+				raw_material = goods:millet
+				raw_material = goods:legumes
+				raw_material = goods:potato
+				raw_material = goods:livestock
+				raw_material = goods:olives
+				raw_material = goods:fruit
+				raw_material = goods:wool
+			}
+		}
+		add = 5
+	}
+}
+
+pp_forest_village_capacity_value = {
+	value = 0
+	# Vegetation
+	if = {
+		limit = { vegetation = forest }
+		add = 7
+	}
+	else_if = {
+		limit = { vegetation = woods }
+		add = 4
+	}
+	else_if = {
+		limit = { vegetation = jungle }
+		add = 3
+	}
+	# Topography
+	if = {
+		limit = { topography = mountains }
+		add = 3
+	}
+	else_if = {
+		limit = { topography = hills }
+		add = 3
+	}
+	else_if = {
+		limit = { topography = flatland }
+		add = 1
+	}
+	# Climate
+	if = {
+		limit = { climate = arctic }
+		add = 8
+	}
+	else_if = {
+		limit = { climate = continental }
+		add = 5
+	}
+	else_if = {
+		limit = { climate = tropical }
+		add = 2
+	}
+
+	# RGO Match Bonus (is_ownable excludes wasteland/ocean; ownable locations have valid raw_material)
+	if = {
+		limit = {
+			is_ownable = yes
+			OR = {
+				raw_material = goods:wild_game
+				raw_material = goods:fur
+				raw_material = goods:lumber
+			}
+		}
+		add = 5
+	}
+}

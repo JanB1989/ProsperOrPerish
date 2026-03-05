@@ -1,27 +1,25 @@
 ﻿# This file is mostly used to reduce existing population growth modifiers to 0
 # Generally the idea is to disentangle pop growth from everything that has nothing to do with food growth (mostly)
 # If you provide a lot of food in the province, growth is massively increased, if not provinces grow very little
-
 # This modifier is population growth impact at 100 prosperity (linearly scaled down if lower)
 TRY_INJECT:prosperity = {
 	local_population_growth = -0.002
 	local_monthly_development = 0.001
 	local_monthly_development_modifier = 0.25
+	local_peasants_food_consumption = 0.10
+	local_unrest = -0.03
 }
-
 # I think it makes some sense for people to die when looting
 # Idea is that food stocks are raided
 TRY_INJECT:looted = {
 	local_population_growth = -0.005 # -0.005 # 0.01
 	local_food_capacity_modifier = -0.4
 }
-
 # Idea is that food stocks less organized and taken over by occupier
 # Gameplay should reduce food storage making food variance more painful
 TRY_INJECT:is_occupied = {
 	local_food_capacity_modifier = -0.8
 }
-
 # Food production is already reduced, but since that modifier is already so overloaded with additive stuff we change food consumption
 # It makes sense that food consumption changes when it's giga cold
 TRY_INJECT:winter_mild = {
@@ -32,9 +30,22 @@ TRY_INJECT:winter_mild = {
 	local_laborers_food_consumption = 0.125
 	local_peasants_food_consumption = 0.125
 	local_slaves_food_consumption = 0.125
-	local_monthly_food_modifier = 0.00
+	local_monthly_food_modifier = 0.25
+	local_wheat_output_modifier = -0.1
+	local_rice_output_modifier = -0.1
+	local_millet_output_modifier = -0.1
+	local_maize_output_modifier = -0.1
+	local_legumes_output_modifier = -0.075
+	local_fruit_output_modifier = -0.2
+	local_olives_output_modifier = -0.15
+	local_potato_output_modifier = -0.05
+	local_livestock_output_modifier = -0.025
+	local_beeswax_output_modifier = -0.05
+	local_wool_output_modifier = 0.0
+	local_fish_output_modifier = 0.0
+	local_wild_game_output_modifier = 0.025
+	local_fur_output_modifier = 0.025
 }
-
 TRY_INJECT:winter_normal = {
 	local_population_growth = -0.001 # NA
 	local_nobles_food_consumption = 0.25
@@ -43,9 +54,22 @@ TRY_INJECT:winter_normal = {
 	local_laborers_food_consumption = 0.25
 	local_peasants_food_consumption = 0.25
 	local_slaves_food_consumption = 0.2
-	local_monthly_food_modifier = 0.00
+	local_monthly_food_modifier = 0.50
+	local_wheat_output_modifier = -0.25
+	local_rice_output_modifier = -0.3
+	local_millet_output_modifier = -0.25
+	local_maize_output_modifier = -0.25
+	local_legumes_output_modifier = -0.2
+	local_fruit_output_modifier = -0.4
+	local_olives_output_modifier = -0.35
+	local_potato_output_modifier = -0.125
+	local_livestock_output_modifier = -0.075
+	local_beeswax_output_modifier = -0.15
+	local_wool_output_modifier = 0.025
+	local_fish_output_modifier = -0.025
+	local_wild_game_output_modifier = 0.05
+	local_fur_output_modifier = 0.05
 }
-
 TRY_INJECT:winter_severe = {
 	local_population_growth = -0.002 # NA
 	local_nobles_food_consumption = 0.375
@@ -54,9 +78,52 @@ TRY_INJECT:winter_severe = {
 	local_laborers_food_consumption = 0.375
 	local_peasants_food_consumption = 0.375
 	local_slaves_food_consumption = 0.375
-	local_monthly_food_modifier = 1.25
+	local_monthly_food_modifier = 2.0
+	local_wheat_output_modifier = -0.45
+	local_rice_output_modifier = -0.5
+	local_millet_output_modifier = -0.45
+	local_maize_output_modifier = -0.45
+	local_legumes_output_modifier = -0.4
+	local_fruit_output_modifier = -0.5
+	local_olives_output_modifier = -0.5
+	local_potato_output_modifier = -0.3
+	local_livestock_output_modifier = -0.2
+	local_beeswax_output_modifier = -0.35
+	local_wool_output_modifier = 0.075
+	local_fish_output_modifier = -0.1
+	local_wild_game_output_modifier = 0.1
+	local_fur_output_modifier = 0.1
 }
-
 TRY_INJECT:location_base_values = {
 	local_devastation_recovery = -0.004
+}
+
+
+# Little ice age
+TRY_INJECT:the_little_ice_age = {
+	game_data = {
+		category = country
+	}
+	global_monthly_food_modifier = 0.1
+	local_nobles_food_consumption = 0.05
+	local_clergy_food_consumption = 0.05
+	local_burghers_food_consumption = 0.05
+	local_laborers_food_consumption = 0.05
+	local_peasants_food_consumption = 0.05
+	local_slaves_food_consumption = 0.05
+	
+	local_wheat_output_modifier = -0.25
+	local_rice_output_modifier = -0.25
+	local_millet_output_modifier = -0.25
+	local_maize_output_modifier = -0.25
+	local_legumes_output_modifier = -0.15
+	local_fruit_output_modifier = -0.35
+	local_olives_output_modifier = -0.20
+	local_potato_output_modifier = -0.10
+	local_livestock_output_modifier = -0.05
+	local_beeswax_output_modifier = -0.10
+	local_wool_output_modifier = 0.0
+	local_fish_output_modifier = 0.0
+	local_wild_game_output_modifier = 0.05
+	local_fur_output_modifier = 0.05
 }

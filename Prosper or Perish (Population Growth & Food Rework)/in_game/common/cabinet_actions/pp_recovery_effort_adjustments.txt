@@ -2,11 +2,9 @@
 	ability = dip
 	
 	allow_multiple = yes
-
 	potential = {
 		num_locations > 0 
 	}
-
 	allow = {
 		any_province = {
 			any_location_in_province = {
@@ -15,7 +13,6 @@
 		}
 	}
 	
-
 	select_trigger = {
 		looking_for_a = province
 		source = actor
@@ -57,12 +54,10 @@
 			}
 		}
 	}
-
 	location_modifier = {
-		local_devastation_recovery = 0.015
+		local_devastation_recovery = 0.005
 		local_population_growth = 0.000
 	}
-
 	map_marker = {
 		show_for_owner = yes
 	}

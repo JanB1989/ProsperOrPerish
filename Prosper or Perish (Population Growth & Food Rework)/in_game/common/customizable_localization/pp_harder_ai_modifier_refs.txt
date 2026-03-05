@@ -1,0 +1,19 @@
+﻿# Reference pp_harder_ai modifiers so the engine recognizes them as "used".
+# They are applied via game rules (apply_modifier = ai:xxx) but the static_modifier
+# "not used" check only scans in_game script. This file provides the reference.
+pp_has_harder_ai_modifier = {
+	type = country
+	text = {
+		localization_key = PP_HARDER_AI_ACTIVE
+		trigger = {
+			OR = {
+				has_country_modifier = pp_harder_ai_harder_modifier
+				has_country_modifier = pp_harder_ai_very_hard_modifier
+				has_country_modifier = pp_harder_ai_insane_modifier
+			}
+		}
+	}
+	text = {
+		localization_key = PP_EMPTY_LOC
+	}
+}

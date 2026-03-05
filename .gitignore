@@ -13,6 +13,12 @@ dist/
 *.zip
 *.rar
 
+# Python virtual environment
+.venv/
+
+# Generated/temporary data
+*.csv
+
 # Local helper scripts
 refresh-mod.ps1
 

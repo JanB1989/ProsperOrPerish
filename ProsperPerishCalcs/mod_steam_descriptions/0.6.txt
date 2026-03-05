@@ -1,0 +1,102 @@
+﻿[h1]0.6 update, Rossbach Compatible. Full Food Rework 05.03.2026[/h1]
+[url=https://github.com/JanB1989/ProsperOrPerish/releases][b]» If you Prefer to play your Old Savegame just use Older Release Here «[/b][/url]
+[h2]0.6 Update[/h2]
+I finally was able to go ahead with changes i wanted from the start.
+
+I reworked the entire food system. There are NO more goods that directly contribute Food to the market. Food needs to either be created from susbsistence (i made sure its more viable)
+Or they need to be traded by your Population in the new building Victuals Market (consumes 1 Victual per months and locally adds 60 food to the province).
+The benefits of this new system are too many to count.
+You can now actually ship victuals to different markets (or your colonies) and distribute them there as food.
+The ai understands this remarkably well.
+
+I cannot list the amount of changes i did here on steam so i added an ingame Documentation so you can read about the mod and its systems in the Europedia.
+[img]https://i.imgur.com/iuDZGj4.png[/img]
+
+I also completely reworked where which formerly "food" trade goods can be produced. Each location now has a capacity for building farms (partly inert and partly dynamic).
+Building Big cities reduces your capacity to also build farms in that place, fishing for example is not really impacted by it.
+
+I changed production methods(some are behind advances, some countries get them earlier, some later), culture/region based advances, societal values, laws etc etc, so places are good at farming different things.
+[img]https://i.imgur.com/C2FSwLL.png[/img]
+So now the system is remarkably simple. Your country/region is insane at producing Rice. You build Farming Villages or Rice RGO's. They have high output. 
+This makes the cookery production methods for rice based "recipes" very effective for you to produce. So you chose those. 
+The victuals you produce you ship to wherever you need them in your Victuals Markets, or sell them for profit.
+
+[h2]Economy and Population Growth.[/h2]
+This mod completely reworks how the food system function. Food in that timeframce was the major limiting Factor for population growth.
+And i went to great length to build a sensible system around it.
+
+
+[h3]Game Rules For Variable Harvest and AI[/h3]
+You can turn off Variable Harvest.
+[img]https://i.imgur.com/lxADllg.png[/img]
+You can make the AI get relevant but somewhat fair buffs.
+[img]https://i.imgur.com/AvqOjy0.png[/img]
+I recommend default setting, but i like the aggressive AI setting
+
+[h3]New Trade Good: Victuals (Rations)[/h3]
+[b]Vanilla:[/b] Raw food satisfies all needs, while refined goods (wine, beer etc.) provide no food value. Professional armies and navies have no specific requirement for non-perishable supplies.
+[b]Solution:[/b] I added "Victuals"—a refined, non-perishable food produced in the new Cookery building. 
+[list]
+[*] [b]Logistics:[/b] Victuals are easier to transport and trade than bulky raw food.
+[*] [b]Military:[/b] Essential for standing armies and navies; professional military production methods now require them.
+[*] [b]Civilian:[/b] Demanded by pops based on wealth to prepare for winter or travel.
+[*] [b]Industry:[/b] Can be used as an input to boost productivity in buildings like Lumber Mills.
+[/list]
+[img]https://i.imgur.com/6xzloGl.png[/img]
+
+[h3]New Building: The Cookery[/h3]
+[b]Vanilla:[/b] Cities have no specific food industry or way to process raw goods into long-term storage.
+[b]Solution:[/b] The Cookery (Urban only) converts surplus labor and farming goods into Victuals.
+[list]
+[*] [b]Urban Industry:[/b] Creates a city-based food economy that thrives on raw food oversupply from rural areas.
+[*] [b]Security:[/b] Acts as an Urban buffer against starvation by stockpiling processed rations.
+[*] [b]Variety:[/b] Includes regional recipes and a late-game "Canning" production method.
+[*] [b]Profitability:[/b] Not always profitable by itself in any market condition, but essential for feeding professional militaries and wealthy pops.
+[/list]
+[img]https://i.imgur.com/jrKI8n6.png[/img]
+
+[h3]Global and Local population distribution[/h3]
+[b]Vanilla[/b]: There are already minor modifiers in Vanilla that depend on local and global population distribution of location/country.
+[b]Solution[/b]: I have expanded these to create meaningful incentives for population management:
+[list]
+[*] [b]Burghers[/b]: Incentivize urbanization by buffing global development, prosperity, and merchant capacity.
+[*] [b]Peasants[/b]: Provide better devastation recovery and construction speed while reducing building costs. However, high global percentages slow institution growth. If unemployed, they produce more food but slow down local development and institution spread.
+[*] [b]Soldiers[/b]: Increase local and global maximum control.
+[*] [b]Laborers[/b]: Boost local development.
+[/list]
+
+[h2]Other Features[/h2]
+[h3]Population Growth & Food Consumption[/h3]
+[b]Vanilla:[/b] Food is abundant and growth is tied to factors unrelated to it
+[b]Solution:[/b] Current Province Food stored and market price are now the primary drivers of growth.
+
+
+[h3]Population Capacity (Housing)[/h3]
+[b]Vanilla:[/b] Pop Cap is very static, tied to vegetation (farmland), and completely halts growth once reached.
+[b]Solution:[/b] I reduced static vegetation caps and made housing dynamic based on staffed buildings and location development.
+Locations well below their cap get migration bonuses and a small food boost (simulating foraging). Hitting the cap is also less binary; growth and migration now slow down dynamically based on how much you exceed your housing capacity.
+[img]https://i.imgur.com/adE4YGo.png[/img]
+
+
+[h3]Infrastructure[/h3]
+[b]Vanilla:[/b] Everyone spams roads everywhere at all times, ROI of roads is way too fast. Advanced goods are WAY too abundant 
+[b]Solution:[/b] Road cost and maintenance massively increased. Buildings now become more expensive as property prices increase in bigger cities.
+
+[h3]Food Variance[/h3]
+[b]Vanilla:[/b] Farming Good production has barely any swings and is only affected by specific events like the Little Ice Age.
+[b]Solution:[/b] I introduced a yearly Region-wide harvest modifier that adds big swings to specific Trade Goods (like Wheat).
+Check harvest Situation Tracker.
+[img]https://i.imgur.com/TCjWVnP.png[/img]
+
+[h3]Food Storage[/h3]
+[b]Vanilla:[/b] Totally irrelevant and bonus having it way too hard to use. No variance in food production.  
+[b]Solution:[/b] Now your stored food actually matters. You get more Population growth from it, because people feel secure. But if you are besieged and storages are empty, your Castle will surrender more quickly.
+Your province Capital is now the only place to be able to build granaries (as it is where food enters the market). These granaries also reduce the (in Rossbach) introduced food decay. If the Province capital falls, the province is likely to aswell.
+
+[h3]Starvation[/h3]
+[b]Vanilla:[/b] Starvation already hits hard in vanilla. But it really doesn't impact sieges much.
+[b]Solution:[/b] Now it hits even worse, but especially your higher pops will lose status; also the people in the starving province will leave to greener pastures very quickly.
+
+[h3]Many other changes too numerous to mention[/h3]
+
+Thanks for all the reports and balance suggestions!
