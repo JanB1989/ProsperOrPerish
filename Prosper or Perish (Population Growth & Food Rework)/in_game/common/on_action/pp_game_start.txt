@@ -246,7 +246,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						location_rank = location_rank:rural_settlement
-						population > 50
+						population > 500
 						NOT = { has_building = building_type:cookery }
 					}
 					construct_building = {
@@ -260,8 +260,8 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						location_rank = location_rank:town
-						population > 10
-						development > 10
+						population > 75
+						development > 25
 						NOT = { has_building = building_type:cookery }
 					}
 					construct_building = {
@@ -274,8 +274,8 @@ pp_game_start_effect = {
 				else_if = {
 					limit = {
 						location_rank = location_rank:city
-						population > 10
-						development > 10
+						population > 150
+						development > 30
 					}
 					if = {
 						limit = { NOT = { has_building = building_type:cookery } }
@@ -319,7 +319,7 @@ pp_game_start_effect = {
 							}
 							AND = {
 								location_rank = location_rank:rural_settlement
-								population > 50
+								population > 500
 							}
 						}
 						NOT = { has_building = building_type:victuals_market }
@@ -334,6 +334,7 @@ pp_game_start_effect = {
 
 				if = {
 					limit = {
+						population > 74
 						OR = {
 							raw_material = goods:wheat
 							raw_material = goods:maize
@@ -357,6 +358,7 @@ pp_game_start_effect = {
 
 				if = {
 					limit = {
+						population > 74
 						OR = {
 							raw_material = goods:fish
 							raw_material = goods:salt
@@ -370,16 +372,13 @@ pp_game_start_effect = {
 						cost_multiplier = 0
 						cost_multiplier_reason = "game_start"
 					}
-					construct_building = {
-						building_type = building_type:fishing_village
-						instant = yes
-						cost_multiplier = 0
-						cost_multiplier_reason = "game_start"
-					}
 				}
 
 				if = {
-					limit = { raw_material = goods:wool }
+					limit = {
+						population > 74
+						raw_material = goods:wool
+					}
 					construct_building = {
 						building_type = building_type:sheep_farms
 						instant = yes
@@ -390,6 +389,7 @@ pp_game_start_effect = {
 
 				if = {
 					limit = {
+						population > 74
 						OR = {
 							raw_material = goods:wild_game
 							raw_material = goods:fur
@@ -404,12 +404,9 @@ pp_game_start_effect = {
 				}
 
 				if = {
-					limit = { raw_material = goods:fruit }
-					construct_building = {
-						building_type = building_type:fruit_orchard
-						instant = yes
-						cost_multiplier = 0
-						cost_multiplier_reason = "game_start"
+					limit = {
+						population > 74
+						raw_material = goods:fruit
 					}
 					construct_building = {
 						building_type = building_type:fruit_orchard

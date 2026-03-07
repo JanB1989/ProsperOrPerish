@@ -27,7 +27,7 @@ TRY_INJECT:soldiers = {
 	}
 }
 TRY_INJECT:peasants = {
-	pop_food_consumption = 1.0 # 1.0
+	pop_food_consumption = 0.95 # 1.0
 	pop_percentage_impact = {
 		local_devastation_recovery = 0.002
 		local_construction_speed = 0.25
@@ -50,4 +50,8 @@ TRY_INJECT:peasants = {
 		local_fur_output_modifier = 0.10
 		local_victuals_output_modifier = 0.20
 	}	
+}
+
+TRY_INJECT:slaves = {
+	pop_food_consumption = 0.5 # 1.0
 }
