@@ -167,6 +167,7 @@ cookery = {
 	}
 }
 
+
 victuals_market = {
 	is_foreign = no
 	max_levels = victuals_market_max_level
@@ -179,7 +180,7 @@ victuals_market = {
 	rural_settlement = yes
 	town = yes
 	city = yes
-	ai_forbid_shutdown = no
+	ai_forbid_shutdown = yes
 	important_for_AI = yes
 	can_close = yes
 	forbidden_for_estates = no
@@ -191,7 +192,7 @@ victuals_market = {
 	}
 	modifier = {
 		local_monthly_food = 60
-		# local_market_access = 0.025
-		# local_crown_estate_power = 0.01
+		local_market_access = 0.025
+		local_crown_estate_power = 0.05
 	}
 }

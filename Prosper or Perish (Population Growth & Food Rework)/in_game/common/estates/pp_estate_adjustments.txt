@@ -1,4 +1,11 @@
-﻿# Peasants estate: replace global_monthly_food_modifier with per-good output bonuses in satisfaction
+﻿# Crown estate: food purchase cost scales with crown power (10% power = +10% buy price)
+TRY_INJECT:crown_estate = {
+	power = {
+		food_purchase_cost = 0.85
+	}
+}
+
+# Peasants estate: replace global_monthly_food_modifier with per-good output bonuses in satisfaction
 TRY_INJECT:peasants_estate = {
 	satisfaction = {
 		global_monthly_food_modifier = -0.25
