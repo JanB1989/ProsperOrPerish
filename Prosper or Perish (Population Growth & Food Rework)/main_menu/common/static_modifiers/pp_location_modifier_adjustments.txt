@@ -59,7 +59,7 @@ TRY_REPLACE:positive_province_food_growth = {
 	local_population_growth = 0.00325 # with the new spoilage at 36 month consumption storage ~20% of total consumption is spoilage
 	local_devastation_recovery = 0.003
 	local_migration_attraction = 0.03
-	local_peasants_food_consumption = 0.025
+	local_peasants_food_consumption = 0.040
 }
 TRY_REPLACE:surplus_jobs = {
 	game_data = {

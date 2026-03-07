@@ -208,12 +208,12 @@ victuals_market_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.100
+		multiply = 0.075
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
 		value = population
-		multiply = 0.0175
+		multiply = 0.0150
 	}
 	if = {
 		limit = {
@@ -221,7 +221,7 @@ victuals_market_max_level = {
 		}
 		add = {
 			desc = "BUILDING_LEVEL_IS_CITY"
-			value = 3
+			value = 2
 		}
 	}
 }

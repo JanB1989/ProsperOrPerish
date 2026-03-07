@@ -12,6 +12,9 @@ cookery = {
 	build_time = workshop_build_time
 	construction_demand = workshop_construction
 	ai_forbid_shutdown = no
+	forbidden_for_estates = no
+	important_for_AI = yes
+	can_close = yes
 	# ==========================================
 	# - Unprofitable at baseline prices (~ -30% money)
 	# ==========================================
@@ -162,8 +165,6 @@ cookery = {
 	modifier = {
 		local_victuals_output_modifier = 0.00
 	}
-	forbidden_for_estates = no
-	important_for_AI = yes
 }
 
 victuals_market = {
@@ -182,7 +183,7 @@ victuals_market = {
 	important_for_AI = yes
 	can_close = yes
 	forbidden_for_estates = no
-	build_time = generic_town_build_time
+	build_time = 60
 	construction_demand = victuals_market_construction
 
 	possible_production_methods = {
@@ -190,7 +191,7 @@ victuals_market = {
 	}
 	modifier = {
 		local_monthly_food = 60
-		local_market_access = 0.025
-		local_crown_estate_power = 0.01
+		# local_market_access = 0.025
+		# local_crown_estate_power = 0.01
 	}
 }

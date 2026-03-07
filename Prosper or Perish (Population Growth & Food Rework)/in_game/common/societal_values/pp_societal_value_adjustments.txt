@@ -46,12 +46,21 @@ TRY_INJECT:land_vs_naval = {
 	}
 }
 
-TRY_INJECT:aristocracy_vs_plutocracy = { #
-
+TRY_INJECT:aristocracy_vs_plutocracy = {
 	left_modifier = {
-	global_peasants_food_consumption = -0.075 # the nobles keep squeezing the peasants
+		global_peasants_food_consumption = -0.075 # the nobles keep squeezing the peasants
 	}
 	right_modifier = {
 		food_purchase_cost = -0.15
+	}
+}
+
+TRY_INJECT:serfdom_vs_free_subjects = {
+	left_modifier = {
+		global_slaves_food_consumption = -0.20
+		global_peasants_food_consumption = -0.075
+	}
+	right_modifier = {
+		global_victuals_output_modifier = 0.05
 	}
 }
