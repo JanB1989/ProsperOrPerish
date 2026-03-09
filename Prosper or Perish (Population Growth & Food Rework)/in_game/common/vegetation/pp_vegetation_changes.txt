@@ -7,80 +7,142 @@
 TRY_INJECT:desert = {
 	location_modifier = {
 		local_monthly_food_modifier = 0.33
-		local_wheat_output_modifier = -0.25
-		local_rice_output_modifier = -0.25
-		local_millet_output_modifier = 0.05
-		local_wild_game_output_modifier = -0.1
-		local_fur_output_modifier = -0.1
+		local_fish_output_modifier = -0.35
+		local_fruit_output_modifier = -0.35
+		local_fur_output_modifier = -0.35
+		local_leather_output_modifier = -0.35
+		local_legumes_output_modifier = -0.35
+		local_livestock_output_modifier = -0.35
+		local_maize_output_modifier = -0.35
+		local_millet_output_modifier = 0.1
+		local_olives_output_modifier = -0.35
+		local_potato_output_modifier = -0.35
+		local_rice_output_modifier = -0.35
+		local_wheat_output_modifier = -0.35
+		local_wild_game_output_modifier = -0.35
+		local_wool_output_modifier = -0.35
 	}
 }
 
 TRY_INJECT:sparse = {
 	location_modifier = {
-		local_livestock_output_modifier = 0.05
-		local_wool_output_modifier = 0.05
-		local_millet_output_modifier = 0.025
+		local_fish_output_modifier = -0.2
+		local_fruit_output_modifier = -0.2
+		local_fur_output_modifier = 0.1
+		local_leather_output_modifier = 0.1
+		local_legumes_output_modifier = 0.05
+		local_livestock_output_modifier = 0.15
+		local_maize_output_modifier = 0.1
+		local_millet_output_modifier = 0.2
+		local_olives_output_modifier = 0.1
+		local_potato_output_modifier = 0.1
+		local_rice_output_modifier = -0.2
+		local_wheat_output_modifier = 0.05
+		local_wild_game_output_modifier = 0.05
+		local_wool_output_modifier = 0.1
 	}
 }
 
 TRY_INJECT:grasslands = {
-	location_modifier = { 
+	location_modifier = {
 		local_population_capacity = -20
 		local_monthly_food_modifier = -0.1
-		local_wheat_output_modifier = 0.1
-		local_maize_output_modifier = 0.1
-		local_livestock_output_modifier = 0.05
+		local_fruit_output_modifier = 0.1
+		local_leather_output_modifier = 0.2
+		local_legumes_output_modifier = 0.15
+		local_livestock_output_modifier = 0.25
+		local_maize_output_modifier = 0.15
+		local_millet_output_modifier = 0.15
+		local_olives_output_modifier = 0.15
+		local_potato_output_modifier = 0.15
+		local_rice_output_modifier = 0.1
+		local_wheat_output_modifier = 0.2
+		local_wild_game_output_modifier = 0.05
+		local_wool_output_modifier = 0.25
 	}
 }
 
 # Farmland reduced
 TRY_INJECT:farmland = {
-	location_modifier = { 
+	location_modifier = {
 		local_population_capacity = -60
 		local_monthly_food_modifier = -0.33
-		local_wheat_output_modifier = 0.2
-		local_rice_output_modifier = 0.2
+		local_fruit_output_modifier = 0.2
+		local_fur_output_modifier = -0.2
+		local_leather_output_modifier = 0.15
+		local_legumes_output_modifier = 0.25
+		local_livestock_output_modifier = 0.15
 		local_maize_output_modifier = 0.2
-		local_millet_output_modifier = 0.2
-		local_legumes_output_modifier = 0.2
-		local_fruit_output_modifier = 0.1
-		local_olives_output_modifier = 0.1
-		local_potato_output_modifier = 0.1
+		local_millet_output_modifier = 0.1
+		local_olives_output_modifier = 0.2
+		local_potato_output_modifier = 0.2
+		local_rice_output_modifier = 0.2
+		local_wheat_output_modifier = 0.25
+		local_wild_game_output_modifier = -0.3
+		local_wool_output_modifier = 0.15
 	}
 }
 
 # Woods reduced
 TRY_INJECT:woods = {
-	location_modifier = { 
+	location_modifier = {
 		local_population_capacity = -25
 		local_monthly_food_modifier = -0.1
-		local_wild_game_output_modifier = 0.1
-		local_fur_output_modifier = 0.1
 		local_beeswax_output_modifier = 0.1
-		local_fruit_output_modifier = 0.05
+		local_fruit_output_modifier = 0.1
+		local_fur_output_modifier = 0.15
+		local_leather_output_modifier = 0.05
+		local_legumes_output_modifier = 0.08
+		local_livestock_output_modifier = 0.05
+		local_maize_output_modifier = 0.1
+		local_millet_output_modifier = 0.05
+		local_olives_output_modifier = 0.08
+		local_potato_output_modifier = 0.05
+		local_rice_output_modifier = 0.05
+		local_wheat_output_modifier = 0.05
+		local_wild_game_output_modifier = 0.25
+		local_wool_output_modifier = 0.1
 	}
 }
 
 # Forest reduced
 TRY_INJECT:forest = {
-	location_modifier = { 
+	location_modifier = {
 		local_population_capacity = -5
-		local_wild_game_output_modifier = 0.2
-		local_fur_output_modifier = 0.2
 		local_beeswax_output_modifier = 0.2
+		local_fish_output_modifier = 0.02
+		local_fruit_output_modifier = 0.05
+		local_fur_output_modifier = 0.25
+		local_leather_output_modifier = -0.1
+		local_legumes_output_modifier = 0.05
+		local_livestock_output_modifier = -0.2
+		local_maize_output_modifier = 0.05
+		local_olives_output_modifier = 0.05
+		local_rice_output_modifier = 0.05
 		local_wheat_output_modifier = -0.1
+		local_wild_game_output_modifier = 0.25
+		local_wool_output_modifier = 0.05
 	}
 }
 
 # Jungle reduced
 TRY_INJECT:jungle = {
-	location_modifier = { 
+	location_modifier = {
 		local_population_capacity = -20
 		local_monthly_food_modifier = -0.1
+		local_fish_output_modifier = 0.02
 		local_fruit_output_modifier = 0.1
-		local_wild_game_output_modifier = 0.1
-		local_fur_output_modifier = 0.05
-		local_rice_output_modifier = 0.05
-		local_wheat_output_modifier = -0.2
+		local_fur_output_modifier = -0.35
+		local_leather_output_modifier = -0.35
+		local_legumes_output_modifier = 0.05
+		local_livestock_output_modifier = -0.35
+		local_maize_output_modifier = -0.3
+		local_millet_output_modifier = -0.35
+		local_olives_output_modifier = -0.35
+		local_potato_output_modifier = -0.35
+		local_rice_output_modifier = 0.15
+		local_wheat_output_modifier = -0.35
+		local_wild_game_output_modifier = 0.15
+		local_wool_output_modifier = -0.35
 	}
 }

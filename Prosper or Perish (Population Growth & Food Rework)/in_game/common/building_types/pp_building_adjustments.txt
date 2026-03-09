@@ -86,8 +86,8 @@ REPLACE:granary = {
 INJECT:irrigation_systems = {
 	modifier = {
 		local_monthly_food_modifier = -0.05 # vanilla 0.05
-		fruit_orchard_max_level_modifier = 2
-		farming_village_max_level_modifier = 2
+		fruit_orchard_max_level_modifier = 1
+		farming_village_max_level_modifier = 1
 
 		# Extreme Sensitivity (Wet-Rice)
 		local_rice_output_modifier = 0.05
@@ -148,7 +148,8 @@ REPLACE:fruit_orchard = {
 	town = yes
 	city = yes
 	location_potential = {
-		always = yes
+		has_variable = pp_fruit_orchard_fixed_env_bonus
+		var:pp_fruit_orchard_fixed_env_bonus > 0
 	}
 	unique_production_methods = {
 		pp_fruit_orchard_maintenance = {
@@ -176,7 +177,8 @@ REPLACE:sheep_farms = {
 	category = rgo_building_category
 	rural_settlement = yes
 	location_potential = {
-		always = yes
+		has_variable = pp_sheep_farms_fixed_env_bonus
+		var:pp_sheep_farms_fixed_env_bonus > 0
 	}
 	unique_production_methods = {
 		pp_sheep_farm_maintenance = {
@@ -207,7 +209,8 @@ REPLACE:fishing_village = {
 	town = yes
 	city = yes
 	location_potential = {
-		always = yes
+		has_variable = pp_fishing_village_fixed_env_bonus
+		var:pp_fishing_village_fixed_env_bonus > 0
 	}
 	build_time = village_build_time
 	unique_production_methods = {
@@ -245,6 +248,7 @@ REPLACE:fishing_village = {
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes
 }
+
 REPLACE:forest_village = {
 	is_foreign = no
 	max_levels = forest_village_max_level
@@ -253,7 +257,8 @@ REPLACE:forest_village = {
 	employment_size = 5
 	rural_settlement = yes
 	location_potential = {
-		always = yes
+		has_variable = pp_forest_village_fixed_env_bonus
+		var:pp_forest_village_fixed_env_bonus > 0
 	}
 	build_time = village_build_time
 	unique_production_methods = {
@@ -361,24 +366,11 @@ REPLACE:farming_village = {
 	town = yes
 	city = yes
 	
-#	location_potential = {
-#		OR = {
-#			vegetation = farmland
-#			raw_material = goods:wheat
-#			raw_material = goods:maize
-#			raw_material = goods:rice
-#			raw_material = goods:millet
-#			raw_material = goods:legumes
-#			raw_material = goods:potato
-#			raw_material = goods:livestock
-#			raw_material = goods:olives
-#			raw_material = goods:fruit
-#			raw_material = goods:wool
-#		}
-#	}
-	
-		
-	
+	location_potential = {
+		has_variable = pp_farming_village_fixed_env_bonus
+		var:pp_farming_village_fixed_env_bonus > 0
+	}
+
 	build_time = village_build_time
 	
 	unique_production_methods = {

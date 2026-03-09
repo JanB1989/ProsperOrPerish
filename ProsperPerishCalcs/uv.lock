@@ -366,6 +366,30 @@ wheels = [
 ]
 
 [[package]]
+name = "et-xmlfile"
+version = "2.0.0"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/d3/38/af70d7ab1ae9d4da450eeec1fa3918940a5fafb9055e934af8d6eb0c2313/et_xmlfile-2.0.0.tar.gz", hash = "sha256:dab3f4764309081ce75662649be815c4c9081e88f0837825f90fd28317d4da54", size = 17234, upload-time = "2024-10-25T17:25:40.039Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c1/8b/5fe2cc11fee489817272089c4203e679c63b570a5aaeb18d852ae3cbba6a/et_xmlfile-2.0.0-py3-none-any.whl", hash = "sha256:7a91720bc756843502c3b7504c77b8fe44217c85c537d85037f0f536151b2caa", size = 18059, upload-time = "2024-10-25T17:25:39.051Z" },
+]
+
+[[package]]
+name = "eu5"
+version = "0.0.6"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "numpy" },
+    { name = "pillow" },
+    { name = "platformdirs" },
+    { name = "pyyaml" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/06/81/1a216cedc85b455c3493a8c06aa6d585e3ebd3dc2d3597b62120289d609a/eu5-0.0.6.tar.gz", hash = "sha256:281425df1db6b5813e9e8f9fc136b24b24212535d2a3c09e0a396217872f6ecd", size = 12737575, upload-time = "2025-11-22T15:37:47.384Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/78/c1/164df09bf30590ffeba45c82f4500800b33e33cc87ed46aec0d22d570b43/eu5-0.0.6-py3-none-any.whl", hash = "sha256:b86761221efd2d8f795b51966490d446f4e936237ce08e649a9bebf4d8047fc7", size = 49975, upload-time = "2025-11-22T15:37:43.934Z" },
+]
+
+[[package]]
 name = "executing"
 version = "2.2.1"
 source = { registry = "https://pypi.org/simple" }
@@ -1115,6 +1139,18 @@ wheels = [
 ]
 
 [[package]]
+name = "openpyxl"
+version = "3.1.5"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "et-xmlfile" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3d/f9/88d94a75de065ea32619465d2f77b29a0469500e99012523b91cc4141cd1/openpyxl-3.1.5.tar.gz", hash = "sha256:cf0e3cf56142039133628b5acffe8ef0c12bc902d2aadd3e0fe5878dc08d1050", size = 186464, upload-time = "2024-06-28T14:03:44.161Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c0/da/977ded879c29cbd04de313843e76868e6e13408a94ed6b987245dc7c8506/openpyxl-3.1.5-py2.py3-none-any.whl", hash = "sha256:5282c12b107bffeef825f4617dc029afaf41d0ea60823bbb665ef3079dc79de2", size = 250910, upload-time = "2024-06-28T14:03:41.161Z" },
+]
+
+[[package]]
 name = "packaging"
 version = "26.0"
 source = { registry = "https://pypi.org/simple" }
@@ -1299,9 +1335,11 @@ name = "prosperperishcalcs"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "eu5" },
     { name = "ipykernel" },
     { name = "matplotlib" },
     { name = "notebook" },
+    { name = "openpyxl" },
     { name = "pandas" },
     { name = "pytest" },
     { name = "seaborn" },
@@ -1309,9 +1347,11 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
+    { name = "eu5", specifier = ">=0.0.6" },
     { name = "ipykernel", specifier = ">=7.2.0" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "notebook", specifier = ">=7.5.4" },
+    { name = "openpyxl", specifier = ">=3.1.0" },
     { name = "pandas", specifier = ">=3.0.1" },
     { name = "pytest", specifier = ">=9.0.2" },
     { name = "seaborn", specifier = ">=0.13.2" },

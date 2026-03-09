@@ -2,9 +2,31 @@
 # Adds cookeries to towns and cities based on population and development thresholds.
 on_game_start = {
 	on_actions = {
+		pp_apply_adjacent_to_lake_modifier
 		pp_precalculate_building_capacities
 		pp_remove_invalid_buildings
 		pp_game_start_effect
+	}
+}
+
+# Apply adjacent_to_lake modifier to locations that border lakes (engine does not auto-apply this like river_flowing_through/coastal)
+pp_apply_adjacent_to_lake_modifier = {
+	effect = {
+		every_location_in_the_world = {
+			limit = { is_adjacent_to_lake = yes }
+			add_location_modifier = {
+				modifier = adjacent_to_lake
+				months = -1
+				mode = replace
+			}
+		}
+		every_location_in_the_world = {
+			limit = {
+				is_adjacent_to_lake = no
+				has_location_modifier = adjacent_to_lake
+			}
+			remove_location_modifier = adjacent_to_lake
+		}
 	}
 }
 pp_precalculate_building_capacities = {
@@ -216,6 +238,74 @@ pp_remove_invalid_buildings = {
 					}
 				}
 			}
+			# Fishing village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:fishing_village
+						value > 0
+					}
+					NOT = { var:pp_fishing_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = {
+						value = "location_building_level(building_type:fishing_village)"
+						multiply = -1
+					}
+				}
+			}
+			# Farming village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:farming_village
+						value > 0
+					}
+					NOT = { var:pp_farming_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:farming_village
+					value = {
+						value = "location_building_level(building_type:farming_village)"
+						multiply = -1
+					}
+				}
+			}
+			# Sheep farms: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:sheep_farms
+						value > 0
+					}
+					NOT = { var:pp_sheep_farms_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:sheep_farms
+					value = {
+						value = "location_building_level(building_type:sheep_farms)"
+						multiply = -1
+					}
+				}
+			}
+			# Forest village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:forest_village
+						value > 0
+					}
+					NOT = { var:pp_forest_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:forest_village
+					value = {
+						value = "location_building_level(building_type:forest_village)"
+						multiply = -1
+					}
+				}
+			}
 		}
 	}
 }
@@ -335,6 +425,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_farming_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:wheat
 							raw_material = goods:maize
@@ -359,11 +450,9 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_fishing_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:fish
-							raw_material = goods:salt
-							raw_material = goods:amber
-							raw_material = goods:pearls
 						}
 					}
 					construct_building = {
@@ -377,6 +466,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_sheep_farms_fixed_env_bonus > 0
 						raw_material = goods:wool
 					}
 					construct_building = {
@@ -390,6 +480,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_forest_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:wild_game
 							raw_material = goods:fur
@@ -407,6 +498,7 @@ pp_game_start_effect = {
 					limit = {
 						population > 74
 						raw_material = goods:fruit
+						var:pp_fruit_orchard_fixed_env_bonus > 0
 					}
 					construct_building = {
 						building_type = building_type:fruit_orchard

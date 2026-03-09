@@ -34,18 +34,43 @@ class CapacityAnalyzer:
             "Fishing Village": "fishing_village_max_level_modifier",
             "Forest Village": "forest_village_max_level_modifier"
         }
-        # Scaling factors from pp_building_caps.txt
-        self.scaling = {
-            "Fruit Orchard": {"dev": 0.35, "pop": 0.025},
-            "Sheep Farm": {"dev": 0.2, "pop": 0.015},
-            "Farming Village": {"dev": 0.35, "pop": 0.025},
-            "Fishing Village": {"dev": 0.35, "pop": 0.025},
-            "Forest Village": {"dev": 0.35, "pop": 0.025}
+        # building_id for looking up caps/building_to_script (from pp_building_adjustments)
+        self.building_id_map = {
+            "Fruit Orchard": "fruit_orchard",
+            "Sheep Farm": "sheep_farms",
+            "Farming Village": "farming_village",
+            "Fishing Village": "fishing_village",
+            "Forest Village": "forest_village",
         }
-        self.base_levels = 2.0
+
+    @property
+    def scaling(self):
+        """Per-building dev/pop multipliers from parsed pp_building_caps (for display/notebooks)."""
+        data = self.parser.get_all_data(self.mod_path, self.game_path)
+        caps = data.get("caps", {})
+        building_to_script = data.get("building_to_script", {})
+        result = {}
+        for b_name, building_id in self.building_id_map.items():
+            script_name = building_to_script.get(building_id)
+            cap = caps.get(script_name, {"dev": 0.0, "pop": 0.025}) if script_name else {"dev": 0.0, "pop": 0.025}
+            result[b_name] = {"dev": cap["dev"], "pop": cap["pop"]}
+        return result
+
+    @property
+    def base_levels(self):
+        """Per-building base from parsed pp_building_caps (for display/notebooks)."""
+        data = self.parser.get_all_data(self.mod_path, self.game_path)
+        caps = data.get("caps", {})
+        building_to_script = data.get("building_to_script", {})
+        result = {}
+        for b_name, building_id in self.building_id_map.items():
+            script_name = building_to_script.get(building_id)
+            cap = caps.get(script_name, {"base": 0.0}) if script_name else {"base": 0.0}
+            result[b_name] = cap["base"]
+        return result
 
     def get_full_analysis_df(self, include_rank=True, include_rgo=True):
-        data = self.parser.get_all_data(self.mod_path)
+        data = self.parser.get_all_data(self.mod_path, self.game_path)
         climates = data["climate"]
         topographies = data["topography"]
         vegetations = data["vegetation"]
@@ -125,7 +150,7 @@ class CapacityAnalyzer:
         return summary
 
     def get_modifier_sources_df(self, building_name=None):
-        data = self.parser.get_all_data(self.mod_path)
+        data = self.parser.get_all_data(self.mod_path, self.game_path)
         
         buildings_to_show = [building_name] if building_name else list(self.building_map.keys())
         
@@ -179,13 +204,15 @@ class CapacityAnalyzer:
         return df.round(2)
 
     def calculate_capacities_for_locations(self, locations_df, building_name=None, default_rank='rural_settlement'):
-        data = self.parser.get_all_data(self.mod_path)
+        data = self.parser.get_all_data(self.mod_path, self.game_path)
         climates = data["climate"]
         topographies = data["topography"]
         vegetations = data["vegetation"]
         ranks = data["rank"]
         statics = data["static"]
         rgos = data["rgo"]
+        caps = data.get("caps", {})
+        building_to_script = data.get("building_to_script", {})
         
         buildings_to_process = [building_name] if building_name else list(self.building_map.keys())
         
@@ -194,7 +221,10 @@ class CapacityAnalyzer:
         if missing_cols:
             raise ValueError(f"Missing required columns in locations_df: {missing_cols}")
         
-        if 'rank' not in locations_df.columns:
+        if 'rank' not in locations_df.columns and 'location_rank' in locations_df.columns:
+            locations_df = locations_df.copy()
+            locations_df['rank'] = locations_df['location_rank']
+        elif 'rank' not in locations_df.columns:
             locations_df = locations_df.copy()
             locations_df['rank'] = default_rank
         
@@ -242,15 +272,31 @@ class CapacityAnalyzer:
                     s_val += statics.get('lake', {}).get(modifier_key, 0.0)
                 
                 rgo_val = rgos.get(rgo_good, {}).get(modifier_key, 0.0)
-                
-                pop_val = row.get('population', 0.0)
-                dev_val = row.get('development', 0.0)
-                
-                pop_bonus = pop_val * self.scaling[b_name]['pop']
-                dev_bonus = dev_val * self.scaling[b_name]['dev']
-                
-                total = self.base_levels + c_val + t_val + v_val + r_val + s_val + rgo_val + pop_bonus + dev_bonus
-                
+
+                # Environmental Bonus = climate + topography + vegetation + water + rgo (pp_*_capacity_value).
+                # Game uses min=0, so we cap at 0. If < 1, building isn't buildable (location_potential = var > 0).
+                raw_env = c_val + t_val + v_val + s_val + rgo_val
+                environmental_bonus = max(0.0, raw_env)
+                pop_val = float(row.get('population', 0.0) or 0.0)
+                dev_val = float(row.get('development', 0.0) or 0.0)
+
+                # Base, dev_mult, pop_mult from parsed pp_building_caps (via building_to_script)
+                building_id = self.building_id_map.get(b_name)
+                script_name = building_to_script.get(building_id) if building_id else None
+                cap = caps.get(script_name, {"base": 0.0, "dev": 0.0, "pop": 0.025}) if script_name else {"base": 0.0, "dev": 0.0, "pop": 0.025}
+                base = cap["base"]
+                dev_mult = cap["dev"]
+                pop_mult = cap["pop"]
+
+                if environmental_bonus < 1:
+                    pop_bonus = 0.0
+                    dev_bonus = 0.0
+                    total = 0.0
+                else:
+                    pop_bonus = pop_val * pop_mult
+                    dev_bonus = dev_val * dev_mult
+                    total = base + environmental_bonus + r_val + pop_bonus + dev_bonus
+
                 result_row = {
                     "Building": b_name,
                     "Location": row['location'],
@@ -264,13 +310,14 @@ class CapacityAnalyzer:
                     "RGO": rgo_good,
                     "Population": pop_val,
                     "Development": dev_val,
-                    "Base": self.base_levels,
+                    "Base": base,
                     "Climate Bonus": c_val,
                     "Topography Bonus": t_val,
                     "Vegetation Bonus": v_val,
                     "Rank Bonus": r_val,
                     "Water Bonus": s_val,
                     "RGO Bonus": rgo_val,
+                    "Environmental Bonus": environmental_bonus,
                     "Pop Bonus": pop_bonus,
                     "Dev Bonus": dev_bonus,
                     "Total Bonus": total
@@ -284,13 +331,20 @@ class CapacityAnalyzer:
         
         return pd.DataFrame(rows).round(2)
 
-    def get_grouped_capacity_analysis(self, locations_df, group_by='region', building_name=None):
+    def get_grouped_capacity_analysis(self, locations_df, group_by='region', building_name=None, only_buildable=True):
+        """
+        Group capacity analysis by region/area/etc.
+        only_buildable: if True, only include locations with Environmental Bonus >= 1 (buildable).
+        Aligns with in-game rules: capacity 0 where env < 1.
+        """
         df_full = self.calculate_capacities_for_locations(locations_df, building_name=building_name)
-        
+        if only_buildable:
+            df_full = df_full[df_full['Environmental Bonus'] >= 1].copy()
+
         group_col = group_by.capitalize()
         if group_col not in df_full.columns:
             group_col = group_by
-            
+
         if group_col not in df_full.columns:
             raise ValueError(f"Column '{group_by}' not found in hierarchy data.")
 
@@ -300,10 +354,10 @@ class CapacityAnalyzer:
             'Development': 'sum',
             'Location': 'count'
         })
-        
+
         grouped.columns = [f"{col}_{stat}" if stat else col for col, stat in grouped.columns]
         grouped = grouped.rename(columns={'Location_count': 'Location Count'})
-        
+
         return grouped.round(2)
 
     def get_comprehensive_location_df(self, locations_df):

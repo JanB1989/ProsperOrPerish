@@ -1,0 +1,28 @@
+# Prosper or Perish - Adjacent to Lake modifier tooltip
+# Template for displaying adjacent_to_lake modifier in location view (mirrors RiverModifier_tooltip pattern)
+template LakeModifier_tooltip {
+    ContextualTooltipType = {
+        blockoverride "title_text" {
+            datacontext = "[Location]"
+            text = "ADJACENT_TO_LAKE_TT_TITLE"
+        }
+
+        blockoverride "concept_link" {
+            text = "[lake|e]"
+        }
+
+        blockoverride "title_icon" {
+            icon = {
+                using = tooltip_title_icon_size
+                texture = "[GetConceptTexture('lake')]"
+            }
+        }
+
+        blockoverride "tooltip_content" {
+            TooltipStringPairList = {
+                visible = "[Location.IsAdjacentToLake]"
+                textcontext = "[ShowModifierEffect('adjacent_to_lake')]"
+            }
+        }
+    }
+}

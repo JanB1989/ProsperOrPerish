@@ -20,10 +20,10 @@ def main():
         aggfunc='first'
     ).reset_index()
     
-    # Add the base levels (2.0)
+    # Add the base levels (all 0)
     building_cols = ["Fruit Orchard", "Sheep Farm", "Farming Village", "Fishing Village", "Forest Village"]
     for col in building_cols:
-        df_pivoted[col] = df_pivoted[col] + analyzer.base_levels
+        df_pivoted[col] = df_pivoted[col] + analyzer.base_levels[col]
     
     print(f"Generated {len(df_pivoted)} unique combinations.")
     

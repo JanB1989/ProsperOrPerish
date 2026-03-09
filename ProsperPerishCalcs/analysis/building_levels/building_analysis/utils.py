@@ -1,6 +1,9 @@
 import json
 import os
 
+import pandas as pd
+
+
 def load_config():
     """Loads the configuration from config.json."""
     base_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -24,3 +27,34 @@ def get_path(key):
     """Returns a path from the configuration."""
     config = load_config()
     return config.get(key)
+
+
+def load_goods_output_modifiers(path=None, validate=True):
+    """
+    Load the goods × attributes output modifier matrix from Excel (.xlsx only).
+
+    Returns a DataFrame with good as index and attribute names as columns.
+    Excel is the sole source of truth; CSV is not supported.
+
+    Args:
+        path: Path to goods_output_modifiers.xlsx. If None, uses data_dir.
+        validate: If True, raises ValueError if any cell is outside [-0.35, 0.35].
+
+    Returns:
+        pd.DataFrame with index=goods, columns=attributes.
+    """
+    if path is None:
+        data_dir = get_path("data_dir")
+        path = os.path.join(data_dir, "goods_output_modifiers.xlsx")
+
+    df = pd.read_excel(path, sheet_name="Matrix", index_col=0)
+
+    if validate:
+        min_val = df.min().min()
+        max_val = df.max().max()
+        if min_val < -0.35 or max_val > 0.35:
+            raise ValueError(
+                f"Matrix has values outside bounds [-0.35, 0.35]: min={min_val}, max={max_val}"
+            )
+
+    return df
