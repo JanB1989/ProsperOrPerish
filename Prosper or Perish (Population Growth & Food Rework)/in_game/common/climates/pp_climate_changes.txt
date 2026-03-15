@@ -1,4 +1,6 @@
-﻿TRY_INJECT:tropical = {
+﻿# Climates Changes
+# These are INJECTS meaning they everything here is ADDED to in_game\common\climates\00_default.txt base climates
+TRY_INJECT:tropical = {
 	location_modifier = {
 		local_fish_output_modifier = 0.05
 		local_fruit_output_modifier = 0.15
@@ -14,6 +16,8 @@
 		local_wheat_output_modifier = -0.3
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = -0.3
+		local_population_capacity_modifier = -0.50
+		local_population_capacity = 52
 	}
 }
 
@@ -33,6 +37,8 @@ TRY_INJECT:subtropical = {
 		local_wheat_output_modifier = 0.15
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = 0.05
+		local_population_capacity_modifier = -1.0
+		local_population_capacity = 76
 	}
 }
 
@@ -52,6 +58,8 @@ TRY_INJECT:oceanic = {
 		local_wheat_output_modifier = 0.1
 		local_wild_game_output_modifier = 0.08
 		local_wool_output_modifier = 0.1
+		local_population_capacity_modifier = -1.0
+		local_population_capacity = 68
 	}
 }
 
@@ -72,6 +80,7 @@ TRY_INJECT:arid = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = -0.35
 		local_wool_output_modifier = -0.35
+		local_population_capacity = 38
 	}
 }
 
@@ -91,6 +100,7 @@ TRY_INJECT:cold_arid = {
 		local_wheat_output_modifier = -0.3
 		local_wild_game_output_modifier = -0.2
 		local_wool_output_modifier = -0.2
+		local_population_capacity = 28
 	}
 }
 
@@ -111,6 +121,8 @@ TRY_INJECT:mediterranean = {
 		local_wheat_output_modifier = 0.2
 		local_wild_game_output_modifier = 0.08
 		local_wool_output_modifier = 0.15
+		local_population_capacity_modifier = -1.50
+		local_population_capacity = 85
 	}
 }
 
@@ -130,6 +142,8 @@ TRY_INJECT:continental = {
 		local_wheat_output_modifier = 0.25
 		local_wild_game_output_modifier = 0.15
 		local_wool_output_modifier = 0.25
+		local_population_capacity_modifier = -0.5
+		local_population_capacity = 62
 	}
 }
 
@@ -150,5 +164,7 @@ TRY_INJECT:arctic = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = -0.35
+		local_population_capacity_modifier = 0.33
+		local_population_capacity = 20
 	}
 }

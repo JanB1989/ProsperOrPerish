@@ -29,3 +29,5 @@
   victuals_market_maintenance: "Victuals Market Maintenance"
   victuals_market_construction: "Victuals Market Construction"
   pp_victuals_market_price: "Victuals Market Price"
+  MODIFIER_TYPE_NAME_pp_victuals_market_price_cost_modifier: "Victuals Market Cost"
+  MODIFIER_TYPE_DESC_pp_victuals_market_price_cost_modifier: "Affects the cost of building a [ShowBuildingTypeName('victuals_market')|e]."

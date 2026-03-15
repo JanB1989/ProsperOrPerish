@@ -120,3 +120,16 @@ def test_is_ownable_counts_match_base(location_data, merged_df):
     assert base_count == n_true + n_false, (
         f"Base locations {base_count} != is_ownable True ({n_true}) + False ({n_false})"
     )
+
+
+def test_population_capacity_column_present(merged_df):
+    """population_capacity column exists and has non-negative values."""
+    assert "population_capacity" in merged_df.columns
+    assert (merged_df["population_capacity"] >= 0).all()
+
+
+def test_population_capacity_stockholm_positive(location_data):
+    """Stockholm has positive population capacity from topography, vegetation, climate, development."""
+    stockholm = location_data.get_location_by_tag("stockholm")
+    assert stockholm is not None
+    assert stockholm["population_capacity"] > 0

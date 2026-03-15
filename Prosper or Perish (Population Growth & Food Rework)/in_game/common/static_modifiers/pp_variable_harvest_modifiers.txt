@@ -22,7 +22,7 @@
 	local_fish_output_modifier = -0.10
 	local_wild_game_output_modifier = -0.10
 	local_fur_output_modifier = -0.10
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = 0.15
 }
 
 very_poor_harvest_modifier = {
@@ -49,7 +49,7 @@ very_poor_harvest_modifier = {
 	local_fish_output_modifier = -0.05
 	local_wild_game_output_modifier = -0.05
 	local_fur_output_modifier = -0.05
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = 0.10
 }
 
 poor_harvest_modifier = {
@@ -76,7 +76,7 @@ poor_harvest_modifier = {
 	local_fish_output_modifier = -0.02
 	local_wild_game_output_modifier = -0.02
 	local_fur_output_modifier = -0.02
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = 0.05
 }
 
 good_harvest_modifier = {
@@ -103,7 +103,7 @@ good_harvest_modifier = {
 	local_fish_output_modifier = 0.02
 	local_wild_game_output_modifier = 0.02
 	local_fur_output_modifier = 0.02
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = -0.05
 }
 
 very_good_harvest_modifier = {
@@ -130,7 +130,7 @@ very_good_harvest_modifier = {
 	local_fish_output_modifier = 0.05
 	local_wild_game_output_modifier = 0.05
 	local_fur_output_modifier = 0.05
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = -0.10
 }
 
 bountiful_harvest_modifier = {
@@ -157,5 +157,5 @@ bountiful_harvest_modifier = {
 	local_fish_output_modifier = 0.10
 	local_wild_game_output_modifier = 0.10
 	local_fur_output_modifier = 0.10
-	local_monthly_food_modifier = 0
+	local_peasants_food_consumption = -0.15
 }

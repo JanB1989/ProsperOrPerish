@@ -1,11 +1,8 @@
 ﻿# Vegetation Changes
-# I think vegetation currently matter TOO much for population capacity.
-# This leads to absolutely empty provinces without anything grow quite big, without player/ai investment of buildings
-# We already have the change that staffed buildings increase pop cap, i think pop cap should lean slightly more on that and less on vegetation
-# This also has the benefit of indirectly reducing the amount of available RGO slots, which is good aswell
-
+# These are INJECTS meaning they everything here is ADDED to in_game\common\vegetation\00_default.txt base vegetations
 TRY_INJECT:desert = {
 	location_modifier = {
+		local_population_capacity = -18
 		local_monthly_food_modifier = 0.33
 		local_fish_output_modifier = -0.35
 		local_fruit_output_modifier = -0.35
@@ -26,6 +23,7 @@ TRY_INJECT:desert = {
 
 TRY_INJECT:sparse = {
 	location_modifier = {
+		local_population_capacity = -23
 		local_fish_output_modifier = -0.2
 		local_fruit_output_modifier = -0.2
 		local_fur_output_modifier = 0.1
@@ -45,7 +43,7 @@ TRY_INJECT:sparse = {
 
 TRY_INJECT:grasslands = {
 	location_modifier = {
-		local_population_capacity = -20
+		local_population_capacity = 18
 		local_monthly_food_modifier = -0.1
 		local_fruit_output_modifier = 0.1
 		local_leather_output_modifier = 0.2
@@ -65,7 +63,7 @@ TRY_INJECT:grasslands = {
 # Farmland reduced
 TRY_INJECT:farmland = {
 	location_modifier = {
-		local_population_capacity = -60
+		local_population_capacity = 5
 		local_monthly_food_modifier = -0.33
 		local_fruit_output_modifier = 0.2
 		local_fur_output_modifier = -0.2
@@ -86,7 +84,7 @@ TRY_INJECT:farmland = {
 # Woods reduced
 TRY_INJECT:woods = {
 	location_modifier = {
-		local_population_capacity = -25
+		local_population_capacity = -12
 		local_monthly_food_modifier = -0.1
 		local_beeswax_output_modifier = 0.1
 		local_fruit_output_modifier = 0.1
@@ -108,7 +106,7 @@ TRY_INJECT:woods = {
 # Forest reduced
 TRY_INJECT:forest = {
 	location_modifier = {
-		local_population_capacity = -5
+		local_population_capacity = -7
 		local_beeswax_output_modifier = 0.2
 		local_fish_output_modifier = 0.02
 		local_fruit_output_modifier = 0.05
@@ -128,7 +126,7 @@ TRY_INJECT:forest = {
 # Jungle reduced
 TRY_INJECT:jungle = {
 	location_modifier = {
-		local_population_capacity = -20
+		local_population_capacity = -38
 		local_monthly_food_modifier = -0.1
 		local_fish_output_modifier = 0.02
 		local_fruit_output_modifier = 0.1

@@ -70,7 +70,7 @@ lateralview_full = {
 
                                 text = "ENCYCLOPEDIA_PAGE_PROSPER_OR_PERISH"
 
-                                onclick = "[GetVariableSystem.Set('pp_encyclopedia_active', 'yes'); GetVariableSystem.Set('pp_filter', 'all')]"
+                                onclick = "[GetVariableSystem.Set('pp_encyclopedia_active', 'yes')]"
 
                                 action_tooltip = {
                                     title = "ENCYCLOPEDIA_PAGE_PROSPER_OR_PERISH"

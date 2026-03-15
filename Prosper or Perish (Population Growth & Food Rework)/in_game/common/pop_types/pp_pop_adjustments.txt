@@ -3,13 +3,13 @@ TRY_INJECT:nobles = {
 	pop_food_consumption = 25 # 25.0 # 20.0
 }
 TRY_INJECT:clergy = {
-	pop_food_consumption = 6.5 # 6.5 # 5.0
+	pop_food_consumption = 7.0 # 6.5 # 5.0
 }
 TRY_INJECT:burghers = {
-	pop_food_consumption = 6.5 # 6.5 # 4.0
+	pop_food_consumption = 7.5 # 6.5 # 4.0
 }
 TRY_INJECT:laborers = {
-	pop_food_consumption = 1.5 # 1.5 # 1.0
+	pop_food_consumption = 1.70 # 1.5 # 1.0
 	upper = yes
 	pop_percentage_impact = {
 		local_monthly_development = 0.007
@@ -27,7 +27,7 @@ TRY_INJECT:soldiers = {
 	}
 }
 TRY_INJECT:peasants = {
-	pop_food_consumption = 0.95 # 1.0
+	pop_food_consumption = 1.0 # 1.0
 	pop_percentage_impact = {
 		local_devastation_recovery = 0.002
 		local_construction_speed = 0.25

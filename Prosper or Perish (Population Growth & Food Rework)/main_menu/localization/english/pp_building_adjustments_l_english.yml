@@ -253,3 +253,15 @@
   MAPMODE_PP_LOCAL_FUR_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN: "[ROOT.GetLocation.GetName] has a local fur output modifier of [ROOT.GetLocation.GetModifierValue('local_fur_output_modifier')|Y].\nAggregated from vegetation, topography, climate, and water sources."
 
   MAPMODE_PP_LOCAL_OUTPUT_TT_WATER: "[ROOT.GetLocation.GetName] is not a land [location|e] so it does not have production modifiers."
+
+  # Unemployed Peasants (Unemployment) map mode - absolute numbers, cap 0-50k
+  mapmode_pp_unemployed_peasants_name: "Unemployment"
+  MAPMODE_PP_UNEMPLOYED_PEASANTS: "#T $mapmode_pp_unemployed_peasants_name$#!\n50k unemployed"
+  MAPMODE_PP_UNEMPLOYED_PEASANTS_FULL: "#T $mapmode_pp_unemployed_peasants_name$#!\n0 unemployed"
+  MAPMODE_PP_UNEMPLOYED_PEASANTS_TT_LAND: "[Location.MakeScope.ScriptValue('pp_unemployed_population')|0] [unemployed|e]"
+
+  # Population Capacity map mode
+  mapmode_pp_population_capacity_name: "Population Capacity"
+  MAPMODE_PP_POPULATION_CAPACITY: "#T $mapmode_pp_population_capacity_name$#!\nColors [locations|e] by their [population_capacity|e]. Green = high capacity, red = low capacity."
+  MAPMODE_PP_POPULATION_CAPACITY_TT_LAND: "[ROOT.GetLocation.GetName] has a [population_capacity|e] of [ROOT.GetLocation.GetModifierValue('local_population_capacity')|0]."
+  MAPMODE_PP_POPULATION_CAPACITY_TT_WATER: "Sea/Lake [location|e] (no [population_capacity|e])"

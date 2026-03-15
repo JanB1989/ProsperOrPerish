@@ -15,6 +15,29 @@ TRY_INJECT:looted = {
 	local_population_growth = -0.005 # -0.005 # 0.01
 	local_food_capacity_modifier = -0.4
 }
+TRY_INJECT:under_siege = {
+		local_raw_material_output = -2.0
+		local_wheat_output_modifier = -2.0
+		local_rice_output_modifier = -2.0
+		local_millet_output_modifier = -2.0
+		local_maize_output_modifier = -2.0
+		local_legumes_output_modifier = -2.0
+		local_fruit_output_modifier = -2.0
+		local_olives_output_modifier = -2.0
+		local_potato_output_modifier = -2.0
+		local_livestock_output_modifier = -2.0
+		local_beeswax_output_modifier = -2.0
+		local_wool_output_modifier = -2.0
+		local_fish_output_modifier = 0.0 # blockaded resolves this
+		local_wild_game_output_modifier = -2.0
+		local_fur_output_modifier = -2.0
+	}
+	
+
+TRY_INJECT:is_blockaded_by_enemies = {
+	local_fish_output_modifier = -2.0
+}
+
 # Idea is that food stocks less organized and taken over by occupier
 # Gameplay should reduce food storage making food variance more painful
 TRY_INJECT:is_occupied = {
@@ -96,14 +119,11 @@ TRY_INJECT:winter_severe = {
 }
 TRY_INJECT:location_base_values = {
 	local_devastation_recovery = -0.004
+	local_max_rgo_size = -1
 }
-
 
 # Little ice age
 TRY_INJECT:the_little_ice_age = {
-	game_data = {
-		category = country
-	}
 	global_monthly_food_modifier = 0.1
 	local_nobles_food_consumption = 0.05
 	local_clergy_food_consumption = 0.05

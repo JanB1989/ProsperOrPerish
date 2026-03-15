@@ -7,6 +7,7 @@ from .country_setup_data import CountrySetupData
 from .defines_data import DefinesData
 from .location_ranks_data import LocationRanksData
 from .pop_data import PopData
+from .population_capacity_data import PopulationCapacityData, calculate_population_capacity
 from .static_modifiers_data import StaticModifiersData
 from .societal_values_data import SocietalValuesData
 
@@ -299,6 +300,9 @@ class LocationData(DataModule):
 
         merged['development'] = merged.apply(calculate_dev, axis=1)
 
+        # Population capacity from topography, vegetation, climate, river, development
+        merged = self._add_population_capacity_column(merged)
+
         # is_ownable: from default.map non_ownable block + topography (sea/lake)
         merged["is_ownable"] = merged.apply(
             lambda row: (
@@ -318,6 +322,22 @@ class LocationData(DataModule):
 
         self.modded_df = merged  # Store as instance variable
         return merged
+
+    def _add_population_capacity_column(self, df):
+        """Add population_capacity column from topography, vegetation, climate, river, development."""
+        cap_data = PopulationCapacityData(self.path_resolver)
+        cap_data.load_all()
+
+        def calc_cap(row):
+            topo = row.get("topography") or ""
+            veg = row.get("vegetation") or ""
+            clim = row.get("climate") or ""
+            has_river = (row.get("has_river") or "").lower() in ("yes", "true", "1")
+            dev = float(row.get("development", 0.0))
+            return calculate_population_capacity(topo, veg, clim, has_river, dev, cap_data)
+
+        df["population_capacity"] = df.apply(calc_cap, axis=1)
+        return df
 
     def _add_desired_pop_columns(self, df):
         """Add per-source and total desired pop columns for each pop type."""

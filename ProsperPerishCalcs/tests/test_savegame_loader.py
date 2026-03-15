@@ -12,6 +12,7 @@ from analysis.savegame.loader import (
     get_countries_df,
     get_latest_save_path,
     get_locations_df,
+    inspect_savegame,
     load_save,
 )
 
@@ -66,6 +67,15 @@ def test_get_latest_save_path_returns_only_path_when_single_file(tmp_path):
 def test_get_latest_save_path_returns_none_for_nonexistent_dir():
     """Nonexistent directory returns None."""
     assert get_latest_save_path("/nonexistent/path/12345") is None
+
+
+def test_inspect_savegame_shows_structure():
+    """inspect_savegame returns a string describing save structure."""
+    save = load_save(path=MINIMAL_TEXT_SAVE)
+    result = inspect_savegame(save, max_depth=3, max_items=5)
+    assert "locations" in result or "Locations" in result
+    assert isinstance(result, str)
+    assert len(result) > 50
 
 
 def test_load_save_text_format():
