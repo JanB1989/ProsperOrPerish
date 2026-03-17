@@ -1,0 +1,107 @@
+a_ism_block_subject_urbanization = {
+	type = subject
+	category = CATEGORY_SUBJECT_ACTIONS
+	order = -100
+
+	potential = {
+	}
+
+	allow = {
+	}
+
+	ai_tick = never
+
+	use_enroute = no
+
+	select_trigger = {
+		looking_for_a = country
+		interaction_source_list = {
+			scope:actor = {
+				every_subject = {
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = recipient
+		name = "choose_country"
+		column = {
+			data = name
+		}
+		visible = {
+			NOR = {
+				country_type = building
+				country_type = pop
+			}
+			NOT = { has_country_modifier = ism_overlord_blocking_urbanization }
+		}
+        enabled = {
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = scope:recipient
+			}
+			scope:recipient = {
+				add_country_modifier = {
+					modifier = ism_overlord_blocking_urbanization
+					days = -1
+					mode = replace
+				}
+			}
+		}
+	}
+}
+
+a_ism_allow_subject_urbanization = {
+	type = subject
+	category = CATEGORY_SUBJECT_ACTIONS
+	order = -100
+
+	potential = {
+	}
+
+	allow = {
+	}
+
+	ai_tick = never
+
+	use_enroute = no
+
+	select_trigger = {
+		looking_for_a = country
+		interaction_source_list = {
+			scope:actor = {
+				every_subject = {
+					add_to_list = source
+				}
+			}
+		}
+		target_flag = recipient
+		name = "choose_country"
+		column = {
+			data = name
+		}
+		visible = {
+			NOR = {
+				country_type = building
+				country_type = pop
+			}
+			has_country_modifier = ism_overlord_blocking_urbanization
+		}
+        enabled = {
+		}
+	}
+
+	effect = {
+		if = {
+			limit = {
+				exists = scope:recipient
+			}
+			scope:recipient = {
+				remove_country_modifier = ism_overlord_blocking_urbanization
+			}
+		}
+	}
+}

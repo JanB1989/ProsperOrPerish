@@ -2,7 +2,7 @@
 	category = produced
 	color = goods_victuals
 	default_market_price = 3.0
-	transport_cost = 1.0
+	transport_cost = 0.5
 	# Contributes to the food system (like other food goods), even though it's produced.
 	food = 0 # 20
 	# Baseline demand so it is relevant even before special logic is added.

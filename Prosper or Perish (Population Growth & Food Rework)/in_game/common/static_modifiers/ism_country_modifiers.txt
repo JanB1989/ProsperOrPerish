@@ -1,0 +1,4 @@
+ism_overlord_blocking_urbanization = {
+    # Makes town upgrades essentially impossible for the subject.
+    town_upgrade_cost_modifier = 1000
+}

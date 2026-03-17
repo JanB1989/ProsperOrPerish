@@ -167,6 +167,89 @@ cookery = {
 	}
 }
 
+slave_cookery = {
+	is_foreign = no
+	max_levels = cookery_max_level
+	pop_type = slaves
+	employment_size = 1
+	category = consumer_goods_category
+	icon = cookery
+	rural_settlement = yes
+	town = yes
+	city = yes
+	build_time = workshop_build_time
+	construction_demand = workshop_construction
+	ai_forbid_shutdown = no
+	forbidden_for_estates = no
+	important_for_AI = yes
+	can_close = yes
+
+	# Slave cookery: uses slave labor for basic victual production.
+	# Has multi-input “recipes” and single-input “poor” recipes (-50% productivity).
+	unique_production_methods = {
+		pp_slave_cookery_wheat_livestock_salt = {
+			wheat = 1.40
+			livestock = 1.40
+			salt = 0.10
+			produced = victuals
+			output = 1.05
+			category = building_maintenance
+		}
+		pp_slave_cookery_rice_legumes_salt = {
+			rice = 1.75
+			legumes = 1.50
+			salt = 0.10
+			produced = victuals
+			output = 1.05
+			category = building_maintenance
+		}
+		pp_slave_cookery_millet_fish_salt = {
+			millet = 1.50
+			fish = 2.00
+			salt = 0.10
+			produced = victuals
+			output = 1.05
+			category = building_maintenance
+		}
+		pp_slave_cookery_maize_livestock_salt = {
+			maize = 1.10
+			livestock = 1.50
+			salt = 0.10
+			produced = victuals
+			output = 1.05
+			category = building_maintenance
+		}
+		# Single-input poor recipes (~50% productivity)
+		pp_slave_cookery_wheat_only = {
+			wheat = 1.40
+			produced = victuals
+			output = 0.55
+			category = building_maintenance
+		}
+		pp_slave_cookery_rice_only = {
+			rice = 1.75
+			produced = victuals
+			output = 0.55
+			category = building_maintenance
+		}
+		pp_slave_cookery_maize_only = {
+			maize = 1.10
+			produced = victuals
+			output = 0.55
+			category = building_maintenance
+		}
+		pp_slave_cookery_millet_only = {
+			millet = 1.50
+			produced = victuals
+			output = 0.55
+			category = building_maintenance
+		}
+	}
+
+	modifier = {
+		local_victuals_output_modifier = 0.00
+	}
+}
 
 victuals_market = {
 	is_foreign = no
