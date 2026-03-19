@@ -18,6 +18,10 @@ dist/
 
 # Generated/temporary data
 *.csv
+*.pkl
+
+# Notebook/savegame analysis temp extractions (UUID subfolders)
+**/save_game_temp/
 
 # Local helper scripts
 refresh-mod.ps1

@@ -584,6 +584,63 @@ def build_save_comparison_df(
     return merged
 
 
+def get_global_benchmark_df(
+    saves: dict[str, pd.DataFrame],
+    *,
+    years_per_snapshot: float = 5.0,
+    start_year: int = 1337,
+    interval_years: int = 50,
+) -> pd.DataFrame:
+    """Aggregate global stats at 50-year intervals into a benchmark DataFrame.
+
+    Uses chronological order of save keys (e.g. pkl stems sorted by time).
+    For each milestone year (1337, 1387, 1437, ...), sums total_population,
+    development (development_pkl or development), tax, possible_tax.
+
+    Args:
+        saves: {label: locations_df} from merge_saves_with_location_data or raw pkl.
+        years_per_snapshot: Game years between consecutive saves (default 5).
+        start_year: First game year (EU5 default 1337).
+        interval_years: Report at this many years apart (default 50).
+
+    Returns:
+        DataFrame with columns: year, total_population, development_pkl, tax, possible_tax.
+    """
+    if not saves:
+        return pd.DataFrame()
+
+    ordered_keys = sorted(saves.keys())
+    rows = []
+    for i, label in enumerate(ordered_keys):
+        year = start_year + int(i * years_per_snapshot)
+        if (year - start_year) % interval_years != 0:
+            continue
+        df = saves[label]
+        dev_col = "development_pkl" if "development_pkl" in df.columns else "development"
+        pop_col = "total_population" if "total_population" in df.columns else "population"
+        cols = {
+            "total_population": pop_col,
+            "development_pkl": dev_col,
+            "tax": "tax",
+            "possible_tax": "possible_tax",
+        }
+        row = {"year": year}
+        for out_name, col in cols.items():
+            if col in df.columns:
+                row[out_name] = df[col].fillna(0).sum()
+            else:
+                row[out_name] = 0.0
+        rows.append(row)
+
+    result = pd.DataFrame(rows)
+    if not result.empty:
+        result["total_population"] = (result["total_population"] / 1000).astype(int)
+        for col in ("development_pkl", "tax", "possible_tax"):
+            if col in result.columns:
+                result[col] = result[col].astype(int)
+    return result
+
+
 def get_countries_df(save) -> pd.DataFrame:
     """Extract countries from a save into a pandas DataFrame."""
     rows = []

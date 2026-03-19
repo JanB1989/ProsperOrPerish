@@ -12,7 +12,7 @@ cookery = {
 	build_time = workshop_build_time
 	construction_demand = workshop_construction
 	ai_forbid_shutdown = no
-	forbidden_for_estates = yes
+	forbidden_for_estates = no
 	important_for_AI = yes
 	can_close = yes
 	# ==========================================
@@ -164,6 +164,7 @@ cookery = {
 	}
 	modifier = {
 		local_victuals_output_modifier = 0.00
+		# local_monthly_food = 30
 	}
 }
 

@@ -98,6 +98,7 @@ sheep_farms_max_level = {
 		value = total_building_levels
 		multiply = -0.1
 	}
+	min = 0
 }
 farming_village_max_level = {
 	add = {
@@ -131,6 +132,7 @@ farming_village_max_level = {
 		value = total_building_levels
 		multiply = -0.1
 	}
+	min = 0
 }
 forest_village_max_level = {
 	add = {
@@ -164,6 +166,7 @@ forest_village_max_level = {
 		value = total_building_levels
 		multiply = -0.1
 	}
+	min = 0
 }
 
 fishing_village_max_level = {
@@ -193,6 +196,7 @@ fishing_village_max_level = {
 		desc = "BUILDING_LEVEL_FROM_LOCATION_RANK_FISHING"
 		value = modifier:fishing_village_max_level_modifier
 	}
+	min = 0
 }
 
 victuals_market_max_level = {

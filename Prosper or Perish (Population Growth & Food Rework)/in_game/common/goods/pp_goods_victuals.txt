@@ -3,8 +3,7 @@
 	color = goods_victuals
 	default_market_price = 3.0
 	transport_cost = 1.0
-	# Contributes to the food system (like other food goods), even though it's produced.
-	food = 0 # 20
+	food = 0.0001
 	# Baseline demand so it is relevant even before special logic is added.
 	demand_add = {
 		nobles = 0.01
@@ -15,20 +14,20 @@
 		peasants = 0.01
 	}
 	demand_multiply = {
-		nobles = 4
-		clergy = 2
-		burghers = 1.2
-		soldiers = 0.8
-		laborers = 0.8
+		nobles = 8
+		clergy = 4
+		burghers = 3.6
+		soldiers = 1.2
+		laborers = 1.2
 		peasants = 0.3
 	}
 	wealth_impact_threshold = {
-		nobles = 0.7
-		clergy = 0.7
-		burghers = 0.8
-		soldiers = 0.8
-		laborers = 1.0
-		peasants = 1.1
+		nobles = 0.70
+		clergy = 0.70
+		burghers = 0.75
+		soldiers = 0.75
+		laborers = 0.85
+		peasants = 1.05
 	}
 	development_threshold = 20
 }

@@ -9,6 +9,7 @@ from analysis.savegame.datalocations import (
 from analysis.savegame.loader import (
     build_save_comparison_df,
     get_buildings_df,
+    get_global_benchmark_df,
     get_countries_df,
     get_latest_save_path,
     get_locations_df,
@@ -22,6 +23,7 @@ __all__ = [
     "build_datalocations_df",
     "create_datalocations_pkl_from_save",
     "build_save_comparison_df",
+    "get_global_benchmark_df",
     "create_datalocations_pkl",
     "get_buildings_df",
     "get_countries_df",

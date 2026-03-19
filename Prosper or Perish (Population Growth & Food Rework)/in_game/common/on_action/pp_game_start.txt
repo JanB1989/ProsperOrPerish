@@ -131,6 +131,10 @@ pp_precalculate_building_capacities = {
 			name = pp_fruit_orchard_global_range
 			add = { value = global_var:pp_fruit_orchard_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_fruit_orchard_global_range > 0 } }
+			set_global_variable = { name = pp_fruit_orchard_global_range value = 1 }
+		}
 		
 		set_global_variable = {
 			name = pp_fishing_village_global_range
@@ -139,6 +143,10 @@ pp_precalculate_building_capacities = {
 		change_global_variable = {
 			name = pp_fishing_village_global_range
 			add = { value = global_var:pp_fishing_village_global_min multiply = -1 }
+		}
+		if = {
+			limit = { NOT = { global_var:pp_fishing_village_global_range > 0 } }
+			set_global_variable = { name = pp_fishing_village_global_range value = 1 }
 		}
 
 		set_global_variable = {
@@ -149,6 +157,10 @@ pp_precalculate_building_capacities = {
 			name = pp_sheep_farms_global_range
 			add = { value = global_var:pp_sheep_farms_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_sheep_farms_global_range > 0 } }
+			set_global_variable = { name = pp_sheep_farms_global_range value = 1 }
+		}
 
 		set_global_variable = {
 			name = pp_farming_village_global_range
@@ -157,6 +169,10 @@ pp_precalculate_building_capacities = {
 		change_global_variable = {
 			name = pp_farming_village_global_range
 			add = { value = global_var:pp_farming_village_global_min multiply = -1 }
+		}
+		if = {
+			limit = { NOT = { global_var:pp_farming_village_global_range > 0 } }
+			set_global_variable = { name = pp_farming_village_global_range value = 1 }
 		}
 
 		set_global_variable = {
@@ -167,6 +183,10 @@ pp_precalculate_building_capacities = {
 			name = pp_forest_village_global_range
 			add = { value = global_var:pp_forest_village_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_forest_village_global_range > 0 } }
+			set_global_variable = { name = pp_forest_village_global_range value = 1 }
+		}
 	}
 }
 
@@ -175,6 +195,8 @@ pp_precalculate_building_capacities = {
 pp_remove_invalid_buildings = {
 	effect = {
 		every_location_in_the_world = {
+			# Avoid changing buildings on unowned locations (engine can log null-owner Market Village).
+			limit = { has_owner = yes }
 			# Granary: only allowed in province capitals
 			if = {
 				limit = {

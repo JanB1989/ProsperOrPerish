@@ -37,13 +37,7 @@ pp_local_fruit_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_FRUIT_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_FRUIT_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_FRUIT_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -98,13 +92,7 @@ pp_local_fish_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_FISH_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_FISH_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_FISH_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -159,13 +147,7 @@ pp_local_wool_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_WOOL_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_WOOL_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_WOOL_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -220,13 +202,7 @@ pp_local_livestock_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_LIVESTOCK_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_LIVESTOCK_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_LIVESTOCK_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -281,13 +257,7 @@ pp_local_millet_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_MILLET_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_MILLET_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_MILLET_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -342,13 +312,7 @@ pp_local_wheat_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_WHEAT_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_WHEAT_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_WHEAT_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -403,13 +367,7 @@ pp_local_maize_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_MAIZE_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_MAIZE_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_MAIZE_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -464,13 +422,7 @@ pp_local_rice_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_RICE_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_RICE_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_RICE_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -525,13 +477,7 @@ pp_local_legumes_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_LEGUMES_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_LEGUMES_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_LEGUMES_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -586,13 +532,7 @@ pp_local_potato_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_POTATO_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_POTATO_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_POTATO_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -647,13 +587,7 @@ pp_local_olives_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_OLIVES_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_OLIVES_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_OLIVES_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -708,13 +642,7 @@ pp_local_leather_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_LEATHER_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_LEATHER_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_LEATHER_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -769,13 +697,7 @@ pp_local_wild_game_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_WILD_GAME_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_WILD_GAME_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_WILD_GAME_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER
@@ -830,13 +752,7 @@ pp_local_fur_output_modifier = {
 	tooltip_key = {
 		if = {
 			limit = { is_land = yes }
-			if = {
-				limit = { has_variable = pp_local_output_modifier_breakdown }
-				value = MAPMODE_PP_LOCAL_FUR_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
-			}
-			else = {
-				value = MAPMODE_PP_LOCAL_FUR_OUTPUT_MODIFIER_TT_LAND
-			}
+			value = MAPMODE_PP_LOCAL_FUR_OUTPUT_MODIFIER_TT_LAND_BREAKDOWN
 		}
 		else = {
 			value = MAPMODE_PP_LOCAL_OUTPUT_TT_WATER

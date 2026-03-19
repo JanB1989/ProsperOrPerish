@@ -1,5 +1,5 @@
 ﻿# Prosper or Perish - Goods Adjustments
-# Adjusting transport costs for high-value low-bulk goods
+# All goods need to have 0 food value
 TRY_INJECT:wool = {
     food = -5.0
 }
@@ -42,6 +42,8 @@ TRY_INJECT:fruit = {
 TRY_INJECT:beeswax = {
     food = -2.5
 }
+
+# Adjusting transport costs for high-value low-bulk goods
 TRY_INJECT:pepper = {
 	transport_cost = 0.2
 }
@@ -50,4 +52,11 @@ TRY_INJECT:incense = {
 }
 TRY_INJECT:saffron = {
 	transport_cost = 0.2
+}
+
+# Reducing burgher demand for salt, because they used salt to preserve foods, so we increase the demand for victuals instead
+TRY_INJECT:salt = {
+    demand_add = {
+        burghers = -0.01
+    }
 }
