@@ -56,7 +56,6 @@ TRY_INJECT:peasants = {
 		local_cocoa_output_modifier = 0.10
 		local_coffee_output_modifier = 0.10
 		local_fiber_crops_output_modifier = 0.10
-		local_wine_output_modifier = 0.10
 		local_saffron_output_modifier = 0.10
 		local_pepper_output_modifier = 0.10
 		local_cloves_output_modifier = 0.10

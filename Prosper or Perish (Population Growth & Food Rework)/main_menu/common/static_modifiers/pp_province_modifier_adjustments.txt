@@ -30,7 +30,6 @@ TRY_INJECT:bountiful_harvest = {
 	local_cocoa_output_modifier = 0.08
 	local_tea_output_modifier = 0.06
 	local_coffee_output_modifier = 0.06
-	local_wine_output_modifier = 0.08
 	local_silk_output_modifier = 0.06
 	local_dyes_output_modifier = 0.06
 	local_incense_output_modifier = 0.05
@@ -70,7 +69,6 @@ TRY_INJECT:recent_white_storm_modifier = {
 	local_legumes_output_modifier = -0.2
 	local_fruit_output_modifier = -0.15
 	local_olives_output_modifier = -0.15
-	local_wine_output_modifier = -0.15
 }
 
 TRY_INJECT:expanded_food_production_modifier = {

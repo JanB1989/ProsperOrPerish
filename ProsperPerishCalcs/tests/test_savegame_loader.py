@@ -10,7 +10,9 @@ import pytest
 from analysis.building_levels.building_analysis.utils import load_config
 from analysis.savegame.datalocations import create_datalocations_pkl_from_save
 from analysis.savegame.loader import (
+    buildings_df_from_pkl,
     get_buildings_df,
+    get_cookery_buildings_df,
     get_countries_df,
     get_latest_save_path,
     get_locations_df,
@@ -136,6 +138,28 @@ def test_get_countries_df_uses_country_name_or_definition():
     assert (df["country_tag"] == "SWE").all()
 
 
+def test_get_buildings_df_minimal_includes_production_methods():
+    """Text fixture: cookery building has active production method ids."""
+    save = load_save(path=MINIMAL_TEXT_SAVE)
+    df = get_buildings_df(save)
+    assert len(df) == 1
+    row = df.iloc[0]
+    assert row["slug"] == "cookery"
+    assert row["location_id"] == 1
+    assert "production_method_ids" in df.columns
+    assert "production_methods" in df.columns
+    assert set(row["production_method_ids"]) == {"pp_cookery_khichdi", "pp_cookery_beer"}
+    assert row["production_methods"] == "pp_cookery_beer|pp_cookery_khichdi"
+
+
+def test_get_cookery_buildings_df_minimal():
+    """get_cookery_buildings_df filters to cookery only."""
+    save = load_save(path=MINIMAL_TEXT_SAVE)
+    df = get_cookery_buildings_df(save)
+    assert len(df) == 1
+    assert df.iloc[0]["slug"] == "cookery"
+
+
 def test_get_market_goods_df_minimal_fixture():
     """All goods rows flattened: nested supplied/demand become supplied_* keys."""
     save = load_save(path=MINIMAL_TEXT_SAVE)
@@ -258,18 +282,51 @@ def test_get_buildings_df_returns_dataframe():
     df = get_buildings_df(save)
     assert "level" in df.columns or len(df) == 0
     assert "location_name" in df.columns or len(df) == 0
+    assert "production_method_ids" in df.columns
+    assert "production_methods" in df.columns
+    if "slug" in df.columns and len(df) > 0:
+        cookery = df[df["slug"] == "cookery"]
+        if len(cookery) > 0:
+            assert any(len(row["production_method_ids"]) > 0 for _, row in cookery.iterrows())
+
+
+@pytest.mark.slow
+@pytest.mark.skipif(not _has_save_files(), reason="No save files available")
+def test_get_cookery_buildings_df_real_save():
+    """Packed save: cookery rows include production_methods when cookery exists."""
+    config = load_config()
+    save_dir = config.get("save_games_dir")
+    latest = get_latest_save_path(save_dir or "")
+    if not latest:
+        pytest.skip("No save files in directory")
+    try:
+        save = load_save(path=latest)
+    except subprocess.CalledProcessError as e:
+        pytest.skip(f"pyeu5/Rakaly could not parse save: {e}")
+    df = get_cookery_buildings_df(save)
+    if df.empty:
+        pytest.skip("No cookery buildings in this save")
+    assert (df["production_methods"].str.len() > 0).any()
 
 
 def test_create_datalocations_pkl_format_2_payload(tmp_path):
-    """Written .pkl is a dict with locations, market_goods, countries (minimal fixture)."""
+    """Written .pkl is a dict with locations, buildings, market_goods, countries (minimal fixture)."""
     save = load_save(path=MINIMAL_TEXT_SAVE)
     out = tmp_path / "snap.pkl"
     payload = create_datalocations_pkl_from_save(save, out)
     assert payload["format"] == 2
-    assert "locations" in payload and "market_goods" in payload and "countries" in payload
+    assert (
+        "locations" in payload
+        and "buildings" in payload
+        and "market_goods" in payload
+        and "countries" in payload
+    )
+    assert isinstance(payload["buildings"], pd.DataFrame)
     assert len(payload["market_goods"]) == 1
     assert len(payload["countries"]) == 1
     rt = pd.read_pickle(out)
     assert rt["format"] == 2
+    assert "buildings" in rt and isinstance(rt["buildings"], pd.DataFrame)
+    assert buildings_df_from_pkl(rt).equals(rt["buildings"])
     loc = locations_df_from_pkl(rt)
     assert len(loc) == 2

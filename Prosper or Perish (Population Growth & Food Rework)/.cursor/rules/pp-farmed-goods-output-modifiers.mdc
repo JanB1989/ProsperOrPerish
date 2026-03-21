@@ -8,13 +8,13 @@ alwaysApply: false
 
 **Goods (modifier: `local_<good>_output_modifier` / `global_<good>_output_modifier`):**
 
-beeswax, chili, cloves, cocoa, coffee, cotton, fiber_crops, fruit, horses, incense, legumes, livestock, maize, millet, olives, pepper, potato, rice, saffron, silk, sugar, tea, tobacco, wheat, wine, wool
+beeswax, chili, cloves, cocoa, coffee, cotton, fiber_crops, fruit, horses, incense, legumes, livestock, maize, millet, olives, pepper, potato, rice, saffron, silk, sugar, tea, tobacco, wheat, wool
 
 **Rural map modes (PP `pp_local_<good>_output_modifier` only; not vanilla farmed goods):**
 
 fish, wild_game, fur
 
-`dyes` is vanilla-farmed but omitted here: multiple non-farming sources; no dedicated PP local-output map mode for now.
+`dyes` and `wine` is vanilla-farmed but omitted here: multiple non-farming sources; no dedicated PP local-output map mode for now.
 
 **Not in this list:** victuals (separate); elephants (PP excludes).
 

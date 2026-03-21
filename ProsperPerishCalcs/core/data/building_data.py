@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import NamedTuple
+
 import pandas as pd
 from .base_data import DataModule
 
@@ -18,6 +22,44 @@ PM_COMPARE_META_KEYS = frozenset(
         "epe",
     }
 )
+
+# Keys in building `unique_production_methods` PM blocks that are not trade-good inputs.
+PM_SCRIPT_INPUT_SKIP_KEYS = frozenset({"produced", "output", "category"})
+
+
+def extract_unique_production_method_slots(building_def: dict | None) -> list[dict[str, dict]]:
+    """
+    Return one dict per `unique_production_methods` slot: maps PM id -> PM body.
+
+    Duplicate `unique_production_methods` blocks in a file are parsed as a list of
+    per-slot dicts (see `DataModule._merge_unique_production_methods`).
+    """
+    if not building_def or "unique_production_methods" not in building_def:
+        return []
+    pm_data = building_def["unique_production_methods"]
+    if isinstance(pm_data, list):
+        return pm_data
+    if isinstance(pm_data, dict):
+        return [pm_data]
+    return []
+
+
+class CookeryPmMaps(NamedTuple):
+    """Prosper-or-Perish-style cookery: three UPM slots (food / drinks / packaging)."""
+
+    food: frozenset[str]
+    drinks: frozenset[str]
+    packaging: frozenset[str]
+    pm_good_inputs: dict[str, dict[str, float]]
+
+    def category(self, pm: str) -> str:
+        if pm in self.food:
+            return "food"
+        if pm in self.drinks:
+            return "drinks"
+        if pm in self.packaging:
+            return "packaging"
+        return "other"
 
 
 class BuildingData(DataModule):
@@ -112,6 +154,59 @@ class BuildingData(DataModule):
             return self.production_methods_df.loc[name].to_dict()
         return None
 
+    def pm_trade_good_inputs(self, pm_def: dict) -> dict[str, float]:
+        """
+        Trade-good input amounts for one PM block (building `unique_production_methods` entry).
+
+        Uses the same convention as `compare_production_methods` / `enrich_pm`: numeric inputs
+        only, excluding `produced` / `output` / `category`. Script value references are resolved
+        via `_resolve_value`.
+        """
+        if not isinstance(pm_def, dict):
+            return {}
+        out: dict[str, float] = {}
+        for key, val in pm_def.items():
+            if key in PM_SCRIPT_INPUT_SKIP_KEYS:
+                continue
+            amt = self._resolve_value(val)
+            if amt == 0.0:
+                continue
+            out[key] = float(amt)
+        return out
+
+    def cookery_pm_maps(self, building_name: str = "cookery") -> CookeryPmMaps:
+        """
+        Slot membership (food / drinks / packaging) and per-PM good inputs for a cookery-style
+        building with three `unique_production_methods` blocks.
+        """
+        b = self.get_building(building_name)
+        if not b:
+            raise ValueError(
+                f"No modded building definition for {building_name!r}. "
+                "Check mod `in_game/common/building_types` and config paths."
+            )
+        slots = extract_unique_production_method_slots(b)
+        labels = ("food", "drinks", "packaging")
+        slot_sets: list[frozenset[str]] = []
+        for i, _label in enumerate(labels):
+            if i < len(slots):
+                slot_sets.append(frozenset(slots[i].keys()))
+            else:
+                slot_sets.append(frozenset())
+
+        pm_good_inputs: dict[str, dict[str, float]] = {}
+        for slot in slots:
+            for pm_name, inner in slot.items():
+                if isinstance(inner, dict):
+                    pm_good_inputs[pm_name] = self.pm_trade_good_inputs(inner)
+
+        return CookeryPmMaps(
+            food=slot_sets[0],
+            drinks=slot_sets[1],
+            packaging=slot_sets[2],
+            pm_good_inputs=pm_good_inputs,
+        )
+
     def compare_production_methods(self, building_name, goods_data=None, defines_data=None, pop_data=None):
         """
         Returns a structured comparison of production methods for a building.
@@ -127,17 +222,7 @@ class BuildingData(DataModule):
         }
         
         def extract_slots(building_def):
-            slots = []
-            # Check unique_production_methods block
-            if 'unique_production_methods' in building_def:
-                pm_data = building_def['unique_production_methods']
-                # If it's a list, we have multiple slots
-                if isinstance(pm_data, list):
-                    for slot_dict in pm_data:
-                        slots.append(slot_dict)
-                elif isinstance(pm_data, dict):
-                    slots.append(pm_data)
-            
+            slots = list(extract_unique_production_method_slots(building_def))
             # Check possible_production_methods block (usually references to external PMs)
             if 'possible_production_methods' in building_def:
                 ppm_data = building_def['possible_production_methods']

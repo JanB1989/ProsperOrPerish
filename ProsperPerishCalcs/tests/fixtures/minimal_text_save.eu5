@@ -79,5 +79,13 @@ provinces={
 }
 building_manager={
 	database={
+		1={
+			building=cookery
+			location=1
+			level=1
+			employment=10
+			pp_cookery_khichdi=yes
+			pp_cookery_beer=yes
+		}
 	}
 }

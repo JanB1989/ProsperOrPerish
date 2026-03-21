@@ -25,7 +25,6 @@ REPLACE:agricultural_cultivation = {
 		global_cocoa_output_modifier = 0.075
 		global_coffee_output_modifier = 0.075
 		global_fiber_crops_output_modifier = 0.075
-		global_wine_output_modifier = 0.075
 		global_saffron_output_modifier = 0.075
 		global_pepper_output_modifier = 0.075
 		global_cloves_output_modifier = 0.075

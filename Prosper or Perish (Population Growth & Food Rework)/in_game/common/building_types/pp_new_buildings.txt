@@ -23,7 +23,7 @@ cookery = {
 		pp_cookery_khichdi = {
 			rice = 3.30
 			legumes = 2.81
-			saffron = 0.19
+			saffron = 0.10
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -31,7 +31,7 @@ cookery = {
 		pp_cookery_fish_congee = {
 			rice = 3.30
 			wild_game = 2.81
-			pepper = 0.19
+			pepper = 0.10
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -39,7 +39,7 @@ cookery = {
 		pp_cookery_mutton_pottage = {
 			wheat = 2.62
 			livestock = 2.40
-			pepper = 0.19
+			pepper = 0.10
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -47,7 +47,7 @@ cookery = {
 		pp_cookery_mediterranean_fish = {
 			fish = 5.00
 			olives = 1.50
-			wine = 0.19
+			wine = 0.20
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -55,7 +55,7 @@ cookery = {
 		pp_cookery_saltfish_porridge = {
 			millet = 2.60
 			fish = 3.74
-			salt = 0.19
+			salt = 0.20
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -71,7 +71,7 @@ cookery = {
 		pp_cookery_pemmican = {
 			livestock = 3.74
 			wild_game = 0.94
-			fruit = 0.37
+			fruit = 0.50
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -104,52 +104,46 @@ cookery = {
 	# ==========================================
 	# 2. TABLE BEVERAGES (pick ONE)
 	# - Baseline: well water (no trade goods; EU5 has no water good)
-	# - Upgrades: 2-input regional drinks
+	# - Upgrades: one drink good each (weights sum prior two-input recipes for similar cost)
 	# ==========================================
 	unique_production_methods = {
 		pp_cookery_well_water = {
 			category = building_maintenance
 		}
-		pp_cookery_mead = {
-			beer = 0.94
-			beeswax = 0.75
+		pp_cookery_beer = {
+			beer = 2.0
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
-		pp_cookery_mulled_wine = {
-			wine = 0.94
-			cloves = 0.19
+		pp_cookery_wine = {
+			wine = 2.0
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
-		pp_cookery_grog = {
-			liquor = 0.84
-			fruit = 0.56
+		pp_cookery_liquor = {
+			liquor = 1.65
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
-		pp_cookery_chocolate_pot = {
-			cocoa = 0.56
-			sugar = 0.47
+		pp_cookery_chocolate = {
+			cocoa = 0.90
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
-		pp_cookery_coffeehouse_service = {
-			coffee = 0.56
-			tobacco = 0.47
+		pp_cookery_coffee = {
+			coffee = 1.15
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
-		pp_cookery_tea_service = {
-			livestock = 0.75
-			tea = 0.47
+		pp_cookery_tea = {
+			tea = 1.22
 			produced = victuals
-			output = 0.60
+			output = 0.8
 			category = building_maintenance
 		}
 	}
@@ -162,13 +156,13 @@ cookery = {
 			category = building_maintenance
 		}
 		pp_cookery_pottery_jars = {
-			pottery = 3.0
+			pottery = 2.8
 			produced = victuals
 			output = 0.50
 			category = building_maintenance
 		}
 		pp_cookery_coopered_barrels = {
-			furniture = 1.0
+			furniture = 0.9
 			produced = victuals
 			output = 0.50
 			category = building_maintenance

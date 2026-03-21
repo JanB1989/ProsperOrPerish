@@ -136,7 +136,6 @@ The legend key `MAPMODE_<ID>` uses the ID in uppercase with underscores.
 | `pp_local_cocoa_output_modifier` | `pp_local_cocoa_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_tea_output_modifier` | `pp_local_tea_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_coffee_output_modifier` | `pp_local_coffee_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
-| `pp_local_wine_output_modifier` | `pp_local_wine_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_silk_output_modifier` | `pp_local_silk_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_incense_output_modifier` | `pp_local_incense_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_saffron_output_modifier` | `pp_local_saffron_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |

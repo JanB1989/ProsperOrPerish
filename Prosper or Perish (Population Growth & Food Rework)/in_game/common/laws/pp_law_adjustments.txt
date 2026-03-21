@@ -65,7 +65,6 @@ TRY_REPLACE:administrative_system = {
 			global_cocoa_output_modifier = 0.1
 			global_coffee_output_modifier = 0.1
 			global_fiber_crops_output_modifier = 0.1
-			global_wine_output_modifier = 0.1
 			global_saffron_output_modifier = 0.1
 			global_pepper_output_modifier = 0.1
 			global_cloves_output_modifier = 0.1

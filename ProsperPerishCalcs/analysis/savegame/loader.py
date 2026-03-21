@@ -209,8 +209,9 @@ class SaveAdapter:
             w = _DictWrapper(bdata, id_=building_id)
             loc_id = bdata.get("location")
             w.location = self._locations.get(int(loc_id)) if loc_id is not None else None
-            w.name = bdata.get("name") or bdata.get("building") or str(building_id)
-            w.slug = str(bdata.get("building", building_id))
+            type_slug = bdata.get("type") or bdata.get("building")
+            w.name = bdata.get("name") or type_slug or str(building_id)
+            w.slug = str(type_slug if type_slug is not None else building_id)
             w.level = int(bdata.get("level", 0))
             w.max_level = int(bdata.get("max_level", 0))
             w.employment = _float(bdata.get("employment"), 0.0)
@@ -619,6 +620,14 @@ def locations_df_from_pkl(obj: pd.DataFrame | dict) -> pd.DataFrame:
     return obj if isinstance(obj, pd.DataFrame) else pd.DataFrame()
 
 
+def buildings_df_from_pkl(obj: dict) -> pd.DataFrame:
+    """Extract the buildings DataFrame from a v2 pkl dict (empty if missing or not a DataFrame)."""
+    if not isinstance(obj, dict):
+        return pd.DataFrame()
+    b = obj.get("buildings")
+    return b.copy() if isinstance(b, pd.DataFrame) else pd.DataFrame()
+
+
 # Column names for get_locations_df (explicit, no string iteration)
 _LOCATIONS_RENAME = {
     "estate_tax_nobles_estate": "nobles_tax",
@@ -910,6 +919,54 @@ def get_countries_df(save) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+# Keys on building_manager.database entries that are not production method ids (EU5 / pyeu5).
+_RESERVED_BUILDING_KEYS = frozenset({
+    "type",
+    "building",
+    "location",
+    "level",
+    "max_level",
+    "employed",
+    "employment",
+    "name",
+    "pop_type",
+    "building_id",
+    "id",
+    "none",
+})
+
+
+def _production_method_ids_from_building(building) -> tuple[str, ...]:
+    """Active production method ids: pyeu5 ``Building.methods``, else raw ``_data`` keys minus reserved."""
+    methods = getattr(building, "methods", None)
+    if isinstance(methods, dict) and methods:
+        return tuple(sorted(methods.keys()))
+    raw = getattr(building, "_data", None)
+    if isinstance(raw, dict):
+        return tuple(
+            sorted(
+                str(k)
+                for k in raw
+                if k not in _RESERVED_BUILDING_KEYS
+                and not str(k).startswith("_")
+            )
+        )
+    return ()
+
+
+def _building_type_slug(building) -> str:
+    """Normalized building type slug (``type`` or ``building`` in save)."""
+    s = _safe_get(building, "slug", "")
+    if s:
+        return str(s)
+    raw = getattr(building, "_data", None)
+    if isinstance(raw, dict):
+        v = raw.get("type") or raw.get("building")
+        if v is not None:
+            return str(v)
+    return ""
+
+
 def get_buildings_df(save) -> pd.DataFrame:
     """Extract buildings from a save into a pandas DataFrame (flattened with location/country)."""
     rows = []
@@ -923,10 +980,11 @@ def get_buildings_df(save) -> pd.DataFrame:
                     loc_id = lid
                     break
         owner = location.owner if location else None
+        pm_ids = _production_method_ids_from_building(building)
         rows.append({
             "building_id": building_id,
             "name": _safe_get(building, "name", ""),
-            "slug": _safe_get(building, "slug", ""),
+            "slug": _building_type_slug(building),
             "level": _safe_get(building, "level", 0),
             "max_level": _safe_get(building, "max_level", 0),
             "employment": _safe_get(building, "employment", 0.0),
@@ -934,8 +992,18 @@ def get_buildings_df(save) -> pd.DataFrame:
             "location_id": loc_id,
             "location_name": location.name if location else None,
             "owner_name": owner.name if owner else None,
+            "production_method_ids": pm_ids,
+            "production_methods": "|".join(pm_ids),
         })
     return pd.DataFrame(rows)
+
+
+def get_cookery_buildings_df(save) -> pd.DataFrame:
+    """Rows from ``get_buildings_df`` where building type is ``cookery``."""
+    df = get_buildings_df(save)
+    if df.empty or "slug" not in df.columns:
+        return df
+    return df[df["slug"] == "cookery"].reset_index(drop=True)
 
 
 def get_religion_data():

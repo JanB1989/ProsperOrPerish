@@ -1,4 +1,4 @@
-"""Process EU5 savegames to format-2 .pkl payloads (locations, market_goods, market_food, countries)."""
+"""Process EU5 savegames to format-2 .pkl payloads (locations, buildings, market_goods, market_food, countries)."""
 
 from __future__ import annotations
 
