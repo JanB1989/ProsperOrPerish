@@ -1,4 +1,4 @@
-﻿pp_victuals_market_price = {gold = 25}
+﻿pp_victuals_market_price = {gold = 50}
 
 # Test prices
 # pp_test_price_1 = {gold = 1}

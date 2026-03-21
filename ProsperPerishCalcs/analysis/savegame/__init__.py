@@ -13,9 +13,11 @@ from analysis.savegame.loader import (
     get_countries_df,
     get_latest_save_path,
     get_locations_df,
+    get_market_goods_df,
     get_religion_data,
     inspect_savegame,
     load_save,
+    locations_df_from_pkl,
 )
 from analysis.savegame.processor import get_pkl_dir, resolve_pkl_dir, run_watcher
 
@@ -29,7 +31,9 @@ __all__ = [
     "get_countries_df",
     "get_latest_save_path",
     "get_locations_df",
+    "get_market_goods_df",
     "get_pkl_dir",
+    "locations_df_from_pkl",
     "merge_saves_with_location_data",
     "get_religion_data",
     "inspect_savegame",

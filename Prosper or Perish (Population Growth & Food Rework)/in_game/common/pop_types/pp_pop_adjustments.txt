@@ -15,8 +15,8 @@ TRY_INJECT:laborers = {
 		local_monthly_development = 0.007
 	}
 	literacy_impact = {
-		local_max_rgo_size_modifier = -0.1
-		local_raw_material_output = 0.05
+		local_max_rgo_size_modifier = 0.05
+		# local_raw_material_output = 0.05
 	}
 }
 TRY_INJECT:soldiers = {

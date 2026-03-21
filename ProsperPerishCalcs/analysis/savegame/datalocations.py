@@ -1,7 +1,7 @@
-"""Build and save datalocations DataFrame from EU5 saves. Same output as savegame_to_pandas.ipynb.
+"""Build and save savegame payloads from EU5 saves.
 
-Creates .pkl files with the locations DataFrame merged with scope hierarchy
-(slug, province, area, region, macro_region, super_region, total_population, etc).
+Writes a versioned dict (format 2) to ``.pkl``: ``locations`` (merged with scope hierarchy),
+``market_goods`` (per-market goods, flattened), and ``countries``.
 """
 
 from __future__ import annotations
@@ -11,7 +11,13 @@ from pathlib import Path
 import pandas as pd
 
 from analysis.building_levels.building_analysis.utils import load_config
-from analysis.savegame.loader import get_locations_df, load_save
+from analysis.savegame.loader import (
+    get_countries_df,
+    get_locations_df,
+    get_market_goods_df,
+    load_save,
+    locations_df_from_pkl,
+)
 from core.data.location_data import LocationData
 from core.data.population_capacity_data import (
     PopulationCapacityData,
@@ -66,9 +72,10 @@ def merge_saves_with_location_data(
     cap_data.load_all()
 
     result = {}
-    for label, df in saves.items():
+    for label, obj in saves.items():
+        df = locations_df_from_pkl(obj)
         if "slug" not in df.columns:
-            result[label] = df
+            result[label] = obj
             continue
         merged = df.merge(
             df_loc, left_on="slug", right_on="location", how="left",
@@ -104,17 +111,8 @@ def create_datalocations_pkl(
     output_path: str | Path,
     *,
     path_resolver: PathResolver | None = None,
-) -> pd.DataFrame:
-    """Load save, build datalocations DataFrame, save to .pkl. Returns the DataFrame.
-
-    Same as: load_save -> build_datalocations_df -> to_pickle.
-    Use this instead of the notebook for programmatic pkl creation.
-
-    Args:
-        save_path: Path to .eu5 save file.
-        output_path: Path for output .pkl file.
-        path_resolver: Optional. Uses config game_path/mod_path if not provided.
-    """
+) -> dict:
+    """Load save, build payload, save to .pkl. Returns the payload dict (format 2)."""
     save = load_save(path=str(save_path))
     return create_datalocations_pkl_from_save(save, output_path, path_resolver)
 
@@ -124,11 +122,8 @@ def create_datalocations_pkl_from_save(
     output_path: str | Path,
     *,
     path_resolver: PathResolver | None = None,
-) -> pd.DataFrame:
-    """Build datalocations DataFrame from already-loaded save, save to .pkl.
-
-    Use when you already have a loaded save to avoid loading twice.
-    """
+) -> dict:
+    """Build format-2 payload from an already-loaded save and write ``.pkl``."""
     if path_resolver is None:
         config = load_config()
         path_resolver = PathResolver(
@@ -137,6 +132,12 @@ def create_datalocations_pkl_from_save(
     location_data = LocationData(path_resolver)
     location_data.load_all()
     df = build_datalocations_df(save, location_data)
+    payload = {
+        "format": 2,
+        "locations": df,
+        "market_goods": get_market_goods_df(save),
+        "countries": get_countries_df(save),
+    }
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-    df.to_pickle(output_path)
-    return df
+    pd.to_pickle(payload, output_path)
+    return payload

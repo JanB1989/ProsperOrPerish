@@ -44,7 +44,7 @@ TRY_INJECT:subtropical = {
 
 TRY_INJECT:oceanic = {
 	location_modifier = {
-		local_fish_output_modifier = 0.2
+		local_fish_output_modifier = 0.0
 		local_fruit_output_modifier = 0.05
 		local_fur_output_modifier = -0.1
 		local_leather_output_modifier = 0.05

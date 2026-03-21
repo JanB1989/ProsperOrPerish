@@ -376,6 +376,138 @@ def _flatten_dict(d: dict, prefix: str = "") -> dict:
     return out
 
 
+def _country_tag_from_record(c: dict | None) -> str | None:
+    """Best-effort country tag from a countries.database entry (definition / tag / name keys)."""
+    if not isinstance(c, dict):
+        return None
+    return c.get("definition") or c.get("tag") or c.get("country_name") or c.get("name")
+
+
+def _get_save_root_data(save) -> dict | None:
+    """Return the gamestate dict for both raw text parses and eu5.Save (wrapped metadata)."""
+    data = getattr(save, "_data", None)
+    if not data or not isinstance(data, dict):
+        return None
+    meta = data.get("metadata")
+    if isinstance(meta, dict):
+        return data
+    first = next(iter(data.values()), None)
+    if isinstance(first, dict) and isinstance(first.get("metadata"), dict):
+        return first
+    return data
+
+
+def _market_center_slug(
+    mm_entry: dict,
+    *,
+    comp_locs: list | None,
+    locations_by_id: dict[int, object] | None,
+) -> str | None:
+    """Resolve market center location slug from market_manager database entry."""
+    center = mm_entry.get("center") if isinstance(mm_entry, dict) else None
+    if center is None:
+        return None
+    try:
+        cid = int(center)
+    except (ValueError, TypeError):
+        return None
+    if locations_by_id and cid in locations_by_id:
+        loc = locations_by_id[cid]
+        slug = getattr(loc, "slug", None)
+        if slug is not None:
+            return str(slug)
+    if isinstance(comp_locs, list) and 0 <= cid - 1 < len(comp_locs):
+        return str(comp_locs[cid - 1])
+    return None
+
+
+def get_market_goods_df(save) -> pd.DataFrame:
+    """One row per (market, good) with all scalar fields flattened from the save.
+
+    Uses eu5 ``Save.markets`` when available; otherwise ``market_manager.database`` from raw data.
+    Nested dicts (e.g. supplied / demanded) are flattened with underscores (``supplied_Building``, …).
+    """
+    rows: list[dict] = []
+
+    markets_map = getattr(save, "markets", None)
+    if isinstance(markets_map, dict) and markets_map:
+        sample = next(iter(markets_map.values()), None)
+        if sample is not None and hasattr(sample, "_data") and hasattr(sample, "id"):
+            for market in markets_map.values():
+                mid = int(market.id)
+                center_slug = ""
+                try:
+                    center_slug = str(market.center.slug)
+                except (AttributeError, KeyError, TypeError):
+                    pass
+                goods = market._data.get("goods") if isinstance(market._data, dict) else None
+                if not isinstance(goods, dict):
+                    continue
+                for good_id, gdata in goods.items():
+                    if gdata == "none" or not isinstance(gdata, dict):
+                        continue
+                    flat = _flatten_dict(gdata)
+                    row = {
+                        "market_id": mid,
+                        "market_center_slug": center_slug,
+                        "good_id": str(good_id),
+                    }
+                    row.update(flat)
+                    rows.append(row)
+            return pd.DataFrame(rows)
+
+    data = _get_save_root_data(save)
+    if not data:
+        return pd.DataFrame()
+    mm_db = (data.get("market_manager") or {}).get("database") or {}
+    if not isinstance(mm_db, dict) or not mm_db:
+        return pd.DataFrame()
+
+    meta = data.get("metadata") or {}
+    compat = meta.get("compatibility") or {}
+    comp_locs = compat.get("locations")
+
+    locations_by_id: dict[int, object] = {}
+    locs_block = (data.get("locations") or {}).get("locations") or {}
+    if isinstance(locs_block, dict):
+        for lid_str, _ in locs_block.items():
+            try:
+                lid = int(lid_str)
+            except (ValueError, TypeError):
+                continue
+            locs = getattr(save, "locations", None)
+            if isinstance(locs, dict) and lid in locs:
+                locations_by_id[lid] = locs[lid]
+
+    for mid_str, mm_entry in mm_db.items():
+        if mm_entry == "none" or not isinstance(mm_entry, dict):
+            continue
+        try:
+            mid = int(mid_str)
+        except (ValueError, TypeError):
+            continue
+        center_slug = _market_center_slug(
+            mm_entry, comp_locs=comp_locs if isinstance(comp_locs, list) else None,
+            locations_by_id=locations_by_id,
+        ) or ""
+        goods = mm_entry.get("goods")
+        if not isinstance(goods, dict):
+            continue
+        for good_id, gdata in goods.items():
+            if gdata == "none" or not isinstance(gdata, dict):
+                continue
+            flat = _flatten_dict(gdata)
+            row = {
+                "market_id": mid,
+                "market_center_slug": center_slug,
+                "good_id": str(good_id),
+            }
+            row.update(flat)
+            rows.append(row)
+
+    return pd.DataFrame(rows)
+
+
 def _safe_get(obj, attr: str, default=None):
     """Safely get an attribute, returning default on AttributeError or None."""
     try:
@@ -383,6 +515,14 @@ def _safe_get(obj, attr: str, default=None):
         return val if val is not None else default
     except (AttributeError, TypeError):
         return default
+
+
+def locations_df_from_pkl(obj: pd.DataFrame | dict) -> pd.DataFrame:
+    """Extract the locations DataFrame from a v2 pkl dict or pass through a bare DataFrame."""
+    if isinstance(obj, dict) and "locations" in obj:
+        loc = obj["locations"]
+        return loc if isinstance(loc, pd.DataFrame) else pd.DataFrame()
+    return obj if isinstance(obj, pd.DataFrame) else pd.DataFrame()
 
 
 # Column names for get_locations_df (explicit, no string iteration)
@@ -434,9 +574,12 @@ _LOCATIONS_KEEP = (
     "population_pop_stats_peasants_population_ratio", "population_pop_stats_peasants_unemployed",
     "population_pop_stats_tribesmen_population_ratio", "population_pop_stats_tribesmen_unemployed",
     "population_pop_stats_slaves_population_ratio", "population_pop_stats_slaves_unemployed",
+    "owner_country_id", "country_tag", "controller_country_id", "controller_tag",
 )
 _LOCATIONS_ORDER = (
-    "location_id", "slug", "rank", "development", "total_population", "tax", "possible_tax",
+    "location_id", "slug",
+    "owner_country_id", "country_tag", "controller_country_id", "controller_tag",
+    "rank", "development", "total_population", "tax", "possible_tax",
     "nobles", "nobles_u", "clergy", "clergy_u", "burghers", "burghers_u",
     "soldiers", "soldiers_u", "laborers", "laborers_u", "peasants", "peasants_u",
     "tribesmen", "tribesmen_u", "slaves", "slaves_u",
@@ -479,8 +622,19 @@ def get_locations_df(save) -> pd.DataFrame:
             flat["slug"] = comp_locs[loc_id - 1]
         owner_id = loc_data.get("owner")
         if owner_id is not None:
-            c = countries_db.get(str(int(owner_id))) if isinstance(countries_db, dict) else None
-            flat["owner_name"] = (c.get("country_name") or c.get("definition") or c.get("name")) if isinstance(c, dict) else None
+            oid = int(owner_id)
+            flat["owner_country_id"] = oid
+            c = countries_db.get(str(oid)) if isinstance(countries_db, dict) else None
+            if isinstance(c, dict):
+                flat["owner_name"] = c.get("country_name") or c.get("definition") or c.get("name")
+                flat["country_tag"] = _country_tag_from_record(c)
+        ctl_id = loc_data.get("controller")
+        if ctl_id is not None:
+            cid = int(ctl_id)
+            flat["controller_country_id"] = cid
+            c_ctl = countries_db.get(str(cid)) if isinstance(countries_db, dict) else None
+            if isinstance(c_ctl, dict):
+                flat["controller_tag"] = _country_tag_from_record(c_ctl)
         market_id = loc_data.get("market")
         if market_id is not None and isinstance(mm_db, dict):
             mm = mm_db.get(str(int(market_id)))
@@ -550,7 +704,8 @@ def build_save_comparison_df(
     merged = None
     first_label = None
 
-    for label, df in saves.items():
+    for label, raw in saves.items():
+        df = locations_df_from_pkl(raw)
         if first_label is None:
             first_label = label
         cols = [c for c in metric_cols if c in df.columns]
@@ -615,7 +770,7 @@ def get_global_benchmark_df(
         year = start_year + int(i * years_per_snapshot)
         if (year - start_year) % interval_years != 0:
             continue
-        df = saves[label]
+        df = locations_df_from_pkl(saves[label])
         dev_col = "development_pkl" if "development_pkl" in df.columns else "development"
         pop_col = "total_population" if "total_population" in df.columns else "population"
         cols = {
@@ -645,8 +800,11 @@ def get_countries_df(save) -> pd.DataFrame:
     """Extract countries from a save into a pandas DataFrame."""
     rows = []
     for country_id, country in save.countries.items():
+        raw = getattr(country, "_data", None)
+        tag = _country_tag_from_record(raw) if isinstance(raw, dict) else None
         rows.append({
             "country_id": country_id,
+            "country_tag": tag or "",
             "name": _safe_get(country, "name", ""),
             "population": _safe_get(country, "population", 0.0),
             "gold": _safe_get(country, "gold", 0.0),

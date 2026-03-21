@@ -12,7 +12,7 @@ cookery = {
 	build_time = workshop_build_time
 	construction_demand = workshop_construction
 	ai_forbid_shutdown = no
-	forbidden_for_estates = no
+	forbidden_for_estates = yes
 	important_for_AI = yes
 	can_close = yes
 	# ==========================================
@@ -147,6 +147,15 @@ cookery = {
 			output = 1.10
 			category = building_maintenance
 		}
+		# tea/sugar/livestock: ~same reference cost as sweet_preserves (3rd input splits amounts)
+		pp_cookery_tea_milk_service = {
+			tea = 0.55
+			sugar = 0.55
+			livestock = 0.88
+			produced = victuals
+			output = 1.10
+			category = building_maintenance
+		}
 	}
 	# ==========================================
 	# 3. PACKAGING (pick ONE)
@@ -164,7 +173,6 @@ cookery = {
 	}
 	modifier = {
 		local_victuals_output_modifier = 0.00
-		# local_monthly_food = 30
 	}
 }
 
@@ -173,7 +181,7 @@ victuals_market = {
 	is_foreign = no
 	max_levels = victuals_market_max_level
 	pop_type = peasants
-	employment_size = 0.1
+	employment_size = 1.0
 	# price = pp_test_price_1
 	# price = pp_victuals_market_price
 	category = infrastructure_category
@@ -185,6 +193,7 @@ victuals_market = {
 	important_for_AI = yes
 	can_close = yes
 	forbidden_for_estates = yes
+	AI_ignore_available_worker_flag = yes
 	build_time = 60
 	construction_demand = victuals_market_construction
 

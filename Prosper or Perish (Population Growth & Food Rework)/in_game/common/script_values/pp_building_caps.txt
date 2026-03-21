@@ -177,7 +177,7 @@ fishing_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.15
+		multiply = 0.03
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -233,12 +233,12 @@ pp_granary_cap = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.200
+		multiply = 0.125
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
 		value = population
-		multiply = 0.0125
+		multiply = 0.0150
 	}
 	if = {
 		limit = {

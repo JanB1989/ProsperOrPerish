@@ -3,7 +3,7 @@ Professional analysis suite for Europa Universalis V modding.
 
 ## Structure
 - `docs/`: EU5 crash investigation workflow and Paradox escalation checklists (`eu5_pp_crash_investigation.md`, `paradox_escalation_checklist.md`).
-- `tools/`: Mod-asset fix scripts (UTF-8 BOM conversion, DDS mipmaps), plus `parse_eu5_crash_bundles.py` to summarize Paradox crash folders (`exception.txt`, `meta.yml`, `debug.log` tail). Run via `uv run python main.py` or `uv run python tools/parse_eu5_crash_bundles.py`.
+- `tools/`: Mod-asset fix scripts (UTF-8 BOM conversion, DDS mipmaps), plus `parse_eu5_crash_bundles.py` to summarize crash folders (`exception.txt`, `meta.yml`, **`minidump.dmp`** RVA + Capstone disassembly vs `eu5.exe`, `debug.log` tail). Run via `uv run python main.py` or `uv run python tools/parse_eu5_crash_bundles.py`.
 - `core/parser/`: Robust Paradox script parsing engine.
 - `core/data/`: Live data modules for Goods, Buildings, Locations, Defines, and Pops.
 - `analysis/building_levels/`: Building capacity and economic analysis tools.

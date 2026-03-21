@@ -1,4 +1,4 @@
-"""Process EU5 savegames to .pkl files. Matches savegame_to_pandas.ipynb output format."""
+"""Process EU5 savegames to format-2 .pkl payloads (locations, market_goods, countries)."""
 
 from __future__ import annotations
 

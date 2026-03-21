@@ -53,6 +53,20 @@ market_manager={
 	database={
 		1={
 			center=1
+			goods={
+				iron={
+					price=3.5
+					supply=100
+					demand=50
+					supplied={
+						Building=10
+						Pops=5
+					}
+					demanded={
+						Building=2
+					}
+				}
+			}
 		}
 	}
 }
