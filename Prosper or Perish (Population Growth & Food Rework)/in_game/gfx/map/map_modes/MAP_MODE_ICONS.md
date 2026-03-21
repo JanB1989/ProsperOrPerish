@@ -100,6 +100,10 @@ The legend key `MAPMODE_<ID>` uses the ID in uppercase with underscores.
    - Path: `main_menu/gfx/interface/icons/map_modes/<map_mode_id>.dds`
    - Filename must match the map mode ID exactly
 
+**`pp_local_<good>_output_modifier` icons:** Copy the matching vanilla trade-good icon from `game/main_menu/gfx/interface/icons/trade_goods/icon_goods_<good>.dds` and save it as `pp_local_<good>_output_modifier.dds` under `main_menu/.../map_modes/` (same dimensions as vanilla goods art). Do **not** replace a whole set of working icons with one generic map-mode texture.
+
+**Other PP map modes:** If you have no bespoke art yet, you can copy a vanilla map mode `.dds` from `game/main_menu/gfx/interface/icons/map_modes/` as a one-off placeholder for that id only.
+
 ---
 
 ## PP Mod Map Modes Reference
@@ -122,9 +126,24 @@ The legend key `MAPMODE_<ID>` uses the ID in uppercase with underscores.
 | `pp_local_legumes_output_modifier` | `pp_local_legumes_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_potato_output_modifier` | `pp_local_potato_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_olives_output_modifier` | `pp_local_olives_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
-| `pp_local_leather_output_modifier` | `pp_local_leather_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_wild_game_output_modifier` | `pp_local_wild_game_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_local_fur_output_modifier` | `pp_local_fur_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_beeswax_output_modifier` | `pp_local_beeswax_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_fiber_crops_output_modifier` | `pp_local_fiber_crops_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_cotton_output_modifier` | `pp_local_cotton_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_sugar_output_modifier` | `pp_local_sugar_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_tobacco_output_modifier` | `pp_local_tobacco_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_cocoa_output_modifier` | `pp_local_cocoa_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_tea_output_modifier` | `pp_local_tea_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_coffee_output_modifier` | `pp_local_coffee_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_wine_output_modifier` | `pp_local_wine_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_silk_output_modifier` | `pp_local_silk_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_incense_output_modifier` | `pp_local_incense_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_saffron_output_modifier` | `pp_local_saffron_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_pepper_output_modifier` | `pp_local_pepper_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_cloves_output_modifier` | `pp_local_cloves_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_chili_output_modifier` | `pp_local_chili_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
+| `pp_local_horses_output_modifier` | `pp_local_horses_output_modifier.dds` | pp_local_output_modifier_map_modes.txt |
 | `pp_unemployed_peasants` | `pp_unemployed_peasants.dds` | pp_unemployed_peasants_map_modes.txt |
 | `pp_population_capacity` | `pp_population_capacity.dds` | pp_population_capacity_map_modes.txt |
 

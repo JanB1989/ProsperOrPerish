@@ -37,13 +37,42 @@ class DataModule:
                 
         return merged
 
+    def _merge_unique_production_methods(self, base, override):
+        """
+        Merge building `unique_production_methods` without concatenating slot lists.
+
+        Duplicate keys in one file become a list of per-slot dicts; merging two files
+        must zip-merge slot dicts when counts match, not append (which would double slots).
+        If slot counts differ, the override (usually mod) wins.
+        """
+        def as_slot_list(x):
+            if x is None:
+                return []
+            if isinstance(x, list):
+                return x
+            if isinstance(x, dict):
+                return [x]
+            return []
+
+        bl, ol = as_slot_list(base), as_slot_list(override)
+        if not ol:
+            return bl
+        if not bl:
+            return ol
+        if len(bl) == len(ol):
+            return [self._deep_merge(b_slot, o_slot) for b_slot, o_slot in zip(bl, ol)]
+        return ol
+
     def _deep_merge(self, base, override):
         """Recursively merges two structures."""
         if isinstance(base, dict) and isinstance(override, dict):
             new_dict = base.copy()
             for k, v in override.items():
                 if k in new_dict:
-                    new_dict[k] = self._deep_merge(new_dict[k], v)
+                    if k == "unique_production_methods":
+                        new_dict[k] = self._merge_unique_production_methods(new_dict[k], v)
+                    else:
+                        new_dict[k] = self._deep_merge(new_dict[k], v)
                 else:
                     new_dict[k] = v
             return new_dict

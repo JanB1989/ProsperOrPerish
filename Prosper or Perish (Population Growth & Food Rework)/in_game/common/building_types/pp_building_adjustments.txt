@@ -23,6 +23,11 @@ TRY_INJECT:polders = {
 		local_monthly_food_modifier = -0.05 # vanilla 0.05
 		local_wheat_output_modifier = 0.025
 		local_livestock_output_modifier = 0.025
+		local_maize_output_modifier = 0.02
+		local_rice_output_modifier = 0.025
+		local_millet_output_modifier = 0.02
+		local_fiber_crops_output_modifier = 0.02
+		local_horses_output_modifier = 0.02
 	}
 	ai_forbid_shutdown = yes
 	forbidden_for_estates = no
@@ -32,6 +37,16 @@ TRY_INJECT:terraces = {
 		local_monthly_food_modifier = -0.5 # vanilla 0.5
 		local_maize_output_modifier = 0.1
 		local_potato_output_modifier = 0.1
+		local_rice_output_modifier = 0.06
+		local_wheat_output_modifier = 0.05
+		local_millet_output_modifier = 0.05
+		local_legumes_output_modifier = 0.05
+		local_fiber_crops_output_modifier = 0.06
+		local_cotton_output_modifier = 0.04
+		local_tea_output_modifier = 0.05
+		local_coffee_output_modifier = 0.05
+		local_chili_output_modifier = 0.06
+		local_horses_output_modifier = 0.04
 	}
 	ai_forbid_shutdown = yes
 	forbidden_for_estates = no
@@ -41,6 +56,11 @@ TRY_INJECT:incamisana = {
 		local_monthly_food_modifier = -0.15 # vanilla 0.15
 		local_maize_output_modifier = 0.05
 		local_potato_output_modifier = 0.05
+		local_rice_output_modifier = 0.03
+		local_wheat_output_modifier = 0.025
+		local_legumes_output_modifier = 0.025
+		local_fiber_crops_output_modifier = 0.03
+		local_chili_output_modifier = 0.03
 	}
 	ai_forbid_shutdown = yes
 }
@@ -49,11 +69,22 @@ TRY_INJECT:khmer_baray = {
 		local_monthly_food_modifier = -0.20 # vanilla 0.20
 		local_rice_output_modifier = 0.1
 		local_fish_output_modifier = 0.05
+		local_cotton_output_modifier = 0.03
+		local_sugar_output_modifier = 0.03
+		local_tea_output_modifier = 0.02
 	}
 	ai_forbid_shutdown = yes
 }
-# Vanilla: desert or coastal only. Allow salt RGO (inland rock salt etc.) as well.
-TRY_INJECT:salt_collector = {
+# salt_collector: REPLACE to extend location_potential for inland salt RGOs (rock salt), not only desert/coastal.
+REPLACE:salt_collector = {
+	is_foreign = no
+	pop_type = laborers
+	max_levels = rural_building_cap
+	employment_size = rural_peasant_produce_employment
+	category = rgo_building_category
+	rural_settlement = yes
+	town = yes
+	city = yes
 	location_potential = {
 		OR = {
 			vegetation = desert
@@ -61,6 +92,18 @@ TRY_INJECT:salt_collector = {
 			raw_material = goods:salt
 		}
 	}
+	unique_production_methods = {
+		pp_salt_collector_maintenance = {
+			produced = salt
+			output = 0.3
+			clay  = 2.0
+			category = building_maintenance
+		}
+	}
+	modifier = {
+	}
+	build_time = rural_build_time
+	construction_demand = farm_constructions
 }
 INJECT:construction_center = {
     rural_settlement = yes
@@ -117,6 +160,22 @@ INJECT:irrigation_systems = {
 		local_livestock_output_modifier = 0.005
 		local_beeswax_output_modifier = 0.000
 		local_wool_output_modifier = 0.005
+		local_fiber_crops_output_modifier = 0.025
+		local_cotton_output_modifier = 0.02
+		local_sugar_output_modifier = 0.02
+		local_tobacco_output_modifier = 0.02
+		local_cocoa_output_modifier = 0.02
+		local_tea_output_modifier = 0.04
+		local_coffee_output_modifier = 0.03
+		local_wine_output_modifier = 0.03
+		local_silk_output_modifier = 0.025
+		local_dyes_output_modifier = 0.02
+		local_incense_output_modifier = 0.02
+		local_saffron_output_modifier = 0.02
+		local_pepper_output_modifier = 0.02
+		local_cloves_output_modifier = 0.02
+		local_chili_output_modifier = 0.02
+		local_horses_output_modifier = 0.01
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes
@@ -143,6 +202,22 @@ INJECT:bund = {
 		local_livestock_output_modifier = 0.005
 		local_beeswax_output_modifier = 0.000
 		local_wool_output_modifier = 0.005
+		local_fiber_crops_output_modifier = 0.015
+		local_cotton_output_modifier = 0.012
+		local_sugar_output_modifier = 0.012
+		local_tobacco_output_modifier = 0.012
+		local_cocoa_output_modifier = 0.012
+		local_tea_output_modifier = 0.025
+		local_coffee_output_modifier = 0.02
+		local_wine_output_modifier = 0.02
+		local_silk_output_modifier = 0.015
+		local_dyes_output_modifier = 0.012
+		local_incense_output_modifier = 0.012
+		local_saffron_output_modifier = 0.012
+		local_pepper_output_modifier = 0.012
+		local_cloves_output_modifier = 0.012
+		local_chili_output_modifier = 0.012
+		local_horses_output_modifier = 0.008
 	}
 	ai_forbid_shutdown = yes
 }
@@ -175,6 +250,9 @@ REPLACE:fruit_orchard = {
 		local_monthly_food = 0.0
 		local_food_capacity = 50
 		local_fruit_output_modifier = -0.0175
+		local_olives_output_modifier = -0.0175
+		local_wine_output_modifier = -0.0175
+		local_beeswax_output_modifier = -0.0175
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes
@@ -467,6 +545,25 @@ REPLACE:farming_village = {
 		local_potato_output_modifier = -0.0175
 		local_livestock_output_modifier = -0.0175
 		local_olives_output_modifier = -0.0175
+		local_fruit_output_modifier = -0.0175
+		local_beeswax_output_modifier = -0.0175
+		local_wool_output_modifier = -0.0175
+		local_fiber_crops_output_modifier = -0.0175
+		local_cotton_output_modifier = -0.0175
+		local_sugar_output_modifier = -0.0175
+		local_tobacco_output_modifier = -0.0175
+		local_cocoa_output_modifier = -0.0175
+		local_tea_output_modifier = -0.0175
+		local_coffee_output_modifier = -0.0175
+		local_wine_output_modifier = -0.0175
+		local_silk_output_modifier = -0.0175
+		local_dyes_output_modifier = -0.0175
+		local_incense_output_modifier = -0.0175
+		local_saffron_output_modifier = -0.0175
+		local_pepper_output_modifier = -0.0175
+		local_cloves_output_modifier = -0.0175
+		local_chili_output_modifier = -0.0175
+		local_horses_output_modifier = -0.0175
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes

@@ -53,6 +53,9 @@ TRY_INJECT:incense = {
 TRY_INJECT:saffron = {
 	transport_cost = 0.2
 }
+TRY_INJECT:chili = {
+	transport_cost = 0.2
+}
 
 # Reducing burgher demand for salt, because they used salt to preserve foods, so we increase the demand for victuals instead
 TRY_INJECT:salt = {

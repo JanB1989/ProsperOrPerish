@@ -1,6 +1,25 @@
 import pandas as pd
 from .base_data import DataModule
 
+# Keys on PM dicts returned by `compare_production_methods` (enrichment), not good inputs.
+PM_COMPARE_META_KEYS = frozenset(
+    {
+        "produced",
+        "output",
+        "category",
+        "worker_food_cost",
+        "modifier_food_output",
+        "output_price",
+        "is_modifier_output",
+        "input_cost",
+        "output_value",
+        "profit",
+        "profit_margin",
+        "epe",
+    }
+)
+
+
 class BuildingData(DataModule):
     """Module for parsing and accessing building types (vanilla and modded)."""
 

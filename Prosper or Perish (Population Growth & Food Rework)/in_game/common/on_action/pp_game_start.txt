@@ -423,11 +423,11 @@ pp_game_start_effect = {
 						OR = {
 							AND = {
 								location_rank = location_rank:town
-								population > 20
+								population > 300
 							}
 							AND = {
 								location_rank = location_rank:city
-								population > 20
+								population > 200
 							}
 							AND = {
 								location_rank = location_rank:rural_settlement

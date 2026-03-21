@@ -1,7 +1,7 @@
 """Build and save savegame payloads from EU5 saves.
 
 Writes a versioned dict (format 2) to ``.pkl``: ``locations`` (merged with scope hierarchy),
-``market_goods`` (per-market goods, flattened), and ``countries``.
+``market_goods`` (per-market trade goods, flattened), ``market_food`` (abstract food market per market), and ``countries``.
 """
 
 from __future__ import annotations
@@ -14,6 +14,7 @@ from analysis.building_levels.building_analysis.utils import load_config
 from analysis.savegame.loader import (
     get_countries_df,
     get_locations_df,
+    get_market_food_df,
     get_market_goods_df,
     load_save,
     locations_df_from_pkl,
@@ -136,6 +137,7 @@ def create_datalocations_pkl_from_save(
         "format": 2,
         "locations": df,
         "market_goods": get_market_goods_df(save),
+        "market_food": get_market_food_df(save),
         "countries": get_countries_df(save),
     }
     Path(output_path).parent.mkdir(parents=True, exist_ok=True)

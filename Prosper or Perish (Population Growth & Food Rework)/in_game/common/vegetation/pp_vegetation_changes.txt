@@ -18,6 +18,22 @@ TRY_INJECT:desert = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = -0.35
 		local_wool_output_modifier = -0.35
+		local_fiber_crops_output_modifier = -0.35
+		local_cotton_output_modifier = -0.35
+		local_sugar_output_modifier = -0.35
+		local_tobacco_output_modifier = -0.35
+		local_cocoa_output_modifier = -0.35
+		local_tea_output_modifier = -0.35
+		local_coffee_output_modifier = -0.35
+		local_wine_output_modifier = -0.35
+		local_silk_output_modifier = -0.35
+		local_dyes_output_modifier = -0.35
+		local_incense_output_modifier = -0.35
+		local_saffron_output_modifier = -0.35
+		local_pepper_output_modifier = -0.35
+		local_cloves_output_modifier = -0.35
+		local_chili_output_modifier = -0.35
+		local_horses_output_modifier = -0.35
 	}
 }
 
@@ -38,6 +54,22 @@ TRY_INJECT:sparse = {
 		local_wheat_output_modifier = 0.05
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = 0.1
+		local_fiber_crops_output_modifier = 0.08
+		local_cotton_output_modifier = -0.1
+		local_sugar_output_modifier = -0.15
+		local_tobacco_output_modifier = -0.15
+		local_cocoa_output_modifier = -0.2
+		local_tea_output_modifier = -0.2
+		local_coffee_output_modifier = -0.2
+		local_wine_output_modifier = -0.1
+		local_silk_output_modifier = -0.15
+		local_dyes_output_modifier = -0.1
+		local_incense_output_modifier = -0.1
+		local_saffron_output_modifier = -0.1
+		local_pepper_output_modifier = -0.1
+		local_cloves_output_modifier = -0.1
+		local_chili_output_modifier = -0.05
+		local_horses_output_modifier = 0.1
 	}
 }
 
@@ -57,6 +89,22 @@ TRY_INJECT:grasslands = {
 		local_wheat_output_modifier = 0.2
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = 0.25
+		local_fiber_crops_output_modifier = 0.18
+		local_cotton_output_modifier = 0.08
+		local_sugar_output_modifier = 0.06
+		local_tobacco_output_modifier = 0.08
+		local_cocoa_output_modifier = 0.05
+		local_tea_output_modifier = 0.05
+		local_coffee_output_modifier = 0.06
+		local_wine_output_modifier = 0.08
+		local_silk_output_modifier = 0.06
+		local_dyes_output_modifier = 0.06
+		local_incense_output_modifier = 0.05
+		local_saffron_output_modifier = 0.05
+		local_pepper_output_modifier = 0.06
+		local_cloves_output_modifier = 0.06
+		local_chili_output_modifier = 0.08
+		local_horses_output_modifier = 0.18
 	}
 }
 
@@ -78,6 +126,22 @@ TRY_INJECT:farmland = {
 		local_wheat_output_modifier = 0.25
 		local_wild_game_output_modifier = -0.3
 		local_wool_output_modifier = 0.15
+		local_fiber_crops_output_modifier = 0.22
+		local_cotton_output_modifier = 0.1
+		local_sugar_output_modifier = 0.08
+		local_tobacco_output_modifier = 0.1
+		local_cocoa_output_modifier = 0.08
+		local_tea_output_modifier = 0.06
+		local_coffee_output_modifier = 0.08
+		local_wine_output_modifier = 0.2
+		local_silk_output_modifier = 0.08
+		local_dyes_output_modifier = 0.08
+		local_incense_output_modifier = 0.06
+		local_saffron_output_modifier = 0.08
+		local_pepper_output_modifier = 0.08
+		local_cloves_output_modifier = 0.08
+		local_chili_output_modifier = 0.1
+		local_horses_output_modifier = 0.15
 	}
 }
 
@@ -100,6 +164,22 @@ TRY_INJECT:woods = {
 		local_wheat_output_modifier = 0.05
 		local_wild_game_output_modifier = 0.25
 		local_wool_output_modifier = 0.1
+		local_fiber_crops_output_modifier = 0.05
+		local_cotton_output_modifier = -0.05
+		local_sugar_output_modifier = -0.08
+		local_tobacco_output_modifier = -0.05
+		local_cocoa_output_modifier = 0.04
+		local_tea_output_modifier = 0.04
+		local_coffee_output_modifier = 0.04
+		local_wine_output_modifier = 0.06
+		local_silk_output_modifier = 0.06
+		local_dyes_output_modifier = 0.08
+		local_incense_output_modifier = 0.06
+		local_saffron_output_modifier = 0.04
+		local_pepper_output_modifier = 0.04
+		local_cloves_output_modifier = 0.05
+		local_chili_output_modifier = 0.05
+		local_horses_output_modifier = 0.05
 	}
 }
 
@@ -120,6 +200,22 @@ TRY_INJECT:forest = {
 		local_wheat_output_modifier = -0.1
 		local_wild_game_output_modifier = 0.25
 		local_wool_output_modifier = 0.05
+		local_fiber_crops_output_modifier = -0.05
+		local_cotton_output_modifier = -0.05
+		local_sugar_output_modifier = -0.05
+		local_tobacco_output_modifier = -0.05
+		local_cocoa_output_modifier = 0.04
+		local_tea_output_modifier = 0.05
+		local_coffee_output_modifier = 0.05
+		local_wine_output_modifier = -0.05
+		local_silk_output_modifier = 0.06
+		local_dyes_output_modifier = 0.06
+		local_incense_output_modifier = 0.06
+		local_saffron_output_modifier = 0.03
+		local_pepper_output_modifier = 0.04
+		local_cloves_output_modifier = 0.05
+		local_chili_output_modifier = 0.04
+		local_horses_output_modifier = -0.1
 	}
 }
 
@@ -142,5 +238,21 @@ TRY_INJECT:jungle = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = 0.15
 		local_wool_output_modifier = -0.35
+		local_fiber_crops_output_modifier = -0.2
+		local_cotton_output_modifier = 0.08
+		local_sugar_output_modifier = 0.1
+		local_tobacco_output_modifier = 0.06
+		local_cocoa_output_modifier = 0.1
+		local_tea_output_modifier = 0.06
+		local_coffee_output_modifier = 0.08
+		local_wine_output_modifier = -0.35
+		local_silk_output_modifier = 0.04
+		local_dyes_output_modifier = 0.04
+		local_incense_output_modifier = 0.05
+		local_saffron_output_modifier = 0.02
+		local_pepper_output_modifier = 0.08
+		local_cloves_output_modifier = 0.08
+		local_chili_output_modifier = 0.08
+		local_horses_output_modifier = -0.3
 	}
 }

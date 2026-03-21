@@ -508,6 +508,100 @@ def get_market_goods_df(save) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+def _row_from_market_entry_no_goods(mm_entry: dict) -> dict:
+    """Flatten one market_manager database entry, excluding the trade-goods ``goods`` map.
+
+    Top-level ``max`` (max food capacity) is renamed to ``food_max`` to avoid shadowing
+    and match game terminology. Nested dicts (e.g. ``impacts``) use underscore keys.
+    """
+    out: dict = {}
+    for k, v in mm_entry.items():
+        if k == "goods":
+            continue
+        if isinstance(v, dict):
+            out.update(_flatten_dict(v, str(k)))
+        elif isinstance(v, (list, tuple)):
+            out[str(k)] = v
+        else:
+            out[str(k)] = v
+    if "max" in out:
+        out["food_max"] = out.pop("max")
+    return out
+
+
+def get_market_food_df(save) -> pd.DataFrame:
+    """One row per market: abstract food market (stockpile, capacity, price, flows).
+
+    Excludes the trade-goods table (``goods``). Uses the same market ids as
+    ``get_market_goods_df``. Scalar fields in the save include at least ``food`` (stockpile),
+    ``price``, ``food_consumption``, ``food_supply``, ``food_not_traded``, ``missing``,
+    ``population``, ``capacity``; ``max`` is exposed as ``food_max``.
+
+    Uses eu5 ``Save.markets`` when available; otherwise ``market_manager.database``.
+    """
+    rows: list[dict] = []
+
+    markets_map = getattr(save, "markets", None)
+    if isinstance(markets_map, dict) and markets_map:
+        sample = next(iter(markets_map.values()), None)
+        if sample is not None and hasattr(sample, "_data") and hasattr(sample, "id"):
+            for market in markets_map.values():
+                mid = int(market.id)
+                center_slug = ""
+                try:
+                    center_slug = str(market.center.slug)
+                except (AttributeError, KeyError, TypeError):
+                    pass
+                mdata = market._data if isinstance(market._data, dict) else {}
+                flat = _row_from_market_entry_no_goods(mdata)
+                flat["market_id"] = mid
+                flat["market_center_slug"] = center_slug
+                rows.append(flat)
+            return pd.DataFrame(rows)
+
+    data = _get_save_root_data(save)
+    if not data:
+        return pd.DataFrame()
+    mm_db = (data.get("market_manager") or {}).get("database") or {}
+    if not isinstance(mm_db, dict) or not mm_db:
+        return pd.DataFrame()
+
+    meta = data.get("metadata") or {}
+    compat = meta.get("compatibility") or {}
+    comp_locs = compat.get("locations")
+
+    locations_by_id: dict[int, object] = {}
+    locs_block = (data.get("locations") or {}).get("locations") or {}
+    if isinstance(locs_block, dict):
+        for lid_str, _ in locs_block.items():
+            try:
+                lid = int(lid_str)
+            except (ValueError, TypeError):
+                continue
+            locs = getattr(save, "locations", None)
+            if isinstance(locs, dict) and lid in locs:
+                locations_by_id[lid] = locs[lid]
+
+    for mid_str, mm_entry in mm_db.items():
+        if mm_entry == "none" or not isinstance(mm_entry, dict):
+            continue
+        try:
+            mid = int(mid_str)
+        except (ValueError, TypeError):
+            continue
+        center_slug = _market_center_slug(
+            mm_entry,
+            comp_locs=comp_locs if isinstance(comp_locs, list) else None,
+            locations_by_id=locations_by_id,
+        ) or ""
+        flat = _row_from_market_entry_no_goods(mm_entry)
+        flat["market_id"] = mid
+        flat["market_center_slug"] = center_slug
+        rows.append(flat)
+
+    return pd.DataFrame(rows)
+
+
 def _safe_get(obj, attr: str, default=None):
     """Safely get an attribute, returning default on AttributeError or None."""
     try:

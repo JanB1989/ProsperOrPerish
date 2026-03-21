@@ -3,7 +3,7 @@ cookery = {
 	is_foreign = no
 	max_levels = cookery_max_level
 	pop_type = peasants
-	employment_size = 2
+	employment_size = 3
 	category = consumer_goods_category
 	icon = cookery
 	rural_settlement = yes
@@ -16,47 +16,54 @@ cookery = {
 	important_for_AI = yes
 	can_close = yes
 	# ==========================================
-	# - Unprofitable at baseline prices (~ -30% money)
+	# 1. PREPARED VICTUALS (pick ONE)
+	# - Main food preparations
 	# ==========================================
 	unique_production_methods = {
-		# Target: output = 1.0 victuals (price 3.5).
-		# For ~-30% money: total input cost ~= 4.55.
-		pp_cookery_rice_legumes = {
+		pp_cookery_khichdi = {
 			rice = 3.30
 			legumes = 2.81
-			pepper = 0.19
+			saffron = 0.19
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
 		}
-		pp_cookery_rice_fish = {
+		pp_cookery_fish_congee = {
 			rice = 3.30
-			fish = 2.81
+			wild_game = 2.81
 			pepper = 0.19
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
 		}
-		pp_cookery_wheat_livestock = {
+		pp_cookery_mutton_pottage = {
 			wheat = 2.62
-			livestock = 2.62
-			salt = 0.19
+			livestock = 2.40
+			pepper = 0.19
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
 		}
-		pp_cookery_millet_fish = {
-			millet = 2.81
+		pp_cookery_mediterranean_fish = {
+			fish = 5.00
+			olives = 1.50
+			wine = 0.19
+			produced = victuals
+			output = 1.65
+			category = building_maintenance
+		}
+		pp_cookery_saltfish_porridge = {
+			millet = 2.60
 			fish = 3.74
 			salt = 0.19
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
 		}
-		pp_cookery_maize_livestock = {
+		pp_cookery_pozole = {
 			maize = 2.06
-			livestock = 2.81
-			potato = 0.94
+			wild_game = 2.60
+			chili = 0.40
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -69,10 +76,10 @@ cookery = {
 			output = 1.65
 			category = building_maintenance
 		}
-		pp_cookery_mutton_pease = {
+		pp_cookery_mutton_and_pease = {
 			wool = 3.55
 			legumes = 1.68
-			salt = 0.19
+			pepper = 0.19
 			produced = victuals
 			output = 1.65
 			category = building_maintenance
@@ -95,73 +102,75 @@ cookery = {
 		}
 	}
 	# ==========================================
-	# 2. ENHANCEMENTS (pick ONE)
-	# - Extra output, steeper unprofitability (~ -50% money on the enhancement itself)
-	# - Designed to be usable with any base recipe
+	# 2. TABLE BEVERAGES (pick ONE)
+	# - Baseline: well water (no trade goods; EU5 has no water good)
+	# - Upgrades: 2-input regional drinks
 	# ==========================================
 	unique_production_methods = {
-		pp_cookery_no_enhancement = {
+		pp_cookery_well_water = {
 			category = building_maintenance
 		}
-		# Target: output = 0.6 victuals (revenue 1.8).
-		# For ~-50% money: enhancement input cost ~= 3.6.
-		pp_cookery_preserved_rations = {
-			salt = 0.55
-			pottery = 2.53
+		pp_cookery_mead = {
+			beer = 0.94
+			beeswax = 0.75
 			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
-		pp_cookery_sweet_preserves = {
-			sugar = 0.99
-			fruit = 1.54
+		pp_cookery_mulled_wine = {
+			wine = 0.94
+			cloves = 0.19
 			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
-		pp_cookery_spice_blend = {
-			pepper = 0.55
-			cloves = 0.55
+		pp_cookery_grog = {
+			liquor = 0.84
+			fruit = 0.56
 			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
-		pp_cookery_spirited_rations = {
-			liquor = 0.99
-			beer = 1.21
+		pp_cookery_chocolate_pot = {
+			cocoa = 0.56
+			sugar = 0.47
 			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
-		pp_cookery_mediterranean_preserves = {
-			wine = 1.65
-			olives = 1.32
+		pp_cookery_coffeehouse_service = {
+			coffee = 0.56
+			tobacco = 0.47
 			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
-		pp_cookery_honey_confections = {
-			beeswax = 1.93
-			fruit = 0.88
+		pp_cookery_tea_service = {
+			livestock = 0.75
+			tea = 0.47
 			produced = victuals
-			output = 1.10
-			category = building_maintenance
-		}
-		# tea/sugar/livestock: ~same reference cost as sweet_preserves (3rd input splits amounts)
-		pp_cookery_tea_milk_service = {
-			tea = 0.55
-			sugar = 0.55
-			livestock = 0.88
-			produced = victuals
-			output = 1.10
+			output = 0.60
 			category = building_maintenance
 		}
 	}
 	# ==========================================
-	# 3. PACKAGING (pick ONE)
+	# 3. PACKING (pick ONE)
+	# - One packaging good per tier (or none)
 	# ==========================================
 	unique_production_methods = {
-		pp_cookery_basic_packaging = {
+		pp_cookery_no_packaging = {
+			category = building_maintenance
+		}
+		pp_cookery_pottery_jars = {
+			pottery = 3.0
+			produced = victuals
+			output = 0.50
+			category = building_maintenance
+		}
+		pp_cookery_coopered_barrels = {
+			furniture = 1.0
+			produced = victuals
+			output = 0.50
 			category = building_maintenance
 		}
 		pp_cookery_tin_cans = {
