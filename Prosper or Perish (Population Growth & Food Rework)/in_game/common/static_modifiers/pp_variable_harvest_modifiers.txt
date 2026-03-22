@@ -31,7 +31,7 @@
 	local_livestock_output_modifier = -0.39
 	local_beeswax_output_modifier = -0.39
 	local_wool_output_modifier = -0.39
-	local_horses_output_modifier = -0.39
+	local_horses_output_modifier = -0.27
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.13
@@ -73,7 +73,7 @@ very_poor_harvest_modifier = {
 	local_livestock_output_modifier = -0.33
 	local_beeswax_output_modifier = -0.33
 	local_wool_output_modifier = -0.33
-	local_horses_output_modifier = -0.33
+	local_horses_output_modifier = -0.23
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.07
@@ -115,7 +115,7 @@ poor_harvest_modifier = {
 	local_livestock_output_modifier = -0.20
 	local_beeswax_output_modifier = -0.20
 	local_wool_output_modifier = -0.20
-	local_horses_output_modifier = -0.20
+	local_horses_output_modifier = -0.14
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.03
@@ -157,7 +157,7 @@ good_harvest_modifier = {
 	local_livestock_output_modifier = 0.20
 	local_beeswax_output_modifier = 0.20
 	local_wool_output_modifier = 0.20
-	local_horses_output_modifier = 0.20
+	local_horses_output_modifier = 0.14
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.03
@@ -199,7 +199,7 @@ very_good_harvest_modifier = {
 	local_livestock_output_modifier = 0.33
 	local_beeswax_output_modifier = 0.33
 	local_wool_output_modifier = 0.33
-	local_horses_output_modifier = 0.33
+	local_horses_output_modifier = 0.23
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.07
@@ -241,7 +241,7 @@ bountiful_harvest_modifier = {
 	local_livestock_output_modifier = 0.39
 	local_beeswax_output_modifier = 0.39
 	local_wool_output_modifier = 0.39
-	local_horses_output_modifier = 0.39
+	local_horses_output_modifier = 0.27
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.13

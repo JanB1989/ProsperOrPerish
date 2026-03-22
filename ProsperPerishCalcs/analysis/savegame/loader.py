@@ -603,6 +603,37 @@ def get_market_food_df(save) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
+# Stable engine scalars for the abstract food market (excludes flattened impacts_* etc.).
+MARKET_FOOD_IDENTITY_COLUMNS: tuple[str, ...] = (
+    "snapshot",
+    "market_id",
+    "market_center_slug",
+)
+MARKET_FOOD_CORE_COLUMNS: tuple[str, ...] = (
+    "food",
+    "food_max",
+    "price",
+    "food_consumption",
+    "food_supply",
+    "food_not_traded",
+    "missing",
+    "population",
+    "capacity",
+)
+
+
+def select_market_food_core(df: pd.DataFrame) -> pd.DataFrame:
+    """Return identity columns (if present) plus core food-market scalars that exist in ``df``.
+
+    Does not add missing columns. Order: identity first, then ``MARKET_FOOD_CORE_COLUMNS``.
+    """
+    if df.empty:
+        return df.copy()
+    id_cols = [c for c in MARKET_FOOD_IDENTITY_COLUMNS if c in df.columns]
+    core = [c for c in MARKET_FOOD_CORE_COLUMNS if c in df.columns]
+    return df[id_cols + core].copy()
+
+
 def _safe_get(obj, attr: str, default=None):
     """Safely get an attribute, returning default on AttributeError or None."""
     try:

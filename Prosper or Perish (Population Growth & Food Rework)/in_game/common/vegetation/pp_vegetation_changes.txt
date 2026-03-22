@@ -32,7 +32,7 @@ TRY_INJECT:desert = {
 		local_pepper_output_modifier = -0.35
 		local_cloves_output_modifier = -0.35
 		local_chili_output_modifier = -0.35
-		local_horses_output_modifier = -0.35
+		local_horses_output_modifier = -0.25
 	}
 }
 
@@ -67,7 +67,7 @@ TRY_INJECT:sparse = {
 		local_pepper_output_modifier = -0.1
 		local_cloves_output_modifier = -0.1
 		local_chili_output_modifier = -0.05
-		local_horses_output_modifier = 0.1
+		local_horses_output_modifier = 0.07
 	}
 }
 
@@ -101,7 +101,7 @@ TRY_INJECT:grasslands = {
 		local_pepper_output_modifier = 0.06
 		local_cloves_output_modifier = 0.06
 		local_chili_output_modifier = 0.08
-		local_horses_output_modifier = 0.18
+		local_horses_output_modifier = 0.125
 	}
 }
 
@@ -137,7 +137,7 @@ TRY_INJECT:farmland = {
 		local_pepper_output_modifier = 0.08
 		local_cloves_output_modifier = 0.08
 		local_chili_output_modifier = 0.1
-		local_horses_output_modifier = 0.15
+		local_horses_output_modifier = 0.1
 	}
 }
 
@@ -174,7 +174,7 @@ TRY_INJECT:woods = {
 		local_pepper_output_modifier = 0.04
 		local_cloves_output_modifier = 0.05
 		local_chili_output_modifier = 0.05
-		local_horses_output_modifier = 0.05
+		local_horses_output_modifier = 0.035
 	}
 }
 
@@ -209,7 +209,7 @@ TRY_INJECT:forest = {
 		local_pepper_output_modifier = 0.04
 		local_cloves_output_modifier = 0.05
 		local_chili_output_modifier = 0.04
-		local_horses_output_modifier = -0.1
+		local_horses_output_modifier = -0.07
 	}
 }
 
@@ -246,6 +246,6 @@ TRY_INJECT:jungle = {
 		local_pepper_output_modifier = 0.08
 		local_cloves_output_modifier = 0.08
 		local_chili_output_modifier = 0.08
-		local_horses_output_modifier = -0.3
+		local_horses_output_modifier = -0.21
 	}
 }

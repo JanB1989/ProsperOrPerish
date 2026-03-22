@@ -27,7 +27,7 @@ TRY_INJECT:polders = {
 		local_rice_output_modifier = 0.025
 		local_millet_output_modifier = 0.02
 		local_fiber_crops_output_modifier = 0.02
-		local_horses_output_modifier = 0.02
+		local_horses_output_modifier = 0.014
 	}
 	ai_forbid_shutdown = yes
 	forbidden_for_estates = no
@@ -46,7 +46,7 @@ TRY_INJECT:terraces = {
 		local_tea_output_modifier = 0.05
 		local_coffee_output_modifier = 0.05
 		local_chili_output_modifier = 0.06
-		local_horses_output_modifier = 0.04
+		local_horses_output_modifier = 0.03
 	}
 	ai_forbid_shutdown = yes
 	forbidden_for_estates = no
@@ -174,7 +174,7 @@ INJECT:irrigation_systems = {
 		local_pepper_output_modifier = 0.02
 		local_cloves_output_modifier = 0.02
 		local_chili_output_modifier = 0.02
-		local_horses_output_modifier = 0.01
+		local_horses_output_modifier = 0.007
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes
@@ -215,7 +215,7 @@ INJECT:bund = {
 		local_pepper_output_modifier = 0.012
 		local_cloves_output_modifier = 0.012
 		local_chili_output_modifier = 0.012
-		local_horses_output_modifier = 0.008
+		local_horses_output_modifier = 0.006
 	}
 	ai_forbid_shutdown = yes
 }
@@ -302,8 +302,8 @@ REPLACE:fishing_village = {
 		pp_fishing_village_maintenance = {
 			produced = fish
 			output = 0.45
-			salt = 0.075
-			tools = 0.04
+			salt = 0.085
+			tools = 0.08
 			debug_max_profit = 1.0
 			category = building_maintenance
 		}
@@ -328,7 +328,7 @@ REPLACE:fishing_village = {
 		local_soldiers_desired_pop = 0.0
 		harbor_suitability = 0.02
 		local_sailors = 0.001
-		local_fish_output_modifier = -0.0250
+		local_fish_output_modifier = -0.0300
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes
@@ -559,7 +559,7 @@ REPLACE:farming_village = {
 		local_pepper_output_modifier = -0.0175
 		local_cloves_output_modifier = -0.0175
 		local_chili_output_modifier = -0.0175
-		local_horses_output_modifier = -0.0175
+		local_horses_output_modifier = -0.012
 	}
 	forbidden_for_estates = no
 	ai_forbid_shutdown = yes

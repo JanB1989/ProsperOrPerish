@@ -6,10 +6,10 @@ TRY_INJECT:clergy = {
 	pop_food_consumption = 7.0 # 6.5 # 5.0
 }
 TRY_INJECT:burghers = {
-	pop_food_consumption = 7.5 # 6.5 # 4.0
+	pop_food_consumption = 7.25 # 6.5 # 4.0
 }
 TRY_INJECT:laborers = {
-	pop_food_consumption = 1.70 # 1.5 # 1.0
+	pop_food_consumption = 1.60 # 1.5 # 1.0
 	upper = yes
 	pop_percentage_impact = {
 		local_monthly_development = 0.007
@@ -48,7 +48,7 @@ TRY_INJECT:peasants = {
 		local_cotton_output_modifier = 0.10
 		local_sugar_output_modifier = 0.10
 		local_tobacco_output_modifier = 0.10
-		local_horses_output_modifier = 0.10
+		local_horses_output_modifier = 0.07
 		local_silk_output_modifier = 0.10
 		local_dyes_output_modifier = 0.10
 		local_incense_output_modifier = 0.10

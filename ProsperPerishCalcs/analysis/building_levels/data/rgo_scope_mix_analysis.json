@@ -1,0 +1,223 @@
+{
+  "rgo_scope": "super_region",
+  "goods_columns": [
+    "chili",
+    "fish",
+    "fruit",
+    "legumes",
+    "livestock",
+    "maize",
+    "millet",
+    "olives",
+    "pepper",
+    "potato",
+    "rice",
+    "saffron",
+    "salt",
+    "wheat",
+    "wine",
+    "wild_game",
+    "wool",
+    "sugar",
+    "beeswax",
+    "fur"
+  ],
+  "fractions": [
+    {
+      "scope": "africa",
+      "chili": 0.0,
+      "fish": 0.12165775,
+      "fruit": 0.0802139,
+      "legumes": 0.0381016,
+      "livestock": 0.25467914,
+      "maize": 0.0,
+      "millet": 0.11764706,
+      "olives": 0.01737968,
+      "pepper": 0.0,
+      "potato": 0.0,
+      "rice": 0.06283422,
+      "saffron": 0.01804813,
+      "salt": 0.03342246,
+      "wheat": 0.05013369,
+      "wine": 0.0013369,
+      "wild_game": 0.11965241,
+      "wool": 0.02941176,
+      "sugar": 0.01871658,
+      "beeswax": 0.03676471,
+      "fur": 0.0
+    },
+    {
+      "scope": "america",
+      "chili": 0.02196532,
+      "fish": 0.16840077,
+      "fruit": 0.05510597,
+      "legumes": 0.08169557,
+      "livestock": 0.02813102,
+      "maize": 0.10597303,
+      "millet": 0.0,
+      "olives": 0.0,
+      "pepper": 0.0,
+      "potato": 0.01233141,
+      "rice": 0.0,
+      "saffron": 0.0,
+      "salt": 0.03737958,
+      "wheat": 0.0,
+      "wine": 0.0,
+      "wild_game": 0.31098266,
+      "wool": 0.01117534,
+      "sugar": 0.0,
+      "beeswax": 0.03506744,
+      "fur": 0.13179191
+    },
+    {
+      "scope": "asia",
+      "chili": 0.0,
+      "fish": 0.11111111,
+      "fruit": 0.06694644,
+      "legumes": 0.06594724,
+      "livestock": 0.1872502,
+      "maize": 0.0,
+      "millet": 0.05235811,
+      "olives": 0.0029976,
+      "pepper": 0.01338929,
+      "potato": 0.0,
+      "rice": 0.0881295,
+      "saffron": 0.0029976,
+      "salt": 0.02398082,
+      "wheat": 0.08633094,
+      "wine": 0.00579536,
+      "wild_game": 0.12929656,
+      "wool": 0.04916067,
+      "sugar": 0.01678657,
+      "beeswax": 0.02997602,
+      "fur": 0.06754596
+    },
+    {
+      "scope": "europe",
+      "chili": 0.0,
+      "fish": 0.08298632,
+      "fruit": 0.03926234,
+      "legumes": 0.05829863,
+      "livestock": 0.1841166,
+      "maize": 0.0,
+      "millet": 0.07703748,
+      "olives": 0.01576443,
+      "pepper": 0.0,
+      "potato": 0.0,
+      "rice": 0.00089233,
+      "saffron": 0.00475907,
+      "salt": 0.04134444,
+      "wheat": 0.13265913,
+      "wine": 0.05294468,
+      "wild_game": 0.08209399,
+      "wool": 0.12076145,
+      "sugar": 0.00208209,
+      "beeswax": 0.03599048,
+      "fur": 0.06900654
+    },
+    {
+      "scope": "oceania",
+      "chili": 0.0,
+      "fish": 0.28680688,
+      "fruit": 0.17782027,
+      "legumes": 0.09369025,
+      "livestock": 0.09942639,
+      "maize": 0.0,
+      "millet": 0.12619503,
+      "olives": 0.0,
+      "pepper": 0.0,
+      "potato": 0.0,
+      "rice": 0.0,
+      "saffron": 0.0,
+      "salt": 0.01147228,
+      "wheat": 0.0,
+      "wine": 0.0,
+      "wild_game": 0.18355641,
+      "wool": 0.0,
+      "sugar": 0.00764818,
+      "beeswax": 0.01338432,
+      "fur": 0.0
+    }
+  ],
+  "pairwise_hellinger": {
+    "africa": {
+      "africa": 0.0,
+      "america": 0.60635529,
+      "asia": 0.25350944,
+      "europe": 0.35036736,
+      "oceania": 0.38874835
+    },
+    "america": {
+      "africa": 0.60635529,
+      "america": 0.0,
+      "asia": 0.52518726,
+      "europe": 0.57233683,
+      "oceania": 0.50948427
+    },
+    "asia": {
+      "africa": 0.25350944,
+      "america": 0.52518726,
+      "asia": 0.0,
+      "europe": 0.28083398,
+      "oceania": 0.46264304
+    },
+    "europe": {
+      "africa": 0.35036736,
+      "america": 0.57233683,
+      "asia": 0.28083398,
+      "europe": 0.0,
+      "oceania": 0.53281443
+    },
+    "oceania": {
+      "africa": 0.38874835,
+      "america": 0.50948427,
+      "asia": 0.46264304,
+      "europe": 0.53281443,
+      "oceania": 0.0
+    }
+  },
+  "pairwise_js_divergence": {
+    "africa": {
+      "africa": 0.0,
+      "america": 0.27697723,
+      "asia": 0.0513447,
+      "europe": 0.10324569,
+      "oceania": 0.12269087
+    },
+    "america": {
+      "africa": 0.27697723,
+      "america": 0.0,
+      "asia": 0.21021961,
+      "europe": 0.2560299,
+      "oceania": 0.19454399
+    },
+    "asia": {
+      "africa": 0.0513447,
+      "america": 0.21021961,
+      "asia": 0.0,
+      "europe": 0.06801245,
+      "oceania": 0.16465208
+    },
+    "europe": {
+      "africa": 0.10324569,
+      "america": 0.2560299,
+      "asia": 0.06801245,
+      "europe": 0.0,
+      "oceania": 0.22061703
+    },
+    "oceania": {
+      "africa": 0.12269087,
+      "america": 0.19454399,
+      "asia": 0.16465208,
+      "europe": 0.22061703,
+      "oceania": 0.0
+    }
+  },
+  "chi_square_homogeneity": {
+    "chi2": 5550.223977205665,
+    "dof": 76,
+    "p_value": 0.0,
+    "cramers_v": 0.3269549469137257,
+    "n_locations": 12980
+  }
+}

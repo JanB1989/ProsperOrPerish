@@ -3,9 +3,11 @@
 import pandas as pd
 
 from analysis.savegame.loader import (
+    MARKET_FOOD_CORE_COLUMNS,
     SaveAdapter,
     _row_from_market_entry_no_goods,
     get_market_food_df,
+    select_market_food_core,
 )
 
 
@@ -66,3 +68,49 @@ def test_get_market_food_df_save_adapter() -> None:
     assert row["food_consumption"] == -1.0
     assert row["market_center_slug"] == "test_center"
     assert "wheat" not in df.columns
+
+
+def test_select_market_food_core_subset_and_order() -> None:
+    df = pd.DataFrame(
+        {
+            "market_id": [10],
+            "market_center_slug": ["x"],
+            "food": [1.0],
+            "food_max": [2.0],
+            "price": [0.5],
+            "impacts_foo": [0.1],
+        }
+    )
+    out = select_market_food_core(df)
+    assert list(out.columns) == [
+        "market_id",
+        "market_center_slug",
+        "food",
+        "food_max",
+        "price",
+    ]
+    assert "impacts_foo" not in out.columns
+
+
+def test_select_market_food_core_with_snapshot() -> None:
+    df = pd.DataFrame(
+        {
+            "snapshot": ["a"],
+            "market_id": [1],
+            "food": [1.0],
+            "price": [0.1],
+        }
+    )
+    out = select_market_food_core(df)
+    assert list(out.columns) == ["snapshot", "market_id", "food", "price"]
+
+
+def test_select_market_food_core_empty() -> None:
+    empty = pd.DataFrame()
+    assert select_market_food_core(empty).empty
+
+
+def test_market_food_core_columns_tuple() -> None:
+    assert "food" in MARKET_FOOD_CORE_COLUMNS
+    assert "food_max" in MARKET_FOOD_CORE_COLUMNS
+    assert "snapshot" not in MARKET_FOOD_CORE_COLUMNS
