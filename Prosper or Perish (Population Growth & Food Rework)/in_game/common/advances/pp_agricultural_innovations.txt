@@ -1,6 +1,7 @@
 ﻿# Prosper or Perish - Agricultural & Fishing Innovations
 # New advances for innovations with no vanilla counterpart
 # Fish bonuses: rotherham_plough gives 50%, pp_steam_trawling_* variants add 100% (total 150% for late game)
+# Small staple-crop spillover (wheat/rice/maize/legumes/potato) scales with fish bonus tier.
 # Regional staggering: same bonus for all; early adopters get it at earlier ages via potential
 
 # ========== HERRING BUSS (North Sea, c.1415) ==========
@@ -10,7 +11,12 @@ pp_herring_buss_north_sea = {
 	age = age_2_renaissance
 	icon = safe_exploration_techniques_advance
 	requires = rgo_size_advance_renaissance
-	global_fish_output_modifier = 0.15
+	global_fish_output_modifier = 0.20
+	global_wheat_output_modifier = 0.01
+	global_rice_output_modifier = 0.01
+	global_maize_output_modifier = 0.01
+	global_legumes_output_modifier = 0.01
+	global_potato_output_modifier = 0.01
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -27,7 +33,12 @@ pp_herring_buss_coastal = {
 	age = age_3_discovery
 	icon = safe_exploration_techniques_advance
 	requires = new_world_advance
-	global_fish_output_modifier = 0.15
+	global_fish_output_modifier = 0.20
+	global_wheat_output_modifier = 0.01
+	global_rice_output_modifier = 0.01
+	global_maize_output_modifier = 0.01
+	global_legumes_output_modifier = 0.01
+	global_potato_output_modifier = 0.01
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -49,7 +60,12 @@ pp_herring_buss_general = {
 	age = age_4_reformation
 	icon = safe_exploration_techniques_advance
 	requires = global_trade_advance
-	global_fish_output_modifier = 0.15
+	global_fish_output_modifier = 0.20
+	global_wheat_output_modifier = 0.01
+	global_rice_output_modifier = 0.01
+	global_maize_output_modifier = 0.01
+	global_legumes_output_modifier = 0.01
+	global_potato_output_modifier = 0.01
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -67,6 +83,11 @@ pp_grand_banks_fishery_early = {
 	icon = maritime_advance_age_4
 	requires = new_world_advance
 	global_fish_output_modifier = 0.50
+	global_wheat_output_modifier = 0.02
+	global_rice_output_modifier = 0.02
+	global_maize_output_modifier = 0.02
+	global_legumes_output_modifier = 0.02
+	global_potato_output_modifier = 0.02
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -85,6 +106,11 @@ pp_grand_banks_fishery_maritime = {
 	icon = maritime_advance_age_4
 	requires = maritime_advance_age_4
 	global_fish_output_modifier = 0.50
+	global_wheat_output_modifier = 0.02
+	global_rice_output_modifier = 0.02
+	global_maize_output_modifier = 0.02
+	global_legumes_output_modifier = 0.02
+	global_potato_output_modifier = 0.02
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -108,6 +134,11 @@ pp_grand_banks_fishery_general = {
 	icon = maritime_advance_age_4
 	requires = food_advance_absolutism
 	global_fish_output_modifier = 0.50
+	global_wheat_output_modifier = 0.02
+	global_rice_output_modifier = 0.02
+	global_maize_output_modifier = 0.02
+	global_legumes_output_modifier = 0.02
+	global_potato_output_modifier = 0.02
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -128,6 +159,11 @@ pp_steam_trawling_north_sea = {
 	icon = safe_exploration_techniques_advance
 	requires = food_advance_absolutism
 	global_fish_output_modifier = 1.0
+	global_wheat_output_modifier = 0.03
+	global_rice_output_modifier = 0.03
+	global_maize_output_modifier = 0.03
+	global_legumes_output_modifier = 0.03
+	global_potato_output_modifier = 0.03
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -145,6 +181,11 @@ pp_steam_trawling_general = {
 	icon = safe_exploration_techniques_advance
 	requires = rotherham_plough
 	global_fish_output_modifier = 1.0
+	global_wheat_output_modifier = 0.03
+	global_rice_output_modifier = 0.03
+	global_maize_output_modifier = 0.03
+	global_legumes_output_modifier = 0.03
+	global_potato_output_modifier = 0.03
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital

@@ -18,7 +18,6 @@ INJECT:pop_demand = {
 				limit = { location_max_winter_level = mild }
 				multiply = { value = 1.15 desc = "POP_DEMAND_CLIMATE_MAX_WINTER_LEVEL" }
 			}
-			# none -> 1.0 (no change)
 		}
 	}
 }

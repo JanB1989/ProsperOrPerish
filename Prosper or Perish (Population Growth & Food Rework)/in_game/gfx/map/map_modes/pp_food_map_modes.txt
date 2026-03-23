@@ -21,10 +21,18 @@
 pp_fruit_orchard_capacity = {
 	map_color = {
 		if = {
+			limit = { is_ownable = no }
+			value = rgb { 128 128 128 }
+		}
+		else_if = {
 			limit = {
 				NOT = { has_variable = pp_fruit_orchard_fixed_env_bonus }
 			}
 			value = rgb { 0 0 0 }
+		}
+		else_if = {
+			limit = { global_var:pp_fruit_orchard_global_range = 0 }
+			value = rgb { 128 128 128 }
 		}
 		else = {
 			lerp = {
@@ -33,7 +41,7 @@ pp_fruit_orchard_capacity = {
 				factor = {
 					value = var:pp_fruit_orchard_fixed_env_bonus
 					subtract = global_var:pp_fruit_orchard_global_min
-					divide = global_var:pp_fruit_orchard_global_range
+					divide = { value = global_var:pp_fruit_orchard_global_range min = 1 }
 				}
 			}
 		}
@@ -45,13 +53,8 @@ pp_fruit_orchard_capacity = {
 	}
 
 	tooltip_key = {
-		if = {
-			limit = { is_land = yes }
-			value = "MAPMODE_PP_FRUIT_ORCHARD_CAPACITY_TT_LAND"
-		}
-		else = {
-			value = "MAPMODE_PP_FOOD_CAPACITY_TT_WATER"
-		}
+		if = { limit = { is_ownable = yes } value = MAPMODE_PP_FRUIT_ORCHARD_CAPACITY_TT_LAND }
+		else = { value = MAPMODE_PP_FOOD_CAPACITY_TT_WATER }
 	}
 	
 	small_map_names = location
@@ -96,10 +99,18 @@ pp_fruit_orchard_capacity = {
 pp_fishing_village_capacity = {
 	map_color = {
 		if = {
+			limit = { is_ownable = no }
+			value = rgb { 128 128 128 }
+		}
+		else_if = {
 			limit = {
 				NOT = { has_variable = pp_fishing_village_fixed_env_bonus }
 			}
 			value = rgb { 0 0 0 }
+		}
+		else_if = {
+			limit = { global_var:pp_fishing_village_global_range = 0 }
+			value = rgb { 128 128 128 }
 		}
 		else = {
 			lerp = {
@@ -108,7 +119,7 @@ pp_fishing_village_capacity = {
 				factor = {
 					value = var:pp_fishing_village_fixed_env_bonus
 					subtract = global_var:pp_fishing_village_global_min
-					divide = global_var:pp_fishing_village_global_range
+					divide = { value = global_var:pp_fishing_village_global_range min = 1 }
 				}
 			}
 		}
@@ -120,13 +131,8 @@ pp_fishing_village_capacity = {
 	}
 
 	tooltip_key = {
-		if = {
-			limit = { is_land = yes }
-			value = "MAPMODE_PP_FISHING_VILLAGE_CAPACITY_TT_LAND"
-		}
-		else = {
-			value = "MAPMODE_PP_FOOD_CAPACITY_TT_WATER"
-		}
+		if = { limit = { is_ownable = yes } value = MAPMODE_PP_FISHING_VILLAGE_CAPACITY_TT_LAND }
+		else = { value = MAPMODE_PP_FOOD_CAPACITY_TT_WATER }
 	}
 	
 	small_map_names = location
@@ -171,10 +177,18 @@ pp_fishing_village_capacity = {
 pp_sheep_farms_capacity = {
 	map_color = {
 		if = {
+			limit = { is_ownable = no }
+			value = rgb { 128 128 128 }
+		}
+		else_if = {
 			limit = {
 				NOT = { has_variable = pp_sheep_farms_fixed_env_bonus }
 			}
 			value = rgb { 0 0 0 }
+		}
+		else_if = {
+			limit = { global_var:pp_sheep_farms_global_range = 0 }
+			value = rgb { 128 128 128 }
 		}
 		else = {
 			lerp = {
@@ -183,7 +197,7 @@ pp_sheep_farms_capacity = {
 				factor = {
 					value = var:pp_sheep_farms_fixed_env_bonus
 					subtract = global_var:pp_sheep_farms_global_min
-					divide = global_var:pp_sheep_farms_global_range
+					divide = { value = global_var:pp_sheep_farms_global_range min = 1 }
 				}
 			}
 		}
@@ -195,13 +209,8 @@ pp_sheep_farms_capacity = {
 	}
 
 	tooltip_key = {
-		if = {
-			limit = { is_land = yes }
-			value = "MAPMODE_PP_SHEEP_FARMS_CAPACITY_TT_LAND"
-		}
-		else = {
-			value = "MAPMODE_PP_FOOD_CAPACITY_TT_WATER"
-		}
+		if = { limit = { is_ownable = yes } value = MAPMODE_PP_SHEEP_FARMS_CAPACITY_TT_LAND }
+		else = { value = MAPMODE_PP_FOOD_CAPACITY_TT_WATER }
 	}
 	
 	small_map_names = location
@@ -246,10 +255,18 @@ pp_sheep_farms_capacity = {
 pp_farming_village_capacity = {
 	map_color = {
 		if = {
+			limit = { is_ownable = no }
+			value = rgb { 128 128 128 }
+		}
+		else_if = {
 			limit = {
 				NOT = { has_variable = pp_farming_village_fixed_env_bonus }
 			}
 			value = rgb { 0 0 0 }
+		}
+		else_if = {
+			limit = { global_var:pp_farming_village_global_range = 0 }
+			value = rgb { 128 128 128 }
 		}
 		else = {
 			lerp = {
@@ -258,7 +275,7 @@ pp_farming_village_capacity = {
 				factor = {
 					value = var:pp_farming_village_fixed_env_bonus
 					subtract = global_var:pp_farming_village_global_min
-					divide = global_var:pp_farming_village_global_range
+					divide = { value = global_var:pp_farming_village_global_range min = 1 }
 				}
 			}
 		}
@@ -270,13 +287,8 @@ pp_farming_village_capacity = {
 	}
 
 	tooltip_key = {
-		if = {
-			limit = { is_land = yes }
-			value = "MAPMODE_PP_FARMING_VILLAGE_CAPACITY_TT_LAND"
-		}
-		else = {
-			value = "MAPMODE_PP_FOOD_CAPACITY_TT_WATER"
-		}
+		if = { limit = { is_ownable = yes } value = MAPMODE_PP_FARMING_VILLAGE_CAPACITY_TT_LAND }
+		else = { value = MAPMODE_PP_FOOD_CAPACITY_TT_WATER }
 	}
 	
 	small_map_names = location
@@ -321,10 +333,18 @@ pp_farming_village_capacity = {
 pp_forest_village_capacity = {
 	map_color = {
 		if = {
+			limit = { is_ownable = no }
+			value = rgb { 128 128 128 }
+		}
+		else_if = {
 			limit = {
 				NOT = { has_variable = pp_forest_village_fixed_env_bonus }
 			}
 			value = rgb { 0 0 0 }
+		}
+		else_if = {
+			limit = { global_var:pp_forest_village_global_range = 0 }
+			value = rgb { 128 128 128 }
 		}
 		else = {
 			lerp = {
@@ -333,7 +353,7 @@ pp_forest_village_capacity = {
 				factor = {
 					value = var:pp_forest_village_fixed_env_bonus
 					subtract = global_var:pp_forest_village_global_min
-					divide = global_var:pp_forest_village_global_range
+					divide = { value = global_var:pp_forest_village_global_range min = 1 }
 				}
 			}
 		}
@@ -345,13 +365,8 @@ pp_forest_village_capacity = {
 	}
 
 	tooltip_key = {
-		if = {
-			limit = { is_land = yes }
-			value = "MAPMODE_PP_FOREST_VILLAGE_CAPACITY_TT_LAND"
-		}
-		else = {
-			value = "MAPMODE_PP_FOOD_CAPACITY_TT_WATER"
-		}
+		if = { limit = { is_ownable = yes } value = MAPMODE_PP_FOREST_VILLAGE_CAPACITY_TT_LAND }
+		else = { value = MAPMODE_PP_FOOD_CAPACITY_TT_WATER }
 	}
 	
 	small_map_names = location

@@ -189,19 +189,153 @@ class ParadoxParser:
 
         return data
 
-    def get_all_data(self, mod_path):
+    def parse_building_caps(self, file_path):
+        """
+        Parses pp_building_caps.txt to extract base, dev_multiply, pop_multiply per script value.
+        Returns: { "script_name": {"base": float, "dev": float, "pop": float}, ... }
+        """
+        if not os.path.exists(file_path):
+            print(f"Warning: Building caps file not found: {file_path}")
+            return {}
+
+        with open(file_path, 'r', encoding='utf-8-sig') as f:
+            content = f.read()
+
+        results = {}
+        # Match script blocks: script_name = { ... }
+        script_pattern = re.compile(r'(\w+)\s*=\s*\{', re.IGNORECASE)
+        pos = 0
+
+        while True:
+            match = script_pattern.search(content, pos)
+            if not match:
+                break
+
+            script_name = match.group(1)
+            start_idx = match.end()
+            depth = 1
+            end_idx = start_idx
+            while depth > 0 and end_idx < len(content):
+                if content[end_idx] == '{':
+                    depth += 1
+                elif content[end_idx] == '}':
+                    depth -= 1
+                end_idx += 1
+
+            block_content = content[start_idx:end_idx - 1]
+            pos = end_idx
+
+            # Extract base from add { desc = "BUILDING_LEVEL_BASE" value = X }
+            base = 0.0
+            base_match = re.search(
+                r'desc\s*=\s*"BUILDING_LEVEL_BASE"[^}]*value\s*=\s*(-?\d+\.?\d*)',
+                block_content, re.DOTALL
+            )
+            if base_match:
+                base = float(base_match.group(1))
+
+            # Extract dev multiply from add { value = development multiply = Y }
+            dev = 0.0
+            dev_match = re.search(
+                r'value\s*=\s*development\s+multiply\s*=\s*(-?\d+\.?\d*)',
+                block_content
+            )
+            if dev_match:
+                dev = float(dev_match.group(1))
+
+            # Extract pop multiply from add { value = population multiply = Z }
+            pop = 0.0
+            pop_match = re.search(
+                r'value\s*=\s*population\s+multiply\s*=\s*(-?\d+\.?\d*)',
+                block_content
+            )
+            if pop_match:
+                pop = float(pop_match.group(1))
+
+            results[script_name] = {"base": base, "dev": dev, "pop": pop}
+
+        return results
+
+    def parse_building_to_script(self, file_path):
+        """
+        Parses pp_building_adjustments.txt to map building_id to max_levels script name.
+        Looks for REPLACE:building_id = { ... max_levels = script_name ... }.
+        Returns: { "building_id": "script_name", ... }
+        """
+        if not os.path.exists(file_path):
+            print(f"Warning: Building adjustments file not found: {file_path}")
+            return {}
+
+        with open(file_path, 'r', encoding='utf-8-sig') as f:
+            content = f.read()
+
+        results = {}
+        # Match REPLACE:entity = { or INJECT:entity = {
+        block_pattern = re.compile(
+            r'(?:REPLACE|INJECT|TRY_REPLACE|TRY_INJECT):(\w+)\s*=\s*\{',
+            re.IGNORECASE
+        )
+        pos = 0
+
+        while True:
+            match = block_pattern.search(content, pos)
+            if not match:
+                break
+
+            entity_name = match.group(1)
+            start_idx = match.end()
+            depth = 1
+            end_idx = start_idx
+            while depth > 0 and end_idx < len(content):
+                if content[end_idx] == '{':
+                    depth += 1
+                elif content[end_idx] == '}':
+                    depth -= 1
+                end_idx += 1
+
+            block_content = content[start_idx:end_idx - 1]
+            pos = end_idx
+
+            # Extract max_levels = script_name
+            max_levels_match = re.search(
+                r'max_levels\s*=\s*(\w+)',
+                block_content
+            )
+            if max_levels_match:
+                script_name = max_levels_match.group(1)
+                results[entity_name] = script_name
+
+        return results
+
+    def get_all_data(self, mod_path, game_path=None):
         """
         Reads all mod files and returns a combined dictionary.
+        Uses mod_path for all files; game_path as fallback for script_values if provided.
         """
+        def _resolve_path(relative_path):
+            """Try mod first, then game fallback."""
+            mod_file = os.path.join(mod_path, relative_path)
+            if os.path.exists(mod_file):
+                return mod_file
+            if game_path:
+                game_file = os.path.join(game_path, relative_path)
+                if os.path.exists(game_file):
+                    return game_file
+            return mod_file  # return anyway for error handling in parsers
+
         paths = {
-            "rank": os.path.join(mod_path, "in_game/common/location_ranks/pp_location_adjustments.txt"),
+            "rank": os.path.join(mod_path, "in_game/common/location_ranks/pp_location_rank_adjustments.txt"),
             "static": os.path.join(mod_path, "main_menu/common/static_modifiers/pp_location_modifier_adjustments.txt"),
-            "precalc": os.path.join(mod_path, "in_game/common/script_values/pp_building_capacity_values.txt")
+            "precalc": os.path.join(mod_path, "in_game/common/script_values/pp_building_capacity_values.txt"),
+            "caps": _resolve_path("in_game/common/script_values/pp_building_caps.txt"),
+            "adjustments": _resolve_path("in_game/common/building_types/pp_building_adjustments.txt"),
         }
         
         rank_data = self.parse_file(paths["rank"], "rank_modifier")
         static_data = self.parse_file(paths["static"], "location_modifier")
         fixed_data = self.parse_precalc_file(paths["precalc"])
+        caps_data = self.parse_building_caps(paths["caps"])
+        building_to_script = self.parse_building_to_script(paths["adjustments"])
         
         data = {
             "climate": fixed_data["climate"],
@@ -209,7 +343,9 @@ class ParadoxParser:
             "vegetation": fixed_data["vegetation"],
             "rank": rank_data,
             "static": {**static_data, **fixed_data["static"]},
-            "rgo": fixed_data["rgo"]
+            "rgo": fixed_data["rgo"],
+            "caps": caps_data,
+            "building_to_script": building_to_script,
         }
         
         return data

@@ -1,5 +1,4 @@
-﻿# Base cost 0 so AI always treats victuals_market as free to build (no gold)
-pp_victuals_market_price = {gold = 25}
+﻿pp_victuals_market_price = {gold = 50}
 
 # Test prices
 # pp_test_price_1 = {gold = 1}

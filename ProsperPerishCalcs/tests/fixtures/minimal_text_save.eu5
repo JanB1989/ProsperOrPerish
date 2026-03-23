@@ -1,0 +1,91 @@
+SAV02001e1576a50004dbc200000000
+metadata={
+	date="1337.1.1"
+	playthrough_name="Minimal Test"
+	compatibility={
+		locations={stockholm norrtalje}
+	}
+}
+countries={
+	database={
+		1={
+			country_name="SWE"
+			definition="SWE"
+			government={
+				type="monarchy"
+			}
+			economy={
+				monthly_gold=100
+				income=50
+			}
+		}
+	}
+}
+locations={
+	locations={
+		1={
+			owner=1
+			market=1
+			province=0
+			development=20.6
+			control=1.0
+			rank="town"
+			tax=11.4
+			population={
+				pops={50 25 10 5 3 2 1 1 1}
+			}
+		}
+		2={
+			owner=1
+			market=1
+			province=0
+			development=12.0
+			control=0.68
+			rank="rural_settlement"
+			tax=5.0
+			population={
+				pops={25 15 5 2 1 1 0 0 0}
+			}
+		}
+	}
+}
+market_manager={
+	database={
+		1={
+			center=1
+			goods={
+				iron={
+					price=3.5
+					supply=100
+					demand=50
+					supplied={
+						Building=10
+						Pops=5
+					}
+					demanded={
+						Building=2
+					}
+				}
+			}
+		}
+	}
+}
+provinces={
+	database={
+		0={
+			province_definition="uppland_province"
+		}
+	}
+}
+building_manager={
+	database={
+		1={
+			building=cookery
+			location=1
+			level=1
+			employment=10
+			pp_cookery_khichdi=yes
+			pp_cookery_beer=yes
+		}
+	}
+}

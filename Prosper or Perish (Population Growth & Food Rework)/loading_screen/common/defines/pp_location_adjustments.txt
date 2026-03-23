@@ -1,3 +1,0 @@
-﻿NLocation = {
-    SUBSISTENCE_AGRICULTURE = 1.0 # Vanilla is 0.8
-}

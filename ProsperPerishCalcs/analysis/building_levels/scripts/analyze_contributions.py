@@ -39,7 +39,7 @@ def main():
     # 2. Attribute Value Contributions
     print("Analyzing attribute value contributions...")
     all_value_contributions = []
-    data = analyzer.parser.get_all_data(mod_path)
+    data = analyzer.parser.get_all_data(mod_path, game_path)
     statics = data["static"]
 
     for building in building_types:

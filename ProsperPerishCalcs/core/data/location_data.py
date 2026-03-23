@@ -7,6 +7,7 @@ from .country_setup_data import CountrySetupData
 from .defines_data import DefinesData
 from .location_ranks_data import LocationRanksData
 from .pop_data import PopData
+from .population_capacity_data import PopulationCapacityData, calculate_population_capacity
 from .static_modifiers_data import StaticModifiersData
 from .societal_values_data import SocietalValuesData
 
@@ -18,6 +19,11 @@ _OWNERSHIP_KEYS = frozenset({
     "own_control_core", "own_control_integrated", "own_control_conquered", "own_control_colony",
     "own_core", "own_conquered", "own_integrated", "own_colony",
     "control_core", "control",
+})
+
+# Topographies that are sea/lake (is_land=no). Per game localization: is_ownable=no means impassable, sea, or lake.
+_TOPOGRAPHY_NON_OWNABLE = frozenset({
+    "ocean", "deep_ocean", "coastal_ocean", "inland_sea", "narrows", "lakes", "high_lakes", "ocean_wasteland",
 })
 
 
@@ -33,6 +39,7 @@ class LocationData(DataModule):
         self.dev_mods = {}
         self.hierarchy_list = []
         self.owner_dict = {}  # location -> country_tag at game start (None for unowned)
+        self.non_ownable_set = set()  # location IDs from default.map non_ownable block
         self.modded_df = pd.DataFrame()
 
     def _locations_from_value(self, val):
@@ -62,6 +69,27 @@ class LocationData(DataModule):
                 val = country_data.get(key)
                 for loc in self._locations_from_value(val):
                     self.owner_dict[loc] = tag
+
+    def _load_non_ownable(self):
+        """Load non_ownable location IDs from default.map. Mod overrides vanilla if present."""
+        default_map_paths = self.path_resolver.resolve_path("in_game/map_data/default.map")
+        for path in reversed(default_map_paths):  # mod last, so mod overrides vanilla
+            if not os.path.exists(path):
+                continue
+            try:
+                data = self.parser.parse(path)
+                raw = data.get("non_ownable")
+                if raw is None:
+                    continue
+                ids = []
+                if isinstance(raw, list):
+                    ids = [str(x) for x in raw if isinstance(x, str)]
+                elif isinstance(raw, dict):
+                    ids = list(raw.keys())
+                self.non_ownable_set.update(ids)
+                break  # use first (effective) file found
+            except Exception:
+                continue
 
     def load_all(self):
         """Loads all location-related data from mirrored directories."""
@@ -112,6 +140,9 @@ class LocationData(DataModule):
 
         # 4. Load ownership (country tag per location at game start)
         self._load_ownership()
+
+        # 4b. Load non_ownable from default.map (explicit list + topography handles sea/lake)
+        self._load_non_ownable()
 
         # 5. Load hierarchy (definitions.txt)
         # This one is tricky because it's a deeply nested structure without many keys
@@ -217,7 +248,24 @@ class LocationData(DataModule):
         # Add location_rank and town_setup from 07_cities_and_buildings.
         # Locations not listed there are rural_settlement (valid locations = in hierarchy/templates).
         merged['location_rank'] = merged['location'].map(self.rank_dict).fillna("rural_settlement")
+        merged['rank'] = merged['location_rank']  # Alias for capacity analyzer
         merged['town_setup'] = merged['location'].map(self.town_setup_dict)
+
+        # raw_material from location templates (already in merged from df_templates)
+        if 'raw_material' not in merged.columns:
+            merged['raw_material'] = 'no_rgo'
+        else:
+            merged['raw_material'] = merged['raw_material'].fillna('no_rgo')
+
+        # has_river, is_adjacent_to_lake: no static source in game files (runtime from map topology)
+        if 'has_river' not in merged.columns:
+            merged['has_river'] = 'no'
+        else:
+            merged['has_river'] = merged['has_river'].fillna('no')
+        if 'is_adjacent_to_lake' not in merged.columns:
+            merged['is_adjacent_to_lake'] = 'no'
+        else:
+            merged['is_adjacent_to_lake'] = merged['is_adjacent_to_lake'].fillna('no')
 
         # Add societal values from country setup (spiritualist_vs_humanist, aristocracy_vs_plutocracy)
         country_setup = CountrySetupData(self.path_resolver)
@@ -244,12 +292,28 @@ class LocationData(DataModule):
                         pass
             if row.get('is_coastal') == 'yes' and 'coastal' in self.dev_mods:
                 try:
-                    dev += float(self.dev_mods['coastal'])
+                    suitability = float(row.get('natural_harbor_suitability', 1.0))
+                    dev += float(self.dev_mods['coastal']) * suitability
                 except (ValueError, TypeError):
                     pass
             return max(0.0, min(100.0, dev))
 
         merged['development'] = merged.apply(calculate_dev, axis=1)
+
+        # Population capacity from topography, vegetation, climate, river, development
+        merged = self._add_population_capacity_column(merged)
+
+        # is_ownable: from default.map non_ownable block + topography (sea/lake)
+        merged["is_ownable"] = merged.apply(
+            lambda row: (
+                row["location"] not in self.non_ownable_set
+                and (row.get("topography") or "") not in _TOPOGRAPHY_NON_OWNABLE
+            ),
+            axis=1,
+        )
+        # Wastelands (*_wasteland) are never ownable
+        wasteland_mask = merged["topography"].fillna("").str.contains("_wasteland", regex=False)
+        merged.loc[wasteland_mask, "is_ownable"] = False
 
         # Desired pop computation (location_rank + base_location + aristocracy/spiritualist)
         merged = self._add_desired_pop_columns(merged)
@@ -258,6 +322,22 @@ class LocationData(DataModule):
 
         self.modded_df = merged  # Store as instance variable
         return merged
+
+    def _add_population_capacity_column(self, df):
+        """Add population_capacity column from topography, vegetation, climate, river, development."""
+        cap_data = PopulationCapacityData(self.path_resolver)
+        cap_data.load_all()
+
+        def calc_cap(row):
+            topo = row.get("topography") or ""
+            veg = row.get("vegetation") or ""
+            clim = row.get("climate") or ""
+            has_river = (row.get("has_river") or "").lower() in ("yes", "true", "1")
+            dev = float(row.get("development", 0.0))
+            return calculate_population_capacity(topo, veg, clim, has_river, dev, cap_data)
+
+        df["population_capacity"] = df.apply(calc_cap, axis=1)
+        return df
 
     def _add_desired_pop_columns(self, df):
         """Add per-source and total desired pop columns for each pop type."""

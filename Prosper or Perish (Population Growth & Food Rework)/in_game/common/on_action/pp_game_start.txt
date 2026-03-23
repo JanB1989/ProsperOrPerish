@@ -2,9 +2,478 @@
 # Adds cookeries to towns and cities based on population and development thresholds.
 on_game_start = {
 	on_actions = {
+		pp_mod_welcome_situation_game_start
+		pp_apply_adjacent_to_lake_modifier
+		pp_apply_rgo_static_modifiers
 		pp_precalculate_building_capacities
 		pp_remove_invalid_buildings
 		pp_game_start_effect
+	}
+}
+
+# Flags the welcome situation to spawn on the next monthly situation check (once per campaign).
+# Do not re-set pending while the situation is already active (e.g. loading a save mid year-one).
+pp_mod_welcome_situation_game_start = {
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = pp_mod_welcome_situation_completed }
+				situation:pp_mod_welcome_situation = {
+					situation_is_active = no
+				}
+			}
+			set_global_variable = {
+				name = pp_mod_welcome_situation_pending
+				value = yes
+			}
+		}
+	}
+}
+
+# Apply adjacent_to_lake modifier to locations that border lakes (engine does not auto-apply this like river_flowing_through/coastal)
+pp_apply_adjacent_to_lake_modifier = {
+	effect = {
+		every_location_in_the_world = {
+			limit = { is_adjacent_to_lake = yes }
+			add_location_modifier = {
+				modifier = adjacent_to_lake
+				months = -1
+				mode = replace
+			}
+		}
+		every_location_in_the_world = {
+			limit = {
+				is_adjacent_to_lake = no
+				has_location_modifier = adjacent_to_lake
+			}
+			remove_location_modifier = adjacent_to_lake
+		}
+	}
+}
+
+# +10% local output for each location's RGO; food RGOs also apply local_peasants_food_consumption from vanilla food values (see pp_rgo_static_bonuses.txt).
+# If a location's raw_material changes mid-campaign (e.g. Columbian Exchange), this modifier is not updated unless you mirror this logic in on_raw_material_changed.
+pp_apply_rgo_static_modifiers = {
+	effect = {
+		every_location_in_the_world = {
+			limit = { exists = raw_material }
+			if = {
+				limit = { raw_material = goods:alum }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_alum
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:amber }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_amber
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:beeswax }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_beeswax
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:chili }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_chili
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:clay }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_clay
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:cloves }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_cloves
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:coal }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_coal
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:cocoa }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_cocoa
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:coffee }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_coffee
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:copper }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_copper
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:cotton }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_cotton
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:dyes }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_dyes
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:elephants }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_elephants
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:fiber_crops }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_fiber_crops
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:fish }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_fish
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:fruit }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_fruit
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:fur }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_fur
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:gems }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_gems
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:goods_gold }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_goods_gold
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:horses }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_horses
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:incense }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_incense
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:iron }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_iron
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:ivory }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_ivory
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:lead }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_lead
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:legumes }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_legumes
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:livestock }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_livestock
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:lumber }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_lumber
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:maize }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_maize
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:marble }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_marble
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:medicaments }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_medicaments
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:mercury }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_mercury
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:millet }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_millet
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:olives }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_olives
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:pearls }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_pearls
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:pepper }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_pepper
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:potato }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_potato
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:rice }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_rice
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:saffron }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_saffron
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:salt }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_salt
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:saltpeter }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_saltpeter
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:sand }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_sand
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:silk }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_silk
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:silver }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_silver
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:stone }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_stone
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:sugar }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_sugar
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:tea }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_tea
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:tin }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_tin
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:tobacco }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_tobacco
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:wheat }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_wheat
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:wild_game }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_wild_game
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:wine }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_wine
+					months = -1
+					mode = replace
+				}
+			}
+			else_if = {
+				limit = { raw_material = goods:wool }
+				add_location_modifier = {
+					modifier = pp_rgo_bonus_wool
+					months = -1
+					mode = replace
+				}
+			}
+		}
 	}
 }
 pp_precalculate_building_capacities = {
@@ -109,6 +578,10 @@ pp_precalculate_building_capacities = {
 			name = pp_fruit_orchard_global_range
 			add = { value = global_var:pp_fruit_orchard_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_fruit_orchard_global_range > 0 } }
+			set_global_variable = { name = pp_fruit_orchard_global_range value = 1 }
+		}
 		
 		set_global_variable = {
 			name = pp_fishing_village_global_range
@@ -117,6 +590,10 @@ pp_precalculate_building_capacities = {
 		change_global_variable = {
 			name = pp_fishing_village_global_range
 			add = { value = global_var:pp_fishing_village_global_min multiply = -1 }
+		}
+		if = {
+			limit = { NOT = { global_var:pp_fishing_village_global_range > 0 } }
+			set_global_variable = { name = pp_fishing_village_global_range value = 1 }
 		}
 
 		set_global_variable = {
@@ -127,6 +604,10 @@ pp_precalculate_building_capacities = {
 			name = pp_sheep_farms_global_range
 			add = { value = global_var:pp_sheep_farms_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_sheep_farms_global_range > 0 } }
+			set_global_variable = { name = pp_sheep_farms_global_range value = 1 }
+		}
 
 		set_global_variable = {
 			name = pp_farming_village_global_range
@@ -135,6 +616,10 @@ pp_precalculate_building_capacities = {
 		change_global_variable = {
 			name = pp_farming_village_global_range
 			add = { value = global_var:pp_farming_village_global_min multiply = -1 }
+		}
+		if = {
+			limit = { NOT = { global_var:pp_farming_village_global_range > 0 } }
+			set_global_variable = { name = pp_farming_village_global_range value = 1 }
 		}
 
 		set_global_variable = {
@@ -145,6 +630,10 @@ pp_precalculate_building_capacities = {
 			name = pp_forest_village_global_range
 			add = { value = global_var:pp_forest_village_global_min multiply = -1 }
 		}
+		if = {
+			limit = { NOT = { global_var:pp_forest_village_global_range > 0 } }
+			set_global_variable = { name = pp_forest_village_global_range value = 1 }
+		}
 	}
 }
 
@@ -153,6 +642,8 @@ pp_precalculate_building_capacities = {
 pp_remove_invalid_buildings = {
 	effect = {
 		every_location_in_the_world = {
+			# Avoid changing buildings on unowned locations (engine can log null-owner Market Village).
+			limit = { has_owner = yes }
 			# Granary: only allowed in province capitals
 			if = {
 				limit = {
@@ -213,6 +704,74 @@ pp_remove_invalid_buildings = {
 							value = "location_building_level(building_type:market_village)"
 							multiply = -1
 						}
+					}
+				}
+			}
+			# Fishing village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:fishing_village
+						value > 0
+					}
+					NOT = { var:pp_fishing_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:fishing_village
+					value = {
+						value = "location_building_level(building_type:fishing_village)"
+						multiply = -1
+					}
+				}
+			}
+			# Farming village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:farming_village
+						value > 0
+					}
+					NOT = { var:pp_farming_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:farming_village
+					value = {
+						value = "location_building_level(building_type:farming_village)"
+						multiply = -1
+					}
+				}
+			}
+			# Sheep farms: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:sheep_farms
+						value > 0
+					}
+					NOT = { var:pp_sheep_farms_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:sheep_farms
+					value = {
+						value = "location_building_level(building_type:sheep_farms)"
+						multiply = -1
+					}
+				}
+			}
+			# Forest village: only allowed where capacity > 0
+			if = {
+				limit = {
+					location_building_level = {
+						building_type = building_type:forest_village
+						value > 0
+					}
+					NOT = { var:pp_forest_village_fixed_env_bonus > 0 }
+				}
+				change_building_level_in_location = {
+					building = building_type:forest_village
+					value = {
+						value = "location_building_level(building_type:forest_village)"
+						multiply = -1
 					}
 				}
 			}
@@ -311,11 +870,11 @@ pp_game_start_effect = {
 						OR = {
 							AND = {
 								location_rank = location_rank:town
-								population > 20
+								population > 300
 							}
 							AND = {
 								location_rank = location_rank:city
-								population > 20
+								population > 200
 							}
 							AND = {
 								location_rank = location_rank:rural_settlement
@@ -335,6 +894,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_farming_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:wheat
 							raw_material = goods:maize
@@ -359,11 +919,9 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_fishing_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:fish
-							raw_material = goods:salt
-							raw_material = goods:amber
-							raw_material = goods:pearls
 						}
 					}
 					construct_building = {
@@ -377,6 +935,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_sheep_farms_fixed_env_bonus > 0
 						raw_material = goods:wool
 					}
 					construct_building = {
@@ -390,6 +949,7 @@ pp_game_start_effect = {
 				if = {
 					limit = {
 						population > 74
+						var:pp_forest_village_fixed_env_bonus > 0
 						OR = {
 							raw_material = goods:wild_game
 							raw_material = goods:fur
@@ -407,6 +967,7 @@ pp_game_start_effect = {
 					limit = {
 						population > 74
 						raw_material = goods:fruit
+						var:pp_fruit_orchard_fixed_env_bonus > 0
 					}
 					construct_building = {
 						building_type = building_type:fruit_orchard
