@@ -2,11 +2,31 @@
 # Adds cookeries to towns and cities based on population and development thresholds.
 on_game_start = {
 	on_actions = {
+		pp_mod_welcome_situation_game_start
 		pp_apply_adjacent_to_lake_modifier
 		pp_apply_rgo_static_modifiers
 		pp_precalculate_building_capacities
 		pp_remove_invalid_buildings
 		pp_game_start_effect
+	}
+}
+
+# Flags the welcome situation to spawn on the next monthly situation check (once per campaign).
+# Do not re-set pending while the situation is already active (e.g. loading a save mid year-one).
+pp_mod_welcome_situation_game_start = {
+	effect = {
+		if = {
+			limit = {
+				NOT = { has_global_variable = pp_mod_welcome_situation_completed }
+				situation:pp_mod_welcome_situation = {
+					situation_is_active = no
+				}
+			}
+			set_global_variable = {
+				name = pp_mod_welcome_situation_pending
+				value = yes
+			}
+		}
 	}
 }
 
