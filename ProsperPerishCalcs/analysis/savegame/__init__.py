@@ -2,8 +2,10 @@
 
 from analysis.savegame.datalocations import (
     build_datalocations_df,
+    collect_building_slugs_union_from_saves,
     create_datalocations_pkl,
     create_datalocations_pkl_from_save,
+    merge_building_counts_into_locations,
     merge_saves_with_location_data,
 )
 from analysis.savegame.loader import (
@@ -28,6 +30,7 @@ from analysis.savegame.processor import get_pkl_dir, resolve_pkl_dir, run_watche
 
 __all__ = [
     "build_datalocations_df",
+    "collect_building_slugs_union_from_saves",
     "create_datalocations_pkl_from_save",
     "build_save_comparison_df",
     "get_global_benchmark_df",
@@ -44,6 +47,7 @@ __all__ = [
     "select_market_food_core",
     "get_pkl_dir",
     "locations_df_from_pkl",
+    "merge_building_counts_into_locations",
     "merge_saves_with_location_data",
     "get_religion_data",
     "inspect_savegame",

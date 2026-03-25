@@ -8,8 +8,13 @@ import pandas as pd
 import pytest
 
 from analysis.building_levels.building_analysis.utils import load_config
-from analysis.savegame.datalocations import create_datalocations_pkl_from_save
+from analysis.savegame.datalocations import (
+    collect_building_slugs_union_from_saves,
+    create_datalocations_pkl_from_save,
+    merge_building_counts_into_locations,
+)
 from analysis.savegame.loader import (
+    build_save_comparison_df,
     buildings_df_from_pkl,
     get_buildings_df,
     get_cookery_buildings_df,
@@ -330,3 +335,102 @@ def test_create_datalocations_pkl_format_2_payload(tmp_path):
     assert buildings_df_from_pkl(rt).equals(rt["buildings"])
     loc = locations_df_from_pkl(rt)
     assert len(loc) == 2
+
+
+def test_merge_building_counts_into_locations_levels():
+    """Sums level per location and building type; zeros where missing."""
+    loc = pd.DataFrame(
+        {
+            "location_id": [1, 2],
+            "slug": ["loc_a", "loc_b"],
+            "macro_region_pkl": ["west", "east"],
+        }
+    )
+    bld = pd.DataFrame(
+        {
+            "location_id": [1, 1, 2],
+            "slug": ["cookery", "cookery", "farm"],
+            "level": [2, 1, 3],
+        }
+    )
+    out = merge_building_counts_into_locations(
+        loc, bld, ("cookery", "farm"), count_mode="levels"
+    )
+    assert out["bldg_cookery"].tolist() == [3.0, 0.0]
+    assert out["bldg_farm"].tolist() == [0.0, 3.0]
+
+
+def test_merge_building_counts_into_locations_instances():
+    """Instance mode counts rows per location and type."""
+    loc = pd.DataFrame({"location_id": [1], "slug": ["x"]})
+    bld = pd.DataFrame(
+        {
+            "location_id": [1, 1],
+            "slug": ["cookery", "cookery"],
+            "level": [1, 1],
+        }
+    )
+    out = merge_building_counts_into_locations(
+        loc, bld, ("cookery",), count_mode="instances"
+    )
+    assert out["bldg_cookery"].tolist() == [2.0]
+
+
+def test_merge_building_counts_empty_buildings_zero_columns():
+    """Requested slugs get zero columns when buildings frame is empty."""
+    loc = pd.DataFrame({"location_id": [1], "slug": ["x"]})
+    out = merge_building_counts_into_locations(
+        loc, pd.DataFrame(), ("cookery",), count_mode="levels"
+    )
+    assert out["bldg_cookery"].tolist() == [0.0]
+
+
+def test_collect_building_slugs_union_from_saves():
+    """Union collects slugs from every snapshot; sorted and unique."""
+    saves = {
+        "a": {
+            "locations": pd.DataFrame(),
+            "buildings": pd.DataFrame(
+                {"slug": ["farm", "cookery"], "location_id": [1, 1]}
+            ),
+        },
+        "b": {
+            "buildings": pd.DataFrame(
+                {"slug": ["cookery", "mill"], "location_id": [2, 2]}
+            ),
+        },
+    }
+    u = collect_building_slugs_union_from_saves(saves)
+    assert u == ("cookery", "farm", "mill")
+
+
+def test_build_save_comparison_df_bldg_metric():
+    """Grouped sum works for bldg_* columns like population."""
+    saves = {
+        "snap_a": pd.DataFrame(
+            {
+                "location_id": [1, 2],
+                "macro_region_pkl": ["west", "east"],
+                "bldg_cookery": [10.0, 5.0],
+            }
+        ),
+        "snap_b": pd.DataFrame(
+            {
+                "location_id": [1, 2],
+                "macro_region_pkl": ["west", "east"],
+                "bldg_cookery": [12.0, 0.0],
+            }
+        ),
+    }
+    df = build_save_comparison_df(
+        saves,
+        "macro_region_pkl",
+        metric_cols=("bldg_cookery",),
+        aggregation_method="sum",
+    )
+    west = df[df["macro_region_pkl"] == "west"].iloc[0]
+    east = df[df["macro_region_pkl"] == "east"].iloc[0]
+    assert west["bldg_cookery_snap_a"] == 10.0
+    assert west["bldg_cookery_snap_b"] == 12.0
+    assert east["bldg_cookery_snap_a"] == 5.0
+    assert east["bldg_cookery_snap_b"] == 0.0

@@ -17,7 +17,7 @@ TRY_INJECT:flatland = {
 		local_wheat_output_modifier = 0.25
 		local_wild_game_output_modifier = -0.1
 		local_wool_output_modifier = 0.15
-		local_fiber_crops_output_modifier = 0.18
+		local_fiber_crops_output_modifier = 0.045
 		local_cotton_output_modifier = 0.1
 		local_sugar_output_modifier = 0.08
 		local_tobacco_output_modifier = 0.08
@@ -25,13 +25,12 @@ TRY_INJECT:flatland = {
 		local_tea_output_modifier = 0.05
 		local_coffee_output_modifier = 0.06
 		local_silk_output_modifier = 0.05
-		local_dyes_output_modifier = 0.06
 		local_incense_output_modifier = 0.05
 		local_saffron_output_modifier = 0.04
 		local_pepper_output_modifier = 0.06
 		local_cloves_output_modifier = 0.06
 		local_chili_output_modifier = 0.08
-		local_horses_output_modifier = 0.125
+		local_horses_output_modifier = 0.03125
 	}
 }
 
@@ -51,7 +50,7 @@ TRY_INJECT:mountains = {
 		local_wheat_output_modifier = -0.3
 		local_wild_game_output_modifier = 0.2
 		local_wool_output_modifier = 0.05
-		local_fiber_crops_output_modifier = -0.15
+		local_fiber_crops_output_modifier = -0.0375
 		local_cotton_output_modifier = -0.25
 		local_sugar_output_modifier = -0.25
 		local_tobacco_output_modifier = -0.25
@@ -59,13 +58,12 @@ TRY_INJECT:mountains = {
 		local_tea_output_modifier = -0.2
 		local_coffee_output_modifier = -0.2
 		local_silk_output_modifier = -0.15
-		local_dyes_output_modifier = -0.1
 		local_incense_output_modifier = -0.1
 		local_saffron_output_modifier = -0.15
 		local_pepper_output_modifier = -0.15
 		local_cloves_output_modifier = -0.15
 		local_chili_output_modifier = -0.2
-		local_horses_output_modifier = -0.035
+		local_horses_output_modifier = -0.00875
 		local_population_capacity_modifier = 0.5
 		local_population_capacity = -12
 	}
@@ -88,7 +86,7 @@ TRY_INJECT:hills = {
 		local_wheat_output_modifier = 0.15
 		local_wild_game_output_modifier = 0.15
 		local_wool_output_modifier = 0.2
-		local_fiber_crops_output_modifier = 0.12
+		local_fiber_crops_output_modifier = 0.03
 		local_cotton_output_modifier = 0.08
 		local_sugar_output_modifier = 0.08
 		local_tobacco_output_modifier = 0.1
@@ -96,13 +94,12 @@ TRY_INJECT:hills = {
 		local_tea_output_modifier = 0.08
 		local_coffee_output_modifier = 0.08
 		local_silk_output_modifier = 0.08
-		local_dyes_output_modifier = 0.08
 		local_incense_output_modifier = 0.06
 		local_saffron_output_modifier = 0.08
 		local_pepper_output_modifier = 0.08
 		local_cloves_output_modifier = 0.08
 		local_chili_output_modifier = 0.1
-		local_horses_output_modifier = 0.1
+		local_horses_output_modifier = 0.025
 	}
 }
 
@@ -123,7 +120,7 @@ TRY_INJECT:plateau = {
 		local_wheat_output_modifier = 0.1
 		local_wild_game_output_modifier = 0.1
 		local_wool_output_modifier = 0.15
-		local_fiber_crops_output_modifier = 0.1
+		local_fiber_crops_output_modifier = 0.025
 		local_cotton_output_modifier = 0.05
 		local_sugar_output_modifier = 0.04
 		local_tobacco_output_modifier = 0.05
@@ -131,13 +128,12 @@ TRY_INJECT:plateau = {
 		local_tea_output_modifier = 0.06
 		local_coffee_output_modifier = 0.05
 		local_silk_output_modifier = 0.05
-		local_dyes_output_modifier = 0.06
 		local_incense_output_modifier = 0.05
 		local_saffron_output_modifier = 0.05
 		local_pepper_output_modifier = 0.05
 		local_cloves_output_modifier = 0.05
 		local_chili_output_modifier = 0.06
-		local_horses_output_modifier = 0.07
+		local_horses_output_modifier = 0.0175
 	}
 }
 
@@ -159,7 +155,7 @@ TRY_INJECT:wetlands = {
 		local_wheat_output_modifier = -0.2
 		local_wild_game_output_modifier = 0.05
 		local_wool_output_modifier = -0.35
-		local_fiber_crops_output_modifier = -0.35
+		local_fiber_crops_output_modifier = -0.0875
 		local_cotton_output_modifier = -0.35
 		local_sugar_output_modifier = -0.35
 		local_tobacco_output_modifier = -0.35
@@ -167,13 +163,12 @@ TRY_INJECT:wetlands = {
 		local_tea_output_modifier = -0.35
 		local_coffee_output_modifier = -0.35
 		local_silk_output_modifier = -0.35
-		local_dyes_output_modifier = -0.35
 		local_incense_output_modifier = -0.35
 		local_saffron_output_modifier = -0.35
 		local_pepper_output_modifier = -0.35
 		local_cloves_output_modifier = -0.35
 		local_chili_output_modifier = -0.35
-		local_horses_output_modifier = -0.25
+		local_horses_output_modifier = -0.0625
 	}
 }
 
@@ -194,7 +189,7 @@ TRY_INJECT:salt_pans = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = -0.35
 		local_wool_output_modifier = -0.35
-		local_fiber_crops_output_modifier = -0.35
+		local_fiber_crops_output_modifier = -0.0875
 		local_cotton_output_modifier = -0.35
 		local_sugar_output_modifier = -0.35
 		local_tobacco_output_modifier = -0.35
@@ -202,13 +197,12 @@ TRY_INJECT:salt_pans = {
 		local_tea_output_modifier = -0.35
 		local_coffee_output_modifier = -0.35
 		local_silk_output_modifier = -0.35
-		local_dyes_output_modifier = -0.35
 		local_incense_output_modifier = -0.35
 		local_saffron_output_modifier = -0.35
 		local_pepper_output_modifier = -0.35
 		local_cloves_output_modifier = -0.35
 		local_chili_output_modifier = -0.35
-		local_horses_output_modifier = -0.25
+		local_horses_output_modifier = -0.0625
 	}
 }
 
@@ -229,7 +223,7 @@ TRY_INJECT:atoll = {
 		local_wheat_output_modifier = -0.35
 		local_wild_game_output_modifier = -0.35
 		local_wool_output_modifier = -0.35
-		local_fiber_crops_output_modifier = -0.2
+		local_fiber_crops_output_modifier = -0.05
 		local_cotton_output_modifier = 0.05
 		local_sugar_output_modifier = 0.08
 		local_tobacco_output_modifier = -0.2
@@ -237,12 +231,11 @@ TRY_INJECT:atoll = {
 		local_tea_output_modifier = -0.15
 		local_coffee_output_modifier = -0.15
 		local_silk_output_modifier = -0.2
-		local_dyes_output_modifier = -0.2
 		local_incense_output_modifier = -0.2
 		local_saffron_output_modifier = -0.25
 		local_pepper_output_modifier = 0.05
 		local_cloves_output_modifier = 0.05
 		local_chili_output_modifier = 0.05
-		local_horses_output_modifier = -0.25
+		local_horses_output_modifier = -0.0625
 	}
 }

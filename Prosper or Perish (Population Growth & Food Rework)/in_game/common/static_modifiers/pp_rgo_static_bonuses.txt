@@ -59,7 +59,6 @@ pp_rgo_bonus_cotton = {
 
 pp_rgo_bonus_dyes = {
 	game_data = { category = location }
-	local_dyes_output_modifier = 0.10
 }
 
 pp_rgo_bonus_elephants = {
@@ -69,7 +68,7 @@ pp_rgo_bonus_elephants = {
 
 pp_rgo_bonus_fiber_crops = {
 	game_data = { category = location }
-	local_fiber_crops_output_modifier = 0.10
+	local_fiber_crops_output_modifier = 0.025
 }
 
 pp_rgo_bonus_fish = {
@@ -102,7 +101,7 @@ pp_rgo_bonus_goods_gold = {
 
 pp_rgo_bonus_horses = {
 	game_data = { category = location }
-	local_horses_output_modifier = 0.07
+	local_horses_output_modifier = 0.0175
 }
 
 pp_rgo_bonus_incense = {

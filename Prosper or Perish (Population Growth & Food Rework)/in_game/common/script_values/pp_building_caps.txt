@@ -31,7 +31,7 @@ fruit_orchard_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.15
+		multiply = 0.30
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -74,7 +74,7 @@ sheep_farms_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.15
+		multiply = 0.30
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -108,7 +108,7 @@ farming_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.15
+		multiply = 0.30
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -142,7 +142,7 @@ forest_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.15
+		multiply = 0.30
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -177,7 +177,7 @@ fishing_village_max_level = {
 	add = {
 		desc = "BUILDING_LEVEL_DEVELOPMENT"
 		value = development
-		multiply = 0.03
+		multiply = 0.10
 	}
 	add = {
 		desc = "BUILDING_LEVEL_POPULATION"
@@ -213,6 +213,11 @@ victuals_market_max_level = {
 		desc = "BUILDING_LEVEL_POPULATION"
 		value = population
 		multiply = 0.0150
+	}
+	add = {
+		desc = "BUILDING_LEVEL_RGO_MAX"
+		value = max_rgo_workers
+		multiply = 0.5
 	}
 	if = {
 		limit = {

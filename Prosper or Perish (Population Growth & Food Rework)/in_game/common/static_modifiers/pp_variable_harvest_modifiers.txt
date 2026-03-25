@@ -6,7 +6,7 @@
 	local_rice_output_modifier = -1.04
 	local_millet_output_modifier = -1.04
 	local_maize_output_modifier = -1.04
-	local_fiber_crops_output_modifier = -1.04
+	local_fiber_crops_output_modifier = -0.26
 	
 	# Medium Sensitivity (Legumes, fruit, olives, plantation & luxury farmed goods)
 	local_legumes_output_modifier = -0.65
@@ -19,7 +19,6 @@
 	local_tea_output_modifier = -0.65
 	local_coffee_output_modifier = -0.65
 	local_silk_output_modifier = -0.65
-	local_dyes_output_modifier = -0.65
 	local_incense_output_modifier = -0.65
 	local_saffron_output_modifier = -0.65
 	local_pepper_output_modifier = -0.65
@@ -31,7 +30,7 @@
 	local_livestock_output_modifier = -0.39
 	local_beeswax_output_modifier = -0.39
 	local_wool_output_modifier = -0.39
-	local_horses_output_modifier = -0.27
+	local_horses_output_modifier = -0.0675
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.13
@@ -48,7 +47,7 @@ very_poor_harvest_modifier = {
 	local_rice_output_modifier = -0.78
 	local_millet_output_modifier = -0.78
 	local_maize_output_modifier = -0.78
-	local_fiber_crops_output_modifier = -0.78
+	local_fiber_crops_output_modifier = -0.195
 	
 	# Medium Sensitivity
 	local_legumes_output_modifier = -0.52
@@ -61,7 +60,6 @@ very_poor_harvest_modifier = {
 	local_tea_output_modifier = -0.52
 	local_coffee_output_modifier = -0.52
 	local_silk_output_modifier = -0.52
-	local_dyes_output_modifier = -0.52
 	local_incense_output_modifier = -0.52
 	local_saffron_output_modifier = -0.52
 	local_pepper_output_modifier = -0.52
@@ -73,7 +71,7 @@ very_poor_harvest_modifier = {
 	local_livestock_output_modifier = -0.33
 	local_beeswax_output_modifier = -0.33
 	local_wool_output_modifier = -0.33
-	local_horses_output_modifier = -0.23
+	local_horses_output_modifier = -0.0575
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.07
@@ -90,7 +88,7 @@ poor_harvest_modifier = {
 	local_rice_output_modifier = -0.52
 	local_millet_output_modifier = -0.52
 	local_maize_output_modifier = -0.52
-	local_fiber_crops_output_modifier = -0.52
+	local_fiber_crops_output_modifier = -0.13
 	
 	# Medium Sensitivity
 	local_legumes_output_modifier = -0.33
@@ -103,7 +101,6 @@ poor_harvest_modifier = {
 	local_tea_output_modifier = -0.33
 	local_coffee_output_modifier = -0.33
 	local_silk_output_modifier = -0.33
-	local_dyes_output_modifier = -0.33
 	local_incense_output_modifier = -0.33
 	local_saffron_output_modifier = -0.33
 	local_pepper_output_modifier = -0.33
@@ -115,7 +112,7 @@ poor_harvest_modifier = {
 	local_livestock_output_modifier = -0.20
 	local_beeswax_output_modifier = -0.20
 	local_wool_output_modifier = -0.20
-	local_horses_output_modifier = -0.14
+	local_horses_output_modifier = -0.035
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = -0.03
@@ -132,7 +129,7 @@ good_harvest_modifier = {
 	local_rice_output_modifier = 0.52
 	local_millet_output_modifier = 0.52
 	local_maize_output_modifier = 0.52
-	local_fiber_crops_output_modifier = 0.52
+	local_fiber_crops_output_modifier = 0.13
 	
 	# Medium Sensitivity
 	local_legumes_output_modifier = 0.33
@@ -145,7 +142,6 @@ good_harvest_modifier = {
 	local_tea_output_modifier = 0.33
 	local_coffee_output_modifier = 0.33
 	local_silk_output_modifier = 0.33
-	local_dyes_output_modifier = 0.33
 	local_incense_output_modifier = 0.33
 	local_saffron_output_modifier = 0.33
 	local_pepper_output_modifier = 0.33
@@ -157,7 +153,7 @@ good_harvest_modifier = {
 	local_livestock_output_modifier = 0.20
 	local_beeswax_output_modifier = 0.20
 	local_wool_output_modifier = 0.20
-	local_horses_output_modifier = 0.14
+	local_horses_output_modifier = 0.035
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.03
@@ -174,7 +170,7 @@ very_good_harvest_modifier = {
 	local_rice_output_modifier = 0.78
 	local_millet_output_modifier = 0.78
 	local_maize_output_modifier = 0.78
-	local_fiber_crops_output_modifier = 0.78
+	local_fiber_crops_output_modifier = 0.195
 	
 	# Medium Sensitivity
 	local_legumes_output_modifier = 0.52
@@ -187,7 +183,6 @@ very_good_harvest_modifier = {
 	local_tea_output_modifier = 0.52
 	local_coffee_output_modifier = 0.52
 	local_silk_output_modifier = 0.52
-	local_dyes_output_modifier = 0.52
 	local_incense_output_modifier = 0.52
 	local_saffron_output_modifier = 0.52
 	local_pepper_output_modifier = 0.52
@@ -199,7 +194,7 @@ very_good_harvest_modifier = {
 	local_livestock_output_modifier = 0.33
 	local_beeswax_output_modifier = 0.33
 	local_wool_output_modifier = 0.33
-	local_horses_output_modifier = 0.23
+	local_horses_output_modifier = 0.0575
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.07
@@ -216,7 +211,7 @@ bountiful_harvest_modifier = {
 	local_rice_output_modifier = 1.04
 	local_millet_output_modifier = 1.04
 	local_maize_output_modifier = 1.04
-	local_fiber_crops_output_modifier = 1.04
+	local_fiber_crops_output_modifier = 0.26
 	
 	# Medium Sensitivity
 	local_legumes_output_modifier = 0.65
@@ -229,7 +224,6 @@ bountiful_harvest_modifier = {
 	local_tea_output_modifier = 0.65
 	local_coffee_output_modifier = 0.65
 	local_silk_output_modifier = 0.65
-	local_dyes_output_modifier = 0.65
 	local_incense_output_modifier = 0.65
 	local_saffron_output_modifier = 0.65
 	local_pepper_output_modifier = 0.65
@@ -241,7 +235,7 @@ bountiful_harvest_modifier = {
 	local_livestock_output_modifier = 0.39
 	local_beeswax_output_modifier = 0.39
 	local_wool_output_modifier = 0.39
-	local_horses_output_modifier = 0.27
+	local_horses_output_modifier = 0.0675
 	
 	# Fallback (Fish, Wild Game, Fur)
 	local_fish_output_modifier = 0.13

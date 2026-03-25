@@ -33,7 +33,7 @@ TRY_REPLACE:nile_delta_fiber_crops_base = {
 	game_data = {
 		category = location
 	}
-	local_fiber_crops_output_modifier = 1.0
+	local_fiber_crops_output_modifier = 0.25
 }
 TRY_REPLACE:nile_delta_fruit_base = {
 	game_data = {
