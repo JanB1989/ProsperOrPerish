@@ -202,8 +202,9 @@ TRY_REPLACE:building_levels = {
 	local_trade_center_power = 0.0004
 	local_road_building_time = 0.01
 	local_build_new_buildings_cost = 0.03
-	local_food_capacity = 10
-	local_food_capacity_modifier = 0.0025
+	# local_food_capacity = 10
+	# local_food_capacity_modifier = 0.0025
+	local_production_efficiency = -0.005
 }
 TRY_REPLACE:unsupported_building_levels = {
 	game_data = {
@@ -221,7 +222,7 @@ TRY_REPLACE:total_population = {
 	local_max_rgo_size = 0.0030
 	
 	free_building_levels = 0.075
-	local_food_capacity = 0.5
+	local_food_capacity = 1.0
 	local_disease_resistance = -0.001
 	local_population_capacity = 0.225
 }
@@ -337,7 +338,7 @@ TRY_REPLACE:development = {
 	local_construction_speed = 0.01
 	
 	local_food_capacity = 2
-	local_food_capacity_modifier = 0.02
+	# local_food_capacity_modifier = 0.02
 	
 	free_building_levels = 2
 	
@@ -346,10 +347,11 @@ TRY_REPLACE:development = {
 	local_life_expectancy = 0.1
 	
 	occupation_time = 0.01
+	# local_production_efficiency = 0.005
 	# local_raw_material_output = 0.001
 	
 	local_build_buildings_cost = -0.001
-	maximum_stockpile_capacity = 5
+	maximum_stockpile_capacity = 10
 	local_monthly_development = -0.00009
 	local_wheat_output_modifier = 0.0025
 	local_rice_output_modifier = 0.0025
@@ -412,7 +414,6 @@ TRY_INJECT:river_flowing_through = {
 	local_fish_output_modifier = 0.02
 	local_fruit_output_modifier = 0.03
 	local_fur_output_modifier = 0.01
-	local_leather_output_modifier = 0.02
 	local_legumes_output_modifier = 0.05
 	local_livestock_output_modifier = 0.03
 	local_maize_output_modifier = 0.03
@@ -449,7 +450,6 @@ adjacent_to_lake = {
 	local_fish_output_modifier = 0.15
 	local_fruit_output_modifier = 0.08
 	local_fur_output_modifier = 0.08
-	local_leather_output_modifier = 0.05
 	local_legumes_output_modifier = 0.1
 	local_livestock_output_modifier = 0.1
 	local_maize_output_modifier = 0.08

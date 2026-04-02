@@ -1,8 +1,9 @@
 ﻿# Prosper or Perish - Agricultural & Fishing Innovations
 # New advances for innovations with no vanilla counterpart
-# Fish bonuses: rotherham_plough gives 50%, pp_steam_trawling_* variants add 100% (total 150% for late game)
-# Small staple-crop spillover (wheat/rice/maize/legumes/potato) scales with fish bonus tier.
-# Regional staggering: same bonus for all; early adopters get it at earlier ages via potential
+# Grand Banks trio: unlock pp_fishing_village_deep_water (no global fish here)
+# Herring Buss / Steam Trawling: still use global_fish_output_modifier; TRY_INJECT food advances may add global fish
+# Small staple-crop spillover (wheat/rice/maize/legumes/potato) scales with fish bonus tier where applicable.
+# Regional staggering: early adopters get advances at earlier ages via potential
 
 # ========== HERRING BUSS (North Sea, c.1415) ==========
 # Floating factories, salt-cure, extended range – marginal early fish preservation
@@ -67,7 +68,7 @@ pp_grand_banks_fishery_early = {
 	age = age_3_discovery
 	icon = maritime_advance_age_4
 	requires = new_world_advance
-	global_fish_output_modifier = 0.50
+	unlock_production_method = pp_fishing_village_deep_water
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -85,7 +86,7 @@ pp_grand_banks_fishery_maritime = {
 	age = age_4_reformation
 	icon = maritime_advance_age_4
 	requires = maritime_advance_age_4
-	global_fish_output_modifier = 0.50
+	unlock_production_method = pp_fishing_village_deep_water
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital
@@ -108,7 +109,7 @@ pp_grand_banks_fishery_general = {
 	age = age_5_absolutism
 	icon = maritime_advance_age_4
 	requires = food_advance_absolutism
-	global_fish_output_modifier = 0.50
+	unlock_production_method = pp_fishing_village_deep_water
 	ai_weight = { add = 50 }
 	potential = {
 		exists = capital

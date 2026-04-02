@@ -1,7 +1,7 @@
 ﻿victuals = {
 	category = produced
 	color = goods_victuals
-	default_market_price = 3.0
+	default_market_price = 2.5 # 3.0
 	transport_cost = 1.0
 	food = 0.0001
 	# Baseline demand so it is relevant even before special logic is added.
@@ -14,12 +14,12 @@
 		peasants = 0.01
 	}
 	demand_multiply = {
-		nobles = 8
-		clergy = 4
-		burghers = 3.6
-		soldiers = 1.2
-		laborers = 1.2
-		peasants = 0.3
+		nobles = 4 # 8
+		clergy = 2 # 4
+		burghers = 1.8 # 3.6 
+		soldiers = 0.6 # 1.2 
+		laborers = 0.6 # 1.2 
+		peasants = 0.15 # 
 	}
 	wealth_impact_threshold = {
 		nobles = 0.70
