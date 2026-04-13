@@ -70,6 +70,7 @@ class BuildingData(DataModule):
         self.modded_df = pd.DataFrame()
         self.vanilla_df = pd.DataFrame()
         self.production_methods_df = pd.DataFrame()
+        self.vanilla_production_methods_df = pd.DataFrame()
         self.script_values = {}
 
     def load_all(self):
@@ -96,7 +97,8 @@ class BuildingData(DataModule):
         mod_pms = self.load_mod_only("in_game/common/production_methods")
         merged_pms = self._merge_data(vanilla_pms, mod_pms)
         self.production_methods_df = self._to_df(merged_pms)
-        
+        self.vanilla_production_methods_df = self._to_df(vanilla_pms)
+
         return self.modded_df
 
     def _resolve_value(self, val):
@@ -154,6 +156,11 @@ class BuildingData(DataModule):
             return self.production_methods_df.loc[name].to_dict()
         return None
 
+    def get_vanilla_production_method(self, name):
+        if name in self.vanilla_production_methods_df.index:
+            return self.vanilla_production_methods_df.loc[name].to_dict()
+        return None
+
     def pm_trade_good_inputs(self, pm_def: dict) -> dict[str, float]:
         """
         Trade-good input amounts for one PM block (building `unique_production_methods` entry).
@@ -169,7 +176,8 @@ class BuildingData(DataModule):
             if key in PM_SCRIPT_INPUT_SKIP_KEYS:
                 continue
             amt = self._resolve_value(val)
-            if amt == 0.0:
+            # Wide DataFrame rows from `get_production_method` include NaN for goods not in this PM.
+            if pd.isna(amt) or amt == 0.0:
                 continue
             out[key] = float(amt)
         return out

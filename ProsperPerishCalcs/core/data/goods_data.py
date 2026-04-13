@@ -1,4 +1,4 @@
-import pandas as pd
+﻿import pandas as pd
 import numpy as np
 from .base_data import DataModule
 from .goods_demand_data import GoodsDemandData
@@ -167,6 +167,8 @@ class GoodsData(DataModule):
                         row[k] = v
                 
                 # Apply hardcoded engine defaults if missing (from readme.txt)
+                if 'category' not in row:
+                    row['category'] = 'raw_material'
                 if 'method' not in row:
                     row['method'] = 'farming'
                 if 'default_market_price' not in row:

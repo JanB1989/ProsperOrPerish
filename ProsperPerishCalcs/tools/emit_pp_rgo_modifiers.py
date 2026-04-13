@@ -1,4 +1,4 @@
-"""Parse vanilla EU5 goods and emit pp_rgo_static_bonuses.txt, English loc, and on_action snippet."""
+﻿"""Parse vanilla EU5 goods and emit pp_rgo_static_bonuses.txt, English loc, and on_action snippet."""
 from __future__ import annotations
 
 import re
@@ -17,10 +17,7 @@ MOD_L10N_EN = MOD_ROOT / "main_menu" / "localization" / "english" / "pp_rgo_modi
 TOOLS_SNIPPET = Path(__file__).resolve().parent / "pp_rgo_on_action_snippet.txt"
 
 
-def local_output_key(good: str) -> str:
-    if good == "goods_gold":
-        return "local_goods_gold_output_modifier"
-    return f"local_{good}_output_modifier"
+from analysis.building_levels.scripts.pp_rgo_static_bonuses_io import local_output_key
 
 
 def parse_raw_material_goods(goods_dir: Path | None = None) -> dict[str, float | None]:

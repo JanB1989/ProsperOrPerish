@@ -7,7 +7,7 @@ Professional analysis suite for Europa Universalis V modding.
 - `core/parser/`: Robust Paradox script parsing engine.
 - `core/data/`: Live data modules for Goods, Buildings, Locations, Defines, and Pops.
 - `analysis/building_levels/`: Building capacity and economic analysis tools.
-- `analysis/building_levels/notebooks/`: Jupyter notebooks for visual analysis.
+- `analysis/building_levels/notebooks/`: Jupyter notebooks (`building_pm_io_matrix.ipynb` merged mod+game; `building_pm_io_matrix_vanilla.ipynb` vanilla-only).
 - `analysis/building_levels/scripts/`: Command-line analysis tools.
 
 ## Paradox Script Syntax

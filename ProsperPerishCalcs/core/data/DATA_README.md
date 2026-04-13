@@ -1,4 +1,4 @@
-# Data Modules
+﻿# Data Modules
 
 Specialized modules for managing game entities, adhering to the "Vanilla as Gospel" principle.
 
@@ -16,6 +16,7 @@ Specialized modules for managing game entities, adhering to the "Vanilla as Gosp
 
 - `location_data.py`: Manages location hierarchies, population data, and development calculations.
 - `goods_data.py`: Resolves economic profiles for all goods, cross-referencing demand scripts and categories to find `transport_cost` and `food` values.
+- `goods_subsets.py`: `GoodsSubsets` dataclass — `all`, per-`method` buckets (farming, mining, …), `rgo` / property `raw_material` (``category == raw_material``), `with_food` (active frame), `vanilla_food` (``food > 0`` in parsed ``vanilla_df`` only), and full `by_method` map; built via `from_goods_data` / `from_dataframe`.
 - `building_data.py`: Manages building definitions and production method slots, supporting side-by-side vanilla/modded comparisons. Extracts and resolves population employment data (`pop_type`, `employment_size`) in game "per 1k" units. Building modifier output (`local_monthly_food`) is valued at defines `FOOD_PRICE`, not market price.
 - `goods_demand_data.py`: Helper module for parsing complex demand structures.
 - `defines_data.py`: Manages game defines (e.g., `FOOD_PRICE`) from `loading_screen/common/defines`.

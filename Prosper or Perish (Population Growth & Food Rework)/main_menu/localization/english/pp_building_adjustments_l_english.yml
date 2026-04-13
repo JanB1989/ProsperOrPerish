@@ -177,6 +177,14 @@
   pp_fishing_village_strand_line: "Handline fishing"
   pp_fishing_village_clinker_craft: "Clinker boats"
   pp_fishing_village_deep_water: "Deep-water fishing"
+  farming_village_slot_0: "Field crops"
+  farming_village_slot_1: "Beekeeping"
+  pp_farming_village_no_beeswax: "No village beekeeping"
+  pp_farming_village_no_beeswax_desc: "Beekeeping is not organized at this farming village."
+  pp_farming_village_minor_beeswax: "Cottage hives"
+  pp_farming_village_minor_beeswax_desc: "A few skeps stand by orchards and hedges, tended in spare moments between fieldwork. Beekeeping is a modest household sideline, valued but never the village’s main concern."
+  pp_forest_village_forest_apiary: "Forest apiary"
+  pp_forest_village_forest_apiary_desc: "Here beekeeping is the principal occupation. Families work the forest bloom, keeping and moving hives through the woods; wax and honey are the foundation of the settlement’s livelihood."
   pp_forest_tannery: "Forest Tannery"
   pp_hunting_lodges: "Hunting Lodges"
   pp_lumber_mill_maintenance: "Lumber Mill Maintenance"
@@ -346,3 +354,12 @@
   MAPMODE_PP_BUILDING_LEVELS: "#T $mapmode_pp_building_levels_name$#!\nColors [locations|e] by total [building|e] levels (0–150: red to green)."
   MAPMODE_PP_BUILDING_LEVELS_TT_LAND: "[ROOT.GetLocation.GetName] has [ROOT.GetLocation.GetNumBuildingLevels|0] total [building|e] levels."
   MAPMODE_PP_BUILDING_LEVELS_TT_WATER: "$MAPMODE_PP_LOCAL_OUTPUT_TT_WATER$"
+
+  # RGO level map mode (max_rgo_workers / UI level; 0–10 heatmap cap in map script)
+  # Game concept (map mode picker / encyclopedia); required alongside pp_rgo_level_map_mode.txt
+  game_concept_pp_rgo_level: "RGO Level"
+  game_concept_pp_rgo_level_desc: "Colors [locations|e] by current [rgo|e] level (same value as the raw-material panel; red to green; heatmap cap 10 for scaling)."
+  mapmode_pp_rgo_level_name: "RGO Level"
+  MAPMODE_PP_RGO_LEVEL: "#T $mapmode_pp_rgo_level_name$#!\nColors [locations|e] by [rgo|e] level (0–10: red to green)."
+  MAPMODE_PP_RGO_LEVEL_TT_LAND: "[ROOT.GetLocation.GetName] has [rgo|e] level [ROOT.GetLocation.GetMaxRGOWorkers|0]"
+  MAPMODE_PP_RGO_LEVEL_TT_WATER: "$MAPMODE_PP_LOCAL_OUTPUT_TT_WATER$"

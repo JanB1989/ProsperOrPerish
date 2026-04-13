@@ -1,4 +1,8 @@
 ﻿l_english:
+  mining_village: "Mining Village"
+  mining_village_desc: "A compact mining settlement that extracts local ores and minerals—including coal, metals, and ornamental marble where deposits exist. Most workings use lumber, tools, and beeswax; marble uses furniture, tools, and horses to move and dress blocks. Cut building stone is supplied by the [ShowBuildingTypeName('stone_quarry')|e] instead."
+  stone_quarry_slot_0: "Cut Stone Quarry"
+  stone_quarry_slot_1: "Crude Stone Quarry"
   cookery: "Cookery"
   cookery_desc: "Cookeries turn local staples into durable [ShowGoodsName('victuals')|e], set a ration drink (well water by default, or costlier service), and pack rations in jars, barrels, or tin for garrisons, fleets, expeditions, and the local [ShowBuildingTypeName('victuals_market')|e]."
   cookery_slot_0: "Prepared Victuals"
@@ -39,3 +43,7 @@
   pp_victuals_market_price: "Victuals Market Price"
   MODIFIER_TYPE_NAME_pp_victuals_market_price_cost_modifier: "Victuals Market Cost"
   MODIFIER_TYPE_DESC_pp_victuals_market_price_cost_modifier: "Affects the cost of building a [ShowBuildingTypeName('victuals_market')|e]."
+  pp_mining_village_price: "Mining Village Price"
+  MODIFIER_TYPE_NAME_pp_mining_village_price_cost_modifier: "Mining Village Cost"
+  MODIFIER_TYPE_DESC_pp_mining_village_price_cost_modifier: "Affects the cost of building a [ShowBuildingTypeName('mining_village')|e]."
+  pp_plantation_building_price: "Plantation Building Price"

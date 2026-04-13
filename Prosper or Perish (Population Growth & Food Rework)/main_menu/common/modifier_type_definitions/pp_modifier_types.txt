@@ -5,3 +5,11 @@
 		category=country
 	}
 }
+
+pp_mining_village_price_cost_modifier={
+	color=bad
+	percent=yes
+	game_data={
+		category=country
+	}
+}

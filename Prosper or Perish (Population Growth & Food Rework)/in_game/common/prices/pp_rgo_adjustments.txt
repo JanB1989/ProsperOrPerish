@@ -1,15 +1,15 @@
 ﻿TRY_INJECT:expand_rgo_mining = {
-	gold = 750
+	gold = 2950
 }
 TRY_INJECT:expand_rgo_farming = {
-	gold = 250
+	gold = 1450
 }
 TRY_INJECT:expand_rgo_hunting = {
-	gold = 350
+	gold = 950
 }
 TRY_INJECT:expand_rgo_gathering = {
-	gold = 350
+	gold = 950
 }
 TRY_INJECT:expand_rgo_forestry = {
-	gold = 250
+	gold = 950
 }
